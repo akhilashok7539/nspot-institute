@@ -22,7 +22,7 @@ export class InnerHeaderComponent implements OnInit {
   ngOnInit(): void {
     const that = this;
     setInterval(function () {
-      that.checkForNotification();
+      // that.checkForNotification();
     }, 10000)
 
   }

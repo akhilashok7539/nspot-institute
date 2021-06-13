@@ -243,6 +243,12 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('aptituteTestRequired', formData.aptituteTestRequired);
     this.multiForm.append('aptituteTestId', formData.aptituteTestId);
     this.multiForm.append('onlineInterviewRequired', formData.onlineInterviewRequired);
+    this.multiForm.append('CourseCategoryId',formData.CourseCategoryId)
+    this.multiForm.append('CourseSubCategoryId',formData.CourseSubCategoryId)
+    this.multiForm.append('CourseSubCategory2Id',formData.CourseSubCategory2Id)
+    this.multiForm.append('CourseSubCategory3Id',formData.CourseSubCategory3Id)
+    this.multiForm.append('CourseSubCategory4Id',formData.CourseSubCategory4Id)
+    this.multiForm.append('CourseSubCategory5Id',formData.CourseSubCategory5Id)
 
 
     this.apiService.doPostRequest_upload(endPoints.Create_course + this.instituteId, this.multiForm)
