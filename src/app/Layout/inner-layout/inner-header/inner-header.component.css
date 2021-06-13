@@ -1,0 +1,97 @@
+.logo a img {
+  max-width: 140px;
+  height: 60px;
+}
+.logo {
+  margin-top: 15px;
+}
+.notification-icon {
+  color: white;
+  font-size: 25px;
+}
+/* .notification-icon i{
+  margin-left: 5px;
+} */
+
+
+/* Submentu tweek */
+.submenu-notif.clearfix {
+  width: 618px;
+}
+
+.submenu.submenu-list > li {
+  float: none;
+  display: block;
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+.submenu-notif.submenu-list {
+  padding: 0;
+}
+
+.submenu-notif,
+.cart-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  top: 70px;
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.3s ease;
+  /* padding: 35px 35px; */
+}
+
+nav > ul > li > a:hover {
+  border-bottom: 2px solid #12c8fc;
+}
+
+nav > ul > li:hover .submenu-notif {
+  opacity: 1;
+  z-index: 99;
+  transition: all 0.3s ease;
+  margin-left: -210px;
+  width: 300px;
+}
+
+.submenu-notif > li {
+  float: left;
+}
+
+.submenu-notif > li {
+  color: #000000;
+  padding: 15px 35px 15px 35px;
+  background-color: #ccc;
+  box-shadow: #d6d6d6;
+  text-align: left;
+  width: 100%;
+}
+.submenu-notif > li a {
+  color: #1a4d59;
+}
+
+.submenu-notif > li.new{
+  background-color: #ffffff;
+}
+.submenu-notif > li.new a{
+  color: #1a4d59 !important;
+}
+
+.submenu-notif > li > a h5{
+  font-size: 15px;
+  line-height: 20px;
+}
+
+.submenu-notif > li > a  p{
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.submenu-notif li:not(:last-child) .sub-column {
+  padding-right: 60px;
+  border-right: 1px solid #d6d6d6;
+  margin-right: 45px;
+}
+.notification-icon{
+  width:50px;
+  text-align: center;
+}

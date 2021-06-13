@@ -1,0 +1,306 @@
+<main id="contact">
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2 class="uppercase">VERIFY STUDENTS APPLICATIONS</h2>
+    </div>
+  </div>
+  <div class="container success">
+    <!-- <h4>GET IN TOUCH WITH US</h4> -->
+    <form class="contact">
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+          <label class="req uppercase">Select Academic level</label>
+          <select
+            (change)="changeAcademicLevel()"
+            [(ngModel)]="academicLevel"
+            name="type"
+          >
+            <option value="0">Select Academic Level</option>
+            <option value="1">Pre primary</option>
+            <option value="2">Lower Primary</option>
+            <option value="3">Upper Primary</option>
+            <option value="4">SSLC</option>
+            <option value="5">Higher Secondary / Deploma</option>
+            <option value="6">Graduation</option>
+            <option value="7">Post Graduation</option>
+            <option value="8">Doctorate</option>
+          </select>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-sm-6 mt-5">
+          <label class="req uppercase">Select Course</label>
+          <select (change)="changeCourse()" [(ngModel)]="course" name="type">
+            <option value="0">Select Course</option>
+            <option value="1">M.Tech</option>
+            <option value="2">MBA</option>
+            <option value="3">M.Arc</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <h4>Pre Applications</h4>
+        <div class="col-md-12" style="overflow-x: scroll;">
+          <table class="table table-striped" *ngIf="!empty">
+            <thead>
+              <tr>
+                <th>SL.No</th>
+                <th>NAME OF APPLICANT</th>
+                <th>APPLICATION</th>
+                <th>STATUS</th>
+                <th>LEGAL DOCUMENTS</th>
+                <th>STATUS</th>
+                <th>EDUCATIONAL CERTIFICATES</th>
+                <th>STATUS</th>
+                <th>CHAT</th>
+                <th>PAYMENTS</th>
+                <th>STATUS</th>
+                <th>ADMISSION APPROVAL</th>
+                <th>ADMISSION LETTER</th>
+                <th>REMARKS</th>
+                <th>DATE OF REPORTING</th>
+                <th>DATE OF APTITUDE TEST</th>
+                <th>DATE OF ONLINE INTERVIEW</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Parvathy</td>
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+                <td><i class="zmdi zmdi-check"></i></td>
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+                <td><i class="zmdi zmdi-check"></i></td>
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+                <td><i class="zmdi zmdi-check"></i></td>
+                <td>
+                  <button class="btn btn-actions btn-success">
+                    <i class="zmdi zmdi-circle"></i> Parvathy
+                  </button>
+                </td>
+
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+
+                <td>
+                  Payment Link Send
+                </td>
+                <td>
+                  not approved
+                </td>
+                <td>
+                  not send
+                </td>
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+                <td>
+                  12/10/2020
+                </td>
+                <td>
+                  12/10/2020
+                </td>
+                <td>
+                  12/10/2020
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table" *ngIf="empty">
+            <tbody>
+              <tr>
+                <td colspan="3" align="center">Empty List</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+      <div class="row mt-5">
+        <h4>Payment Awaiting Applications</h4>
+        <div class="col-md-12" style="overflow-x: scroll;">
+          <table class="table table-striped" *ngIf="!empty">
+            <thead>
+              <tr>
+                <th>SL.No</th>
+                <th>NAME OF APPLICANT</th>
+                <th>APPLICATION</th>
+                <th>STATUS</th>
+                <th>LEGAL DOCUMENTS</th>
+                <th>STATUS</th>
+                <th>EDUCATIONAL CERTIFICATES</th>
+                <th>STATUS</th>
+                <th>CHAT</th>
+                <th>PAYMENTS</th>
+                <th>STATUS</th>
+                <th>ADMISSION APPROVAL</th>
+                <th>ADMISSION LETTER</th>
+                <th>REMARKS</th>
+                <th>DATE OF REPORTING</th>
+                <th>DATE OF APTITUDE TEST</th>
+                <th>DATE OF ONLINE INTERVIEW</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Parvathy</td>
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+                <td><i class="zmdi zmdi-check"></i></td>
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+                <td><i class="zmdi zmdi-check"></i></td>
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+                <td><i class="zmdi zmdi-check"></i></td>
+                <td>
+                  <button class="btn btn-actions btn-success">
+                    <i class="zmdi zmdi-circle"></i> Parvathy
+                  </button>
+                </td>
+
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+
+                <td>
+                  Payment Link Send
+                </td>
+                <td>
+                  not approved
+                </td>
+                <td>
+                  not send
+                </td>
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+                <td>
+                  12/10/2020
+                </td>
+                <td>
+                  12/10/2020
+                </td>
+                <td>
+                  12/10/2020
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table" *ngIf="empty">
+            <tbody>
+              <tr>
+                <td colspan="3" align="center">Empty List</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+
+
+
+
+      <div class="row mt-5">
+        <h4>Payment Done Applications</h4>
+        <div class="col-md-12" style="overflow-x: scroll;">
+          <table class="table table-striped" *ngIf="!empty">
+            <thead>
+              <tr>
+                <th>SL.No</th>
+                <th>NAME OF APPLICANT</th>
+                <th>APPLICATION</th>
+                <th>STATUS</th>
+                <th>LEGAL DOCUMENTS</th>
+                <th>STATUS</th>
+                <th>EDUCATIONAL CERTIFICATES</th>
+                <th>STATUS</th>
+                <th>CHAT</th>
+                <th>PAYMENTS</th>
+                <th>STATUS</th>
+                <th>ADMISSION APPROVAL</th>
+                <th>ADMISSION LETTER</th>
+                <th>REMARKS</th>
+                <th>DATE OF REPORTING</th>
+                <th>DATE OF APTITUDE TEST</th>
+                <th>DATE OF ONLINE INTERVIEW</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Parvathy</td>
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+                <td><i class="zmdi zmdi-check"></i></td>
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+                <td><i class="zmdi zmdi-check"></i></td>
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+                <td><i class="zmdi zmdi-check"></i></td>
+                <td>
+                  <button class="btn btn-actions btn-success">
+                    <i class="zmdi zmdi-circle"></i> Parvathy
+                  </button>
+                </td>
+
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+
+                <td>
+                  Payment Link Send
+                </td>
+                <td>
+                  not approved
+                </td>
+                <td>
+                  not send
+                </td>
+                <td>
+                  <a routerLink="">View</a>
+                </td>
+                <td>
+                  12/10/2020
+                </td>
+                <td>
+                  12/10/2020
+                </td>
+                <td>
+                  12/10/2020
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table" *ngIf="empty">
+            <tbody>
+              <tr>
+                <td colspan="3" align="center">Empty List</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+</main>

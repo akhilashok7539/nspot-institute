@@ -1,0 +1,41 @@
+<header>
+  <div class="container">
+    <div id="topbar">
+      <div class="pull-right">
+        <div class="navigation">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#myNavbar"
+          >
+            <i class="zmdi zmdi-menu zmdi-hc-lg"></i>
+          </button>
+          <nav class="collapse navbar-collapse" id="myNavbar">
+            <ul>
+              <li class="active">
+                <a routerLink="/">Home</a>
+              </li>
+
+              <li>
+                <a href="#">Support</a>
+                <ul class="submenu submenu-list">
+                  <li><a href="how-it-works.html">How it works</a></li>
+                  <li><a href="pricing.html">Pricing</a></li>
+                </ul>
+              </li>
+              <li><a routerLink="/contact-us">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+        <a routerLink="/login" class="blueplay login">LOGIN</a>
+        <a routerLink="/signup/step-2" class="register">REGISTER</a>
+      </div>
+      <h1 class="logo">
+        <a routerLink="/"
+          ><img src="assets/images/logo/NSpot_Logo Png-03.svg" alt="Logo"
+          /></a>
+      </h1>
+    </div>
+  </div>
+</header>

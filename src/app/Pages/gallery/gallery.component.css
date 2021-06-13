@@ -1,0 +1,8 @@
+.card {
+  margin-top: 35px;
+  padding: 20px;
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.13);
+}
+.card h5 {
+  margin-top: 30px;
+}

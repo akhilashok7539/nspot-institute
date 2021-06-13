@@ -1,0 +1,10 @@
+.logo a img {
+  max-width: 140px;
+}
+.logo {
+  margin-top: 15px;
+}
+.logo a img {
+  max-width: 140px;
+  height: 60px;
+}

@@ -1,0 +1,141 @@
+<main id="contact">
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2 class="uppercase">LIVE ADMISSION DESK</h2>
+    </div>
+  </div>
+  <div class="container success">
+    <form class="contact">
+      <div class="row">
+        <!-- <div class="col-sm-6 offset-sm-3">
+          <label class="req uppercase">Select Academic level</label>
+          <select (change)="loadAccademicLevelCourses($event)" [(ngModel)]="academicLevel" name="type">
+            <option value="">Select Academic Level</option>
+            <option *ngFor="let item of accademicLevels" value="{{item.id}}">{{item.title}}</option>
+          </select>
+        </div> -->
+        <div class="clearfix"></div>
+        <div class="col-sm-6 mt-5">
+          <label class="req uppercase">Select Course</label>
+          <select (change)="changeCourse($event)" name="type">
+            {{courses|json}}
+            <option value="">Select Course</option>
+            <option *ngFor="let item of courses" value="{{item.id}}">{{item.CourseCategory.title}} 
+              - {{item.Course_Sub_Category.title}} 
+              -{{item.Course_Sub_Categories2.title}} </option>
+            <option *ngIf="courses.length<=0" value="">--- No courses added yet ---</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="row mt-5">
+        <h4>Pre Applications</h4>
+        <div class="col-md-12" style="overflow-x: scroll;">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>SL.No</th>
+                <th>NAME OF APPLICANT</th>
+                <th>DETAILS</th>
+                <!-- <th>DOWNLOAD APPLICATION</th> -->
+                <!-- <th>CHAT</th> -->
+                <!-- <th>DATE OF REPORTING</th> -->
+                <th>DATE OF APTITUDE TEST</th>
+                <th>DATE OF ONLINE INTERVIEW</th>
+                <th colspan="3" align="center">ADMISSION APPROVAL</th>
+                <th>REMARKS</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of preApplications; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{item.formFieldValues.personalInfo.fullName}}</td>
+                <td>
+                  <a routerLink="/institute/admission-desk/detailed-application-view/{{item.id}}">View</a>
+                </td>
+                <!-- <td>
+                  <button class="btn btn-actions btn-success">
+                    <i class="zmdi zmdi-download"></i> Download
+                  </button>
+                </td> -->
+                <!-- <td>
+                  <button class="btn btn-actions btn-success">
+                    <i class="zmdi zmdi-circle"></i> {{item.formFieldValues.personalInfo.fullName}}
+                  </button>
+                </td> -->
+                <td></td>
+                <td></td>
+                <td></td>
+                <td><button class="btn btn-success" (click)="confirmAcceptance(item.id)">Approve</button></td>
+                <td><button class="btn btn-danger" (click)="confirmReject(item.id)">Reject</button>
+                </td>
+                <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
+                </td> -->
+
+                <td>{{item.remarks}}</td>
+              </tr>
+              <tr *ngIf="preApplications?.length<=0">
+                <td colspan="12" align="center">Empty List</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row mt-5">
+        <h4>Payment awaiting Applications</h4>
+        <div class="col-md-12" style="overflow-x: scroll;">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>SL.No</th>
+                <th>NAME OF APPLICANT</th>
+                <th>DETAILS</th>
+                <!-- <th>DOWNLOAD APPLICATION</th> -->
+                <!-- <th>CHAT</th> -->
+                <th>DATE OF REPORTING</th>
+                <!-- <th>DATE OF APTITUDE TEST</th>
+                <th>DATE OF ONLINE INTERVIEW</th> -->
+                <!-- <th colspan="3" align="center">ADMISSION APPROVAL</th> -->
+                <th>REMARKS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of paymentAwaitingApplications; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{item.formFieldValues.personalInfo.fullName}}</td>
+                <td>
+                  <a routerLink="/institute/admission-desk/detailed-application-view/{{item.id}}">View</a>
+                </td>
+                <!-- <td>
+                  <button class="btn btn-actions btn-success">
+                    <i class="zmdi zmdi-download"></i> Download
+                  </button>
+                </td> -->
+                <!-- <td>
+                  <button class="btn btn-actions btn-success">
+                    <i class="zmdi zmdi-circle"></i> {{item.formFieldValues.personalInfo.fullName}}
+                  </button>
+                </td> -->
+                <td></td>
+                <!-- <td></td>
+                <td></td> -->
+                <td></td>
+              </tr>
+              <tr *ngIf="paymentAwaitingApplications?.length<=0">
+                <td colspan="10" align="center">Empty List</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+        </div>
+      </div>
+
+
+    </form>
+  </div>
+</main>

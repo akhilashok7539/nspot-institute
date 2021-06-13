@@ -1,0 +1,42 @@
+<main id="register">
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2>LOGIN</h2>
+    </div>
+  </div>
+  <div class="container success">
+    <!-- <div class="row">
+      <div class="col-md-12">
+        <h4 class="sub-title">EDUCATIONAL INSTITUTION - LOGIN</h4>
+      </div>
+    </div> -->
+
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 border">
+        <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="row">
+            <div class="col-md-12">
+              <label>ENTER TEIID NUMBER TO LOGIN</label>
+              <input type="text" formControlName="username" placeholder="enter your TEIID" />
+              <a routerLink="/signup" class="pull-right"> NO TEIID NUMBER?</a>
+              <app-control-messages [touched]="touched" [control]="f.username"></app-control-messages>
+            </div>
+            <div class="col-md-12">
+              <label>PASSWORD</label>
+              <input type="password" formControlName="password" placeholder="Password" />
+              <a routerLink="/signup" class="pull-right"> Forgot Password?</a>
+              <app-control-messages [touched]="touched" [control]="f.password"></app-control-messages>
+            </div>
+          </div>
+          <div class="row clearfix">
+            <div class="col-md-12">
+              <div class="pull-right">
+                <button type="submit" id="submit-btn" class="greybutton">SUBMIT</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>

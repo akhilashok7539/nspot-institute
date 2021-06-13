@@ -1,0 +1,6 @@
+<div [formGroup]="form">
+    <label [attr.for]="formControl.key">{{formControl.label}}</label>
+
+    <input type="checkbox" [formControlName]="formControl.key" [id]="formControl.key">
+    <div class="errorMessage" *ngIf="!isValid">{{formControl.label}} is required</div>
+</div>

@@ -1,0 +1,186 @@
+<main>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- ***************** Listing Tests && adding test ************  -->
+            <div class="col-lg-6">
+                <!-- <pre>{{tests|json}}</pre> -->
+                <div class="page-heading text-center">
+                    <h2 class="uppercase">Test management</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="alert alert-warning" *ngIf="tests?.length<=0">No aptitude tests added.</div>
+                        <div *ngFor="let item of tests">
+                            <div class="card cursor " [ngClass]="{'active-test':selectedTestId==item.id}"
+                                (click)="onSelectingTest(item.id)">
+                                <h4 class="question-wrapper">{{item.title}}</h4>
+                                <div class="question-arrow">
+                                    >>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <form class="contact" [formGroup]="formTest" (ngSubmit)="onSubmitTest()">
+                            <div class="card ">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <label class="uppercase">Add new aptitude test</label>
+
+                                        <input type="text" formControlName="title"
+                                            placeholder="enter test name eg: Btech aptitude test / 10th aptitude test"
+                                            required />
+                                        <app-control-messages [touched]="touchedFormTest" [control]="f.title">
+                                        </app-control-messages>
+
+                                        <input type="text" formControlName="durationInMinuts"
+                                            placeholder="enter duration in minuts eg: 30" required />
+                                        <app-control-messages [touched]="touchedFormTest"
+                                            [control]="f.durationInMinuts"></app-control-messages>
+
+                                        <div class="float-right">
+                                            <button class="btn btn-info mt-3 pull-right" type="submit"
+                                                id="submit-btn-test">ADD
+                                                TEST</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ********* Listing question and options and adding question and options -->
+            <div class="col-lg-6">
+                <div class="page-heading text-center">
+                    <h2 class="uppercase">Questions and options</h2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="alert alert-warning" *ngIf="!selectedTestId">No aptitude tests selected. please
+                            select a test from the
+                            previous menu</div>
+                        <!-- <pre>{{questions |json}}</pre> -->
+
+
+                        <div *ngIf="selectedTestId">
+                            <div class="alert alert-warning" *ngIf="questions?.length<=0">No questions added to this
+                                test.</div>
+                            <table class="table card" *ngFor="let item of questions; let i=index">
+                                <tbody>
+                                    <tr>
+                                        <td>{{i+1}})</td>
+                                        <td colspan="2">{{item.question}}</td>
+                                    </tr>
+                                    <tr *ngFor="let option of item.Aptitude_Question_Options">
+                                        <td></td>
+                                        <td></td>
+                                        <td><input type="radio" disabled [checked]="option.isCorrectOption">
+                                            {{option.option}}</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+
+                            <!-- <pre>{{formQuestion.value |json}}</pre> -->
+                            <form class="contact-test" [formGroup]="formQuestion" (ngSubmit)="onSubmitQuestion()">
+                                <div class="card ">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <label class="uppercase">New question</label>
+                                            <table class="table">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1)</td>
+                                                        <td colspan="2">
+                                                            <input type="text" formControlName="question"
+                                                                placeholder="enter question" required />
+                                                            <app-control-messages [touched]="touchedFormQuestion"
+                                                                [control]="q.question"></app-control-messages>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <app-control-messages [touched]="touchedFormQuestion"
+                                                                [control]="q.correctOption"></app-control-messages>
+                                                        </td>
+                                                        <td>
+
+                                                            <input type="radio" formControlName="correctOption"
+                                                                value="1">
+                                                            <input type="text" formControlName="option1"
+                                                                placeholder="enter option " required />
+                                                            <app-control-messages [touched]="touchedFormQuestion"
+                                                                [control]="q.option1"></app-control-messages>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <app-control-messages [touched]="touchedFormQuestion"
+                                                                [control]="q.correctOption"></app-control-messages>
+                                                        </td>
+                                                        <td>
+                                                            <input type="radio" formControlName="correctOption"
+                                                                value="2">
+                                                            <input type="text" formControlName="option2"
+                                                                placeholder="enter option " required />
+                                                            <app-control-messages [touched]="touchedFormQuestion"
+                                                                [control]="q.option2"></app-control-messages>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <app-control-messages [touched]="touchedFormQuestion"
+                                                                [control]="q.correctOption"></app-control-messages>
+                                                        </td>
+                                                        <td>
+                                                            <input type="radio" formControlName="correctOption"
+                                                                value="3">
+                                                            <input type="text" formControlName="option3"
+                                                                placeholder="enter option " required />
+                                                            <app-control-messages [touched]="touchedFormQuestion"
+                                                                [control]="q.option3"></app-control-messages>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td colspan="2">
+                                                            <app-control-messages [touched]="touchedFormQuestion"
+                                                                [control]="q.correctOption"></app-control-messages>
+                                                        </td>
+                                                        <td>
+                                                            <input type="radio" formControlName="correctOption"
+                                                                value="4">
+                                                            <input type="text" formControlName="option4"
+                                                                placeholder="enter option " required />
+                                                            <app-control-messages [touched]="touchedFormQuestion"
+                                                                [control]="q.option4"></app-control-messages>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+
+
+
+
+                                            <div class="float-right">
+                                                <button class="btn btn-info mt-3 pull-right"
+                                                    id="submit-btn-question">ADD
+                                                    QUESTION</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>

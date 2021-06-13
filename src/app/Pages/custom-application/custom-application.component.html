@@ -1,0 +1,1069 @@
+<main>
+    <div class="page-heading text-center">
+        <div class="container">
+            <h2 class="uppercase">Customize Institute Application Form</h2>
+        </div>
+    </div>
+    <!-- <pre>{{removedFields |json}}</pre> -->
+    <div class="container index-3-categories">
+        <div class="row contact">
+
+            <div class="col-md-1"></div>
+            <div class="col-md-10 col-sm-10">
+                <form class="contact" [formGroup]="form">
+                    <div class="applicationForm">
+                        <h5>PERSONAL DETAILS OF THE APPLICANT </h5>
+                        <div class="row">
+                            <div formGroupName="personalInfo">
+
+                                <div class="col-lg-6 col-xs-12">
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="courseName" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Course Name</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="stream" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Course Stream</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="isHosteler" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Hostler or Day scholar</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="adharNumber" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Student Aadhaar Number</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="fullName" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Full Name</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="dob" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Date Of Birth</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="age" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Age</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="gender" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Gender</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="mothersName" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Mother's Name </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="mothersOccupation" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Mother's Occupation</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="mothersEmail" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Mother's Email ID</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="mothersPhoneNumber" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Mother's Phone No</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="fathersName" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Father's Name </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="fathersOccupation" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Father's Occupation</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="fathersEmail" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Father's Email ID</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="fathersPhoneNumber" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Father's Phone No</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-6 col-xs-12">
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="guardiansName" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Gaurdian's Name </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="gaurdiansAddress" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Gaurdian's Address</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="gaurdiansEmail" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Gaurdian's Email ID</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="gaurdiansPhoneNumber" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Gaurdian's Phone No</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="isDifferentlyAbled" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Differently abled? (Y/N)</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="differentlyAbledCertFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Differently abled Certificate</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="religion" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Religion</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="cast" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Caste</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="visibleMark1" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Visible Marks on the Body 1</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="visibleMark2" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Visible Marks on the Body 2</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="isIndian" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Are you a Citizen of India?</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="isNRI" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>NRI</p>
+                                        </div>
+                                    </div>
+
+                                    <!-- <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'personalInfo')"
+                                                formControlName="parentConcent" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Parental Concent</p>
+                                        </div>
+                                    </div> -->
+
+
+
+                                </div>
+
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="additionalForm">
+                                <h4>Add additional fields</h4>
+                                <app-additional-fields-form [formSection]="'personalInfo'" [fieldType]="'text'">
+                                </app-additional-fields-form>
+                            </div>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+
+                        <h5>PERMANENT ADDRESS</h5>
+                        <div class="row">
+                            <div formGroupName="permanentAddress">
+                                <div class="col-lg-6 col-xs-12">
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'permanentAddress')"
+                                                formControlName="permanentAddressLine1" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Address Line 1</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'permanentAddress')"
+                                                formControlName="permanentAddressLine2" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Addres Line 2</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'permanentAddress')"
+                                                formControlName="permanentAddressLine3" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Address Line 3</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'permanentAddress')"
+                                                formControlName="permanentCountry" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Country </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'permanentAddress')"
+                                                formControlName="permanentState" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>State</p>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div>
+
+                                <div class="col-lg-6 col-xs-12">
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'permanentAddress')"
+                                                formControlName="permanentDistrict" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>District</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'permanentAddress')"
+                                                formControlName="permanentPin" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Pin</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'permanentAddress')"
+                                                formControlName="permanentTelephoneSTDCode" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>STD code</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'permanentAddress')"
+                                                formControlName="permanentTelephone" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Land phone number</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'permanentAddress')"
+                                                formControlName="permanentMobile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Mobile</p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+
+                        <h5>COMMUNICATION ADDRESS</h5>
+                        <div class="row">
+                            <div formGroupName="communicationAddress">
+                                <div class="col-lg-6 col-xs-12">
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'communicationAddress')"
+                                                formControlName="communicationAddressLine1" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Address Line 1</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'communicationAddress')"
+                                                formControlName="communicationAddressLine2" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Addres Line 2</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'communicationAddress')"
+                                                formControlName="communicationAddressLine3" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Address Line 3</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'communicationAddress')"
+                                                formControlName="communicationCountry" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Country </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'communicationAddress')"
+                                                formControlName="communicationState" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>State</p>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div>
+
+                                <div class="col-lg-6 col-xs-12">
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'communicationAddress')"
+                                                formControlName="communicationDistrict" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>District</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'communicationAddress')"
+                                                formControlName="communicationPin" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Pin</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'communicationAddress')"
+                                                formControlName="communicationTelephoneSTDCode" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>STD code</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'communicationAddress')"
+                                                formControlName="communicationTelephone" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Land phone number</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'communicationAddress')"
+                                                formControlName="communicationMobile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Mobile</p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+
+                        <h5>EDUCATION</h5>
+                        <div class="row">
+                            <div formGroupName="education">
+                                <div class="col-lg-6 col-xs-12">
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'education')"
+                                                formControlName="accademicLevelId" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Education Level </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'education')"
+                                                formControlName="schoolName" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>School/College/Institution Name</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'education')"
+                                                formControlName="specialization" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Degree/ Specialization</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'education')"
+                                                formControlName="yearOfStudy" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Year of Study</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'education')"
+                                                formControlName="startDate" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Start date</p>
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+
+                                <div class="col-lg-6 col-xs-12">
+
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'education')"
+                                                formControlName="endDate" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>End date</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'education')"
+                                                formControlName="certificateFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Certificate (Image)</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'education')"
+                                                formControlName="qualificationStatus" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Qualification Status(Passed/Failed)</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'education')"
+                                                formControlName="cgpa" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>CGPA</p>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="additionalForm">
+                                <h4>Add additional fields</h4>
+                                <app-additional-fields-form [formSection]="'education'" [fieldType]="'text'">
+                                </app-additional-fields-form>
+                            </div>
+                        </div>
+
+
+
+                        <div class="clearfix"></div>
+
+                        <h5>ENTRANCE EXAMS</h5>
+                        <div class="row">
+                            <div formGroupName="entrance">
+                                <div class="col-lg-6 col-xs-12">
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'entrance')"
+                                                formControlName="qualifiedEntrance" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Qualified Entrance</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'entrance')"
+                                                formControlName="rollNumber" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Roll Number</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'entrance')"
+                                                formControlName="yearOfQualification" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Year of Qualification</p>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-lg-6 col-xs-12">
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'entrance')"
+                                                formControlName="validUpto" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Valid Upto</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'entrance')"
+                                                formControlName="cgpa" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>CGPA</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox" (change)="changeFormItemStatus($event,'entrance')"
+                                                formControlName="rank" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Rank</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="additionalForm">
+                                <h4>Add additional fields</h4>
+                                <app-additional-fields-form [formSection]="'entrance'" [fieldType]="'text'">
+                                </app-additional-fields-form>
+                            </div>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+
+                        <h5 class="uppercase">certificates</h5>
+                        <div class="row">
+                            <div formGroupName="certificates">
+                                <div class="col-lg-6 col-xs-12">
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="adharCardFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Aadhar Certificate</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="birthCertificateFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Birth Certificate</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="communityCertificateFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Community Certificate</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="differentlyAbledCertificateFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Differently abled</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="characterCertificateFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Character Certificate</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="conductCertificateFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Conduct Certificate</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="entranceExamFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Entrance Exam</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="sslcFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>SSLC</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="plusTwoCertificateFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>PLUS 2</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="experienceCertificateFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Experience certificate</p>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-lg-6 col-xs-12">
+
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="incomeCertificateFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Income Certificate</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="migrationCertificateFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Migration Certificate</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="nativityCertificateFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Nativity Certificate</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="panCardFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>PAN Card</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="passportSizePhotoFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Passport size Photo</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="scolarshipFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Scholarship</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="signatureFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Signature</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="tcFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Transfer Certificate(TC)</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="thumbImpressionFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Thumb Impression</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="applicationFormItem">
+                                        <div class="checkBox">
+                                            <input type="checkbox"
+                                                (change)="changeFormItemStatus($event,'certificates')"
+                                                formControlName="drivingLicenseFile" />
+                                        </div>
+                                        <div class="labels">
+                                            <p>Driving Licence</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="additionalForm">
+                                <h4>Add additional fields</h4>
+                                <app-additional-fields-form [formSection]="'certificates'" [fieldType]="'text'">
+                                </app-additional-fields-form>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</main>

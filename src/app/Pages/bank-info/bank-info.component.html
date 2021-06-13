@@ -1,0 +1,70 @@
+<main>
+    <div class="page-heading text-center">
+        <div class="container">
+            <h2>BANK DETAILS </h2>
+        </div>
+    </div>
+    <div class="container index-3-categories">
+        <div class="row text-center mt-5">
+            <div class="alert alert-warning" *ngIf="bankItems?.length==0">No bank details available.</div>
+
+            <!-- <pre>{{bankItems|json}}</pre> -->
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Nickname</th>
+                        <th>Account Holder's Name</th>
+                        <th>Account No</th>
+                        <th>IFSC</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of bankItems; let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{item.nickname}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.accountNumber}}</td>
+                        <td>{{item.ifsc}}</td>
+                    </tr>
+                </tbody>
+                <tbody>
+
+                </tbody>
+            </table>
+
+
+
+        </div>
+
+        <div class="row contact">
+
+            <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="col-md-4 col-sm-6 card">
+                    <label class="req uppercase">Add bank account</label>
+
+                    <input type="text" formControlName="accountNumber" placeholder="Account Number" required />
+                    <app-control-messages [touched]="touched" [control]="f.accountNumber"></app-control-messages>
+
+                    <input type="text" formControlName="name" placeholder="Account holder name" required />
+                    <app-control-messages [touched]="touched" [control]="f.name"></app-control-messages>
+
+                    <input type="text" formControlName="ifsc" placeholder="IFSC" required />
+                    <app-control-messages [touched]="touched" [control]="f.ifsc"></app-control-messages>
+
+                    <input type="text" formControlName="nickname" placeholder="Nickname" required />
+                    <app-control-messages [touched]="touched" [control]="f.nickname"></app-control-messages>
+
+                    <input type="file" (change)="onchangeFile('passbookFile',$event)" formControlName="passbookFile" />
+                    <app-control-messages [touched]="touched" [control]="f.passbookFile"></app-control-messages>
+
+                    <div class="float-right">
+                        <button class="btn btn-info mt-3 pull-right" id="submit-btn">ADD ACCOUNT</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</main>

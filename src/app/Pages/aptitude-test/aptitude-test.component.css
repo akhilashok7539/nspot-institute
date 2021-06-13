@@ -1,0 +1,41 @@
+.card {
+    margin-top: 35px;
+    padding: 20px;
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.13);
+  }
+  .card h5 {
+    margin-top: 30px;
+  }
+  .divider{
+    height: 100vh;
+    float: left;
+    width: 20px;
+    background-color: #1A4D59;
+  }
+  .question-wrapper{
+    float: left;
+    width: 95%;
+  }
+  .height-150{
+    height: 150px;
+    overflow: scroll;
+  }
+  .contact-test input[type=text]{
+    width: 97%;
+    border: none;
+    border-bottom-color: currentcolor;
+    border-bottom-style: none;
+    border-bottom-width: medium;
+    border-bottom: 1px solid #d6d6d6;
+    height: 40px;
+    font-family: "Open Sans", sans-serif;
+    font-style: italic;
+    color: #5f5f5f;
+    font-size: 11px;
+    padding-left: 15px;
+  }
+  .active-test{
+    color: #fff;
+    background-color: #31b0d5;
+    border-color: #269abc;
+  }

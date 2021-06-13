@@ -1,0 +1,47 @@
+.tutorial ul li {
+  list-style-type: circle;
+}
+.tutorial ul li i {
+  margin-left: 10px;
+  cursor: pointer;
+}
+.profilePicDiv img{
+  box-shadow: 0 0 10px 2px rgb(0 0 0 / 13%);
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin:20px 0 20px 55px;
+}
+.profilePicBtn{
+  position: absolute;
+  bottom: 10%;
+  left: 241px;
+  background-color: #1A4D59;
+  border-color: #1A4D59;
+  color: #EFF5F9;
+  padding:5px 10px 5px 10px;
+  border-radius: 50px;
+  border: 1px;
+}
+
+
+.profilePicBtn:hover i {
+  display:none
+}
+
+.profilePicBtn:hover:before {
+  content:"Change";
+}
+
+.profilePicBtn:hover {
+  border-radius: 25px;
+  width:100px;
+  cursor: pointer;
+  transition: 0.2s;
+  padding:9px 10px 9px 25px;
+}
+
+.width-160{
+  width: 160px;
+}

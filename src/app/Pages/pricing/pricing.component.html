@@ -1,0 +1,50 @@
+<main class="mb-5">
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2 *ngIf="!currentSubscription">SUBSCRIPTION PLANS</h2>
+      <h2 *ngIf="currentSubscription">ACTIVE SUBSCRIPTION</h2>
+    </div>
+  </div>
+  <div class="container pricings">
+    <div class="row text-center" *ngIf="!currentSubscription">
+
+      <div class="col-md-4" *ngFor="let item of planList;let i=index">
+        <div class="plan uppercase">
+          <h5>{{item.plan.item.name}}</h5>
+          <p class="ribbon">MOST POPULAR</p>
+          <p class="price">{{item.plan.item.amount/100}}</p>
+          <p class="crew">{{item.Subscription_Tier.admissionOfficerCount}} Admission Officer</p>
+
+          <div class="plan-details">
+            <p>Virtual tour</p>
+            <p>{{item.Subscription_Tier.coursesCount}} Courses</p>
+          </div>
+          <button class="square-green" (click)="placeOrder(item)">
+            <i class="zmdi zmdi-arrow-right"></i>UPGRADE NOW
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row text-center" *ngIf="currentSubscription">
+
+      <div class="col-md-6 col-md-offset-3">
+        <div class="plan active-plan uppercase mb-5">
+          <h5>{{currentSubscription.Subscription_Plan.Subscription_Tier.name}}</h5>
+          <p class="crew">{{currentSubscription.Subscription_Plan.Subscription_Tier.admissionOfficerCount}} Admission
+            Officer</p>
+
+
+
+          <div class="plan-details">
+            <p>Virtual tour</p>
+            <p>{{currentSubscription.Subscription_Plan.Subscription_Tier.coursesCount}} Courses</p>
+            <p class="crew"> Subscription activated on  : {{currentSubscription.subscriptionStartDate | date}} </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</main>

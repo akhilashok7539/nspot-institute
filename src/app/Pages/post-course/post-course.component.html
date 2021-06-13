@@ -1,0 +1,642 @@
+<main id="register">
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2>POST A COURSE</h2>
+    </div>
+  </div>
+
+  <div
+    class="course-tabs nav"
+    id="v-pills-tab"
+    role="tablist"
+    aria-orientation="vertical"
+  >
+    <a [ngClass]="{ 'nav-link': true, 'py-2': true, active: tabBody[0] }">
+      Course Info</a
+    >
+    <!-- (click)="changeTab(0)" -->
+    <a [ngClass]="{ 'nav-link': true, 'py-2': true, active: tabBody[1] }">
+      Fees Info</a
+    >
+    <a [ngClass]="{ 'nav-link': true, 'py-2': true, active: tabBody[2] }">
+      Eligibility Required</a
+    >
+
+    <a [ngClass]="{ 'nav-link': true, 'py-2': true, active: tabBody[3] }">
+      Job Opertunities Info</a
+    >
+  </div>
+
+  <div class="container success" *ngIf="tabBody[0]">
+    <h4 class="sub-title">
+      POST A NEW COURSE - YOU CAN MANAGE YOUR ACTIVE OPENINGS LATER
+    </h4>
+    <form class="contact">
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+          <label class="req uppercase">Select Academic level of Course</label>
+          <select name="type">
+            <option value="0">Select Academic Level</option>
+            <option value="1">Pre primary</option>
+            <option value="2">Lower Primary</option>
+            <option value="3">Upper Primary</option>
+            <option value="4">SSLC</option>
+            <option value="5">Higher Secondary / Deploma</option>
+            <option value="6">Graduation</option>
+            <option value="7">Post Graduation</option>
+            <option value="8">Doctorate</option>
+          </select>
+        </div>
+        <div class="col-sm-6 offset-sm-3">
+          <label class="req uppercase">Course Name</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="enter course name"
+            required
+          />
+        </div>
+        <div class="col-sm-6 offset-sm-3">
+          <label class="req uppercase">Course Type</label>
+          <select name="type">
+            <option value="0">Select course type</option>
+            <option value="1">Fulltime</option>
+            <option value="1">Parttime</option>
+          </select>
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Course Code</label>
+          <input
+            type="text"
+            name="courseCode"
+            placeholder="enter course code"
+            required
+          />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">University/Academic Board/Other</label>
+          <select name="universityType">
+            <option value="0">Select one</option>
+            <option value="1">University</option>
+            <option value="1">Academic Board</option>
+            <option value="1">Other</option>
+          </select>
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Name of University</label>
+          <input
+            type="text"
+            name="universityName"
+            placeholder="enter name of university"
+          />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Course Stream</label>
+          <input
+            type="text"
+            name="courseStream"
+            placeholder="enter course stream"
+          />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="uppercase">Specialisation</label>
+          <input
+            type="text"
+            name="courseSpecialisation"
+            placeholder="enter course specialisation"
+          />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">No. Of Available Seats</label>
+          <input
+            type="text"
+            name="availableSeats"
+            placeholder="enter course stream"
+          />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">For The Academic Year/Session</label>
+          <div class="col-sm-6 offset-3">
+            <input type="text" name="academicYear" placeholder="yyyy" />
+          </div>
+          <div class="col-sm-6 offset-3">
+            <input type="text" name="academicYear" placeholder="mm" />
+          </div>
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Course duration</label>
+          <div class="col-sm-6 offset-3">
+            <input type="text" name="academicYear" placeholder="yyyy" />
+          </div>
+          <div class="col-sm-6 offset-3">
+            <input type="text" name="academicYear" placeholder="mm" />
+          </div>
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Exam Conducted</label>
+          <input
+            type="text"
+            name="examConducted"
+            placeholder="enter course stream"
+          />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Course Syllabus</label>
+          <input
+            type="file"
+            name="Syllabus"
+            placeholder="enter course stream"
+          />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Admission Start Date</label>
+          <input
+            type="date"
+            name="admissionStardDate"
+            placeholder="enter course stream"
+          />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Admission Close Date</label>
+          <input
+            type="date"
+            name="admissionCloseDate"
+            placeholder="enter course stream"
+          />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Class Starting Date</label>
+          <input
+            type="date"
+            name="classStartDate"
+            placeholder="enter course stream"
+          />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Gender Allowance</label>
+          <div class="col-sm-4">
+            <p class="radio">
+              <input type="radio" name="genderAllowance" id="" /><span
+                >Male</span
+              >
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <p class="radio">
+              <input type="radio" name="genderAllowance" id="" />
+              <span>Female</span>
+            </p>
+          </div>
+          <div class="col-sm-4">
+            <p class="radio">
+              <input type="radio" name="genderAllowance" id="" />
+              <span>Both</span>
+            </p>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Campus Address Line 1</label>
+          <input
+            type="text"
+            name="addressLine1"
+            placeholder="Enter campus address line 1"
+          />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Campus Address Line 2</label>
+          <input
+            type="text"
+            name="addressLine2"
+            placeholder="Enter campus address line 2"
+          />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Campus Address Line 3</label>
+          <input
+            type="text"
+            name="addressLine3"
+            placeholder="Enter campus address line 3"
+          />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Country</label>
+          <input type="Text" name="country" placeholder="enter course stream" />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Block</label>
+          <input type="text" name="block" placeholder="enter course stream" />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Locality</label>
+          <input
+            type="text"
+            name="locality"
+            placeholder="enter course stream"
+          />
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">REFUND POLICY</label>
+          <input
+            type="text"
+            name="block"
+            placeholder="enter your refund policy"
+          />
+        </div>
+
+        <div class="col-sm-12 offset-3">
+          <label class="req uppercase"
+            >Online class availability during lockdown, hartal, Pandemic ,
+            unexpected weather Situations?</label
+          >
+          <div class="col-sm-6">
+            <p class="radio">
+              <input type="radio" name="hasOnlineInterview" /><span
+                >Yes, online classes are available for this course</span
+              >
+            </p>
+          </div>
+          <div class="col-sm-6">
+            <p class="radio">
+              <input type="radio" name="hasOnlineInterview" /><span
+                >No, online classes are not available for this course</span
+              >
+            </p>
+          </div>
+        </div>
+
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Aptitude Test</label>
+          <p class="checkbox">
+            <input
+              type="checkbox"
+              [(ngModel)]="hasAptitudeTest"
+              name="hasAptitudeTest"
+            /><span>Required </span>
+          </p>
+          <div class="clearfix"></div>
+          <div *ngIf="hasAptitudeTest">
+            <div class="col-md-10">
+              <select name="" id="">
+                <option value="0">Choose a test from the list</option>
+                <option value="1">Test for BTech</option>
+                <option value="1">Test for MTech</option>
+              </select>
+            </div>
+            <div class="col-md-2">
+              <button type="button"><i class="zmdi zmdi-refresh"></i></button>
+            </div>
+            <div class="clearfix"></div>
+            <a
+              class="uppercase mt-3 float-right"
+              style="float: right;"
+              href="/institute/aptitude-test/add"
+              target="_blank"
+              >Cannot find test you are looking for? Add a new Aptitude Test</a
+            >
+          </div>
+        </div>
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Online interview</label>
+          <p class="checkbox">
+            <input type="checkbox" name="hasOnlineInterview" /><span
+              >Required</span
+            >
+          </p>
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="col-sm-12">
+          <div class="pull-right">
+            <button class="btn btn-info" (click)="changeTab(1)">
+              SAVE AND CONTINUE
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- tab fees info -->
+  <div class="container success" *ngIf="tabBody[1]">
+    <h4 class="sub-title uppercase">
+      FEE INFO
+    </h4>
+    <div class="row">
+      <div class="col-sm-6">
+        <form class="contact">
+          <div class="col-sm-12">
+            <label class="req uppercase">Fees payment Tenure</label>
+            <select name="type">
+              <option value="0">One time payment</option>
+              <option value="5">Weekly</option>
+              <option value="1">Monthly</option>
+              <option value="4">Quarterly</option>
+              <option value="2">Semmeter</option>
+              <option value="3">Yearly</option>
+            </select>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <label class="req uppercase">Application Fees</label>
+            </div>
+            <div class="col-sm-6">
+              <input type="text" name="block" placeholder="Application Fees" />
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <label class="req uppercase">Donation</label>
+            </div>
+            <div class="col-sm-6">
+              <input type="text" name="block" placeholder="Donation" />
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <label class="req uppercase">Admission Fees</label>
+            </div>
+            <div class="col-sm-6">
+              <input type="text" name="block" placeholder="Admission Fees" />
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <label class="req uppercase">Tution Fees</label>
+            </div>
+            <div class="col-sm-6">
+              <input type="text" name="block" placeholder="Tution Fees" />
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <label class="req uppercase">Van Fees</label>
+            </div>
+            <div class="col-sm-6">
+              <input type="text" name="block" placeholder="Van Fees" />
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <label class="req uppercase">Uniform Fees</label>
+            </div>
+            <div class="col-sm-6">
+              <input type="text" name="block" placeholder="Uniform Fees" />
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <label class="req uppercase">TAX</label>
+            </div>
+            <div class="col-sm-6">
+              <input type="text" name="block" placeholder="TAX" />
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="col-sm-6">
+              <label class="req uppercase">Other</label>
+            </div>
+            <div class="col-sm-6">
+              <input type="text" name="block" placeholder="Other" />
+            </div>
+          </div>
+          <hr />
+          <div class="col-sm-12 thumbnail">
+            <div class="col-sm-6">
+              <label class="uppercase">Total Course Fees</label>
+            </div>
+            <div class="col-sm-6">
+              <label class="uppercase">10000</label>
+            </div>
+          </div>
+
+          <div class="col-sm-12">
+            <div class="col-md-9">
+              <label class="req uppercase">Scolarship Benifites</label>
+            </div>
+            <div class="col-md-3">
+              <p class="checkbox">
+                <input
+                  type="checkbox"
+                  [(ngModel)]="hasScolarshipBenefits"
+                  name="hasScolarshipBenefits"
+                /><span> </span>
+              </p>
+            </div>
+
+            <div class="clearfix"></div>
+            <div *ngIf="hasScolarshipBenefits">
+              <div class="col-md-12">
+                <label class="req uppercase">Scholarship Name</label>
+                <input
+                  type="text"
+                  placeholder="enter scholarship name"
+                  name=""
+                  id=""
+                />
+              </div>
+              <div class="col-md-12">
+                <label class="req uppercase">Scholarship Amount</label>
+                <input
+                  type="text"
+                  placeholder="enter scholarship amount"
+                  name=""
+                  id=""
+                />
+              </div>
+              <div class="col-md-12">
+                <label class="req uppercase">Valid Upto</label>
+                <input type="date" name="" id="" />
+              </div>
+
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-sm-6 nirus-fee">
+        <div class="col-sm-12 thumbnail">
+          <div class="row">
+            <div class="col-sm-7">
+              <label class="uppercase">NSPOT Service Charges</label>
+            </div>
+            <div class="col-sm-5">
+              <label class="uppercase">10000</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-7">
+              <label class="uppercase">Bank Charges</label>
+            </div>
+            <div class="col-sm-5">
+              <label class="uppercase">10000</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-7">
+              <label class="uppercase">TAX</label>
+            </div>
+            <div class="col-sm-5">
+              <label class="uppercase">10000</label>
+            </div>
+          </div>
+        </div>
+        <div class="clearfix"></div>
+        <h4 class="sub-title uppercase bank-details">
+          Bank Details
+        </h4>
+        <form class="contact">
+          <div class="col-sm-12">
+            <label class="req uppercase">Select Account</label>
+            <select name="type">
+              <option value="0">Nickname 1</option>
+              <option value="5">Nickname 2</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="clearfix"></div>
+      <div class="col-sm-6 thumbnail pt-3 pb-3">
+        <div class="col-sm-6">
+          <button class="btn btn-info uppercase">Calculate NSPOT Fees</button>
+        </div>
+        <div class="col-sm-6">
+          <label class="uppercase">10000</label>
+        </div>
+      </div>
+      <div class="row clearfix">
+        <div class="col-sm-12">
+          <div class="pull-right">
+            <button class="btn btn-info mb-5" (click)="changeTab(2)">
+              SAVE AND CONTINUE
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Eligibiliry and required document -->
+  <div class="container success" *ngIf="tabBody[2]">
+    <h4 class="sub-title">
+      ELIGIBILITY & REQUIRED DOCUMENTS
+    </h4>
+    <form class="contact">
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+          <label class="req uppercase"
+            >Brief description about eligibility for the course</label
+          >
+          <textarea name="" id="" cols="30" rows="10"></textarea>
+        </div>
+        <div class="row clearfix">
+          <div class="col-sm-12">
+            <div class="pull-right">
+              <button class="btn btn-info mb-5" (click)="changeTab(3)">
+                SAVE AND CONTINUE
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Job opertunities info -->
+  <div class="container success" *ngIf="tabBody[3]">
+    <h4 class="sub-title">
+      JOB OPPOTUNITIES INFO
+    </h4>
+    <form class="contact">
+      <div class="row">
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">JOB AREAS</label>
+          <input
+            type="text"
+            name="addressLine2"
+            placeholder="Enter job areas"
+          />
+        </div>
+
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">JOB POSITIONS</label>
+          <input
+            type="text"
+            name="addressLine2"
+            placeholder="Enter job positions"
+          />
+        </div>
+
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">SALARY RANGE</label>
+          <input
+            type="text"
+            name="addressLine2"
+            placeholder="Enter salary range"
+          />
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-sm-6">
+          <div class="col-md-9">
+            <label class="req uppercase">PLACEMENT ASSSTANCE OFFERED </label>
+          </div>
+          <div class="col-md-3">
+            <p class="checkbox">
+              <input
+                type="checkbox"
+                [(ngModel)]="hasPlacement"
+                name="hasPlacement"
+              /><span> </span>
+            </p>
+          </div>
+
+          <div class="clearfix"></div>
+          <div *ngIf="hasPlacement">
+            <div class="col-md-12">
+              <label class="req uppercase">RECRUITERS </label>
+              <input
+                type="text"
+                placeholder="For Eg; Infoys, Wipro etc"
+                name=""
+                id=""
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-6">
+          <p class="checkbox">
+            <input
+              type="checkbox"
+              name="name"
+              placeholder="Enter a mobile number"
+              required
+            /><span>I AGREE TERMS AND CONDITIONS AND PUBLISH LIVE</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="col-sm-12">
+          <div class="pull-right">
+            <button class="btn btn-info mb-5 mt-5">SAVE</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>

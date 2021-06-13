@@ -1,0 +1,39 @@
+<main>
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2>GALLERY</h2>
+    </div>
+  </div>
+  <div class="container index-3-categories">
+    <div class="row text-center">
+      <div class="alert alert-warning" *ngIf="galleryItems?.length==0">No images added to the gallery.</div>
+      <!-- <pre>{{galleryItems|json}}</pre> -->
+      <div class="col-md-4 col-sm-6" *ngFor="let item of galleryItems">
+        <div class="card" style="height: 350px">
+          <img src="{{baseApiUrl}}{{item.galleryFile}}" style="width: 100%;" alt="" />
+          <h5>{{item.galleryLabel}}</h5>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <div class="row contact">
+
+      <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="col-md-4 col-sm-6 card">
+          <label class="req uppercase">New Image</label>
+          <input type="file" (change)="onchangeFile('galleryFile',$event)" formControlName="galleryFile" />
+          <app-control-messages [touched]="touched" [control]="f.galleryFile"></app-control-messages>
+          <input type="text" formControlName="galleryLabel" placeholder="enter short description" required />
+          <app-control-messages [touched]="touched" [control]="f.galleryLabel"></app-control-messages>
+          <div class="float-right">
+            <button class="btn btn-info mt-3 pull-right" id="submit-btn">ADD TO GALLERY</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</main>

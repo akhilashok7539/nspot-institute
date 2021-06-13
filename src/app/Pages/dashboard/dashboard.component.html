@@ -1,0 +1,298 @@
+<main id="courses-list">
+  <div class="page-heading text-center">
+    <div class="container">
+      <div class="pull-right">
+        <!-- <ul class="grid-opts">
+          <li>
+            <a class="active" href="#"
+              ><i class="zmdi zmdi-view-list zmdi-hc-lg"></i
+            ></a>
+          </li>
+          <li>
+            <a href="#"><i class="zmdi zmdi-view-module zmdi-hc-lg"></i></a>
+          </li>
+        </ul> -->
+      </div>
+      <h2 class="uppercase">My Account</h2>
+    </div>
+  </div>
+  <div class="container courses-browse popular no-gutters">
+    <div class="row tutorial">
+      <div class="col-sm-4 profilePicDiv">
+        <input type="file" style="visibility: hidden;" id="profPicUploader" (change)="onProfileChange($event,instituteInfo?.id)">
+
+        <img src="{{instituteInfo.profilePicFile?baseApiUrl+instituteInfo?.profilePicFile:'assets/images/kyc.png'}}" />
+
+
+        <label for="profPicUploader" class="profilePicBtn">
+          <i class="zmdi zmdi-edit zmdi-hc-2x"></i>
+        </label>
+
+      </div>
+      <div class="col-sm-8">
+        <div class="tutorial-details">
+          <h6>INSTITUTION KYC INFO</h6>
+
+          <p class="abs">
+
+          </p>
+          <div class="row dashboard-item">
+
+            <div class="col-md-6">
+              <p class="abs">Name :</p>
+            </div>
+            <!-- {{instituteInfo | json}} -->
+            <div class="col-md-6">
+              <p class="abs">{{instituteInfo?.name}}</p>
+            </div>
+
+            <div class="col-md-6 mt-2">
+              <p class="abs">Email :</p>
+            </div>
+            <div class="col-md-6 mt-2">
+              <p class="abs">{{instituteInfo?.email}}</p>
+            </div>
+
+            <div class="col-md-6 mt-2">
+              <p class="abs">Name of Principal :</p>
+            </div>
+            <div class="col-md-6 mt-2">
+              <p class="abs">{{instituteInfo?.principalName}}</p>
+            </div>
+
+            <div class="col-md-6 mt-2">
+              <p class="abs">
+                Number of the contact person :
+              </p>
+            </div>
+            <div class="col-md-6 mt-2">
+              <p class="abs">{{instituteInfo?.officialMobile}}</p>
+            </div>
+
+            <div class="col-md-12 mt-3 mb-4">
+              <button class="btn btn-info pull-right width-160">
+                View / Edit Full Data
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="row tutorial">
+      <div class="col-sm-4">
+        <img src="assets/images/accredited.jpg" class="resp-img" alt="Tutorial" />
+      </div>
+      <div class="col-sm-8">
+        <div class="tutorial-details">
+          <h6>BOARD OF COUNCIL AWARDED</h6>
+
+          <table class="table">
+            <tbody>
+
+              <tr>
+                <th>Unit of :</th>
+                <td></td>
+                <td>{{boardOfCouncilInfo?.unitOfLabel}}</td>
+              </tr>
+
+              <tr>
+                <th>Affiliated To :</th>
+                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.affiliatedToFile}}"><i
+                      class="zmdi zmdi-file  zmdi-hc-2x"></i></a></td>
+                <td>{{boardOfCouncilInfo?.affiliatedToLabel}}</td>
+              </tr>
+
+              <tr>
+                <th>Recongnized By</th>
+                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.recongnizedByFile}}"><i
+                      class="zmdi zmdi-file  zmdi-hc-2x"></i></a></td>
+                <td>{{boardOfCouncilInfo?.recongnizedByLabel}}</td>
+              </tr>
+
+              <tr>
+                <th>Registered To</th>
+                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.registeredToFile}}"><i
+                      class="zmdi zmdi-file  zmdi-hc-2x"></i></a></td>
+                <td>{{boardOfCouncilInfo?.registeredToLabel}}</td>
+              </tr>
+
+              <tr>
+                <th>Approved By</th>
+                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.approvedByFile}}"><i
+                      class="zmdi zmdi-file  zmdi-hc-2x"></i></a></td>
+                <td>{{boardOfCouncilInfo?.approvedByLabel}}</td>
+              </tr>
+
+              <tr>
+                <th>Accredited By</th>
+                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.accreditedByFile}}"><i
+                      class="zmdi zmdi-file  zmdi-hc-2x"></i></a></td>
+                <td>{{boardOfCouncilInfo?.accreditedByLabel}}</td>
+              </tr>
+
+              <tr>
+                <th>Certified By</th>
+                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.certifiedByFile}}"><i
+                      class="zmdi zmdi-file  zmdi-hc-2x"></i></a></td>
+                <td>{{boardOfCouncilInfo?.certifiedByLabel}}</td>
+              </tr>
+
+              <tr>
+                <th>Member Of</th>
+                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.memberOfFile}}"><i
+                      class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                </td>
+                <td>{{boardOfCouncilInfo?.memberOfLabel}}</td>
+              </tr>
+
+              <tr>
+                <th></th>
+                <td></td>
+                <th><button class="btn btn-info pull-right width-160">View / Edit</button></th>
+              </tr>
+
+
+
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="row tutorial">
+      <div class="col-sm-4">
+        <img src="assets/images/brochure.jpg" class="resp-img" alt="Tutorial" />
+      </div>
+      <div class="col-sm-8">
+        <div class="tutorial-details">
+          <h6 class="uppercase">Downloads</h6>
+          <!-- {{highlights|json}} -->
+          <table class="table">
+            <tbody>
+
+              <tr>
+                <th>Brochure</th>
+                <th><a *ngIf="highlights?.brochuresFile!=null" target="_blank" class="abs"
+                    href="{{baseApiUrl}}{{highlights?.brochuresFile}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                </th>
+              </tr>
+
+              <tr>
+                <th>Rules And Regulations</th>
+                <th><a *ngIf="highlights?.rulesFile!=null" target="_blank" class="abs"
+                    href="{{baseApiUrl}}{{highlights?.rulesFile}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a></th>
+              </tr>
+
+              <tr>
+                <th>Uniform</th>
+                <th>
+                  <a *ngIf="highlights?.uniformFile!=null" target="_blank" class="abs"
+                    href="{{baseApiUrl}}{{highlights?.uniformFile}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                </th>
+              </tr>
+
+              <tr>
+                <th>Special Features </th>
+                <th>
+                  <a *ngIf="highlights?.specialFeaturesFile!=null" target="_blank" class="abs"
+                    href="{{baseApiUrl}}{{highlights?.specialFeaturesFile}}"><i
+                      class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                </th>
+              </tr>
+
+              <tr>
+                <td></td>
+                <th><button class="btn btn-info pull-right width-160">View / Edit</button></th>
+              </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row tutorial">
+      <div class="col-sm-4">
+        <img src="assets/images/gallery.jpeg" class="resp-img" alt="Tutorial" />
+      </div>
+      <div class="col-sm-8">
+        <div class="tutorial-details">
+          <h6>GALLERY</h6>
+          <p>Manage your gallery section</p>
+          <div class=" bottom-0">
+            <a routerLink="/institute/gallery" class="btn btn-info pull-right width-160">Manage Gallery >></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row tutorial">
+      <div class="col-sm-4">
+        <img src="assets/images/virtual-tour.jpeg" class="resp-img" alt="Tutorial" />
+      </div>
+      <div class="col-sm-8">
+        <div class="tutorial-details">
+          <h6>VIRTUAL TOUR</h6>
+          <p>Manage your virtual tour section</p>
+          <div class=" bottom-0">
+            <a routerLink="/institute/gallery" class="btn btn-info pull-right width-160">Manage Gallery >></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row tutorial">
+      <div class="col-sm-4">
+        <img src="assets/images/hostel.jpg" class="resp-img" alt="Tutorial" />
+      </div>
+      <div class="col-sm-8">
+        <div class="tutorial-details">
+          <h6>HOSTEL & TRANSPORTATION INFOS</h6>
+
+          <table class="table">
+            <tbody>
+
+              <tr>
+                <th>Hostel for Boys</th>
+                <td>{{instituteInfo.haveBoysHostel?'Yes':'No'}}</td>
+              </tr>
+
+              <tr>
+                <th>Hostel for Girls</th>
+                <td>{{instituteInfo.haveGirlsHostel?'Yes':'No'}}</td>
+              </tr>
+
+              <tr>
+                <th>Is food available ?</th>
+                <td>{{instituteInfo.foodAvailableAtHostel?'Yes':'No'}}</td>
+              </tr>
+
+              <tr>
+                <th>Hostal Annual Fee</th>
+                <td>{{instituteInfo.hostalAnnualFee}}</td>
+              </tr>
+
+              <tr>
+                <th>Transportation info</th>
+                <td>{{instituteInfo.transportationInfo}}</td>
+              </tr>
+
+              <tr>
+                <td></td>
+                <th><button class="btn btn-info pull-right width-160">View / Edit</button></th>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 50px;"></div>
+  </div>
+</main>

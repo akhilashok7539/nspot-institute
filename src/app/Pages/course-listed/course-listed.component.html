@@ -1,0 +1,65 @@
+<main id="contact">
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2 class="uppercase">Courses Listed</h2>
+    </div>
+  </div>
+  <div class="container success">
+    <!-- <h4>GET IN TOUCH WITH US</h4> -->
+    <form class="contact">
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3">
+          <label class="req uppercase">Select Academic level</label>
+          <select
+            (change)="changeAcademicLevel()"
+            [(ngModel)]="academicLevel"
+            name="type"
+          >
+            <option value="0">Select Academic Level</option>
+            <option value="1">Pre primary</option>
+            <option value="2">Lower Primary</option>
+            <option value="3">Upper Primary</option>
+            <option value="4">SSLC</option>
+            <option value="5">Higher Secondary / Deploma</option>
+            <option value="6">Graduation</option>
+            <option value="7">Post Graduation</option>
+            <option value="8">Doctorate</option>
+          </select>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <table class="table table-striped">
+            <!-- <thead>
+              <tr>
+                <th>Course</th>
+                <th></th>
+                <th></th>
+                <th>Actions</th>
+              </tr>
+            </thead> -->
+            <tbody >
+              <tr *ngFor="let institute of institutecourseList">
+                <td>{{institute.Course_Sub_Categories4.title}}</td>
+                <td>
+                  <a routerLink="/institute/post-a-course/1">View/Edit</a>
+                </td>
+                <td>
+                  <a routerLink="/institute/post-a-course/1"
+                    >View Applications</a
+                  >
+                </td>
+                <td class="action-row">
+                  <button class="btn btn-actions btn-success">Activate</button>
+                </td>
+              </tr>
+              
+              
+            </tbody>
+           
+          </table>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>

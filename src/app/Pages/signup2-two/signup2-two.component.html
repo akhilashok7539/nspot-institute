@@ -1,0 +1,273 @@
+<main id="register">
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2>INSTITUTION KYC</h2>
+    </div>
+  </div>
+  <div class="container success">
+    <h4 class="sub-title">EDUCATIONAL INSTITUTION - KYC</h4>
+    <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-sm-12">
+          <label class="req">NAME OF THE INSTITUTION</label>
+          <input type="text" formControlName="name" placeholder="enter name of the institution" />
+          <!-- <div *ngIf="touched && f.name.errors && f.name.errors.required">
+            Name is. {{f.name.errors|json}}
+          </div>-->
+          <app-control-messages [touched]="touched" [control]="f.name"></app-control-messages>
+        </div>
+        <div class="col-sm-6">
+          <label class="req">TYPE OF THE INSTITUTION</label>
+          <select formControlName="typeId">
+            <option value="">Select Institution type</option>
+            <option *ngFor="let type of instituteTypes" value="{{type.id}}">{{type.title}}</option>
+            <!-- <option value="2">LP school</option>
+            <option value="3">UP school</option>
+            <option value="3">High School</option>
+            <option value="3">Higher Secondary School</option>
+            <option value="3">Professional College</option>
+            <option value="3">Training Institutes</option>
+            <option value="3">Tution Centres</option>
+            <option value="3">Other</option> -->
+          </select>
+          <app-control-messages [control]="f.typeId" [touched]="touched"></app-control-messages>
+
+        </div>
+
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">Institution code</label>
+          <input type="text" formControlName="code" placeholder="Enter institute code" />
+          <app-control-messages [control]="f.code" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-6">
+          <label class="req uppercase">Name of the Pricipal</label>
+          <input type="text" formControlName="principalName" placeholder="Enter name of the principal" />
+          <app-control-messages [control]="f.principalName" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-6">
+          <label class="req uppercase">Official mobile number of the Pricipal/Other official person</label>
+          <div class="row">
+            <div class="col-sm-7">
+              <div class="input-group">
+                <span class="input-group-addon">+91</span>
+                <input type="text" id="officialMobile" formControlName="officialMobile" placeholder="Mobile number" />
+
+              </div>
+              <app-control-messages [control]="f.officialMobile" [touched]="touched"></app-control-messages>
+            </div>
+            <div class="col-sm-2">
+              <button id="officialMobileVerifyBtn" (click)="confirmMobileNumberBeforeSMS(f.officialMobile.value)"
+                type="button" class="btn btn-info">Verify</button>
+            </div>
+            <div class="col-sm-3">
+              <button id="officialMobileEnterOtp" (click)="enterOTP(f.officialMobile.value)" type="button"
+                class="btn btn-success">I have an
+                OTP</button>
+            </div>
+          </div>
+
+        </div>
+        <!-- <pre>{{licenseIssueAuthorities|json}}</pre> -->
+        <div class="col-sm-6">
+          <label class="req uppercase">License Issuing Authority</label>
+          <select formControlName="licenseIssueAuthorityId">
+            <option value="">Select </option>
+            <option *ngFor="let item of licenseIssueAuthorities" value="{{item.id}}">{{item.title}}</option>
+          </select>
+
+          <app-control-messages [control]="f.licenseIssueAuthorityId" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-6">
+          <label class="req uppercase">License Issuing Authority Body Name</label>
+          <input type="text" formControlName="licenseAuthorityName"
+            placeholder="Enter license issue authority body name" />
+          <app-control-messages [control]="f.licenseAuthorityName" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-6">
+          <label class="req uppercase">License Number</label>
+          <input type="text" formControlName="licenseNumber" placeholder="Enter license number" />
+          <app-control-messages [control]="f.licenseNumber" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-12">
+          <label class="req uppercase">Name of Panchayat/Municipality</label>
+          <input type="text" formControlName="nameofTown" placeholder="Enter the name of the panchayath/municipality" />
+          <app-control-messages [control]="f.nameofTown" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-6">
+          <label class="req uppercase">License Issued Date</label>
+          <input type="date" formControlName="licenseIssuedDate" placeholder="Choose licese issued date" />
+          <app-control-messages [control]="f.licenseIssuedDate" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-6">
+          <label class="req uppercase">License Renewal Date</label>
+          <input type="date" formControlName="licenseRenewalDate" placeholder="Choose license renewal date" />
+          <app-control-messages [control]="f.licenseRenewalDate" [touched]="touched"></app-control-messages>
+        </div>
+
+      </div>
+
+      <div class="clearfix"></div>
+      <h4 class="sub-title">
+        PERMANENT HEAD OFFICE ADDRESS OF THE INSTITUTION
+      </h4>
+      <div class="row">
+        <div class="col-sm-12">
+          <label class="req uppercase">Address Line 1</label>
+          <input type="text" formControlName="addressLine1" placeholder="Address Line 1" />
+          <app-control-messages [control]="f.addressLine1" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-12">
+          <label class="req uppercase">Address Line 2</label>
+          <input type="text" formControlName="addressLine2" placeholder="Address Line 2" />
+          <app-control-messages [control]="f.addressLine2" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-12">
+          <label class="req uppercase">Address Line 3</label>
+          <input type="text" formControlName="addressLine3" placeholder="Address Line 3" />
+          <app-control-messages [control]="f.addressLine3" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-4">
+          <label class="req uppercase">Country</label>
+          <input type="text" formControlName="country" placeholder="Country" />
+          <app-control-messages [control]="f.country" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-4">
+          <label class="req uppercase">State</label>
+          <input type="text" formControlName="state" placeholder="Country" />
+          <app-control-messages [control]="f.state" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-4">
+          <label class="req uppercase">District</label>
+          <input type="text" formControlName="district" placeholder="District" />
+          <app-control-messages [control]="f.district" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-4">
+          <label class="req uppercase">Block</label>
+          <input type="text" formControlName="block" placeholder="Block" />
+          <app-control-messages [control]="f.block" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-4">
+          <label class="req uppercase">Village/Municipality </label>
+          <input type="text" formControlName="town" placeholder="Villege / municipality" />
+          <app-control-messages [control]="f.town" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-4">
+          <label class="req uppercase">Pin</label>
+          <input type="text" formControlName="pin" placeholder="Country" />
+          <app-control-messages [control]="f.pin" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-12">
+          <label class="req uppercase">OFFICIAL Institute Email id</label>
+          <input type="text" formControlName="email" placeholder="Enter a valid email address" />
+          <app-control-messages [control]="f.email" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-6">
+          <label class="req uppercase">Telephone 1</label>
+          <input type="text" formControlName="telephone1" placeholder="Enter a telephone number" />
+          <app-control-messages [control]="f.telephone1" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-6">
+          <label class="uppercase">Telephone 2</label>
+          <input type="text" formControlName="telephone2" placeholder="Enter a telephone number" />
+          <app-control-messages [control]="f.telephone2" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-6">
+          <label class="uppercase">Mobile number 1</label>
+          <div class="input-group">
+            <span class="input-group-addon">+91</span>
+            <input type="text" formControlName="mobile1" placeholder="Enter a mobile number" />
+            <app-control-messages [control]="f.mobile1" [touched]="touched"></app-control-messages>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <label class="uppercase">Mobile number 2</label>
+          <div class="input-group">
+            <span class="input-group-addon">+91</span>
+            <input type="text" formControlName="mobile2" placeholder="Enter a mobile number" />
+            <app-control-messages [control]="f.mobile2" [touched]="touched"></app-control-messages>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <label class="uppercase">Hostel Facility</label>
+          <div class="col-sm-3">
+            <p class="checkbox">
+              <input type="checkbox" formControlName="haveBoysHostel" />
+              <span>Boys</span>
+            </p>
+          </div>
+          <div class="col-sm-3">
+            <p class="checkbox">
+              <input type="checkbox" formControlName="haveGirlsHostel" />
+              <span>Girls</span>
+            </p>
+          </div>
+          <div class="col-sm-3">
+            <p class="checkbox">
+              <input type="checkbox" formControlName="foodAvailableAtHostel" />
+              <span>Food</span>
+            </p>
+          </div>
+          <div class="col-sm-3">
+            <input type="text" formControlName="hostalAnnualFee" placeholder="Annual Fees " />
+            <app-control-messages [control]="f.hostalAnnualFee" [touched]="touched"></app-control-messages>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <label class="uppercase">TRANSPORTATION INFO</label>
+
+          <input type="text" formControlName="transportationInfo" placeholder="Enter transportation info" />
+          <app-control-messages [control]="f.transportationInfo" [touched]="touched"></app-control-messages>
+        </div>
+
+        <div class="col-sm-12">
+          <label class="uppercase">Google MAP LOCATION</label>
+
+          <div class="col-sm-6">
+            <input type="text" formControlName="gmapLatitude" placeholder="latitude" />
+            <app-control-messages [control]="f.gmapLatitude" [touched]="touched"></app-control-messages>
+          </div>
+          <div class="col-sm-6">
+            <input type="text" formControlName="gmapLongitude" placeholder="longitude" />
+            <app-control-messages [control]="f.gmapLongitude" [touched]="touched"></app-control-messages>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row clearfix">
+        <div class="col-sm-12">
+          <div class="pull-right">
+            <button type="submit" id="submit-btn" class="btn btn-info mt-3">
+              Save and Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!-- {{form.status}}
+    {{form.value|json}}{{form.invalid}} -->
+  </div>
+</main>

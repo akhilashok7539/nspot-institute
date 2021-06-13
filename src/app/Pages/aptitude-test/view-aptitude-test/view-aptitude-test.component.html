@@ -1,0 +1,82 @@
+<main id="contact">
+    <div class="page-heading text-center">
+      <div class="container">
+        <h2 class="uppercase">Aptitude Tests</h2>
+      </div>
+    </div>
+    <div class="container success">
+      <!-- <h4>GET IN TOUCH WITH US</h4> -->
+      <form class="contact">
+        <div class="row mt-5">
+          <div class="col-md-12">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Q.no</th>
+                  <th>Question</th>
+                  <th>Options</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="!empty">
+                <tr>
+                  <td>M.Tech aptitude test 1</td>
+                  <td>30</td>
+                  <td>
+                    <a routerLink="/institute/post-a-course/1">View</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>M.Tech aptitude test 2</td>
+                  <td>30</td>
+                  <td>
+                    <a routerLink="/institute/post-a-course/1">View</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>MBA aptitude test</td>
+                  <td>30</td>
+                  <td>
+                    <a routerLink="/institute/post-a-course/2">View</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>M.Arc aptitude test</td>
+                  <td>30</td>
+                  <td>
+                    <a routerLink="/institute/post-a-course/3">View</a>
+                  </td>
+                </tr>
+              </tbody>
+              <tbody *ngIf="empty">
+                <tr>
+                  <td colspan="3" align="center">Empty List</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+  
+        <div class="row contact">
+          <div class="col-md-4 col-sm-6 card">
+            <label class="req uppercase">New Aptitude Test Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter Aptitude Test Name"
+              required
+            />
+            <!-- <input
+              type="text"
+              name="name"
+              placeholder="enter short description"
+              required
+            /> -->
+            <div class="float-right">
+              <button class="btn btn-info mt-3 pull-right">ADD</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </main>
+  

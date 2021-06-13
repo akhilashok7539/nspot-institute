@@ -1,0 +1,87 @@
+<main id="register">
+  <!-- <pre>{{form.value|json}}</pre> -->
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2>POST A COURSE</h2>
+    </div>
+  </div>
+
+  <div class="course-tabs nav" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <a [ngClass]="{ 'nav-link': true, 'py-2': true}">
+      Course Info</a>
+    <a [ngClass]="{ 'nav-link': true, 'py-2': true}">
+      Fees Info</a>
+    <a [ngClass]="{ 'nav-link': true, 'py-2': true }">
+      Eligibility Required</a>
+    <a [ngClass]="{ 'nav-link': true, 'py-2': true, active: true   }">
+      Job Opertunities Info</a>
+  </div>
+  <div class="container success">
+    <h4 class="sub-title">
+      JOB OPPOTUNITIES INFO
+    </h4>
+    <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">JOB AREAS</label>
+          <input type="text" formControlName="jobAreas" placeholder="Enter job areas" />
+          <app-control-messages [touched]="touched" [control]="f.jobAreas"></app-control-messages>
+        </div>
+
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">JOB POSITIONS</label>
+          <input type="text" formControlName="jobPositions" placeholder="Enter job positions" />
+          <app-control-messages [touched]="touched" [control]="f.jobPositions"></app-control-messages>
+        </div>
+
+        <div class="col-sm-6 offset-3">
+          <label class="req uppercase">SALARY RANGE</label>
+          <input type="text" formControlName="salaryRange" placeholder="Enter salary range" />
+          <app-control-messages [touched]="touched" [control]="f.salaryRange"></app-control-messages>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="col-sm-6">
+          <div class="col-md-9">
+            <label class="req uppercase">PLACEMENT ASSSTANCE OFFERED </label>
+          </div>
+          <div class="col-md-3">
+            <p class="checkbox">
+              <input type="checkbox" formControlName="hasPlacementAssistant" /><span> </span>
+            </p>
+          </div>
+
+          <div class="clearfix"></div>
+          <div *ngIf="form.controls.hasPlacementAssistant.value">
+            <div class="col-md-12">
+              <label class="req uppercase">RECRUITERS </label>
+              <input type="text" placeholder="For Eg; Infoys, Wipro etc" formControlName="recruiters" id="" />
+              <app-control-messages [touched]="touched" [control]="f.recruiters"></app-control-messages>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+        <div class="col-sm-6"></div>
+        <div class="col-sm-6">
+          <p class="checkbox">
+            <input type="checkbox" formControlName="accept" required /><span>I AGREE
+              TERMS AND
+              CONDITIONS AND PUBLISH LIVE</span>
+          </p>
+          <div class="clearfix"></div>
+          <app-control-messages [touched]="touched" [control]="f.accept"></app-control-messages>
+        </div>
+      </div>
+
+      <div class="row clearfix">
+        <div class="col-sm-12">
+          <div class="pull-right">
+            <button id="submit-btn" type="submit" class="btn btn-info mb-5 mt-5">SAVE</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>

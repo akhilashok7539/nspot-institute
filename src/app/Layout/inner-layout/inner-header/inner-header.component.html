@@ -1,0 +1,95 @@
+<header>
+  <div class="container">
+    <div id="topbar">
+      <div class="pull-right">
+        <div class="navigation">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+            <i class="zmdi zmdi-menu zmdi-hc-lg"></i>
+          </button>
+          <nav class="collapse navbar-collapse" id="myNavbar">
+            <ul>
+              <li class="active uppercase">
+                <a routerLink="/institute/dashboard">DASHBOARD</a>
+              </li>
+
+              <li class="uppercase">
+                <a routerLink="/institute/admission-desk">LIVE ADMISSION DESK</a>
+              </li>
+
+              <li class="uppercase">
+                <a>STUDENT ADMISSION APPLICATIONS</a>
+                <ul class="submenu submenu-list">
+                  <li>
+                    <a routerLink="/institute/admission-desk">VERIFY STUDENTS APPLICATIONS</a>
+                  </li>
+                  <li>
+                    <a routerLink="/institute/admission-register-list">ADMISSION REGISTER LIST</a>
+                  </li>
+                  <li>
+                    <a routerLink="/institute/admission-officer">ADMISSION OFFICER LIST INFO</a>
+                  </li>
+                  <li>
+                    <a routerLink="/institute/customize-application">CUSTOMISE ADMISSION APPLICATION FORM</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li class="uppercase">
+                <a>Courses</a>
+                <ul class="submenu submenu-list">
+                  <li>
+                    <a routerLink="/institute/post/course">POST A COURSE/PROGRAMMES</a>
+                  </li>
+                  <li>
+                    <a routerLink="/institute/courses-listed">MANAGE COURSE/PROGRAMMES</a>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- <li class="uppercase">
+                <a routerLink="/institute/bank-info">Bank info</a>
+              </li> -->
+              <!-- <li class="uppercase">
+                <a routerLink="/institute/pricing">Upgrade</a>
+              </li> -->
+
+              <li class="uppercase">
+                <a routerLink="/institute/contact-us"><img src="assets/images/avatar.png" alt="" /></a>
+                <ul class="submenu submenu-list">
+                  <li class="uppercase">
+                    <a routerLink="/institute/pricing">Upgrade</a>
+                  </li>
+                  <li class="uppercase">
+                    <a routerLink="/institute/bank-info">Bank info</a>
+                  </li>
+                  <li class="uppercase">
+                    <a routerLink="/institute/contact-us">Payment History</a>
+                  </li>
+
+                  <li><a (click)="logout()">LOGOUT</a></li>
+                  <li class="uppercase">
+                    <a routerLink="/institute/contact-us">Contact</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="notification-icon"><i class="zmdi zmdi-notifications-none"></i>
+                <ul class="submenu-notif submenu-list">
+                  <li *ngFor="let item of notifications" class="{{item.status}}"
+                    (click)="changeStatus(item.id,item.status)">
+                    <a routerLink="{{item.url}}">
+                      <h5>{{item.title}}</h5>
+                      <p>{{item.body}}</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <h1 class="logo">
+        <a routerLink="/institute/dashboard"><img src="assets/images/logo/NSpot_Logo Png-03.svg" alt="Logo" /></a>
+      </h1>
+    </div>
+  </div>
+</header>

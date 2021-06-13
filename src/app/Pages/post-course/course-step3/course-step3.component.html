@@ -1,0 +1,43 @@
+<main id="register">
+    <!-- <pre>{{form.value|json}}</pre> -->
+    <div class="page-heading text-center">
+        <div class="container">
+            <h2>POST A COURSE</h2>
+        </div>
+    </div>
+
+    <div class="course-tabs nav" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <a [ngClass]="{ 'nav-link': true, 'py-2': true}">
+            Course Info</a>
+        <a [ngClass]="{ 'nav-link': true, 'py-2': true}">
+            Fees Info</a>
+        <a [ngClass]="{ 'nav-link': true, 'py-2': true, active: true   }">
+            Eligibility Required</a>
+        <a [ngClass]="{ 'nav-link': true, 'py-2': true }">
+            Job Opertunities Info</a>
+    </div>
+
+    <div class="container success">
+        <h4 class="sub-title">
+            ELIGIBILITY & REQUIRED DOCUMENTS
+        </h4>
+        <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-sm-6 offset-sm-3">
+                    <label class="req uppercase">Brief description about eligibility for the course</label>
+                    <textarea formControlName="eligibiliyInString" id="" cols="30" rows="10"></textarea>
+                    <app-control-messages [touched]="touched" [control]="f.eligibiliyInString"></app-control-messages>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        <div class="pull-right">
+                            <button id="submit-btn" type="submit" class="btn btn-info mb-5">
+                                SAVE AND CONTINUE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</main>

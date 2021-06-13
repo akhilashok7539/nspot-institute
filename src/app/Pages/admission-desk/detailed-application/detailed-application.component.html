@@ -1,0 +1,240 @@
+<main>
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2 class="uppercase">Review Student Application</h2>
+    </div>
+  </div>
+
+  <!-- <pre>{{applicationData|json}}</pre> -->
+  <!-- <pre>{{entrance|json}}</pre> -->
+
+
+  <div class="container index-3-categories">
+    <div class="row contact">
+
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="additionalForm text-center">
+          <div class="row">
+            <form [formGroup]="reportingForm" (ngSubmit)="onSubmit(reportingForm)">
+              <div class="col-lg-3 mt-2"> Schedule Date of Reporting</div>
+              <div class="col-lg-6"><input type="date" formControlName="dateOfReporting" id=""></div>
+              <div class="col-lg-2 mt-2"><button>Update</button></div>
+            </form>
+          </div>
+
+          <div class="row">
+            <form [formGroup]="aptitudeForm" (ngSubmit)="onSubmit(aptitudeForm)">
+              <div class="col-lg-3 mt-2"> Schedule Aptitude Test</div>
+              <div class="col-lg-2"><input type="date" formControlName="startDateTimeOfAptitudeTest" id=""></div>
+              <div class="col-lg-2"><input type="date" formControlName="endDateTimeOfAptitudeTest" id=""></div>
+              <div class="col-lg-2">
+                <select formControlName="aptitudeTestId" id="">
+                  <option value=""></option>
+                </select>
+              </div>
+              <div class="col-lg-2 mt-2"><button>Update</button></div>
+            </form>
+          </div>
+
+          <div class="row">
+            <form [formGroup]="interviewForm" (ngSubmit)="onSubmit(interviewForm)">
+              <div class="col-lg-3 mt-2">Schedule Video Interview</div>
+              <div class="col-lg-3"><input type="date" formControlName="dateOfInterview" id=""></div>
+              <div class="col-lg-3"><input type="text" formControlName="interviewLink"
+                  placeholder="video interview meeting link" id=""></div>
+              <div class="col-lg-2 mt-2"><button>Update</button></div>
+            </form>
+          </div>
+
+          <div class="row">
+            <form [formGroup]="reviewForm" (ngSubmit)="onSubmit(reviewForm)">
+              <div class="col-lg-3 mt-2">Remarks</div>
+              <div class="col-lg-6"><textarea class="height100" rows="10" formControlName="remarks" id=""></textarea>
+              </div>
+              <div class="col-lg-2 mt-2"><button>Update</button></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="clearfix"></div>
+
+      <div class="col-md-1"></div>
+      <div class="col-md-10 col-sm-10" id="pdfTable" #pdfTable>
+        <div class="applicationForm">
+          <style>
+            .applicationForm {
+              width: 100%;
+              border-style: double;
+              margin: 35px 0 35px 0;
+              border-radius: 20px;
+              background-color: #EFF5F9;
+            }
+
+            .applicationForm h5 {
+              font-weight: 600;
+              text-align: center;
+              padding: 35px 0 35px 0;
+              margin: 0 0 35px 0;
+              background-color: #1A4D59;
+              border-radius: 20px 20px 0 0;
+              font-size: 25px;
+              color: #FFF;
+            }
+
+            .applicationFormItem {
+              margin: 10px 0 30px 0;
+              text-align: left;
+            }
+
+            .applicationFormItem .checkBox {
+              float: left;
+              width: 30%;
+              margin: 0 30px 0 30px;
+            }
+
+            .applicationFormItem .labels p {
+              font-size: 20px;
+            }
+
+            .applicationFormItem .labels img {
+              margin: 35px 35px 35px 35px;
+            }
+
+            .applicationFormItem .labels p span {
+              margin: 0 35px 0 0
+            }
+
+            .applicationFormItem .checkBox p {
+              font-size: 20px;
+            }
+
+            .additionalForm {
+              margin: 35px 35px 35px 35px;
+              padding: 20px 20px 20px 20px;
+              box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.13);
+              background-color: #FFF;
+            }
+          </style>
+          <h5>PERSONAL DETAILS OF THE APPLICANT </h5>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="applicationFormItem" *ngFor="let item of personalInfo;let i=index">
+                <div class="checkBox">
+                  <p>{{personalInfoKeys[i]}}</p>
+                </div>
+                <div class="labels">
+                  <p><span>:</span>{{item}}</p>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+
+          <h5>PERMANENT ADDRESS</h5>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="applicationFormItem" *ngFor="let item of permanentAddress;let i=index">
+                <div class="checkBox">
+                  <p>{{permanentAddressKeys[i]}}</p>
+                </div>
+                <div class="labels">
+                  <p><span>:</span>{{item}}</p>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+
+          <h5>COMMUNICATION ADDRESS</h5>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="applicationFormItem" *ngFor="let item of communicationAddress;let i=index">
+                <div class="checkBox">
+                  <p>{{communicationAddressKeys[i]}}</p>
+                </div>
+                <div class="labels">
+                  <p><span>:</span>{{item}}</p>
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+
+          <h5>EDUCATION</h5>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="additionalForm" *ngFor="let item of education;let j=index">
+                <div class="applicationFormItem" *ngFor="let item of education[j];let i=index">
+                  <div class="checkBox">
+                    <p>{{educationKeys?educationKeys[j][i]:''}}</p>
+                  </div>
+                  <div class="labels">
+                    <p><span>:</span>{{item}}</p>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h5>ENTRANCE</h5>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="additionalForm" *ngFor="let item of entrance;let j=index">
+                <div class="applicationFormItem" *ngFor="let item of entrance[j];let i=index">
+                  <div class="checkBox">
+                    <p>{{entranceKeys[j][i]}}</p>
+                  </div>
+                  <div class="labels">
+                    <p><span>:</span>{{item}}</p>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h5>PERMANENT ADDRESS</h5>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="applicationFormItem" *ngFor="let item of certificates;let i=index">
+                <div class="checkBox">
+                  <p>{{certificatesKeys[i]}}</p>
+                </div>
+                <div class="labels">
+                  <img src="{{baseApiUrl}}{{item}}" alt="">
+                  <!-- <p><span>:</span>{{item}}</p> -->
+                </div>
+                <div class="clearfix"></div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+      <div class="row text-center">
+        <div class="col-sm-4">
+          <button class="btn btn-danger width-160" (click)="confirmReject(applicationId)">Reject</button>
+        </div>
+        <div class="col-sm-4">
+          <button class="btn btn-info width-160" (click)="confirmResubmission(applicationId)">Request
+            Resubmition</button>
+        </div>
+        <div class="col-sm-4">
+          <button class="btn btn-success width-160" (click)="confirmAcceptance(applicationId)">Approve</button>
+        </div>
+        <button class="float-btn-right" (click)="downloadAsPDF()"><i
+            class="zmdi zmdi-download  zmdi-hc-3x"></i></button>
+
+      </div>
+
+    </div>
+  </div>
+</main>

@@ -1,0 +1,58 @@
+<main id="contact">
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2>ADD ADMISSION OFFICER</h2>
+    </div>
+  </div>
+  <div class="container success">
+    <!-- <h4>GET IN TOUCH WITH US</h4> -->
+
+
+    <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-sm-6">
+          <label class="req">NAME</label>
+          <input type="text" formControlName="name" placeholder="Enter admission officer's name" />
+          <app-control-messages [touched]="touched" [control]="f.name"></app-control-messages>
+        </div>
+        <div class="col-sm-6">
+          <label class="req">DESIGNATION</label>
+          <input type="text" formControlName="designation" placeholder="Enter e-mail address" />
+          <app-control-messages [touched]="touched" [control]="f.designation"></app-control-messages>
+        </div>
+        <div class="col-sm-6">
+          <label>Email</label>
+          <input type="text" formControlName="email" placeholder="Enter email address" />
+          <app-control-messages [touched]="touched" [control]="f.email"></app-control-messages>
+        </div>
+        <div class="col-sm-6">
+          <label>COURSE PHONE NUMBER 1</label>
+          <input type="text" formControlName="phone1" placeholder="Enter course phone number" />
+          <app-control-messages [touched]="touched" [control]="f.phone1"></app-control-messages>
+        </div>
+
+
+        <div class="col-sm-6">
+          <label>PHONE 2</label>
+          <input type="text" formControlName="phone2" placeholder="Enter phone number 2" />
+          <app-control-messages [touched]="touched" [control]="f.phone2"></app-control-messages>
+        </div>
+        <div class="col-sm-6">
+          <label>ADMISSION DEPARTMENT</label>
+          <input type="text" formControlName="admissionDepartment" placeholder="Enter department name" />
+          <app-control-messages [touched]="touched" [control]="f.admissionDepartment"></app-control-messages>
+        </div>
+      </div>
+
+
+
+      <div class="row clearfix">
+        <div class="col-sm-12">
+          <div class="pull-right">
+            <button id="submit-btn" class="greybutton">ADD</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>

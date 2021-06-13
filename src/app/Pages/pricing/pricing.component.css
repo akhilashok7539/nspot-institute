@@ -1,0 +1,28 @@
+.price::before {
+  content: "₹";
+}
+.pricings .plan a + a {
+  border-color: #1a4d59;
+  background-color: #1a4d59;
+}
+/* .pricings .plan .ribbon {
+
+    background-color: #1A4D59;
+} */
+
+.plan h5{
+  padding: 30px 0 30px 0;
+  font-size: 22px;
+  background-color: #EFF5F9;
+}
+
+.active-plan{
+  padding: 0 0 30px 0
+}
+.active-plan h5{
+  padding: 30px 0 30px 0;
+  margin: 0 0 30px 0;
+  font-size: 22px;
+  background-color: #EFF5F9;
+}
+

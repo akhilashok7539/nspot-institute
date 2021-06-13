@@ -1,0 +1,51 @@
+<main id="contact">
+  <div class="page-heading text-center">
+    <div class="container">
+      <h2 class="uppercase">Admission Officers</h2>
+    </div>
+  </div>
+  <div class="container success">
+    <form class="contact">
+      <div class="row mt-5">
+        <div class="col-md-12">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Designation</th>
+                <th>Department</th>
+                <!-- <th>Actions</th> -->
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of officerList; let i =index">
+                <td>{{i+1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.designation}}</td>
+                <td>{{item.admissionDepartment}}</td>
+                <!-- <td>
+                  <a routerLink="/institute/edit-admissionOfficer/{{item.id}}">View/Edit</a>
+                </td> -->
+                <!-- <td class="action-row">
+                  <button class="btn btn-actions btn-success">Activate</button>
+                </td> -->
+              </tr>
+            
+            </tbody>
+          </table>
+
+          <div class="row clearfix">
+            <div class="col-sm-12 mt-5">
+              <div class="pull-right">
+                <a routerLink="/institute/admission-officer/add" class="btn btn-info">
+                  ADD NEW ADMISSION OFFICER
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</main>
