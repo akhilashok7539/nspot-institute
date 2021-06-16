@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class CourseListedComponent implements OnInit {
   instituteLoginDetails;
   instituteId;
   institutecourseList:any=[];
-  constructor(private instituteService:ApiService) {}
+  constructor(private instituteService:ApiService,private router:Router) {}
 
   ngOnInit(): void 
   {
@@ -40,5 +41,13 @@ export class CourseListedComponent implements OnInit {
 
       }
     )
+  }
+  // routerLink="/institute/viewcourse"
+  view(event)
+  {
+    console.log(event);
+    
+    sessionStorage.setItem("instituteid",JSON.stringify(event));
+    this.router.navigate(['/institute/viewcourse'])
   }
 }

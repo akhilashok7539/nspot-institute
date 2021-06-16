@@ -9,8 +9,8 @@
     <form class="contact">
       <div class="row">
         <div class="col-sm-6 offset-sm-3">
-          <label class="req uppercase">Select Academic level</label>
-          <select
+          <!-- <label class="req uppercase">Select Academic level</label> -->
+          <!-- <select
             (change)="changeAcademicLevel()"
             [(ngModel)]="academicLevel"
             name="type"
@@ -24,7 +24,7 @@
             <option value="6">Graduation</option>
             <option value="7">Post Graduation</option>
             <option value="8">Doctorate</option>
-          </select>
+          </select> -->
         </div>
       </div>
       <div class="row mt-5">
@@ -40,12 +40,12 @@
             </thead> -->
             <tbody >
               <tr *ngFor="let institute of institutecourseList">
-                <td>{{institute.Course_Sub_Categories4.title}}</td>
+                <td>{{institute.CourseName}}</td>
                 <td>
-                  <a routerLink="/institute/post-a-course/1">View/Edit</a>
+                  <a (click)="view(institute)" >View/Edit</a>
                 </td>
                 <td>
-                  <a routerLink="/institute/post-a-course/1"
+                  <a 
                     >View Applications</a
                   >
                 </td>

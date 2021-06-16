@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ApiService } from '../../services/api.service';
@@ -15,7 +15,7 @@ import { environment } from 'src/environments/environment';
 export class AdditionalFieldsFormComponent implements OnInit {
   @Input() public formSection: string;
   @Input() public fieldType: string;
-
+  @Output() onSubmitFIlter = new EventEmitter<any>();
   constructor(
     private formBuilder: FormBuilder,
     private apiService: ApiService,
@@ -59,6 +59,7 @@ export class AdditionalFieldsFormComponent implements OnInit {
             this.toastr.success('Additional field added');
             (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
             this.form.reset();
+            this.onSubmitFIlter.emit(true);
           }
           else {
 

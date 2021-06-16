@@ -31,6 +31,8 @@ import { CourseStep3Component } from './Pages/post-course/course-step3/course-st
 import { CourseStep4Component } from './Pages/post-course/course-step4/course-step4.component';
 import { AdmissionDeskComponent } from './Pages/admission-desk/admission-desk.component';
 import { DetailedApplicationComponent } from './Pages/admission-desk/detailed-application/detailed-application.component';
+import { FormsComponent } from './Pages/forms/forms.component';
+import { ViewCourseComponent } from './Pages/view-course/view-course.component';
 
 const routes: Routes = [
   {
@@ -76,6 +78,8 @@ const routes: Routes = [
         component: AddAdmissionOfficerComponent,
       },
       { path: 'customize-application', component: CustomApplicationComponent },
+      { path: 'forms', component: FormsComponent },
+      { path: 'viewcourse', component: ViewCourseComponent },
       { path: 'bank-info', component: BankInfoComponent },
       { path: 'pricing', component: PricingComponent },
       { path: 'aptitude-test/view', component: AptitudeTestComponent },

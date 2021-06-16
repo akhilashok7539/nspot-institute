@@ -14,6 +14,7 @@
                     <div class="applicationForm">
                         <h5>PERSONAL DETAILS OF THE APPLICANT </h5>
                         <div class="row">
+
                             <div formGroupName="personalInfo">
 
                                 <div class="col-lg-6 col-xs-12">
@@ -328,27 +329,46 @@
                                             <p>NRI</p>
                                         </div>
                                     </div>
-
-                                    <!-- <div class="applicationFormItem">
-                                        <div class="checkBox">
-                                            <input type="checkbox"
-                                                (change)="changeFormItemStatus($event,'personalInfo')"
-                                                formControlName="parentConcent" />
+                                    <div formGroupName="additionalFields">
+                                        <div class="applicationFormItem"  *ngFor="let item of additionalField.personalInfo; let i=index">
+                                            <div class="checkBox">
+                                                <input type="checkbox"
+                                                    (change)="changeFormaditional($event,'additionalFields',item.fieldName)"
+                                                    formControlName="{{item.fieldName}}" />
+                                            </div>
+                                            <div class="labels">
+                                                <p>{{item.fieldText}}</p>
+                                            </div>
                                         </div>
-                                        <div class="labels">
-                                            <p>Parental Concent</p>
+                                    </div>
+                                    <!-- <div formGroupName="additionalFields">
+                                        <div
+                                            class="applicationFormItem">
+                                            <div class="labels">
+                                                <p>{{item.fieldText}}</p>
+                                            </div>
+                                            <div class="checkBox">
+                                                <input type="checkbox" formControlName="{{item.fieldName}}"
+                                                     />
+                                            </div>
                                         </div>
                                     </div> -->
-
-
-
                                 </div>
 
+
+
+
+
+
                             </div>
+                            <div class="col-lg-12">
+
+                            </div>
+
                             <div class="clearfix"></div>
                             <div class="additionalForm">
                                 <h4>Add additional fields</h4>
-                                <app-additional-fields-form [formSection]="'personalInfo'" [fieldType]="'text'">
+                                <app-additional-fields-form [formSection]="'personalInfo'" [fieldType]="'text'"   (onSubmitFIlter)='submitForm($event)'>
                                 </app-additional-fields-form>
                             </div>
                         </div>
@@ -674,7 +694,18 @@
                                     </div>
 
 
-
+                                    <div formGroupName="additionalFields">
+                                        <div class="applicationFormItem"  *ngFor="let item of additionalField.education; let i=index">
+                                            <div class="checkBox">
+                                                <input type="checkbox"
+                                                    (change)="changeFormaditional($event,'additionalFields',item.fieldName)"
+                                                    formControlName="{{item.fieldName}}" />
+                                            </div>
+                                            <div class="labels">
+                                                <p>{{item.fieldText}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
 
                                 </div>
 
@@ -802,6 +833,18 @@
                                         </div>
                                         <div class="labels">
                                             <p>Rank</p>
+                                        </div>
+                                    </div>
+                                    <div formGroupName="additionalFields">
+                                        <div class="applicationFormItem"  *ngFor="let item of additionalField.entrance; let i=index">
+                                            <div class="checkBox">
+                                                <input type="checkbox"
+                                                    (change)="changeFormaditional($event,'additionalFields',item.fieldName)"
+                                                    formControlName="{{item.fieldName}}" />
+                                            </div>
+                                            <div class="labels">
+                                                <p>{{item.fieldText}}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -1048,6 +1091,19 @@
                                             <p>Driving Licence</p>
                                         </div>
                                     </div>
+                                    <div formGroupName="additionalFields">
+                                        <div class="applicationFormItem"  *ngFor="let item of additionalField.certificates; let i=index">
+                                            <div class="checkBox">
+                                                <input type="checkbox"
+                                                    (change)="changeFormaditional($event,'additionalFields',item.fieldName)"
+                                                    formControlName="{{item.fieldName}}" />
+                                            </div>
+                                            <div class="labels">
+                                                <p>{{item.fieldText}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
 
                             </div>

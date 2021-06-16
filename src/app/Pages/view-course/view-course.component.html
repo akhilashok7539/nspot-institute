@@ -1,0 +1,90 @@
+<main id="contact">
+    <div class="page-heading text-center">
+        <div class="container">
+            <h2 class="uppercase">Manage Course</h2>
+        </div>
+    </div>
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                <h4>Course Info</h4>
+                <div class="col-sm-10">
+
+                    <h6>Course Name & Course Code: {{institutecourseList.CourseName}} &
+                        {{institutecourseList.item.courseCode}}</h6>
+
+                    <p>Desk Type : {{institutecourseList.item.CourseCategory.title}}</p>
+                    <p>Academic Month & Year: {{institutecourseList.item.accademicYearMonth}}/
+                        {{institutecourseList.item.accademicYear}}</p>
+                    <p>Addmission Start Date : {{institutecourseList.item.admissionStartDate | date:'fullDate'}}</p>
+
+                    <p>Addmission Close Date : {{institutecourseList.item.admissionCloseDate | date:'fullDate'}}</p>
+                    <p>Available Seats : {{institutecourseList.item.availableSeats }}</p>
+                    
+                    <p>Created Date : {{institutecourseList.item.createdAt | date:'fullDate'}}</p>
+
+
+                </div>
+                <div class="col-sm-2">
+                    <button>Edit</button>
+
+                </div>
+            </div>
+        </div>
+        <div class="card"  style="margin-top: 5px;">
+            <div class="row">
+                <h4>Other Info & Address</h4>
+
+                <div class="col-sm-6">
+                    <p>Gender Allowed : <input type="checkbox" disabled
+                        [checked]="institutecourseList.item.maleAllowed === true">Male
+                    <input type="checkbox" disabled
+                        [checked]="institutecourseList.item.femaleAllowed === true">Female
+                    <input type="checkbox" disabled
+                        [checked]="institutecourseList.item.otherGenderAllowed === true">Others
+                </p>
+                <p>Online Class Availability : <input type="checkbox" disabled
+                        [checked]="institutecourseList.item.onlineClassAvailability === true">Yes
+                    <input type="checkbox" disabled
+                        [checked]="institutecourseList.item.onlineClassAvailability != true">No
+                </p>
+                <p>Online Interview : <input type="checkbox" disabled
+                        [checked]="institutecourseList.item.onlineInterviewRequired === true">Yes
+
+
+                    <input type="checkbox" disabled
+                        [checked]="institutecourseList.item.onlineInterviewRequired != true">No
+                </p>
+                <p>Online Interview : <input type="checkbox" disabled
+                        [checked]="institutecourseList.item.hasPlacementAssistant === true">Yes
+                    <input type="checkbox" disabled
+                        [checked]="institutecourseList.item.hasPlacementAssistant != true">No
+                </p>
+                <p>University Name : {{institutecourseList.item.universityName}}</p>
+                <p>Refund Policy :
+                    <input type="checkbox" disabled [checked]="institutecourseList.item.refundPolicy === 'true'">Yes
+                    <input type="checkbox" disabled [checked]="institutecourseList.item.refundPolicy != 'true'">No
+                </p>
+                </div>
+                <div class="col-sm-6">
+                    <p>Address Line 1 : {{institutecourseList.item.campusAddressLine1}}</p>
+                    <p>Address Line 2 : {{institutecourseList.item.campusAddressLine2}}</p>
+                    <p>Address Line 3 : {{institutecourseList.item.campusAddressLine3}}</p>
+                    <p>Block : {{institutecourseList.item.block}}</p>
+                    <p>Locality : {{institutecourseList.item.locality}}</p>
+                    <p>Country : {{institutecourseList.item.country}}</p>
+
+
+                </div>
+
+            </div>
+        </div>
+        <div class="card" style="margin-top: 5px;">
+            <div class="row">
+                <h4>Fees Info</h4>
+
+            </div>
+        </div>
+
+    </div>
+</main>

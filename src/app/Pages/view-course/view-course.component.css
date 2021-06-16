@@ -1,0 +1,43 @@
+.card
+{
+    padding: 39px;
+    color: white;
+    background: #1a4d59e6;
+}
+h6{
+    font-size: 19px;
+    margin-bottom: 18px;
+    color: white;
+}
+button{
+    background: #fafafa;
+    color: #1a4d59e6;
+    border: none;
+    width: 84px;
+    padding: 4px;
+    border-radius: 9px;
+    float: right;
+}
+p{
+    line-height: 38px;
+}
+
+#course-single h4::after, #contact h4::after, #blog-1 h4::after, #blog-2 h4::after {
+    text-align: center;
+    display: block;
+    content: "";
+    height: 3px;
+    width: 147px;
+    background-color: #b20202;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 28px;
+}
+#course-single h4, #contact h4, #blog-1 h4, #blog-2 h4 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 0px !important;
+}

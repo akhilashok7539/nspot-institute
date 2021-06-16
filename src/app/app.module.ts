@@ -50,6 +50,8 @@ import { AdditionalFieldsFormComponent } from './components/additional-fields-fo
 import { AdmissionDeskComponent } from './Pages/admission-desk/admission-desk.component';
 import { DetailedApplicationComponent } from './Pages/admission-desk/detailed-application/detailed-application.component';
 import { environment } from 'src/environments/environment';
+import { FormsComponent } from './Pages/forms/forms.component';
+import { ViewCourseComponent } from './Pages/view-course/view-course.component';
 
 const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
 
@@ -96,6 +98,8 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
     AdditionalFieldsFormComponent,
     AdmissionDeskComponent,
     DetailedApplicationComponent,
+    FormsComponent,
+    ViewCourseComponent,
   ],
   imports: [
     BrowserModule,
