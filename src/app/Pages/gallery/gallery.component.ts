@@ -101,6 +101,8 @@ export class GalleryComponent implements OnInit {
     }
 
   }
-
+  onImgError(event) { 
+    event.target.src = 'https://stockpictures.io/wp-content/uploads/2020/01/image-not-found-big-768x432.png';
+}
   get f() { return this.form.controls; }
 }

@@ -16,7 +16,38 @@
   font-size: 25px;
   color: #FFF;
 }
+.container {
 
+  margin-top: 67px;
+
+}
+h6{
+  font-size: 35px;
+  margin-top: 26px;
+}
+.headers{
+  margin-top: 29px;
+  text-align: center;
+  margin-bottom: 39px;
+}
+.card
+{
+  border-style: double;
+}
+.col-sm-4{
+  margin-top: 8px;
+}
+.col-sm-2{
+  margin-top: 8px;
+}
+h5{
+  font-size: 17px;
+  font-weight: bold;
+  margin-left: 23px;
+}.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+  background-color: #fff;
+  opacity: 1;
+}
 .applicationFormItem{
   margin: 10px 0 30px 0;
   text-align: left;

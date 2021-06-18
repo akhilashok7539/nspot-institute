@@ -33,6 +33,7 @@ import { AdmissionDeskComponent } from './Pages/admission-desk/admission-desk.co
 import { DetailedApplicationComponent } from './Pages/admission-desk/detailed-application/detailed-application.component';
 import { FormsComponent } from './Pages/forms/forms.component';
 import { ViewCourseComponent } from './Pages/view-course/view-course.component';
+import { EditInstitutekycInfoComponent } from './Pages/edit-institutekyc-info/edit-institutekyc-info.component';
 
 const routes: Routes = [
   {
@@ -83,6 +84,8 @@ const routes: Routes = [
       { path: 'bank-info', component: BankInfoComponent },
       { path: 'pricing', component: PricingComponent },
       { path: 'aptitude-test/view', component: AptitudeTestComponent },
+      { path: 'edit-institute', component: EditInstitutekycInfoComponent },
+
     ],
   },
 ];

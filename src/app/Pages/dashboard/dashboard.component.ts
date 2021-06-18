@@ -107,5 +107,8 @@ export class DashboardComponent implements OnInit {
       }
     }
   }
-
+  edit()
+  {
+    this.router.navigate(['/institute/edit-institute'])
+  }
 }

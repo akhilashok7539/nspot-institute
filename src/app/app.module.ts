@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
@@ -52,6 +52,9 @@ import { DetailedApplicationComponent } from './Pages/admission-desk/detailed-ap
 import { environment } from 'src/environments/environment';
 import { FormsComponent } from './Pages/forms/forms.component';
 import { ViewCourseComponent } from './Pages/view-course/view-course.component';
+import {LoaderInterceptor} from './services/loadingInterceptor';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { EditInstitutekycInfoComponent } from './Pages/edit-institutekyc-info/edit-institutekyc-info.component';
 
 const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
 
@@ -100,6 +103,7 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
     DetailedApplicationComponent,
     FormsComponent,
     ViewCourseComponent,
+    EditInstitutekycInfoComponent,
   ],
   imports: [
     BrowserModule,
@@ -110,10 +114,13 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
     SweetAlert2Module.forRoot(),
     ReactiveFormsModule,
     HttpClientModule,
+    NgxSpinnerModule,
     FormsModule,
     SocketIoModule.forRoot(config)
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

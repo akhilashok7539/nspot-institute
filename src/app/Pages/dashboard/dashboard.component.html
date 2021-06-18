@@ -20,8 +20,9 @@
     <div class="row tutorial">
       <div class="col-sm-4 profilePicDiv">
         <input type="file" style="visibility: hidden;" id="profPicUploader" (change)="onProfileChange($event,instituteInfo?.id)">
-
-        <img src="{{instituteInfo.profilePicFile?baseApiUrl+instituteInfo?.profilePicFile:'assets/images/kyc.png'}}" />
+        <img  src="{{instituteInfo.profilePicFile?baseApiUrl+instituteInfo?.profilePicFile:'assets/images/kyc.png'}}" />
+        <!-- <img *ngIf="instituteInfo.profilePicFile" src="{{instituteInfo.profilePicFile?baseApiUrl+instituteInfo?.profilePicFile:'assets/images/kyc.png'}}" />
+        <img *ngIf="!instituteInfo.profilePicFile" src="./assets/images/kyc.png" /> -->
 
 
         <label for="profPicUploader" class="profilePicBtn">
@@ -70,7 +71,7 @@
             </div>
 
             <div class="col-md-12 mt-3 mb-4">
-              <button class="btn btn-info pull-right width-160">
+              <button class="btn btn-info pull-right width-160" (click)="edit()">
                 View / Edit Full Data
               </button>
             </div>

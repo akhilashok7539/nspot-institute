@@ -9,7 +9,7 @@
   <!-- <pre>{{entrance|json}}</pre> -->
 
 
-  <div class="container index-3-categories">
+  <!-- <div class="container index-3-categories">
     <div class="row contact">
 
       <div class="col-md-1"></div>
@@ -206,7 +206,6 @@
                 </div>
                 <div class="labels">
                   <img src="{{baseApiUrl}}{{item}}" alt="">
-                  <!-- <p><span>:</span>{{item}}</p> -->
                 </div>
                 <div class="clearfix"></div>
               </div>
@@ -236,5 +235,130 @@
       </div>
 
     </div>
+  </div> -->
+  <div class="container" id="pdfTable" #pdfTable>
+
+    <div class="card">
+      <div class="row">
+        <div class="col-sm-2">
+          <img src="./assets/images/nspot-logo.jpg" alt="" width="148px">
+
+        </div>
+        <div class="col-sm-8">
+          <h6 style="text-align: center;margin-bottom: 11px;">KMEA ENGINERRING COLLEGE</h6>
+          <p style="text-align: center;margin-bottom: 11px;">Location adn addrsssdetialss</p>
+        </div>
+        <div class="col-sm-2">
+          <!-- <img src="./images/logo.png" alt="" width="100px"> -->
+          <img src="./assets/images/nspot-logo.jpg" alt="" width="148px">
+
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <h5 class="headers">PERSONAL DETAILS OF THE APPLICANT </h5>
+      <hr>
+      <div class="row" *ngFor="let item of personalInfo;let i=index"
+        style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+        <div class="col-sm-5">
+          <p>{{personalInfoKeys[i] | uppercase}}</p>
+        </div>
+        <div class="col-sm-2">
+          <p style="
+              text-align: center;
+          ">:</p>
+        </div>
+        <div class="col-sm-5">
+          <p> {{item | uppercase}}</p>
+        </div>
+
+
+      </div>
+      <h5 class="headers">PERMANENT ADDRESS </h5>
+      <hr>
+
+      <div class="row" *ngFor="let item of permanentAddress;let i=index"
+        style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+        <div class="col-sm-5">
+          <p>{{permanentAddressKeys[i] | uppercase}}</p>
+        </div>
+        <div class="col-sm-2">
+          <p style="
+            text-align: center;
+        ">:</p>
+        </div>
+        <div class="col-sm-5">
+          <p> {{item | uppercase}}</p>
+        </div>
+
+
+      </div>
+      <h5 class="headers">COMMUNICATION ADDRESS</h5>
+      <hr>
+
+      <div class="row" *ngFor="let item of communicationAddress;let i=index"
+        style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+        <div class="col-sm-5">
+          <p>{{communicationAddressKeys[i] | uppercase}}</p>
+        </div>
+        <div class="col-sm-2">
+          <p style="
+            text-align: center;
+        ">:</p>
+        </div>
+        <div class="col-sm-5">
+          <p> {{item | uppercase}}</p>
+        </div>
+      </div>
+      <h5 class="headers">EDUCATION DETAILS</h5>
+      <hr>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="additionalForm" *ngFor="let item of education;let j=index">
+            <div class="applicationFormItem" *ngFor="let item of education[j];let i=index">
+              <div class="checkBox">
+                <p>{{educationKeys?educationKeys[j][i]:''}}</p>
+              </div>
+              <div class="labels">
+                <p><span>:</span>{{item}}</p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <h5 class="headers">ENTRANCE DETAILS</h5>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="additionalForm" *ngFor="let item of entrance;let j=index">
+            <div class="applicationFormItem" *ngFor="let item of entrance[j];let i=index">
+              <div class="checkBox">
+                <p>{{entranceKeys[j][i]}}</p>
+              </div>
+              <div class="labels">
+                <p><span>:</span>{{item}}</p>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row text-center" style="margin-top: 15px;">
+    <div class="col-sm-6">
+      <button class="btn btn-danger width-160" (click)="confirmReject(applicationId)">Reject</button>
+    </div>
+    <!-- <div class="col-sm-4">
+      <button class="btn btn-info width-160" (click)="confirmResubmission(applicationId)">Request
+        Resubmition</button>
+    </div> -->
+    <div class="col-sm-6">
+      <button class="btn btn-success width-160" (click)="confirmAcceptance(applicationId)">Approve</button>
+    </div>
+    <button class="float-btn-right" (click)="downloadAsPDF()"><i
+        class="zmdi zmdi-download  zmdi-hc-3x"></i></button>
+
   </div>
 </main>
