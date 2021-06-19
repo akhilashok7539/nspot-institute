@@ -57,6 +57,8 @@ export class ApiService {
 
   // general post service
   public doPostRequest(url: any, data: any) {
+    console.log(data);
+    
     return this.http.post<any>(this.SERVER_URL + url, data, this.httpOptions).pipe(
       map((response) => {
         return response;
@@ -73,6 +75,15 @@ export class ApiService {
       }),
     }
     return this.http.post<any>(this.SERVER_URL + url, data, httpOptions).pipe(
+      map((response) => {
+        return response
+      }),
+    )
+  }
+  public doPutRequest(url: any, data: any) {
+    // this.getAccessToken()
+   
+    return this.http.put<any>(this.SERVER_URL + url, data).pipe(
       map((response) => {
         return response
       }),

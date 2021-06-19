@@ -1,10 +1,60 @@
 <main>
   <div class="page-heading text-center">
-    <div class="container">
+    <div class="container" >
       <h2 class="uppercase">Review Student Application</h2>
     </div>
   </div>
+  <div class="container index-3-categories">
+    <div class="row contact">
 
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <div class="additionalForm text-center">
+          <div class="row">
+            <form [formGroup]="reportingForm" (ngSubmit)="onSubmit(reportingForm)">
+              <div class="col-lg-3 mt-2"> Schedule Date of Reporting</div>
+              <div class="col-lg-6"><input type="date" formControlName="dateOfReporting" id=""></div>
+              <div class="col-lg-2 mt-2"><button>Update</button></div>
+            </form>
+          </div>
+
+          <div class="row">
+            <form [formGroup]="aptitudeForm" (ngSubmit)="onSubmit(aptitudeForm)">
+              <div class="col-lg-3 mt-2"> Schedule Aptitude Test</div>
+              <div class="col-lg-2"><input type="date" formControlName="startDateTimeOfAptitudeTest" id=""></div>
+              <div class="col-lg-2"><input type="date" formControlName="endDateTimeOfAptitudeTest" id=""></div>
+              <div class="col-lg-2">
+                <select formControlName="aptitudeTestId" id="">
+                  <option *ngFor="let appttitudetestdetails of appttitudetestdetails" value="{{appttitudetestdetails.id}}">{{appttitudetestdetails.title}}</option>
+                </select>
+              </div>
+              <div class="col-lg-2 mt-2"><button>Update</button></div>
+            </form>
+          </div>
+
+          <div class="row">
+            <form [formGroup]="interviewForm" (ngSubmit)="onSubmit(interviewForm)">
+              <div class="col-lg-3 mt-2">Schedule Video Interview</div>
+              <div class="col-lg-3"><input type="date" formControlName="dateOfInterview" id=""></div>
+              <div class="col-lg-3"><input type="text" formControlName="interviewLink"
+                  placeholder="video interview meeting link" id=""></div>
+              <div class="col-lg-2 mt-2"><button>Update</button></div>
+            </form>
+          </div>
+
+          <div class="row">
+            <form [formGroup]="reviewForm" (ngSubmit)="onSubmit(reviewForm)">
+              <div class="col-lg-3 mt-2">Remarks</div>
+              <div class="col-lg-6"><textarea class="height100" rows="10" formControlName="remarks" id=""></textarea>
+              </div>
+              <div class="col-lg-2 mt-2"><button>Update</button></div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
   <!-- <pre>{{applicationData|json}}</pre> -->
   <!-- <pre>{{entrance|json}}</pre> -->
 
@@ -345,7 +395,7 @@
       </div>
     </div>
   </div>
-  
+
   <div class="row text-center" style="margin-top: 15px;">
     <div class="col-sm-6">
       <button class="btn btn-danger width-160" (click)="confirmReject(applicationId)">Reject</button>
@@ -357,8 +407,7 @@
     <div class="col-sm-6">
       <button class="btn btn-success width-160" (click)="confirmAcceptance(applicationId)">Approve</button>
     </div>
-    <button class="float-btn-right" (click)="downloadAsPDF()"><i
-        class="zmdi zmdi-download  zmdi-hc-3x"></i></button>
+    <button class="float-btn-right" (click)="downloadAsPDF()"><i class="zmdi zmdi-download  zmdi-hc-3x"></i></button>
 
   </div>
 </main>

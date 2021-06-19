@@ -109,6 +109,6 @@ export class DashboardComponent implements OnInit {
   }
   edit()
   {
-    this.router.navigate(['/institute/edit-institute'])
+    this.router.navigate(['/institute/edit-institute/'+this.instituteId])
   }
 }

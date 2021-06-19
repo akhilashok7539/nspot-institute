@@ -17,7 +17,8 @@ import { trim } from 'lodash';
   styleUrls: ['./detailed-application.component.css']
 })
 export class DetailedApplicationComponent implements OnInit {
-
+  instituteId = this.authService.userProfile.userType;
+  appttitudetestdetails:any=[];
   applicationId;
   applicationData;
   personalInfo = new Array();
@@ -76,6 +77,7 @@ export class DetailedApplicationComponent implements OnInit {
       id: this.applicationId,
       remarks: [''],
     });
+    this.getallapptituteTest();
   }
 
   loadData() {
@@ -392,7 +394,7 @@ export class DetailedApplicationComponent implements OnInit {
       .subscribe((returnData: any) => {
         this.toastr.success('Updated successfully');
         form.reset();
-        this.loadData()
+        // this.loadData()
       },
         error => {
           console.error(error);
@@ -401,5 +403,13 @@ export class DetailedApplicationComponent implements OnInit {
         });
 
 
+  }
+  getallapptituteTest()
+  {
+    this.apiService.doGetRequest(`institute/aptitude-tests/`+this.instituteId).subscribe(
+      data =>{
+        this.appttitudetestdetails = data['data'];
+      }
+    )
   }
 }

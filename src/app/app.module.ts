@@ -55,6 +55,7 @@ import { ViewCourseComponent } from './Pages/view-course/view-course.component';
 import {LoaderInterceptor} from './services/loadingInterceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { EditInstitutekycInfoComponent } from './Pages/edit-institutekyc-info/edit-institutekyc-info.component';
+import { UpdateCourseInfoComponent } from './Pages/update-course-info/update-course-info.component';
 
 const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
 
@@ -104,6 +105,7 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
     FormsComponent,
     ViewCourseComponent,
     EditInstitutekycInfoComponent,
+    UpdateCourseInfoComponent,
   ],
   imports: [
     BrowserModule,

@@ -72,11 +72,11 @@
                                 <tbody>
                                     <tr>
                                         <td>{{i+1}})</td>
-                                        <td colspan="2">{{item.question}}</td>
+                                        <td >{{item.question}}</td>
                                     </tr>
                                     <tr *ngFor="let option of item.Aptitude_Question_Options">
                                         <td></td>
-                                        <td></td>
+                                       
                                         <td><input type="radio" disabled [checked]="option.isCorrectOption">
                                             {{option.option}}</td>
                                     </tr>

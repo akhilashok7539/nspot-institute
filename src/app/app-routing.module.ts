@@ -34,6 +34,7 @@ import { DetailedApplicationComponent } from './Pages/admission-desk/detailed-ap
 import { FormsComponent } from './Pages/forms/forms.component';
 import { ViewCourseComponent } from './Pages/view-course/view-course.component';
 import { EditInstitutekycInfoComponent } from './Pages/edit-institutekyc-info/edit-institutekyc-info.component';
+import { UpdateCourseInfoComponent } from './Pages/update-course-info/update-course-info.component';
 
 const routes: Routes = [
   {
@@ -84,7 +85,9 @@ const routes: Routes = [
       { path: 'bank-info', component: BankInfoComponent },
       { path: 'pricing', component: PricingComponent },
       { path: 'aptitude-test/view', component: AptitudeTestComponent },
-      { path: 'edit-institute', component: EditInstitutekycInfoComponent },
+      { path: 'edit-institute/:id', component: EditInstitutekycInfoComponent },
+      { path: 'edit-course/:id', component: UpdateCourseInfoComponent },
+
 
     ],
   },
