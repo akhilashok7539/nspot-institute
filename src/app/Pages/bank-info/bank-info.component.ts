@@ -35,7 +35,11 @@ export class BankInfoComponent implements OnInit {
       name: [''],
       ifsc: [''],
       nickname: [''],
-      passbookFile: ['']
+      passbookFile: [''],
+      aadharNumber:[''],
+      panNumber:[''],
+      panFile:[''],
+      aadharFile:[''],
     });
   }
 
@@ -73,6 +77,9 @@ export class BankInfoComponent implements OnInit {
     this.multiForm.append('name', formData.name);
     this.multiForm.append('ifsc', formData.ifsc);
     this.multiForm.append('nickname', formData.nickname);
+    this.multiForm.append('aadharNumber', formData.aadharNumber);
+    this.multiForm.append('panNumber', formData.panNumber);
+
 
     this.apiService.doPostRequest_upload(endPoints.Create_bankDetails + this.instituteId, this.multiForm)
       .subscribe((returnData: any) => {

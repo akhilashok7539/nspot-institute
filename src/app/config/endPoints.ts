@@ -44,7 +44,7 @@ export const endPoints = {
     Get_admissionOfficer: 'admission-officer/',
     Get_admissionOfficerByInstitute: 'admission-officer/getByInstitute/', // instituteId
     Get_plans: 'plans/byInstituteType/', // instituteNationalityType // international_boards, national_boards,state_boards
-
+    GET_SUBSCRIPTION:'plans',
     // Common endpoints
     instituteTypes: 'institute-types',
     Get_academicLevels: 'academic-level/',

@@ -56,6 +56,12 @@ import {LoaderInterceptor} from './services/loadingInterceptor';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { EditInstitutekycInfoComponent } from './Pages/edit-institutekyc-info/edit-institutekyc-info.component';
 import { UpdateCourseInfoComponent } from './Pages/update-course-info/update-course-info.component';
+import { PaymentHistoryComponent } from './Pages/payment-history/payment-history.component';
+import { CompletedStudnetListComponent } from './Pages/completed-studnet-list/completed-studnet-list.component';
+import { UpdateVirtualTourComponent } from './Pages/update-virtual-tour/update-virtual-tour.component';
+import { UpdateDownloadComponent } from './Pages/update-download/update-download.component';
+import { UpdateHostelinfoComponent } from './Pages/update-hostelinfo/update-hostelinfo.component';
+import { UpdateBoardofcouncilComponent } from './Pages/update-boardofcouncil/update-boardofcouncil.component';
 
 const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
 
@@ -106,6 +112,12 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
     ViewCourseComponent,
     EditInstitutekycInfoComponent,
     UpdateCourseInfoComponent,
+    PaymentHistoryComponent,
+    CompletedStudnetListComponent,
+    UpdateVirtualTourComponent,
+    UpdateDownloadComponent,
+    UpdateHostelinfoComponent,
+    UpdateBoardofcouncilComponent,
   ],
   imports: [
     BrowserModule,

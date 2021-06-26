@@ -111,4 +111,16 @@ export class DashboardComponent implements OnInit {
   {
     this.router.navigate(['/institute/edit-institute/'+this.instituteId])
   }
+  view(s){
+    let req = {
+      transportationInfo:s.transportationInfo,
+      hostalAnnualFee:s.hostalAnnualFee,
+      foodAvailableAtHostel:s.foodAvailableAtHostel,
+      haveGirlsHostel:s.haveGirlsHostel,
+      haveBoysHostel:s.haveBoysHostel
+    }
+    sessionStorage.setItem("feeandinfo",JSON.stringify(req))
+    this.router.navigate(['/institute/update-hostel'])
+
+  }
 }

@@ -35,6 +35,12 @@ import { FormsComponent } from './Pages/forms/forms.component';
 import { ViewCourseComponent } from './Pages/view-course/view-course.component';
 import { EditInstitutekycInfoComponent } from './Pages/edit-institutekyc-info/edit-institutekyc-info.component';
 import { UpdateCourseInfoComponent } from './Pages/update-course-info/update-course-info.component';
+import { CompletedStudnetListComponent } from './Pages/completed-studnet-list/completed-studnet-list.component';
+import { PaymentHistoryComponent } from './Pages/payment-history/payment-history.component';
+import { UpdateVirtualTourComponent } from './Pages/update-virtual-tour/update-virtual-tour.component';
+import { UpdateBoardofcouncilComponent } from './Pages/update-boardofcouncil/update-boardofcouncil.component';
+import { UpdateDownloadComponent } from './Pages/update-download/update-download.component';
+import { UpdateHostelinfoComponent } from './Pages/update-hostelinfo/update-hostelinfo.component';
 
 const routes: Routes = [
   {
@@ -87,7 +93,14 @@ const routes: Routes = [
       { path: 'aptitude-test/view', component: AptitudeTestComponent },
       { path: 'edit-institute/:id', component: EditInstitutekycInfoComponent },
       { path: 'edit-course/:id', component: UpdateCourseInfoComponent },
+      { path: 'studentList', component: CompletedStudnetListComponent },
+      { path: 'paymentHistory', component: PaymentHistoryComponent },
+      { path: 'update-virtualtour', component: UpdateVirtualTourComponent },
+      { path: 'update-counicl', component: UpdateBoardofcouncilComponent },
+      { path: 'update-downloads', component: UpdateDownloadComponent },
+      { path: 'update-hostel', component: UpdateHostelinfoComponent },
 
+      
 
     ],
   },

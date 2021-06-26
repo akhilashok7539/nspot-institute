@@ -152,7 +152,7 @@
               <tr>
                 <th></th>
                 <td></td>
-                <th><button class="btn btn-info pull-right width-160">View / Edit</button></th>
+                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-counicl">View / Edit</button></th>
               </tr>
 
 
@@ -207,7 +207,7 @@
 
               <tr>
                 <td></td>
-                <th><button class="btn btn-info pull-right width-160">View / Edit</button></th>
+                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-downloads">View / Edit</button></th>
               </tr>
 
             </tbody>
@@ -239,10 +239,64 @@
       <div class="col-sm-8">
         <div class="tutorial-details">
           <h6>VIRTUAL TOUR</h6>
-          <p>Manage your virtual tour section</p>
-          <div class=" bottom-0">
-            <a routerLink="/institute/gallery" class="btn btn-info pull-right width-160">Manage Gallery >></a>
-          </div>
+          <!-- <p>Manage your virtual tour section</p> -->
+          <table class="table">
+            <tbody>
+
+              <tr>
+                <th>Campus Overview</th>
+                <th><a *ngIf="highlights?.brochuresFile!=null" target="_blank" class="abs"
+                    href="{{baseApiUrl}}{{highlights?.brochuresFile}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                </th>
+              </tr>
+
+              <tr>
+                <th>Class Room</th>
+                <th><a *ngIf="highlights?.rulesFile!=null" target="_blank" class="abs"
+                    href="{{baseApiUrl}}{{highlights?.rulesFile}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a></th>
+              </tr>
+
+              <tr>
+                <th>Lab</th>
+                <th>
+                  <a *ngIf="highlights?.uniformFile!=null" target="_blank" class="abs"
+                    href="{{baseApiUrl}}{{highlights?.uniformFile}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                </th>
+              </tr>
+
+              <tr>
+                <th>Library</th>
+                <th>
+                  <a *ngIf="highlights?.specialFeaturesFile!=null" target="_blank" class="abs"
+                    href="{{baseApiUrl}}{{highlights?.specialFeaturesFile}}"><i
+                      class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                </th>
+              </tr>
+
+              <tr>
+                <th>Recreational Area</th>
+                <th>
+                  <a *ngIf="highlights?.specialFeaturesFile!=null" target="_blank" class="abs"
+                    href="{{baseApiUrl}}{{highlights?.specialFeaturesFile}}"><i
+                      class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                </th>
+              </tr>
+              <tr>
+                <th>Hostel</th>
+                <th>
+                  <a *ngIf="highlights?.specialFeaturesFile!=null" target="_blank" class="abs"
+                    href="{{baseApiUrl}}{{highlights?.specialFeaturesFile}}"><i
+                      class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                </th>
+              </tr>
+              <tr>
+                <td></td>
+                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-virtualtour">View / Edit</button></th>
+              </tr>
+
+            </tbody>
+          </table>
+         
         </div>
       </div>
     </div>
@@ -285,7 +339,7 @@
 
               <tr>
                 <td></td>
-                <th><button class="btn btn-info pull-right width-160">View / Edit</button></th>
+                <th><button class="btn btn-info pull-right width-160" (click)="view(instituteInfo)" >View / Edit</button></th>
               </tr>
 
             </tbody>

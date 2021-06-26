@@ -39,30 +39,53 @@
         </div>
 
         <div class="row contact">
-
+   
             <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
-                <div class="col-md-4 col-sm-6 card">
-                    <label class="req uppercase">Add bank account</label>
+                <div class="col-md-12 col-sm-12 card" style="width: 100% !important;">
+                   
+                    <h6>Basic Details</h6>
 
+                    <label for="">Account Number </label>
                     <input type="text" formControlName="accountNumber" placeholder="Account Number" required />
                     <app-control-messages [touched]="touched" [control]="f.accountNumber"></app-control-messages>
+                    <label for="">Account holder name</label>
 
                     <input type="text" formControlName="name" placeholder="Account holder name" required />
                     <app-control-messages [touched]="touched" [control]="f.name"></app-control-messages>
+                    <label for="">IFSC Code</label>
 
                     <input type="text" formControlName="ifsc" placeholder="IFSC" required />
                     <app-control-messages [touched]="touched" [control]="f.ifsc"></app-control-messages>
+                    <label for="">Nick Name </label>
 
                     <input type="text" formControlName="nickname" placeholder="Nickname" required />
                     <app-control-messages [touched]="touched" [control]="f.nickname"></app-control-messages>
+                    <label for="">Aadhar Number </label>
 
+                    <input type="text" formControlName="aadharNumber" placeholder="aadhar Number" required />
+                    <app-control-messages [touched]="touched" [control]="f.aadharNumber"></app-control-messages>
+                    <label for="">Pan card Number </label>
+
+                    <input type="text" formControlName="panNumber" placeholder="Pan card Number" required />
+                    <app-control-messages [touched]="touched" [control]="f.panNumber"></app-control-messages>
+                   
+                    <h6 style="margin-top: 10px;margin-bottom: 10px;">Documents Details</h6>
+                   
+                    <label for="">Passbook File</label>
                     <input type="file" (change)="onchangeFile('passbookFile',$event)" formControlName="passbookFile" />
                     <app-control-messages [touched]="touched" [control]="f.passbookFile"></app-control-messages>
+                    <label for="">Aadhar File</label>
+                    <input type="file" (change)="onchangeFile('aadharFile',$event)" formControlName="aadharFile" />
+                    <app-control-messages [touched]="touched" [control]="f.aadharFile"></app-control-messages>
+                    <label for="">Pan card File</label>
+                    <input type="file" (change)="onchangeFile('panFile',$event)" formControlName="panFile" />
+                    <app-control-messages [touched]="touched" [control]="f.panFile"></app-control-messages>
 
                     <div class="float-right">
                         <button class="btn btn-info mt-3 pull-right" id="submit-btn">ADD ACCOUNT</button>
                     </div>
                 </div>
+               
             </form>
 
         </div>

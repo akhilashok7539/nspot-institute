@@ -1,0 +1,55 @@
+<main id="register">
+    <div class="page-heading text-center">
+        <div class="container">
+            <h2>UPDATE HOSTEL & TRANSPORTATION INFO </h2>
+        </div>
+    </div>
+    <div class="container">
+
+ 
+    <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="col-sm-12">
+            <label class="uppercase">Hostel Facility</label>
+            <div class="col-sm-3">
+                <p class="checkbox">
+                    <input type="checkbox" formControlName="haveBoysHostel" />
+                    <span>Boys</span>
+                </p>
+            </div>
+            <div class="col-sm-3">
+                <p class="checkbox">
+                    <input type="checkbox" formControlName="haveGirlsHostel" />
+                    <span>Girls</span>
+                </p>
+            </div>
+            <div class="col-sm-3">
+                <p class="checkbox">
+                    <input type="checkbox" formControlName="foodAvailableAtHostel" />
+                    <span>Food</span>
+                </p>
+            </div>
+
+        </div>
+        <div class="col-sm-12">
+            <label class="uppercase">Annual Fee INFO</label>
+            <input type="text" formControlName="hostalAnnualFee" placeholder="Annual Fees " />
+            <app-control-messages [control]="f.hostalAnnualFee" [touched]="touched"></app-control-messages>
+        </div>
+        <div class="col-sm-12">
+            <label class="uppercase">TRANSPORTATION INFO</label>
+
+            <input type="text" formControlName="transportationInfo" placeholder="Enter transportation info" />
+            <app-control-messages [control]="f.transportationInfo" [touched]="touched"></app-control-messages>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-12">
+                <div class="pull-right">
+                    <button type="submit" id="submit-btn" class="btn btn-info mt-3">
+                        Save and Continue
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</main>

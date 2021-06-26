@@ -1,0 +1,56 @@
+<main id="register">
+    <div class="page-heading text-center">
+        <div class="container">
+            <h2>UPDATE VIRTUAL TOUR </h2>
+        </div>
+    </div>
+    <div class="container success">
+        <form class="contact" [formGroup]="form"  (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Campus Overview </label>
+                    <input type="file" (change)="onchangeFile('campusOverview',$event)" formControlName="campusOverview"
+                        id="" />
+                    <app-control-messages [touched]="touched" [control]="f.campusOverview"></app-control-messages>
+                </div>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Class Room Tour </label>
+                    <input type="file" (change)="onchangeFile('classRoom',$event)" formControlName="classRoom" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.classRoom"></app-control-messages>
+                </div>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Lab Tour </label>
+                    <input type="file" (change)="onchangeFile('lab',$event)" formControlName="lab" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.lab"></app-control-messages>
+                </div>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Library </label>
+                    <input type="file" (change)="onchangeFile('library',$event)" formControlName="library" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.library"></app-control-messages>
+                </div>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Recreational Area </label>
+                    <input type="file" (change)="onchangeFile('recreationalArea',$event)"
+                        formControlName="recreationalArea" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.recreationalArea"></app-control-messages>
+                </div>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Hostel Tour </label>
+                    <input type="file" (change)="onchangeFile('hostel',$event)" formControlName="hostel" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.hostel"></app-control-messages>
+                </div>
+
+            </div>
+            <button style="float: right;" id="submit-btn" type="submit" class="btn btn-info nbtn" >
+                Save and Continue
+              </button>
+        </form>
+      
+    </div>
+</main>
