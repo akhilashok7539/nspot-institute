@@ -62,6 +62,7 @@ import { UpdateVirtualTourComponent } from './Pages/update-virtual-tour/update-v
 import { UpdateDownloadComponent } from './Pages/update-download/update-download.component';
 import { UpdateHostelinfoComponent } from './Pages/update-hostelinfo/update-hostelinfo.component';
 import { UpdateBoardofcouncilComponent } from './Pages/update-boardofcouncil/update-boardofcouncil.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
 
@@ -134,6 +135,7 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent],
 })
