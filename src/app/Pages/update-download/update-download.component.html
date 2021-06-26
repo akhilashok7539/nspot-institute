@@ -4,4 +4,49 @@
             <h2>UPDATE DOWNLOADS </h2>
         </div>
     </div>
+    <div class="container">
+
+    <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+
+        <div class="row">
+  
+
+            <div class="col-sm-6">
+                <label class="uppercase">BROCHURE </label>
+                <input type="file" (change)="onchangeFile('brochuresFile',$event)" formControlName="brochuresFile"
+                    id="" />
+                <app-control-messages [touched]="touched" [control]="f.brochuresFile"></app-control-messages>
+            </div>
+
+            <div class="col-sm-6">
+                <label class="uppercase">RULES & REGULATIONS </label>
+                <input type="file" (change)="onchangeFile('rulesFile',$event)" formControlName="rulesFile" id="" />
+                <app-control-messages [touched]="touched" [control]="f.rulesFile"></app-control-messages>
+            </div>
+
+            <div class="col-sm-6">
+                <label class="uppercase">UNIFORM </label>
+                <input type="file" (change)="onchangeFile('uniformFile',$event)" formControlName="uniformFile" id="" />
+                <app-control-messages [touched]="touched" [control]="f.uniformFile"></app-control-messages>
+            </div>
+
+            <div class="col-sm-6">
+                <label class="uppercase">HIGHLIGHTS/SPECIAL FEATURES </label>
+                <input type="file" (change)="onchangeFile('specialFeaturesFile',$event)"
+                    formControlName="specialFeaturesFile" id="" />
+                <app-control-messages [touched]="touched" [control]="f.specialFeaturesFile"></app-control-messages>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-12">
+              <div class="pull-right">
+                <button type="submit" id="submit-btn" class="btn btn-info nbtn">
+                  Save and Continue
+                </button>
+              </div>
+            </div>
+          </div>
+    </form>
+</div>
+
 </main>

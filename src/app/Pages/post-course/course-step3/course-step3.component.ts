@@ -6,6 +6,8 @@ import { endPoints } from '../../../config/endPoints';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 import * as _ from 'lodash';
+import { NgxSpinner } from 'ngx-spinner/lib/ngx-spinner.enum';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-course-step3',
@@ -20,7 +22,8 @@ export class CourseStep3Component implements OnInit {
     private formBuilder: FormBuilder,
     private apiService: ApiService,
     private authService: AuthService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private spinner: NgxSpinnerService,
   ) { }
   instituteId: number;
   courseId: number;
@@ -42,7 +45,7 @@ export class CourseStep3Component implements OnInit {
     if (this.form.invalid) {
       return;
     } else {
-      (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
+      // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     }
     const formData = this.form.value;
     this.apiService.doPostRequest(endPoints.Update_course + this.courseId, formData)
@@ -56,6 +59,9 @@ export class CourseStep3Component implements OnInit {
         error => {
           this.toastr.error(error.error[0].message);
           console.error(error);
+          this.spinner.hide();
+      //  (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('enabled', '');
+
         });
 
 

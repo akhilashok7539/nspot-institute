@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
   boardOfCouncilInfo;
   highlights;
   socialLinks;
-
+  virtualTours;
   baseApiUrl = environment.baseApiUrl;
 
   ngOnInit(): void {
@@ -42,7 +42,12 @@ export class DashboardComponent implements OnInit {
       console.error(error);
       this.toastr.error('Failed to fetch institute details');
     });
-
+    this.apiService.doGetRequest(`institute/virtual-tour/` + this.instituteId).subscribe((returnData: any) => {
+      this.virtualTours = returnData.data;
+    }, error => {
+      console.error(error);
+      this.toastr.error('Failed to fetch virtual tour details');
+    });
     // fetching highlights
     this.apiService.doGetRequest(endPoints.Get_highlights + this.instituteId).subscribe((returnData: any) => {
       this.highlights = returnData.data;

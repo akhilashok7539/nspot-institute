@@ -27,7 +27,7 @@ export class DetailedApplicationComponent implements OnInit {
   education = new Array();
   entrance = new Array();
   certificates = new Array();
-
+  instituteInfo;
   personalInfoKeys = {}
   permanentAddressKeys = {}
   communicationAddressKeys = {}
@@ -231,6 +231,15 @@ export class DetailedApplicationComponent implements OnInit {
         }
       }
     });
+
+    this.apiService.doGetRequest(endPoints.GetInstituteInfo + this.instituteId).subscribe((returnData: any) => {
+      console.log(returnData)
+      this.instituteInfo = returnData.data;
+    }, error => {
+      console.error(error);
+      this.toastr.error('Failed to fetch institute details')
+    });
+
   }
 
   /**

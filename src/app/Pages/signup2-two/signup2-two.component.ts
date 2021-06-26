@@ -66,7 +66,10 @@ export class Signup2TwoComponent implements OnInit {
       hostalAnnualFee: [''],
       transportationInfo: ['', [Validators.required]],
       gmapLatitude: ['', [Validators.required]],
-      gmapLongitude: ['', [Validators.required]]
+      gmapLongitude: ['', [Validators.required]],
+      year_of_establishment:['', [Validators.required]],
+      designation:['', [Validators.required]],
+      institute_aid_status:['active'],
     });
   }
 
@@ -180,6 +183,7 @@ export class Signup2TwoComponent implements OnInit {
     //   (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     // }
     const formData = this.form.value;
+    
     this.apiService.doPostRequest(endPoints.CreateInstitute, formData).subscribe((returnData: any) => {
       if (returnData.status == true) {
         this.toastr.success('Form submission successfull');
