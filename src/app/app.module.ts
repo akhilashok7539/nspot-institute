@@ -63,7 +63,7 @@ import { UpdateDownloadComponent } from './Pages/update-download/update-download
 import { UpdateHostelinfoComponent } from './Pages/update-hostelinfo/update-hostelinfo.component';
 import { UpdateBoardofcouncilComponent } from './Pages/update-boardofcouncil/update-boardofcouncil.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-
+import { NgxCaptchaModule } from 'ngx-captcha';
 const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
 
 @NgModule({
@@ -131,7 +131,8 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
     HttpClientModule,
     NgxSpinnerModule,
     FormsModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    NgxCaptchaModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },

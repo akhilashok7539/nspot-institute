@@ -5,6 +5,7 @@ import { ApiService } from '../../services/api.service';
 import { endPoints } from '../../config/endPoints';
 import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2';
+import { ReCaptchaV3Service } from 'ngx-captcha';
 
 
 @Component({
@@ -13,11 +14,13 @@ import Swal from 'sweetalert2';
   styleUrls: ['./signup2-two.component.css'],
 })
 export class Signup2TwoComponent implements OnInit {
+  siteKey;
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
     private apiService: ApiService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private reCaptchaV3Service: ReCaptchaV3Service
   ) { }
 
   form: FormGroup;
@@ -33,7 +36,11 @@ export class Signup2TwoComponent implements OnInit {
     this.apiService.doGetRequest(endPoints.Get_licenseAuthorities).subscribe((returnData: any) => {
       this.licenseIssueAuthorities = returnData.data;
     });
-
+    // this.reCaptchaV3Service.execute(this.siteKey, 'homepage', (token) => {
+    //   console.log('This is your token: ', token);
+    // }, {
+    //     useGlobalDomain: false
+    // });
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
       typeId: ['', [Validators.required]],
@@ -56,8 +63,8 @@ export class Signup2TwoComponent implements OnInit {
       town: ['', [Validators.required]],
       pin: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      telephone1: ['', [Validators.minLength(15)]],
-      telephone2: ['', [Validators.minLength(15)]],
+      telephone1: ['', [Validators.minLength(6)]],
+      telephone2: ['', [Validators.minLength(6)]],
       mobile1: ['', [Validators.maxLength(10), Validators.minLength(10)]],
       mobile2: ['', [Validators.maxLength(10), Validators.minLength(10)]],
       haveBoysHostel: [false],
@@ -69,7 +76,14 @@ export class Signup2TwoComponent implements OnInit {
       gmapLongitude: ['', [Validators.required]],
       year_of_establishment:['', [Validators.required]],
       designation:['', [Validators.required]],
-      institute_aid_status:['active'],
+      institute_aid_status:['', [Validators.required]],
+      ownership:['', [Validators.required]],
+      institute_category:['', [Validators.required]],
+      admission_office_email:['', [Validators.required]],
+      admission_office_mobileno1:['', [Validators.required]],
+      admission_office_mobileno2:['', [Validators.required]],
+      recaptcha: ['', Validators.required],
+      officialEmail: ['', Validators.required],
     });
   }
 
@@ -107,7 +121,9 @@ export class Signup2TwoComponent implements OnInit {
     }
 
   }
-
+  handleSuccess(e) {
+    console.log("ReCaptcha", e);
+  }
   enterOTP(phoneNumber) {
     const isValidNumber = this.validateMobile(phoneNumber);
     if (!isValidNumber) {
@@ -182,8 +198,9 @@ export class Signup2TwoComponent implements OnInit {
     // } else {
     //   (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     // }
+   
+    delete this.form.value['recaptcha']
     const formData = this.form.value;
-    
     this.apiService.doPostRequest(endPoints.CreateInstitute, formData).subscribe((returnData: any) => {
       if (returnData.status == true) {
         this.toastr.success('Form submission successfull');

@@ -23,6 +23,7 @@
     "@types/lodash": "^4.14.165",
     "jspdf": "^2.3.0",
     "lodash": "^4.17.20",
+    "ngx-captcha": "^9.0.1",
     "ngx-socket-io": "^3.2.0",
     "ngx-spinner": "^10.0.1",
     "ngx-toastr": "^13.0.0",
