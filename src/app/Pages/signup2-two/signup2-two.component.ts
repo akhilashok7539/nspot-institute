@@ -36,9 +36,10 @@ export class Signup2TwoComponent implements OnInit {
     this.apiService.doGetRequest(endPoints.Get_licenseAuthorities).subscribe((returnData: any) => {
       this.licenseIssueAuthorities = returnData.data;
     });
-    // this.reCaptchaV3Service.execute(this.siteKey, 'homepage', (token) => {
-    //   console.log('This is your token: ', token);
-    // }, {
+    // this.reCaptchaV3Service.execute(
+    //   this.siteKey, 'signup/step-2', (token:any) => {
+    //     console.log('This is your token: ', token);
+    //   },{
     //     useGlobalDomain: false
     // });
     this.form = this.formBuilder.group({
@@ -82,7 +83,7 @@ export class Signup2TwoComponent implements OnInit {
       admission_office_email:['', [Validators.required]],
       admission_office_mobileno1:['', [Validators.required]],
       admission_office_mobileno2:['', [Validators.required]],
-      recaptcha: ['', Validators.required],
+      // recaptcha: ['', Validators.required],
       officialEmail: ['', Validators.required],
     });
   }
