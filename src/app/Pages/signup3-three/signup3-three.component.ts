@@ -112,7 +112,7 @@ export class Signup3ThreeComponent implements OnInit {
     this.multiForm.append('registeredToLabel', formData.registeredToLabel);
     this.multiForm.append('approvedByLabel', formData.approvedByLabel);
     this.multiForm.append('accreditedByLabel', formData.accreditedByLabel);
-    this.multiForm.append('certifiedByFile', formData.certifiedByFile);
+    // this.multiForm.append('certifiedByFile', formData.certifiedByFile);
     this.multiForm.append('certifiedByLabel', formData.certifiedByLabel);
     this.multiForm.append('memberOfLabel', formData.memberOfLabel);
 

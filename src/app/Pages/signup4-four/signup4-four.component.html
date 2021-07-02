@@ -5,9 +5,10 @@
     </div>
   </div>
   <div class="container success">
-    <h4 class="sub-title uppercase">VIRTUAL VIDEO TOUR</h4>
+    <h4 class="sub-title uppercase">VIRTUAL VIDEO TOUR FILES</h4>
     <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
       <div class="row">
+      
 
         <div class="col-sm-6">
           <label class="uppercase">Campus Overview </label>
@@ -45,6 +46,42 @@
           <app-control-messages [touched]="touched" [control]="f.hostel"></app-control-messages>
         </div>
 
+      </div>
+      <div class="row">
+        <h4 class="sub-title uppercase">
+          VIRTUAL VIDEO TOUR LINKS
+        </h4>
+        <div class="col-sm-6">
+          <label class="uppercase">Campus Overview - Add Virtual video Link here </label>
+          <input type="text"  placeholder="https://" formControlName="campusTourVideoLink" id="" />
+          <app-control-messages [touched]="touched" [control]="f.campusTourVideoLink"></app-control-messages>
+        </div>
+        <div class="col-sm-6">
+          <label class="uppercase">Class Room Tour - Add Virtual video Link here </label>
+          <input type="text"  placeholder="https://" formControlName="classRoomVideoLink" id="" />
+          <app-control-messages [touched]="touched" [control]="f.classRoomVideoLink"></app-control-messages>
+        </div>
+        <div class="col-sm-6">
+          <label class="uppercase">Lab Tour - Add Virtual video Link here </label>
+          <input type="text"  placeholder="https://" formControlName="labTourVideoLink" id="" />
+          <app-control-messages [touched]="touched" [control]="f.labTourVideoLink"></app-control-messages>
+        </div>
+        <div class="col-sm-6">
+          <label class="uppercase">Hostel Tour - Add Virtual video Link here </label>
+          <input type="text"  placeholder="https://" formControlName="hostelTourVideoLink" id="" />
+          <app-control-messages [touched]="touched" [control]="f.hostelTourVideoLink"></app-control-messages>
+        </div>
+        <div class="col-sm-6">
+          <label class="uppercase">Recreational Area - Add Virtual video Link here </label>
+          <input type="text"  placeholder="https://"  formControlName="recreationAreaTourVideoLink" id="" />
+          <app-control-messages [touched]="touched" [control]="f.recreationAreaTourVideoLink"></app-control-messages>
+        </div>
+        <div class="col-sm-6">
+          <label class="uppercase">Library - Add Virtual video Link here </label>
+          <input type="text"  placeholder="https://"  formControlName="libraryTourVideoLink" id="" />
+          <app-control-messages [touched]="touched" [control]="f.libraryTourVideoLink"></app-control-messages>
+        </div>
+        
       </div>
       <div class="row">
         <h4 class="sub-title uppercase">

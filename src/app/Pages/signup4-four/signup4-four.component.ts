@@ -41,7 +41,12 @@ export class Signup4FourComponent implements OnInit {
       linkedIn: [''],
       facebook: [''],
       other: [''],
-
+      campusTourVideoLink: [''],
+      classRoomVideoLink: [''],
+      labTourVideoLink: [''],
+      hostelTourVideoLink: [''],
+      recreationAreaTourVideoLink: [''],
+      libraryTourVideoLink: [''],
       declaration: ['', [Validators.required]],
       accept: ['', [Validators.required]],
 
@@ -85,6 +90,12 @@ export class Signup4FourComponent implements OnInit {
     this.multiForm.append('linkedIn', formData.linkedIn);
     this.multiForm.append('facebook', formData.facebook);
     this.multiForm.append('other', formData.other);
+    this.multiForm.append('campusTourVideoLink', formData.campusTourVideoLink);
+    this.multiForm.append('classRoomVideoLink', formData.classRoomVideoLink);
+    this.multiForm.append('labTourVideoLink', formData.labTourVideoLink);
+    this.multiForm.append('hostelTourVideoLink', formData.hostelTourVideoLink);
+    this.multiForm.append('libraryTourVideoLink', formData.libraryTourVideoLink);
+    this.multiForm.append('recreationAreaTourVideoLink', formData.recreationAreaTourVideoLink);
 
     this.apiService.doPostRequest_upload(endPoints.socialMediaAndVirtualTour + this.instituteId, this.multiForm)
       .subscribe((returnData: any) => {
