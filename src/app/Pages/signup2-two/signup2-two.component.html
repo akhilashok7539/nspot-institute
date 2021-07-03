@@ -288,27 +288,39 @@
           <app-control-messages [control]="f.admission_office_mobileno2" [touched]="touched"></app-control-messages>
         </div>
         <div class="col-sm-12">
-          <label class="uppercase">Hostel Facility</label>
-          <div class="col-sm-3">
+          <label class="uppercase">Hostel & Transport </label>
+          <div class="col-sm-2">
             <p class="checkbox">
               <input type="checkbox" formControlName="haveBoysHostel" />
               <span>Boys</span>
             </p>
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-2">
             <p class="checkbox">
               <input type="checkbox" formControlName="haveGirlsHostel" />
               <span>Girls</span>
             </p>
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-2">
             <p class="checkbox">
               <input type="checkbox" formControlName="foodAvailableAtHostel" />
               <span>Food</span>
             </p>
           </div>
-         
+          <div class="col-sm-2">
+            <p class="checkbox">
+              <input type="checkbox" formControlName="busAvailablity" />
+              <span>Bus Facility</span>
+            </p>
+          </div>
+          <div class="col-sm-2">
+            <p class="checkbox">
+              <input type="checkbox" formControlName="vanavailablity" />
+              <span>Van Facility</span>
+            </p>
+          </div>
         </div>
+        
         <div class="col-sm-6">
           <label class="uppercase">Annual Fee INFO</label>
           <input type="text" formControlName="hostalAnnualFee" placeholder="Annual Fees " />
@@ -320,7 +332,11 @@
           <input type="text" formControlName="transportationInfo" placeholder="Enter transportation info" />
           <app-control-messages [control]="f.transportationInfo" [touched]="touched"></app-control-messages>
         </div>
-
+        <div class="col-sm-6">
+          <label class="uppercase">Route & Distance Info</label>
+          <input type="text" formControlName="routeInfo" placeholder="Route " />
+          <app-control-messages [control]="f.routeInfo" [touched]="touched"></app-control-messages>
+        </div>
         <div class="col-sm-12">
           <label class="uppercase">Google MAP LOCATION</label>
 

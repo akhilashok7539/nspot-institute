@@ -84,6 +84,9 @@ export class Signup2TwoComponent implements OnInit {
       admission_office_mobileno1:['', [Validators.required]],
       admission_office_mobileno2:['', [Validators.required]],
       // recaptcha: ['', Validators.required],
+      busAvailablity:[false],
+      vanavailablity:[false],
+      routeInfo: [''],
       officialEmail: ['', Validators.required],
     });
   }
