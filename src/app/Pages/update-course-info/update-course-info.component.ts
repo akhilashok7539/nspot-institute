@@ -48,7 +48,7 @@ export class UpdateCourseInfoComponent implements OnInit {
   courserListDetails:any=[];
   ngOnInit(): void {
     // this.instituteId = parseInt(this.route.snapshot.paramMap.get('instituteId'));
-    this.instituteId = this.authService.userProfile.userType;
+    this.instituteId = this.authService.userProfile.userId;
     this.loadData();
     this.maindesk();
     this.form = this.formBuilder.group({

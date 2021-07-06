@@ -12,6 +12,7 @@ export const environment = {
   studentPortalUrl: 'http://nspot.admin.surge.sh',
 
   RAZORPAY_KEY_ID: "rzp_test_tmR2af2TNK0qLo",
+  
 };
 
 /*

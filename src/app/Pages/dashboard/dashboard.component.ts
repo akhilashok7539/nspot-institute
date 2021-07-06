@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
     private toastr: ToastrService
   ) { }
 
-  instituteId = this.authService.userProfile.userType;
+  instituteId = this.authService.userProfile.userId;
   instituteInfo;
   boardOfCouncilInfo;
   highlights;
@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
   baseApiUrl = environment.baseApiUrl;
 
   ngOnInit(): void {
-    this.instituteId = this.authService.userProfile.userType;
+    this.instituteId = this.authService.userProfile.userId;
 
 
     this.loadInstituteInfo();

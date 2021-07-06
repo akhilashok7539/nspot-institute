@@ -17,7 +17,7 @@ import { trim } from 'lodash';
   styleUrls: ['./detailed-application.component.css']
 })
 export class DetailedApplicationComponent implements OnInit {
-  instituteId = this.authService.userProfile.userType;
+  instituteId = this.authService.userProfile.userId;
   appttitudetestdetails:any=[];
   applicationId;
   applicationData;

@@ -28,7 +28,7 @@ export class BankInfoComponent implements OnInit {
   touched = false;
   bankItems;
   ngOnInit(): void {
-    this.instituteId = this.authService.userProfile.userType;
+    this.instituteId = this.authService.userProfile.userId;
     this.loadData();
     this.form = this.formBuilder.group({
       accountNumber: [''],

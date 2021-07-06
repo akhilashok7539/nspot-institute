@@ -32,7 +32,7 @@ export class CourseStep3Component implements OnInit {
 
   ngOnInit(): void {
     this.courseId = _.parseInt(this.route.snapshot.paramMap.get('courseId'));
-    this.instituteId = this.authService.userProfile.userType;
+    this.instituteId = this.authService.userProfile.userId;
     this.form = this.formBuilder.group({
       instituteCourseId: [this.courseId, [Validators.required]],
       eligibiliyInString: ['', [Validators.required]],

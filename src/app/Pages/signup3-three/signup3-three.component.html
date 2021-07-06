@@ -18,14 +18,14 @@
         <div class="col-sm-12">
           <label class="uppercase">Rank File</label>
           <div class="col-md-4">
-            <input type="file" (change)="onchangeFile('rankofLabel',$event)" formControlName="rankofLabel"
+            <input type="file" (change)="onchangeFile('rankofFile',$event)" formControlName="rankofFile"
               id="" />
-            <app-control-messages [touched]="touched" [control]="f.rankofLabel"></app-control-messages>
+            <app-control-messages [touched]="touched" [control]="f.rankofFile"></app-control-messages>
 
           </div>
           <div class="col-md-8">
-            <input type="text" formControlName="rankofFile" placeholder="Rank" required />
-            <app-control-messages [touched]="touched" [control]="f.rankofFile"></app-control-messages>
+            <input type="text" formControlName="rankofLabel" placeholder="Rank" required />
+            <app-control-messages [touched]="touched" [control]="f.rankofLabel"></app-control-messages>
 
           </div>
         </div>
@@ -74,10 +74,27 @@
           </div>
         </div>
         <div class="col-sm-12">
-          <label class="uppercase">Unit of</label>
+          <!-- <label class="uppercase"></label>
           <input type="text" formControlName="unitOfLabel" placeholder="" required />
-          <app-control-messages [touched]="touched" [control]="f.unitOfLabel"></app-control-messages>
+          <app-control-messages [touched]="touched" [control]="f.unitOfLabel"></app-control-messages> -->
+
+          <label class="uppercase">Unit of </label>
+          <div class="col-md-4">
+            <input type="file" (change)="onchangeFile('unitOfFile',$event)" formControlName="unitOfFile"
+              id="" />
+            <app-control-messages [touched]="touched" [control]="f.unitOfFile"></app-control-messages>
+
+          </div>
+          <div class="col-md-8">
+            <input type="text" formControlName="unitOfLabel" placeholder="Unit of" required />
+            <app-control-messages [touched]="touched" [control]="f.unitOfLabel"></app-control-messages>
+
+          </div>
         </div>
+
+
+
+
         <div class="col-sm-12">
           <label class="uppercase">Under Section Act </label>
           <div class="col-md-4">
@@ -264,12 +281,12 @@
           <app-control-messages [touched]="touched" [control]="f.uniformFile"></app-control-messages>
         </div>
 
-        <div class="col-sm-6">
+        <!-- <div class="col-sm-6">
           <label class="uppercase">HIGHLIGHTS/SPECIAL FEATURES </label>
           <input type="file" (change)="onchangeFile('specialFeaturesFile',$event)" formControlName="specialFeaturesFile"
             id="" />
           <app-control-messages [touched]="touched" [control]="f.specialFeaturesFile"></app-control-messages>
-        </div>
+        </div> -->
       </div>
 
       <div class="row clearfix">
@@ -284,3 +301,5 @@
     </form>
   </div>
 </main>
+
+<pre>{{form.value | json}}</pre>

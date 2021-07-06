@@ -20,7 +20,7 @@ export class CourseListedComponent implements OnInit {
 
   
   this.instituteLoginDetails = JSON.parse(sessionStorage.getItem("userLogin"));
-  this.instituteId = this.instituteLoginDetails['userProfile'].userRole;
+  this.instituteId = this.instituteLoginDetails['userProfile'].userId;
   this.GETINSTITUTESbYCOURSEiD();
 }
 

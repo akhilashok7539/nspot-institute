@@ -41,7 +41,7 @@ export class CustomApplicationComponent implements OnInit {
     certificates: []
   }
   arr1:any=[];
-  instituteId = this.authService.userProfile.userType;
+  instituteId = this.authService.userProfile.userId;
   personalInfoArray1:any = [];
   constructor(
     private applicationFormService: ApplicationFormService,

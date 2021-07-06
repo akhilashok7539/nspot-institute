@@ -35,7 +35,7 @@ export class FormsComponent implements OnInit {
       type: 'button',
     },
   ];
-  instituteId = this.authService.userProfile.userType;
+  instituteId = this.authService.userProfile.userId;
   constructor(  private applicationFormService: ApplicationFormService,
     private router: Router,
     private formBuilder: FormBuilder,
@@ -43,7 +43,7 @@ export class FormsComponent implements OnInit {
     private authService: AuthService,
     private toastr: ToastrService,
     private route: ActivatedRoute) { 
-      this.instituteId = this.authService.userProfile.userType;
+      this.instituteId = this.authService.userProfile.userId;
     }
 
   ngOnInit(): void {

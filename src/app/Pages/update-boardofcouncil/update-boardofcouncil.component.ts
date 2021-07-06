@@ -28,7 +28,7 @@ export class UpdateBoardofcouncilComponent implements OnInit {
   boardOfCouncilInfo:any = [];
   touched = false;
   ngOnInit(): void {
-    this.instituteId = this.authService.userProfile.userType;
+    this.instituteId = this.authService.userProfile.userId;
 
 
     this.form = this.formBuilder.group({

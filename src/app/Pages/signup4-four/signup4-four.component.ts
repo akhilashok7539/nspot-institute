@@ -34,19 +34,20 @@ export class Signup4FourComponent implements OnInit {
       recreationalArea: [''],
       hostel: [''],
 
-      website: [''],
+      // website: [''],
       youtube: [''],
       twitter: [''],
       instagram: [''],
       linkedIn: [''],
       facebook: [''],
-      other: [''],
+      // other: [''],
       campusTourVideoLink: [''],
       classRoomVideoLink: [''],
       labTourVideoLink: [''],
       hostelTourVideoLink: [''],
       recreationAreaTourVideoLink: [''],
       libraryTourVideoLink: [''],
+
       declaration: ['', [Validators.required]],
       accept: ['', [Validators.required]],
 
@@ -89,7 +90,7 @@ export class Signup4FourComponent implements OnInit {
     this.multiForm.append('instagram', formData.instagram);
     this.multiForm.append('linkedIn', formData.linkedIn);
     this.multiForm.append('facebook', formData.facebook);
-    this.multiForm.append('other', formData.other);
+    // this.multiForm.append('other', formData.other);
     this.multiForm.append('campusTourVideoLink', formData.campusTourVideoLink);
     this.multiForm.append('classRoomVideoLink', formData.classRoomVideoLink);
     this.multiForm.append('labTourVideoLink', formData.labTourVideoLink);

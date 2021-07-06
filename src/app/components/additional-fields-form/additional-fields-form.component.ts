@@ -25,7 +25,7 @@ export class AdditionalFieldsFormComponent implements OnInit {
 
   form: FormGroup;
   touched = false;
-  instituteId = this.authService.userProfile.userType;
+  instituteId = this.authService.userProfile.userId;
   baseApiUrl = environment.baseApiUrl;
   ngOnInit(): void {
     this.form = this.formBuilder.group({

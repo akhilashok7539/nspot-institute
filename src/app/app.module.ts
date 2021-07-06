@@ -53,6 +53,9 @@ import { environment } from 'src/environments/environment';
 import { FormsComponent } from './Pages/forms/forms.component';
 import { ViewCourseComponent } from './Pages/view-course/view-course.component';
 import {LoaderInterceptor} from './services/loadingInterceptor';
+
+import {ResponseinterceptorService} from './services/responseinterceptor.service';
+
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { EditInstitutekycInfoComponent } from './Pages/edit-institutekyc-info/edit-institutekyc-info.component';
 import { UpdateCourseInfoComponent } from './Pages/update-course-info/update-course-info.component';
@@ -136,6 +139,8 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ResponseinterceptorService, multi :true},
+
     {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
   bootstrap: [AppComponent],

@@ -209,7 +209,9 @@ export class Signup2TwoComponent implements OnInit {
       if (returnData.status == true) {
         this.toastr.success('Form submission successfull');
         console.log(returnData)
-        this.router.navigate([`/signup/step-3/${returnData.data.id}`]);
+        // this.router.navigate([`/signup/step-3/${returnData.data.id}`]);
+        this.router.navigate([`/signup/step-3/${returnData.data.userId}`]);
+
       }
       else {
         this.toastr.error('Form submission failed.');

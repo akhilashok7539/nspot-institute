@@ -35,7 +35,7 @@ export class CourseStep2Component implements OnInit {
   nspotFeeObj = { nspotFee: 0, bankCharge: 0, nspotTax: 0 };
   ngOnInit(): void {
     this.courseId = _.parseInt(this.route.snapshot.paramMap.get('courseId'));
-    this.instituteId = this.authService.userProfile.userType;
+    this.instituteId = this.authService.userProfile.userId;
     this.loadData();
     this.form = this.formBuilder.group({
       instituteCourseId: [this.courseId, [Validators.required]],

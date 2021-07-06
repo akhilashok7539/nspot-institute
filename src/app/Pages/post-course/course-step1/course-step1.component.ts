@@ -46,7 +46,7 @@ export class CourseStep1Component implements OnInit {
   submaindesk;
   ngOnInit(): void {
     // this.instituteId = parseInt(this.route.snapshot.paramMap.get('instituteId'));
-    this.instituteId = this.authService.userProfile.userType;
+    this.instituteId = this.authService.userProfile.userId;
     this.loadData();
     this.maindesk();
     this.form = this.formBuilder.group({
@@ -84,7 +84,9 @@ export class CourseStep1Component implements OnInit {
       aptituteTestRequired: [false],
       aptituteTestId: [0],
       onlineInterviewRequired: [false],
-
+      regularClassOnly: [false],
+      onlineClassOnly:[false],
+      regularAndonlineClass:[false],
       courseSyllabusFile: ['', [Validators.required]],
       CourseCategoryId: [''],
       CourseSubCategoryId: [''],
@@ -93,7 +95,7 @@ export class CourseStep1Component implements OnInit {
       CourseSubCategory3Id: [''],
       CourseSubCategory4Id: [''],
       CourseSubCategory5Id: [''],
-
+      programCode :[''],
     });
   }
 

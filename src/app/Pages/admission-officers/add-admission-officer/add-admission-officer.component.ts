@@ -27,7 +27,7 @@ export class AddAdmissionOfficerComponent implements OnInit {
   touched = false;
 
   ngOnInit(): void {
-    this.instituteId = this.authService.userProfile.userType;
+    this.instituteId = this.authService.userProfile.userId;
 
     this.form = this.formBuilder.group({
       instituteId: this.instituteId,

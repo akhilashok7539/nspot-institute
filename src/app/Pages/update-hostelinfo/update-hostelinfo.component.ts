@@ -25,7 +25,7 @@ export class UpdateHostelinfoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.instituteId = this.authService.userProfile.userType;
+    this.instituteId = this.authService.userProfile.userId;
 
     this.feesInfoHostel = JSON.parse(sessionStorage.getItem("feeandinfo"));
     this.form = this.formBuilder.group({

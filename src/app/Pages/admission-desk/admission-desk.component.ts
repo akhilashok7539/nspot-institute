@@ -16,7 +16,7 @@ export class AdmissionDeskComponent implements OnInit {
   currentCourseId
   preApplications
   paymentAwaitingApplications
-  instituteId = this.authService.userProfile.userType;
+  instituteId = this.authService.userProfile.userId;
 
   constructor(
     private router: Router,
@@ -67,6 +67,13 @@ export class AdmissionDeskComponent implements OnInit {
       console.log("couress", returnData.data)
       this.courses = returnData.data;
     });
+
+    //     this.apiService.doGetRequest(`/institute/courses/`+ this.instituteId
+    //  ).subscribe((returnData: any) => {
+    //   console.log("couress", returnData.data)
+    //   this.courses = returnData.data;
+    // });
+    
   }
 
 

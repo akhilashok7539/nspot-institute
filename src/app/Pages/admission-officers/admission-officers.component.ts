@@ -14,7 +14,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AdmissionOfficersComponent implements OnInit {
 
   officerList;
-  instituteId = this.authService.userProfile.userType;
+  instituteId = this.authService.userProfile.userId;
 
   constructor(
     private router: Router,

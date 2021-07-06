@@ -119,7 +119,12 @@
                     <input type="text" formControlName="courseCode" placeholder="enter course code" required />
                     <app-control-messages [touched]="touched" [control]="f.courseCode"></app-control-messages>
                 </div>
-
+                <div class="col-sm-6 offset-3">
+                    <label class="req uppercase">Program Code</label>
+                    <input type="text" formControlName="programCode" placeholder="enter program code" required />
+                    <app-control-messages [touched]="touched" [control]="f.programCode"></app-control-messages>
+                </div>
+                
                 <div class="col-sm-6 offset-3">
                     <label class="req uppercase">University/Academic Board/Other</label>
                     <select formControlName="universityTypeId">
@@ -156,13 +161,13 @@
                 </div>
 
                 <div class="col-sm-6 offset-3">
-                    <label class="req uppercase">No. Of Available Seats</label>
+                    <label class="req uppercase">No. Of Admission Seats</label>
                     <input type="number" formControlName="availableSeats" placeholder="enter course stream" />
                     <app-control-messages [touched]="touched" [control]="f.availableSeats"></app-control-messages>
                 </div>
 
                 <div class="col-sm-6 offset-3">
-                    <label class="req uppercase">For The Academic Year/Session</label>
+                    <label class="req uppercase">Admission Seat Posting For The Academic Year-Month</label>
                     <div class="col-sm-6 offset-3">
                         <input type="text" formControlName="accademicYear" placeholder="yyyy" />
                         <app-control-messages [touched]="touched" [control]="f.accademicYear"></app-control-messages>
@@ -290,13 +295,13 @@
                 </div>
 
                 <div class="col-sm-6 offset-3">
-                    <label class="req uppercase">Locality</label>
+                    <label class="req uppercase">CAMPUS LOCALITY </label>
                     <input type="text" formControlName="locality" placeholder="enter course stream" />
                     <app-control-messages [touched]="touched" [control]="f.locality"></app-control-messages>
                 </div>
 
                 <div class="col-sm-6 offset-3">
-                    <label class="req uppercase">REFUND POLICY</label>
+                    <label class="req uppercase">COURSE FEE INFO</label>
                     <input type="text" formControlName="refundPolicy" placeholder="enter your refund policy" />
                     <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages>
                 </div>
@@ -306,27 +311,28 @@
                         unexpected weather Situations?</label>
                     <div class="col-sm-6">
                         <p class="radio">
-                            <input type="radio" formControlName="onlineClassAvailability" value="true" /><span>Yes,
-                                online classes are
-                                available for
-                                this course</span>
+                            <input type="radio" formControlName="onlineClassAvailability" value="true" />
+                            <span style="    position: absolute;">
+                                Yes
+                            </span>
+                              
                             <app-control-messages [touched]="touched" [control]="f.onlineClassAvailability">
                             </app-control-messages>
                         </p>
                     </div>
                     <div class="col-sm-6">
                         <p class="radio">
-                            <input type="radio" formControlName="onlineClassAvailability" value="false" /><span>No,
-                                online classes are not
-                                available
-                                for this course</span>
+                            <input type="radio" formControlName="onlineClassAvailability" value="false" /> <span style="    position: absolute;">
+                                No
+                            </span>
+                                
                             <app-control-messages [touched]="touched" [control]="f.onlineClassAvailability">
                             </app-control-messages>
                         </p>
                     </div>
                 </div>
 
-                <div class="col-sm-6 offset-3">
+                <div class="col-sm-6 offset-3" style="margin-top: 20px;">
                     <label class="req uppercase">Aptitude Test</label>
                     <p class="checkbox">
                         <input type="checkbox" [(ngModel)]="hasAptitudeTest" formControlName="aptituteTestRequired"
@@ -353,16 +359,91 @@
                     </div>
                 </div>
 
-                <div class="col-sm-6 offset-3">
+                <div class="col-sm-6 offset-3"  style="margin-top: 20px;">
                     <label class="req uppercase">Online interview</label>
                     <p class="checkbox">
                         <input type="checkbox" formControlName="onlineInterviewRequired" /><span>Required</span>
                     </p>
                 </div>
+
+
+                <div class="col-sm-12 offset-3" style="margin-top: 20px;">
+                    <label class="req uppercase">Regular Classroom </label>
+                    <div class="col-sm-6">
+                        <p class="radio">
+                            <input type="radio" formControlName="regularClassOnly" value="true" />
+                            <span style="    position: absolute;">
+                                Yes
+                            </span>
+                              
+                            <app-control-messages [touched]="touched" [control]="f.regularClassOnly">
+                            </app-control-messages>
+                        </p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="radio">
+                            <input type="radio" formControlName="regularClassOnly" value="false" /> <span style="    position: absolute;">
+                                No
+                            </span>
+                                
+                            <app-control-messages [touched]="touched" [control]="f.regularClassOnly">
+                            </app-control-messages>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-12 offset-3" style="margin-top: 43px;">
+                    <label class="req uppercase">Online Class Only </label>
+                    <div class="col-sm-6">
+                        <p class="radio">
+                            <input type="radio" formControlName="onlineClassOnly" value="true" />
+                            <span style="    position: absolute;">
+                                Yes
+                            </span>
+                              
+                            <app-control-messages [touched]="touched" [control]="f.onlineClassOnly">
+                            </app-control-messages>
+                        </p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="radio">
+                            <input type="radio" formControlName="onlineClassOnly" value="false" /> <span style="    position: absolute;">
+                                No
+                            </span>
+                                
+                            <app-control-messages [touched]="touched" [control]="f.onlineClassOnly">
+                            </app-control-messages>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-12 offset-3" style="margin-top: 43px;">
+                    <label class="req uppercase">Regular & Online Class </label>
+                    <div class="col-sm-6">
+                        <p class="radio">
+                            <input type="radio" formControlName="regularAndonlineClass" value="true" />
+                            <span style="    position: absolute;">
+                                Yes
+                            </span>
+                              
+                            <app-control-messages [touched]="touched" [control]="f.regularAndonlineClass">
+                            </app-control-messages>
+                        </p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p class="radio">
+                            <input type="radio" formControlName="regularAndonlineClass" value="false" /> <span style="    position: absolute;">
+                                No
+                            </span>
+                                
+                            <app-control-messages [touched]="touched" [control]="f.regularAndonlineClass">
+                            </app-control-messages>
+                        </p>
+                    </div>
+                </div>
+                
             </div>
 
             <div class="row clearfix">
-                <div class="col-sm-12">
+                <div class="col-sm-12" style="margin-top: 50px;">
                     <div class="pull-right">
                         <button class="btn btn-info" id="submit-btn">
                             SAVE AND CONTINUE

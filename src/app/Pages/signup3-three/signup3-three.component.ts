@@ -27,7 +27,7 @@ export class Signup3ThreeComponent implements OnInit {
   ngOnInit(): void {
     this.instituteId = parseInt(this.route.snapshot.paramMap.get('instituteId'));
     this.form = this.formBuilder.group({
-      // unitOfFile: [''], // now not in forms
+      unitOfFile: [''], // now not in forms
       rankofFile: ['', [Validators.required]],
       rankofLabel: ['', [Validators.required]],
       awardsofFile: ['', [Validators.required]],
@@ -65,7 +65,7 @@ export class Signup3ThreeComponent implements OnInit {
       brochuresFile: ['', [Validators.required]],
       rulesFile: ['', [Validators.required]],
       uniformFile: ['', [Validators.required]],
-      specialFeaturesFile: ['', [Validators.required]],
+      // specialFeaturesFile: ['', [Validators.required]],
 
     });
   }
@@ -91,11 +91,15 @@ export class Signup3ThreeComponent implements OnInit {
 
     this.touched = true;
     if (this.form.invalid) {
+    console.log(this.form.value);
+
       return;
     } else {
       (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     }
     const formData = this.form.value;
+    console.log(this.form.value);
+    
     this.multiForm.delete('unitOfLabel');
     this.multiForm.delete('affiliatedToLabel');
     this.multiForm.delete('recongnizedByLabel');
@@ -115,14 +119,30 @@ export class Signup3ThreeComponent implements OnInit {
     // this.multiForm.append('certifiedByFile', formData.certifiedByFile);
     this.multiForm.append('certifiedByLabel', formData.certifiedByLabel);
     this.multiForm.append('memberOfLabel', formData.memberOfLabel);
+    this.multiForm.append('rankofLabel', formData.rankofLabel);
+    this.multiForm.append('awardsofLabel', formData.awardsofLabel);
+    this.multiForm.append('ratedByLabel', formData.ratedByLabel);
+
+    this.multiForm.append('accordedByLabel', formData.accordedByLabel);
+    this.multiForm.append('underSectionActofLabel', formData.underSectionActofLabel);
+    this.multiForm.append('establishedOfLabel', formData.establishedOfLabel);
+    this.multiForm.append('boardByLabel', formData.boardByLabel);
+    this.multiForm.append('licenceByLabel', formData.licenceByLabel);
+    this.multiForm.append('collaborationByLabel', formData.collaborationByLabel);
+ 
+    
+    
 
     console.warn(this.multiForm.getAll('affiliatedToFile'));
     this.apiService.doPostRequest_upload(endPoints.createHeilights + this.instituteId, this.multiForm).subscribe((returnData: any) => {
       console.log(returnData);
+      this.multiForm.delete;
       this.toastr.success('Form submission successfull');
       this.router.navigate(['/signup/step-4/' + this.instituteId]);
     },
       error => {
+      this.multiForm.delete;
+
         this.toastr.error(error.error[0].message);
         console.error(error);
       });
