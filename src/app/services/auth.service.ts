@@ -14,7 +14,7 @@ export class AuthService {
 
   userProfile;
   token;
-
+  instituteProfile;
   constructor(
     private apiService: ApiService,
   ) {
@@ -30,13 +30,15 @@ export class AuthService {
       const sessionData = JSON.parse(sessionStorage.getItem('userLogin'));
       const userProfile = sessionData.userProfile;
       const token = sessionData.token;
-
+      const instituteProfile =sessionData.instituteProfile;
       this.userProfile = userProfile;
       this.token = token;
+      this.instituteProfile = instituteProfile;
     }
     else {
       this.userProfile = null;
       this.token = null;
+      this.instituteProfile  = null;
     }
   }
 

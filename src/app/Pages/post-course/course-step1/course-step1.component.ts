@@ -46,7 +46,7 @@ export class CourseStep1Component implements OnInit {
   submaindesk;
   ngOnInit(): void {
     // this.instituteId = parseInt(this.route.snapshot.paramMap.get('instituteId'));
-    this.instituteId = this.authService.userProfile.userId;
+    this.instituteId = this.authService.instituteProfile.id;
     this.loadData();
     this.maindesk();
     this.form = this.formBuilder.group({
@@ -72,7 +72,7 @@ export class CourseStep1Component implements OnInit {
       maleAllowed: [false],
       femaleAllowed: [false],
       otherGenderAllowed: [false],
-      campusName: ['', [Validators.required]],
+      // campusName: ['', [Validators.required]],
       campusAddressLine1: ['', [Validators.required]],
       campusAddressLine2: ['', [Validators.required]],
       campusAddressLine3: ['', [Validators.required]],
@@ -233,7 +233,7 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('maleAllowed', formData.maleAllowed);
     this.multiForm.append('femaleAllowed', formData.femaleAllowed);
     this.multiForm.append('otherGenderAllowed', formData.otherGenderAllowed);
-    this.multiForm.append('campusName', formData.campusName);
+    // this.multiForm.append('campusName', formData.campusName);
     this.multiForm.append('campusAddressLine1', formData.campusAddressLine1);
     this.multiForm.append('campusAddressLine2', formData.campusAddressLine2);
     this.multiForm.append('campusAddressLine3', formData.campusAddressLine3);
