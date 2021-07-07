@@ -179,43 +179,43 @@ export class CourseStep1Component implements OnInit {
       (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     }
     const formData = this.form.value;
-    this.multiForm.delete('accademicLevelId');
-    this.multiForm.delete('courseTypeId');
-    this.multiForm.delete('courseCode');
-    this.multiForm.delete('accademicLevelCourseId');
-    this.multiForm.delete('universityTypeId');
-    this.multiForm.delete('universityName');
-    this.multiForm.delete('courseStreamId');
-    this.multiForm.delete('courseStreamSpecializationId');
-    this.multiForm.delete('availableSeats');
-    this.multiForm.delete('accademicYear');
-    this.multiForm.delete('accademicYearMonth');
-    // this.multiForm.delete('courseDurationInDays');
-    this.multiForm.delete('courseDuration');
-    this.multiForm.delete('examConducted');
-    this.multiForm.delete('admissionStartDate');
-    this.multiForm.delete('admissionCloseDate');
-    this.multiForm.delete('classStartDate');
-    this.multiForm.delete('maleAllowed');
-    this.multiForm.delete('femaleAllowed');
-    this.multiForm.delete('otherGenderAllowed');
-    this.multiForm.delete('campusAddressLine1');
-    this.multiForm.delete('campusName');
-    this.multiForm.delete('campusAddressLine2');
-    this.multiForm.delete('campusAddressLine3');
-    this.multiForm.delete('country');
-    this.multiForm.delete('block');
-    this.multiForm.delete('locality');
-    this.multiForm.delete('refundPolicy');
-    this.multiForm.delete('onlineClassAvailability');
-    this.multiForm.delete('aptituteTestRequired');
-    this.multiForm.delete('aptituteTestId');
-    this.multiForm.delete('onlineInterviewRequired');
+    // this.multiForm.delete('accademicLevelId');
+    // this.multiForm.delete('courseTypeId');
+    // this.multiForm.delete('courseCode');
+    // this.multiForm.delete('accademicLevelCourseId');
+    // this.multiForm.delete('universityTypeId');
+    // this.multiForm.delete('universityName');
+    // this.multiForm.delete('courseStreamId');
+    // this.multiForm.delete('courseStreamSpecializationId');
+    // this.multiForm.delete('availableSeats');
+    // this.multiForm.delete('accademicYear');
+    // this.multiForm.delete('accademicYearMonth');
+    // // this.multiForm.delete('courseDurationInDays');
+    // this.multiForm.delete('courseDuration');
+    // this.multiForm.delete('examConducted');
+    // this.multiForm.delete('admissionStartDate');
+    // this.multiForm.delete('admissionCloseDate');
+    // this.multiForm.delete('classStartDate');
+    // this.multiForm.delete('maleAllowed');
+    // this.multiForm.delete('femaleAllowed');
+    // this.multiForm.delete('otherGenderAllowed');
+    // this.multiForm.delete('campusAddressLine1');
+    // this.multiForm.delete('campusName');
+    // this.multiForm.delete('campusAddressLine2');
+    // this.multiForm.delete('campusAddressLine3');
+    // this.multiForm.delete('country');
+    // this.multiForm.delete('block');
+    // this.multiForm.delete('locality');
+    // this.multiForm.delete('refundPolicy');
+    // this.multiForm.delete('onlineClassAvailability');
+    // this.multiForm.delete('aptituteTestRequired');
+    // this.multiForm.delete('aptituteTestId');
+    // this.multiForm.delete('onlineInterviewRequired');
 
     this.multiForm.append('accademicLevelId', formData.accademicLevelId);
     this.multiForm.append('courseTypeId', formData.courseTypeId);
     this.multiForm.append('courseCode', formData.courseCode);
-    this.multiForm.append('accademicLevelCourseId', formData.accademicLevelCourseId);
+    this.multiForm.append('accademicLevelCourseId', formData.accademicLevelCourseId); 
     this.multiForm.append('universityTypeId', formData.universityTypeId);
     this.multiForm.append('universityName', formData.universityName);
     this.multiForm.append('courseStreamId', formData.courseStreamId);
@@ -223,8 +223,6 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('availableSeats', formData.availableSeats);
     this.multiForm.append('accademicYear', formData.accademicYear);
     this.multiForm.append('accademicYearMonth', formData.accademicYearMonth);
-    // this.multiForm.append('courseDurationInDays', this.calculateDaysFromYearAndMonth(
-    //   formData.courseDuration_year, formData.courseDuration_months));
     this.multiForm.append('courseDuration', formData.examConducted);
     this.multiForm.append('examConducted', formData.examConducted);
     this.multiForm.append('admissionStartDate', formData.admissionStartDate);
@@ -233,7 +231,6 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('maleAllowed', formData.maleAllowed);
     this.multiForm.append('femaleAllowed', formData.femaleAllowed);
     this.multiForm.append('otherGenderAllowed', formData.otherGenderAllowed);
-    // this.multiForm.append('campusName', formData.campusName);
     this.multiForm.append('campusAddressLine1', formData.campusAddressLine1);
     this.multiForm.append('campusAddressLine2', formData.campusAddressLine2);
     this.multiForm.append('campusAddressLine3', formData.campusAddressLine3);
@@ -251,7 +248,11 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('CourseSubCategory3Id',formData.CourseSubCategory3Id)
     this.multiForm.append('CourseSubCategory4Id',formData.CourseSubCategory4Id)
     this.multiForm.append('CourseSubCategory5Id',formData.CourseSubCategory5Id)
-
+    this.multiForm.append('regularAndonlineClass',formData.regularAndonlineClass)
+    this.multiForm.append('onlineClassOnly',formData.onlineClassOnly)
+    this.multiForm.append('regularClassOnly',formData.regularClassOnly)
+    this.multiForm.append('programCode',formData.programCode)
+  
 
     this.apiService.doPostRequest_upload(endPoints.Create_course + this.instituteId, this.multiForm)
       .subscribe((returnData: any) => {
