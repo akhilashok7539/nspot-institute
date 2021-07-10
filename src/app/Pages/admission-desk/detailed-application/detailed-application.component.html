@@ -1,7 +1,7 @@
 <main>
   <div class="page-heading text-center">
     <div class="container" >
-      <h2 class="uppercase">Review Student Application</h2>
+      <h2 class="titlecase">Review Student Application</h2>
     </div>
   </div>
   <div class="container index-3-categories">
@@ -50,7 +50,8 @@
               <div class="col-lg-2 mt-2"><button>Update</button></div>
             </form>
           </div>
-
+          <!-- <button (click)="downloadAsPDF()">Download</button> -->
+          <button class="float-btn-right" (click)="downloadAsPDF()"><i class="zmdi zmdi-download  zmdi-hc-3x"></i></button>
         </div>
       </div>
     </div>
@@ -295,8 +296,8 @@
 
         </div>
         <div class="col-sm-8">
-          <h6 style="text-align: center;margin-bottom: 11px;">{{instituteInfo.name}}</h6>
-          <p style="text-align: center;margin-bottom: 11px;">{{instituteInfo.nameofTown}},{{instituteInfo.block}},{{instituteInfo.district}},{{instituteInfo.state}}</p>
+          <h6 style="text-align: center;margin-bottom: 11px;" >{{instituteInfo?.name}}</h6>
+          <p style="text-align: center;margin-bottom: 11px;">{{instituteInfo?.nameofTown}},{{instituteInfo?.block}},{{instituteInfo?.district}},{{instituteInfo?.state}}</p>
         </div>
         <div class="col-sm-2">
           <!-- <img src="./images/logo.png" alt="" width="100px"> -->
@@ -311,7 +312,7 @@
       <div class="row" *ngFor="let item of personalInfo;let i=index"
         style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
         <div class="col-sm-5">
-          <p>{{insertSpaces(personalInfoKeys[i]) | uppercase}}</p>
+          <p>{{insertSpaces(personalInfoKeys[i]) | titlecase}}</p>
         </div>
         <div class="col-sm-2">
           <p style="
@@ -319,7 +320,7 @@
           ">:</p>
         </div>
         <div class="col-sm-5">
-          <p> {{item | uppercase}}</p>
+          <p> {{item | titlecase}}</p>
         </div>
 
 
@@ -330,7 +331,7 @@
       <div class="row" *ngFor="let item of permanentAddress;let i=index"
         style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
         <div class="col-sm-5">
-          <p>{{insertSpaces(permanentAddressKeys[i]) | uppercase}}</p>
+          <p>{{insertSpaces(permanentAddressKeys[i]) | titlecase}}</p>
         </div>
         <div class="col-sm-2">
           <p style="
@@ -338,7 +339,7 @@
         ">:</p>
         </div>
         <div class="col-sm-5">
-          <p> {{item | uppercase}}</p>
+          <p> {{item | titlecase}}</p>
         </div>
 
 
@@ -349,7 +350,7 @@
       <div class="row" *ngFor="let item of communicationAddress;let i=index"
         style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
         <div class="col-sm-5">
-          <p>{{insertSpaces(communicationAddressKeys[i]) | uppercase}}</p>
+          <p>{{insertSpaces(communicationAddressKeys[i]) | titlecase}}</p>
         </div>
         <div class="col-sm-2">
           <p style="
@@ -357,7 +358,7 @@
         ">:</p>
         </div>
         <div class="col-sm-5">
-          <p> {{item | uppercase}}</p>
+          <p> {{item | titlecase}}</p>
         </div>
       </div>
       <h5 class="headers">EDUCATION DETAILS</h5>
@@ -399,7 +400,7 @@
 
     </div>
   </div>
-  <h5 style="text-align: center;margin-top: 20px;margin-bottom: 20px;">Download Certificate</h5>
+  <!-- <h5 style="text-align: center;margin-top: 20px;margin-bottom: 20px;">Download Certificate</h5>
   <div class="row" style="    display: flex; margin-left: 20px; margin-right: 20px;
   overflow: auto;">
     
@@ -430,7 +431,7 @@
     <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i> <br> Guardian's Signature  </button>
     
 
-  </div>
+  </div> -->
   <div class="row text-center" style="margin-top: 15px;" *ngIf="applciaitonstatus != 'pre-application-approved'">
     <div class="col-sm-6">
       <button class="btn btn-danger width-160" (click)="confirmReject(applicationId)">Reject</button>
