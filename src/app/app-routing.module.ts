@@ -41,6 +41,7 @@ import { UpdateVirtualTourComponent } from './Pages/update-virtual-tour/update-v
 import { UpdateBoardofcouncilComponent } from './Pages/update-boardofcouncil/update-boardofcouncil.component';
 import { UpdateDownloadComponent } from './Pages/update-download/update-download.component';
 import { UpdateHostelinfoComponent } from './Pages/update-hostelinfo/update-hostelinfo.component';
+import { UploadRecepitComponent } from './Pages/upload-recepit/upload-recepit.component';
 
 const routes: Routes = [
   {
@@ -99,8 +100,8 @@ const routes: Routes = [
       { path: 'update-counicl', component: UpdateBoardofcouncilComponent },
       { path: 'update-downloads', component: UpdateDownloadComponent },
       { path: 'update-hostel', component: UpdateHostelinfoComponent },
+      { path: 'upload-receipt', component: UploadRecepitComponent },
 
-      
 
     ],
   },

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -13,14 +14,17 @@ export class CourseListedComponent implements OnInit {
   instituteLoginDetails;
   instituteId;
   institutecourseList:any=[];
-  constructor(private instituteService:ApiService,private router:Router) {}
+  isactiveChecked = false;
+  constructor(private instituteService:ApiService,
+    private toaster:ToastrService,
+    private router:Router) {}
 
   ngOnInit(): void 
   {
 
   
   this.instituteLoginDetails = JSON.parse(sessionStorage.getItem("userLogin"));
-  this.instituteId = this.instituteLoginDetails['userProfile'].userId;
+  this.instituteId = this.instituteLoginDetails['instituteProfile'].id;
   this.GETINSTITUTESbYCOURSEiD();
 }
 
@@ -49,5 +53,26 @@ export class CourseListedComponent implements OnInit {
     
     sessionStorage.setItem("instituteid",JSON.stringify(event));
     this.router.navigate(['/institute/viewcourse'])
+  }
+  checkBoxChanged(event,item)
+  {
+    console.log(event.target.checked,item.id);
+    if(item.isActive == true)
+    {
+      this.isactiveChecked = false;
+    }
+    else{
+      this.isactiveChecked = true;
+
+    }
+    let req = {
+      "isActive":this.isactiveChecked
+    }
+    this.instituteService.doPutRequest(`institute/course/update/active-status/`+item.id,req).subscribe(
+      data =>{
+        this.toaster.success("Status Updated")
+      }
+     
+    )
   }
 }

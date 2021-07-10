@@ -5,6 +5,18 @@
   font-weight: 600;
   margin-top: 50px;
 }
+.row{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+.card
+{
+  background: rgb(131, 125, 125);
+    padding: 45px;
+    margin-bottom: 10px;
+    margin: auto;
+}
 .contact select {
   width: 100%;
   border: none;
@@ -26,6 +38,13 @@
 /* input:checked:before{
   background-color:green;
   } */
+  .tdclass{
+    
+    align-content: center;
+    justify-content: center;
+    padding-top: 32px;
+
+  }
   .k-checkbox {
     background: green !important;
   }

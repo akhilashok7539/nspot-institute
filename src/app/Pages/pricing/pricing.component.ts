@@ -16,7 +16,7 @@ declare var Razorpay: any;
 
 export class PricingComponent implements OnInit {
   planList;
-  instituteId = this.authService.userProfile.userId;
+  instituteId = this.authService.instituteProfile.id;
   instituteDetails
   createdSuscription;
   currentSubscription

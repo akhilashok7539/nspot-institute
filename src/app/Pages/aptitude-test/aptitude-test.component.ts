@@ -30,7 +30,7 @@ export class AptitudeTestComponent implements OnInit {
   tests;
   questions;
   // multiForm: FormData = new FormData();
-  instituteId = this.authService.userProfile.userId;
+  instituteId = this.authService.instituteProfile.id;
   baseApiUrl = environment.baseApiUrl;
 
   ngOnInit(): void {

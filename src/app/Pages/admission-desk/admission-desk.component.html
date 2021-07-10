@@ -20,9 +20,8 @@
           <select (change)="changeCourse($event)" name="type">
             {{courses|json}}
             <option value="">Select Course</option>
-            <option *ngFor="let item of courses" value="{{item.id}}">{{item.CourseCategory.title}} 
-              - {{item.Course_Sub_Category.title}} 
-              -{{item.Course_Sub_Categories2.title}} </option>
+            <option *ngFor="let item of courses" value="{{item.item.id}}">{{item.CourseName}} 
+            </option>
             <option *ngIf="courses.length<=0" value="">--- No courses added yet ---</option>
           </select>
         </div>

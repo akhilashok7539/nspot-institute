@@ -759,7 +759,7 @@
                             <div class="clearfix"></div>
                             <div class="additionalForm">
                                 <h4>Add additional fields</h4>
-                                <app-additional-fields-form [formSection]="'education'" [fieldType]="'text'">
+                                <app-additional-fields-form [formSection]="'education'" [fieldType]="'text'" (onSubmitFIlter)='submitForm($event)'>
                                 </app-additional-fields-form>
                             </div>
                         </div>
@@ -861,7 +861,7 @@
 
                         <div class="clearfix"></div>
 
-                        <h5 class="uppercase">certificates</h5>
+                        <h5 class="uppercase">certificates & Documents</h5>
                         <div class="row">
                             <div formGroupName="certificates">
                                 <div class="col-lg-6 col-xs-12">

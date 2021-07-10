@@ -11,7 +11,7 @@ import { endPoints } from '../../../config/endPoints';
   styleUrls: ['./inner-header.component.css']
 })
 export class InnerHeaderComponent implements OnInit {
-  userId = this.authService.userProfile.userId;
+  userId = this.authService.instituteProfile.id;
   notifications;
   constructor(
     private authService: AuthService,

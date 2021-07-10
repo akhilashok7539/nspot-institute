@@ -41,7 +41,7 @@ export class CustomApplicationComponent implements OnInit {
     certificates: []
   }
   arr1:any=[];
-  instituteId = this.authService.userProfile.userId;
+  instituteId = this.authService.instituteProfile.id;
   personalInfoArray1:any = [];
   constructor(
     private applicationFormService: ApplicationFormService,
@@ -446,11 +446,24 @@ export class CustomApplicationComponent implements OnInit {
     console.log(event);
     if(event === true)
     {
+        this.additionalField.personalInfo = [];
+        this.additionalField.certificates = [];
+        this.additionalField.education = [];
+        this.additionalField.entrance = [];
+     
+      this.loadAdditionalField();
+      this.loadRemovedFields();
       // this.ngOnInit();
       // this.loadAdditionalField();
       // this.loadRemovedFields();
     }
   }
+
+
+
+
+
+
   changeFormItemStatus(event, section) {
 
     

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment-history',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentHistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
+  upload()
+  {
 
+    this.router.navigate(['/institute/upload-receipt'])
+  }
 }

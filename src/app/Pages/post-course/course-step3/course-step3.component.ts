@@ -15,7 +15,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   styleUrls: ['./course-step3.component.css']
 })
 export class CourseStep3Component implements OnInit {
-
+  multiForm: FormData = new FormData();
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -32,10 +32,11 @@ export class CourseStep3Component implements OnInit {
 
   ngOnInit(): void {
     this.courseId = _.parseInt(this.route.snapshot.paramMap.get('courseId'));
-    this.instituteId = this.authService.userProfile.userId;
+    this.instituteId = this.authService.instituteProfile.id;
     this.form = this.formBuilder.group({
       instituteCourseId: [this.courseId, [Validators.required]],
       eligibiliyInString: ['', [Validators.required]],
+       
     });
   }
 
@@ -48,7 +49,9 @@ export class CourseStep3Component implements OnInit {
       // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     }
     const formData = this.form.value;
-    this.apiService.doPostRequest(endPoints.Update_course + this.courseId, formData)
+    this.multiForm.append("eligibiliyInString", this.form.value.eligibiliyInString);
+
+    this.apiService.doPostRequest_upload(endPoints.Update_course + this.courseId, this.multiForm)
       .subscribe((returnData: any) => {
         console.log(returnData);
         this.toastr.success('Form submission successfull');

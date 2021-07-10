@@ -31,7 +31,7 @@ export class DashboardComponent implements OnInit {
   baseApiUrl = environment.baseApiUrl;
 
   ngOnInit(): void {
-    this.instituteId = this.authService.userProfile.userId;
+    this.instituteId = this.authService.instituteProfile.userId;
 
 
     this.loadInstituteInfo();

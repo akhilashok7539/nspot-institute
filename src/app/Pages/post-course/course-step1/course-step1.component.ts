@@ -37,6 +37,8 @@ export class CourseStep1Component implements OnInit {
   accademicLevelsCourses;
   courseStreams;
   courseStreamsSpecializations;
+  institutionTypeList:any=[];
+  institutionCategoryList:any=[];
   courseTypes;
   universityTypes;
   aptitudeTests;
@@ -44,6 +46,8 @@ export class CourseStep1Component implements OnInit {
   currentMonth = new Date().getMonth()
   maindeskdata;
   submaindesk;
+  stateList;
+  districtList;
   ngOnInit(): void {
     // this.instituteId = parseInt(this.route.snapshot.paramMap.get('instituteId'));
     this.instituteId = this.authService.instituteProfile.id;
@@ -57,7 +61,7 @@ export class CourseStep1Component implements OnInit {
       courseCode: ['', [Validators.required]],
       universityTypeId: ['', [Validators.required]],
       universityName: ['', [Validators.required]],
-      courseStreamId: ['', [Validators.required]],
+      courseStreamId: ['', ],
       courseStreamSpecializationId: [''],
       availableSeats: [0, [Validators.required, Validators.min(1)]], // number validation
       accademicYear: [this.currentYear, [Validators.required, Validators.min(this.currentYear)]], // number
@@ -96,6 +100,10 @@ export class CourseStep1Component implements OnInit {
       CourseSubCategory4Id: [''],
       CourseSubCategory5Id: [''],
       programCode :[''],
+      stateId:['',[Validators.required]],
+      districtId:['',[Validators.required]],
+      instituteType:['',[Validators.required]],
+      instituteCatagory:['',[Validators.required]]
     });
   }
 
@@ -116,6 +124,12 @@ export class CourseStep1Component implements OnInit {
       this.courseStreams = returnData.data;
       console.log(this.universityTypes);
     });
+    this.apiService.doGetRequest(`state/`).subscribe((returnData: any) => {
+      this.stateList = returnData.data;
+      console.log(this.stateList);
+    });
+
+
     this.loadAptitudeTests();
 
   }
@@ -141,7 +155,15 @@ export class CourseStep1Component implements OnInit {
       console.log(this.courseStreamsSpecializations);
     });
   }
+  loaddistricts(event)
+  {
+    console.log(event.target.value);
+    this.apiService.doGetRequest(`district/`+event.target.value).subscribe((returnData: any) => {
+      this.districtList = returnData.data;
+      console.log(this.districtList);
+    });
 
+  }
   onRefreshAptitude(): void {
     this.loadAptitudeTests();
   }
@@ -252,7 +274,10 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('onlineClassOnly',formData.onlineClassOnly)
     this.multiForm.append('regularClassOnly',formData.regularClassOnly)
     this.multiForm.append('programCode',formData.programCode)
-  
+    this.multiForm.append('institutioncategory',formData.instituteCatagory)
+    this.multiForm.append('institutionType',formData.instituteType)
+
+    
 
     this.apiService.doPostRequest_upload(endPoints.Create_course + this.instituteId, this.multiForm)
       .subscribe((returnData: any) => {
@@ -261,6 +286,8 @@ export class CourseStep1Component implements OnInit {
         this.router.navigate(['/institute/post/course/step-2/' + returnData.data.id]);
       },
         error => {
+      (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('enabled', '');
+
           this.toastr.error(error.error[0].message);
           console.error(error);
         });
@@ -281,6 +308,16 @@ export class CourseStep1Component implements OnInit {
       this.submaindesk = returnData.data;
       console.log(this.accademicLevelsCourses);
     });
+    this.apiService.doGetRequest(`institute-type/courseCatagory/`+academicLevelId).subscribe((returnData: any) => {
+      this.institutionTypeList = returnData.data;
+      console.log(this.institutionTypeList);
+    });
+    this.apiService.doGetRequest(`institute-categories/courseCatagory/`+academicLevelId).subscribe((returnData: any) => {
+      this.institutionCategoryList = returnData.data;
+      console.log(this.institutionCategoryList);
+    });
+
+
   }
   submaindeksChange(event):void
   {

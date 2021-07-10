@@ -53,9 +53,7 @@ import { environment } from 'src/environments/environment';
 import { FormsComponent } from './Pages/forms/forms.component';
 import { ViewCourseComponent } from './Pages/view-course/view-course.component';
 import {LoaderInterceptor} from './services/loadingInterceptor';
-
 import {ResponseinterceptorService} from './services/responseinterceptor.service';
-
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { EditInstitutekycInfoComponent } from './Pages/edit-institutekyc-info/edit-institutekyc-info.component';
 import { UpdateCourseInfoComponent } from './Pages/update-course-info/update-course-info.component';
@@ -67,6 +65,7 @@ import { UpdateHostelinfoComponent } from './Pages/update-hostelinfo/update-host
 import { UpdateBoardofcouncilComponent } from './Pages/update-boardofcouncil/update-boardofcouncil.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { UploadRecepitComponent } from './Pages/upload-recepit/upload-recepit.component';
 const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
 
 @NgModule({
@@ -122,6 +121,7 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
     UpdateDownloadComponent,
     UpdateHostelinfoComponent,
     UpdateBoardofcouncilComponent,
+    UploadRecepitComponent,
   ],
   imports: [
     BrowserModule,
@@ -143,6 +143,7 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
 
     {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],
+  entryComponents:[UploadRecepitComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

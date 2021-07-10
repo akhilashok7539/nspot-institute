@@ -26,7 +26,7 @@ export class GalleryComponent implements OnInit {
   touched = false;
   galleryItems;
   multiForm: FormData = new FormData();
-  instituteId = this.authService.userProfile.userId;
+  instituteId = this.authService.instituteProfile.id;
   baseApiUrl = environment.baseApiUrl;
   ngOnInit(): void {
     this.loadData();

@@ -16,7 +16,7 @@ export class AdmissionDeskComponent implements OnInit {
   currentCourseId
   preApplications
   paymentAwaitingApplications
-  instituteId = this.authService.userProfile.userId;
+  instituteId = this.authService.instituteProfile.id;
 
   constructor(
     private router: Router,
@@ -60,14 +60,21 @@ export class AdmissionDeskComponent implements OnInit {
   }
 
   loadData(): void {
-    this.apiService.doGetRequest(endPoints.Get_courses
-      + "?filter[where][instituteId]=" + this.instituteId
-      + "&filter[include]=AccademicLevel_Course&filter[include]=CourseStream&filter[include]=CourseStream_Specialization"
-    ).subscribe((returnData: any) => {
-      console.log("couress", returnData.data)
-      this.courses = returnData.data;
-    });
+    // this.apiService.doGetRequest(endPoints.Get_courses
+    //   + "?filter[where][instituteId]=" + this.instituteId
+    //   + "&filter[include]=AccademicLevel_Course&filter[include]=CourseStream&filter[include]=CourseStream_Specialization"
+    // ).subscribe((returnData: any) => {
+    //   console.log("couress", returnData.data)
+    //   this.courses = returnData.data;
+    // });
+    this.apiService.doGetRequest(`institute/courses/`+this.instituteId).subscribe(
+      data =>{
+        this.courses = data['data']
+      },
+      error =>{
 
+      }
+    )
     //     this.apiService.doGetRequest(`/institute/courses/`+ this.instituteId
     //  ).subscribe((returnData: any) => {
     //   console.log("couress", returnData.data)

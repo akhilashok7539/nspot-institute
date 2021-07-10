@@ -26,7 +26,7 @@ export class UpdateVirtualTourComponent implements OnInit {
   form: FormGroup;
   touched = false;
   ngOnInit(): void {
-    this.instituteId = this.authservice.userProfile.userId;
+    this.instituteId = this.authservice.instituteProfile.id;
     this.form = this.formBuilder.group({
       campusOverview: ['',],
       classRoom: [''],
