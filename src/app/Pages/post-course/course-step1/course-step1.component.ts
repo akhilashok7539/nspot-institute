@@ -274,9 +274,11 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('onlineClassOnly',formData.onlineClassOnly)
     this.multiForm.append('regularClassOnly',formData.regularClassOnly)
     this.multiForm.append('programCode',formData.programCode)
-    this.multiForm.append('institutioncategory',formData.instituteCatagory)
-    this.multiForm.append('institutionType',formData.instituteType)
+    this.multiForm.append('instituteCatagory',formData.instituteCatagory)
+    this.multiForm.append('instituteType',formData.instituteType)
 
+    this.multiForm.append('stateId',formData.stateId)
+    this.multiForm.append('districtId',formData.districtId)
     
 
     this.apiService.doPostRequest_upload(endPoints.Create_course + this.instituteId, this.multiForm)

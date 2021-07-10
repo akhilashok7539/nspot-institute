@@ -23,3 +23,8 @@
 .action-row {
   width: 200px;
 }
+.phase-active{
+  color: white;
+  /* background-color: #f8ad25 !important; */
+  border-bottom: 5px solid red;
+}

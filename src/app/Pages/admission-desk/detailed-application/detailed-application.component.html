@@ -311,7 +311,7 @@
       <div class="row" *ngFor="let item of personalInfo;let i=index"
         style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
         <div class="col-sm-5">
-          <p>{{personalInfoKeys[i] | uppercase}}</p>
+          <p>{{insertSpaces(personalInfoKeys[i]) | uppercase}}</p>
         </div>
         <div class="col-sm-2">
           <p style="
@@ -330,7 +330,7 @@
       <div class="row" *ngFor="let item of permanentAddress;let i=index"
         style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
         <div class="col-sm-5">
-          <p>{{permanentAddressKeys[i] | uppercase}}</p>
+          <p>{{insertSpaces(permanentAddressKeys[i]) | uppercase}}</p>
         </div>
         <div class="col-sm-2">
           <p style="
@@ -349,7 +349,7 @@
       <div class="row" *ngFor="let item of communicationAddress;let i=index"
         style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
         <div class="col-sm-5">
-          <p>{{communicationAddressKeys[i] | uppercase}}</p>
+          <p>{{insertSpaces(communicationAddressKeys[i]) | uppercase}}</p>
         </div>
         <div class="col-sm-2">
           <p style="
@@ -367,7 +367,7 @@
           <div class="additionalForm" *ngFor="let item of education;let j=index">
             <div class="applicationFormItem" *ngFor="let item of education[j];let i=index">
               <div class="checkBox">
-                <p>{{educationKeys?educationKeys[j][i]:''}}</p>
+                <p>{{insertSpaces(educationKeys?educationKeys[j][i]:'')}}</p>
               </div>
               <div class="labels">
                 <p><span>:</span>{{item}}</p>
@@ -383,7 +383,7 @@
           <div class="additionalForm" *ngFor="let item of entrance;let j=index">
             <div class="applicationFormItem" *ngFor="let item of entrance[j];let i=index">
               <div class="checkBox">
-                <p>{{entranceKeys[j][i]}}</p>
+                <p>{{insertSpaces(entranceKeys[j][i])}}</p>
               </div>
               <div class="labels">
                 <p><span>:</span>{{item}}</p>
@@ -399,8 +399,39 @@
 
     </div>
   </div>
+  <h5 style="text-align: center;margin-top: 20px;margin-bottom: 20px;">Download Certificate</h5>
+  <div class="row" style="    display: flex; margin-left: 20px; margin-right: 20px;
+  overflow: auto;">
+    
+    
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i> <br> Aadhar Certificate </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>   <br>     Birth  Certificate </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i> <br> Community  Certificate </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>Differently Certificate </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>Character Certificate </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>Conduct Certificate </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i> <br> Entrance Certificate </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>SSLC Certificate </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>PLUS 2 Certificate </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>Experience Certificate </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>Income Certificate </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>Migration Certificate </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>Nativity Certificate </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>PAN Card </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>Passport size Photo  </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>Scholarship  </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>Signature  </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>Transfer Certificate(TC) </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>Thumb Impression  </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>Driving Licence   </button>
+   
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i> <br> Father's Signature  </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i>  <br>Mother's Signature  </button>
+    <button class="buttons-color"><i class="zmdi zmdi-download  zmdi-hc-3x" style="font-size: 13px;"></i> <br> Guardian's Signature  </button>
+    
 
-  <div class="row text-center" style="margin-top: 15px;">
+  </div>
+  <div class="row text-center" style="margin-top: 15px;" *ngIf="applciaitonstatus != 'pre-application-approved'">
     <div class="col-sm-6">
       <button class="btn btn-danger width-160" (click)="confirmReject(applicationId)">Reject</button>
     </div>

@@ -4,6 +4,24 @@
       <h2 class="uppercase">LIVE ADMISSION DESK</h2>
     </div>
   </div>
+  <div class="container success" style="margin-top: 30px;">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card media">
+          <a class="btn btn btn-info" [class.phase-active]="activeButton === 1" (click)="showPhase(1)"
+            style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Pre Applications</a>
+
+          <a class="btn btn btn-info" [class.phase-active]="activeButton === 2" (click)="showPhase(2)"
+            style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Payment awaiting Applications</a>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
   <div class="container success">
     <form class="contact">
       <div class="row">
@@ -20,17 +38,20 @@
           <select (change)="changeCourse($event)" name="type">
             {{courses|json}}
             <option value="">Select Course</option>
-            <option *ngFor="let item of courses" value="{{item.item.id}}">{{item.CourseName}} 
+            <option *ngFor="let item of courses" value="{{item.item.id}}">{{item.CourseName}}
             </option>
-            <option *ngIf="courses.length<=0" value="">--- No courses added yet ---</option>
+            <option *ngIf="courses.length ===0" value="">--- No courses added yet ---</option>
           </select>
         </div>
       </div>
 
 
-      <div class="row mt-5">
-        <h4>Pre Applications</h4>
-        <div class="col-md-12" style="overflow-x: scroll;">
+
+
+      <div class="row mt-5" *ngIf="activeButton === 1">
+        <!-- <h4>Pre Applications</h4> -->
+        <!-- style="overflow-x: scroll;"   -->
+        <div class="col-md-12" >
           <table class="table table-striped">
             <thead>
               <tr>
@@ -52,7 +73,7 @@
                 <td>{{i+1}}</td>
                 <td>{{item.formFieldValues.personalInfo.fullName}}</td>
                 <td>
-                  <a routerLink="/institute/admission-desk/detailed-application-view/{{item.id}}">View</a>
+                  <a (click)="viewApplicationStatus(item)">View</a>
                 </td>
                 <!-- <td>
                   <button class="btn btn-actions btn-success">
@@ -83,9 +104,9 @@
         </div>
       </div>
 
-      <div class="row mt-5">
-        <h4>Payment awaiting Applications</h4>
-        <div class="col-md-12" style="overflow-x: scroll;">
+      <div class="row mt-5" *ngIf="activeButton === 2">
+        <!-- <h4>Payment awaiting Applications</h4> -->
+        <div class="col-md-12" >
           <table class="table table-striped">
             <thead>
               <tr>
@@ -106,7 +127,7 @@
                 <td>{{i+1}}</td>
                 <td>{{item.formFieldValues.personalInfo.fullName}}</td>
                 <td>
-                  <a routerLink="/institute/admission-desk/detailed-application-view/{{item.id}}">View</a>
+                  <a (click)="viewApplicationStatus(item)">View</a>
                 </td>
                 <!-- <td>
                   <button class="btn btn-actions btn-success">

@@ -18,6 +18,7 @@ import { trim } from 'lodash';
 })
 export class DetailedApplicationComponent implements OnInit {
   instituteId = this.authService.instituteProfile.id;
+  mainInstitueId= this.authService.instituteProfile.userId;
   appttitudetestdetails:any=[];
   applicationId;
   applicationData;
@@ -41,7 +42,7 @@ export class DetailedApplicationComponent implements OnInit {
   interviewForm: FormGroup
   reviewForm: FormGroup
   touched = false;
-
+  applciaitonstatus;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -53,6 +54,9 @@ export class DetailedApplicationComponent implements OnInit {
 
   ngOnInit(): void {
     this.applicationId = _.parseInt(this.route.snapshot.paramMap.get('applicationId'));
+    this.applciaitonstatus = sessionStorage.getItem("status");  
+    console.log(this.applciaitonstatus);
+    
     this.loadData()
 
     this.reportingForm = this.formBuilder.group({
@@ -81,6 +85,18 @@ export class DetailedApplicationComponent implements OnInit {
   }
 
   loadData() {
+    // instite details
+
+    this.apiService.doGetRequest(endPoints.GetInstituteInfo + this.mainInstitueId).subscribe((returnData: any) => {
+      console.log(returnData)
+      this.instituteInfo = returnData.data;
+      console.log(this.instituteInfo);
+      
+    }, error => {
+      console.error(error);
+      this.toastr.error('Failed to fetch institute details')
+    });
+
     // getting pre-applications
     this.apiService.doGetRequest(
       endPoints.Get_applications + "?where[id]=" + this.applicationId
@@ -90,6 +106,8 @@ export class DetailedApplicationComponent implements OnInit {
 
       const formData = JSON.parse(this.applicationData.formFieldValues)
       const personalInfo = formData.personalInfo
+      console.log("Personal Info",personalInfo);
+      
       let i = 0;
       for (let property in personalInfo) {
         if (property == 'additionalFields') {
@@ -232,13 +250,8 @@ export class DetailedApplicationComponent implements OnInit {
       }
     });
 
-    this.apiService.doGetRequest(endPoints.GetInstituteInfo + this.instituteId).subscribe((returnData: any) => {
-      console.log(returnData)
-      this.instituteInfo = returnData.data;
-    }, error => {
-      console.error(error);
-      this.toastr.error('Failed to fetch institute details')
-    });
+  
+  
 
   }
 
@@ -421,4 +434,9 @@ export class DetailedApplicationComponent implements OnInit {
       }
     )
   }
+  insertSpaces(string) {
+    string = string.replace(/([a-z])([A-Z])/g, '$1 $2');
+    string = string.replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
+    return string;
+}
 }

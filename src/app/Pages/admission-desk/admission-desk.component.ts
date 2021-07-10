@@ -15,7 +15,8 @@ export class AdmissionDeskComponent implements OnInit {
   courses
   currentCourseId
   preApplications
-  paymentAwaitingApplications
+  paymentAwaitingApplications;
+  activeButton = 1;
   instituteId = this.authService.instituteProfile.id;
 
   constructor(
@@ -58,7 +59,10 @@ export class AdmissionDeskComponent implements OnInit {
 
     });
   }
-
+  showPhase(index)
+  {
+    this.activeButton = index;
+  }
   loadData(): void {
     // this.apiService.doGetRequest(endPoints.Get_courses
     //   + "?filter[where][instituteId]=" + this.instituteId
@@ -99,7 +103,7 @@ export class AdmissionDeskComponent implements OnInit {
       showCancelButton: true,
       confirmButtonText: `Accept Application`,
       icon: 'warning',
-      footer: '<a href>Terms and conditions</a>'
+      footer: '<a href="https://dan.com/buy-domain/nspot.com?redirected=true&tld=com" target="_blank">Terms and conditions</a>'
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
@@ -221,5 +225,9 @@ export class AdmissionDeskComponent implements OnInit {
     });
 
   }
-
+  viewApplicationStatus(item)
+  {
+    sessionStorage.setItem("status",item.applicationStatus);
+    this.router.navigate(['/institute/admission-desk/detailed-application-view/'+item.id])
+  }
 }
