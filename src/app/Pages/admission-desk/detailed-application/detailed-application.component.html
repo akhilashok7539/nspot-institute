@@ -1,6 +1,6 @@
 <main>
   <div class="page-heading text-center">
-    <div class="container" >
+    <div class="container">
       <h2 class="titlecase">Review Student Application</h2>
     </div>
   </div>
@@ -25,7 +25,8 @@
               <div class="col-lg-2"><input type="date" formControlName="endDateTimeOfAptitudeTest" id=""></div>
               <div class="col-lg-2">
                 <select formControlName="aptitudeTestId" id="">
-                  <option *ngFor="let appttitudetestdetails of appttitudetestdetails" value="{{appttitudetestdetails.id}}">{{appttitudetestdetails.title}}</option>
+                  <option *ngFor="let appttitudetestdetails of appttitudetestdetails"
+                    value="{{appttitudetestdetails.id}}">{{appttitudetestdetails.title}}</option>
                 </select>
               </div>
               <div class="col-lg-2 mt-2"><button>Update</button></div>
@@ -51,7 +52,8 @@
             </form>
           </div>
           <!-- <button (click)="downloadAsPDF()">Download</button> -->
-          <button class="float-btn-right" (click)="downloadAsPDF()"><i class="zmdi zmdi-download  zmdi-hc-3x"></i></button>
+          <button class="float-btn-right" (click)="downloadAsPDF()"><i
+              class="zmdi zmdi-download  zmdi-hc-3x"></i></button>
         </div>
       </div>
     </div>
@@ -288,7 +290,7 @@
     </div>
   </div> -->
   <div class="container" id="pdfTable" #pdfTable>
-
+    
     <div class="card">
       <div class="row">
         <div class="col-sm-2">
@@ -296,8 +298,10 @@
 
         </div>
         <div class="col-sm-8">
-          <h6 style="text-align: center;margin-bottom: 11px;" >{{instituteInfo?.name}}</h6>
-          <p style="text-align: center;margin-bottom: 11px;">{{instituteInfo?.nameofTown}},{{instituteInfo?.block}},{{instituteInfo?.district}},{{instituteInfo?.state}}</p>
+          <h6 style="text-align: center;margin-bottom: 11px;">{{instituteInfo?.name}}</h6>
+          <p style="text-align: center;margin-bottom: 11px;">
+            {{instituteInfo?.nameofTown}},{{instituteInfo?.block}},{{instituteInfo?.district}},{{instituteInfo?.state}}
+          </p>
         </div>
         <div class="col-sm-2">
           <!-- <img src="./images/logo.png" alt="" width="100px"> -->
@@ -307,7 +311,12 @@
       </div>
     </div>
     <div class="card">
-      <h5 class="headers">PERSONAL DETAILS OF THE APPLICANT </h5>
+      <div class="row">
+        <h5 class="headers">PERSONAL DETAILS OF THE APPLICANT </h5>
+        <img src="./assets/images/kyc.png" alt="" style="
+       width: 139px; float: right; margin-top: -65px; margin-right: 30px;height: 137px;">
+      </div>
+
       <hr>
       <div class="row" *ngFor="let item of personalInfo;let i=index"
         style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
@@ -322,9 +331,13 @@
         <div class="col-sm-5">
           <p> {{item | titlecase}}</p>
         </div>
-
+      </div>
 
       </div>
+
+
+
+      <div class="card">
       <h5 class="headers">PERMANENT ADDRESS </h5>
       <hr>
 
@@ -396,7 +409,18 @@
       </div>
       <!-- <h5 class="headers">CERTIFICATE DETAILS</h5> -->
 
-
+      <div class="row">
+        <img src="./assets/images/signature.png" style="width: 146px;
+        float: right;
+        margin-right: 48px;
+        margin-bottom: 20px;" alt="">
+        <p style="float: right;
+        margin-top: 20px;
+        margin-right: 11px;
+        font-size: 23px;
+        font-weight: bold;">Signature</p>
+        <!-- <input type="checkbox" checked>I accept the Terms of Service -->
+      </div>
 
     </div>
   </div>

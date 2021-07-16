@@ -82,7 +82,22 @@
         <div class="card" style="margin-top: 5px;">
             <div class="row">
                 <h4>Fees Info</h4>
+                <div class="col-sm-6">
+                    <p>Course Fee : Rs.{{courseFees.otherFee}} /-</p>
+                    <p>Payment Tenture : {{getpaymentTenture(courseFees.paymentTenureId).title}}</p>
+                    <p>Linked Bank Account Number : {{courseFees.Institute_BankDetail.accountNumber}}</p>
+                    <p>Linked Bank Account IFSC : {{courseFees.Institute_BankDetail.ifsc}}</p>
+       
 
+                </div>
+                <div class="col-sm-6">
+                    <p>Nspot Service Charge : Rs.{{courseFees.nspotServiceCharge}} /-</p>
+                    <p>Nspot Tax : {{courseFees.nspotTax}}</p>
+                    <p>Nspot Bank Charge : {{courseFees.nspotBankCharge}}</p>
+
+
+                </div>
+               
             </div>
         </div>
 

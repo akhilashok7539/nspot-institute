@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { endPoints } from 'src/app/config/endPoints';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -10,11 +11,19 @@ export class ViewCourseComponent implements OnInit {
   instituteId;
   institutecourseList :any=[];
   mainDesk:any=[];
+  courseFees:any=[];
+  paymentTenures:any=[];
   constructor(private instituteService:ApiService) { }
 
   ngOnInit(): void {
     // this.getallcourserbyInstitute();
-    this.institutecourseList = JSON.parse(sessionStorage.getItem("instituteid"))
+    this.institutecourseList = JSON.parse(sessionStorage.getItem("instituteid"));
+ 
+    this.instituteService.doGetRequest(endPoints.Get_paymentTenures).subscribe((returnData: any) => {
+      this.paymentTenures = returnData.data;
+      console.log(this.paymentTenures);
+    });
+    this.getfeeInfo();
   }
   // getallcourserbyInstitute()
   // {
@@ -38,5 +47,24 @@ export class ViewCourseComponent implements OnInit {
 
       }
     )
+  }
+  getfeeInfo()
+  {
+    let id = this.institutecourseList['item'].instituteId
+    this.instituteService.doGetRequest(`institute/course/fees/`+id).subscribe(
+      data =>{
+        console.log("feess",data);
+        this.courseFees = data['data']
+      } 
+    )
+  }
+  getpaymentTenture(id){
+    console.log(id);
+    
+    return (
+      this.paymentTenures.find((el) => el.id.toString() === (id || "").toString()) || {
+        title: "",
+      }
+    );
   }
 }

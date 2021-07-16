@@ -25,10 +25,17 @@
                 <td class="tdclass">
                   <a>View Applications</a>
                 </td>
+                <td  class="tdclass">
+                  <a *ngIf="institute.item.isActive === true"> Course Enabled</a>
+                  <a *ngIf="institute.item.isActive === false">Course Disable</a>
+              
+
+                </td>
                 <td class="action-row">
 
                   <input class="checkbox" type="checkbox" [checked]="institute.item.isActive"
-                    (change)="checkBoxChanged($event,institute.item)">Activate Addmission Desk
+                    (change)="checkBoxChanged($event,institute.item)">
+                    
                 </td>
               </tr>
 

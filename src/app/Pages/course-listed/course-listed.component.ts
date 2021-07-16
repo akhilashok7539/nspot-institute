@@ -71,6 +71,7 @@ export class CourseListedComponent implements OnInit {
     this.instituteService.doPutRequest(`institute/course/update/active-status/`+item.id,req).subscribe(
       data =>{
         this.toaster.success("Status Updated")
+        this.ngOnInit();
       }
      
     )

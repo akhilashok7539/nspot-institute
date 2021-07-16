@@ -397,7 +397,7 @@ export class DetailedApplicationComponent implements OnInit {
 
     doc.html(pdfTable, {
       callback: function (doc) {
-        doc.save('tableToPdf.pdf');
+        doc.save('ApplicationForm.pdf');
       },
       margin: [15, 15, 15, 20],
       html2canvas: { scale: .17 },

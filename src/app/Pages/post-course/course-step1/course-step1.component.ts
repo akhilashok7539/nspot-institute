@@ -265,11 +265,45 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('aptituteTestId', formData.aptituteTestId);
     this.multiForm.append('onlineInterviewRequired', formData.onlineInterviewRequired);
     this.multiForm.append('CourseCategoryId',formData.CourseCategoryId)
-    this.multiForm.append('CourseSubCategoryId',formData.CourseSubCategoryId)
-    this.multiForm.append('CourseSubCategory2Id',formData.CourseSubCategory2Id)
-    this.multiForm.append('CourseSubCategory3Id',formData.CourseSubCategory3Id)
-    this.multiForm.append('CourseSubCategory4Id',formData.CourseSubCategory4Id)
-    this.multiForm.append('CourseSubCategory5Id',formData.CourseSubCategory5Id)
+    if(formData.CourseSubCategoryId === "")
+    {
+      // this.multiForm.append('CourseSubCategoryId',null)
+    }
+    else{
+      this.multiForm.append('CourseSubCategoryId',formData.CourseSubCategoryId)
+    }
+  
+    if(formData.CourseSubCategory2Id === "")
+    {
+      // this.multiForm.append('CourseSubCategory2Id',null)
+    }
+    else{
+      this.multiForm.append('CourseSubCategory2Id',formData.CourseSubCategory2Id)
+    }
+    
+    if(formData.CourseSubCategory3Id === "")
+    {
+      // this.multiForm.append('CourseSubCategory3Id',null)
+    }
+    else{
+      this.multiForm.append('CourseSubCategory3Id',formData.CourseSubCategory3Id)
+    }
+    if(formData.CourseSubCategory4Id === "")
+    {
+      // this.multiForm.append('CourseSubCategory4Id',null)
+    }
+    else{
+      this.multiForm.append('CourseSubCategory4Id',formData.CourseSubCategory4Id)
+    }
+   
+    if(formData.CourseSubCategory5Id === "")
+    {
+      // this.multiForm.append('CourseSubCategory5Id',null)
+    }
+    else{
+      this.multiForm.append('CourseSubCategory5Id',formData.CourseSubCategory5Id)
+    }
+    
     this.multiForm.append('regularAndonlineClass',formData.regularAndonlineClass)
     this.multiForm.append('onlineClassOnly',formData.onlineClassOnly)
     this.multiForm.append('regularClassOnly',formData.regularClassOnly)
