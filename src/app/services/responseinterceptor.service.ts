@@ -26,10 +26,15 @@ export class ResponseinterceptorService {
           case 422:
           case 429:                  
               if(error.error?.errors){
+                console.log(error.error.errors[0].msg);
+                
                 this.toast.error(error.error.errors[0].msg);
                 this.ngxspinner.hide();
               }else{
+                console.log(error.error.errors[0].msg);
+
                 this.toast.error(error.error.message);
+
               }
               break;
           default:

@@ -5,14 +5,14 @@
     </div>
   </div>
   <div class="container success">
-    <h4 class="sub-title uppercase">VIRTUAL VIDEO TOUR FILES</h4>
+    <h4 class="sub-title uppercase">VIRTUAL  TOUR FILES</h4>
     <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
       <div class="row">
       
 
         <div class="col-sm-6">
           <label class="uppercase">Campus Overview </label>
-          <input type="file" (change)="onchangeFile('campusOverview',$event)" formControlName="campusOverview" id="" />
+          <input type="file" accept=".png" (change)="onchangeFile('campusOverview',$event)" formControlName="campusOverview" id="" />
           <app-control-messages [touched]="touched" [control]="f.campusOverview"></app-control-messages>
         </div>
 

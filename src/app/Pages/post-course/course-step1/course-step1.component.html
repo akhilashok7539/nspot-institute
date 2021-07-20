@@ -2,7 +2,7 @@
 
     <div class="page-heading text-center">
         <div class="container">
-            <h2>POST A COURSE</h2>
+            <h2> POST YOUR ADMISSION SEAT</h2>
         </div>
     </div>
 
@@ -63,7 +63,7 @@
                         <option *ngFor="let item of courseStreamsSpecializations12" value="{{item.id}}">{{item.title}}
                         </option>
                     </select>
-                   
+
                 </div>
                 <div class="col-sm-4 offset-sm-3">
                     <label class="req uppercase">Choose sub category Courses</label>
@@ -73,7 +73,7 @@
                         <option *ngFor="let item of courseStreamsSpecializations1" value="{{item.id}}">{{item.title}}
                         </option>
                     </select>
-                   
+
                 </div>
                 <div class="col-sm-4 offset-sm-3" style="">
                     <label class="req uppercase">Choose sub category Courses</label>
@@ -137,11 +137,12 @@
                     <label class="req uppercase">Institution Category</label>
                     <select formControlName="instituteCatagory">
                         <option value="">Select one</option>
-                        <option *ngFor="let item of institutionCategoryList" value="{{item.title}}">{{item.title}}</option>
+                        <option *ngFor="let item of institutionCategoryList" value="{{item.title}}">{{item.title}}
+                        </option>
                     </select>
                     <app-control-messages [touched]="touched" [control]="f.instituteCatagory"></app-control-messages>
                 </div>
-                
+
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">University/Academic Board/Other</label>
                     <select formControlName="universityTypeId">
@@ -197,9 +198,42 @@
                 </div>
 
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Course duration</label>
-                    <input type="text" formControlName="courseDuration"
-                        placeholder="enter course duration Eg: 1 year 3 months OR 200 hours" />
+                    <label class="req uppercase">Course duration Hour</label>
+                    <!-- <input type="text" formControlName="courseDuration"
+                        placeholder="enter course duration Eg: 1 year 3 months OR 200 hours" /> -->
+
+                    <!-- <select formControlName="courseDuration">
+                        <option selected disabled value="">Choose a course duration</option>
+                        <option value="Hours">Hours</option>
+                        <option value="Month">Monthly</option>
+                        <option value="Month">Year</option>
+
+                      
+                    </select> -->
+                    <!-- <input type="datetime-local" id="meeting-time"
+       name="meeting-time"  formControlName="courseDuration"
+      > -->
+                    <select>
+                        <option value="0-6">0-6 Hour</option>
+                        <option value="0-12">0-12 Hour</option>
+                        <option value="0-18">0-18 Hour</option>
+                        <option value="0-24">0-24 Hour</option>
+
+
+                        <!-- <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="8">9</option>
+
+                            <option value="1">10</option>
+                            <option value="1">11</option>
+                            <option value="1">12</option>
+                            <option value="1">8</option> -->
+
+                    </select>
                     <app-control-messages [touched]="touched" [control]="f.courseDuration"></app-control-messages>
                     <!-- <div class="col-sm-4 offset-3">
                         <input type="text" formControlName="courseDuration_year" placeholder="yyyy" />
@@ -214,282 +248,299 @@
                 </div>
 
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Exam Conducted</label>
-                    <select formControlName="examConducted" id="">
-                        <option value="">Slect option</option>
-                        <option value="daily">Daily</option>
-                        <option value="weekly">Weekly</option>
-                        <option value="monthly">Monthly</option>
-                        <option value="quarterly">Quarterly</option>
-                        <option value="yearly">Yearly</option>
+                    <label class="req uppercase">Course duration Months</label>
+                    <select>
+                        <option value="0-6">0-6 Months</option>
+                        <option value="0-12">0-12 Months</option>
+
                     </select>
-                    <app-control-messages [touched]="touched" [control]="f.examConducted"></app-control-messages>
                 </div>
-
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Course Syllabus</label>
-                    <input type="file" formControlName="courseSyllabusFile"
-                        (change)="onchangeFile('courseSyllabusFile',$event)" />
-                    <app-control-messages [touched]="touched" [control]="f.courseSyllabusFile"></app-control-messages>
+                    <label class="req uppercase">Course duration Year</label>
+                    <input type="text" placeholder="Enter course duration year">
                 </div>
 
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Admission Starting Date</label>
-                    <input type="date" formControlName="admissionStartDate" placeholder="enter course stream" />
-                    <app-control-messages [touched]="touched" [control]="f.admissionStartDate"></app-control-messages>
-                </div>
 
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Admission Clossing Date</label>
-                    <input type="date" formControlName="admissionCloseDate" placeholder="enter course stream" />
-                    <app-control-messages [touched]="touched" [control]="f.admissionCloseDate"></app-control-messages>
-                </div>
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Exam Conducted</label>
+                <select formControlName="examConducted" id="">
+                    <option value="">Slect option</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="yearly">Yearly</option>
+                </select>
+                <app-control-messages [touched]="touched" [control]="f.examConducted"></app-control-messages>
+            </div>
 
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Class Starting Date</label>
-                    <input type="date" formControlName="classStartDate" placeholder="enter course stream" />
-                    <app-control-messages [touched]="touched" [control]="f.classStartDate"></app-control-messages>
-                </div>
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Course Syllabus</label>
+                <input type="file" formControlName="courseSyllabusFile"
+                    (change)="onchangeFile('courseSyllabusFile',$event)" />
+                <app-control-messages [touched]="touched" [control]="f.courseSyllabusFile"></app-control-messages>
+            </div>
 
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Gender Allowance</label>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="checkbox" formControlName="maleAllowed" id="" /><span>Male</span>
-                        </p>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="checkbox" formControlName="femaleAllowed" id="" />
-                            <span>Female</span>
-                        </p>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="checkbox" formControlName="otherGenderAllowed" id="" />
-                            <span>Other</span>
-                        </p>
-                    </div>
-                    <app-control-messages [touched]="touched" [control]="f.maleAllowed"></app-control-messages>
-                    <app-control-messages [touched]="touched" [control]="f.femaleAllowed"></app-control-messages>
-                    <app-control-messages [touched]="touched" [control]="f.otherGenderAllowed"></app-control-messages>
-                </div>
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Admission Starting Date</label>
+                <input type="date" formControlName="admissionStartDate" placeholder="enter course stream" />
+                <app-control-messages [touched]="touched" [control]="f.admissionStartDate"></app-control-messages>
+            </div>
 
-                <div class="clearfix"></div>
-                <!-- <div class="col-sm-4 offset-3">
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Admission Clossing Date</label>
+                <input type="date" formControlName="admissionCloseDate" placeholder="enter course stream" />
+                <app-control-messages [touched]="touched" [control]="f.admissionCloseDate"></app-control-messages>
+            </div>
+
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Class Starting Date</label>
+                <input type="date" formControlName="classStartDate" placeholder="enter course stream" />
+                <app-control-messages [touched]="touched" [control]="f.classStartDate"></app-control-messages>
+            </div>
+
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Gender Allowance</label>
+                <div class="col-sm-4">
+                    <p class="radio">
+                        <input type="checkbox" formControlName="maleAllowed" id="" /><span>Male</span>
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <p class="radio">
+                        <input type="checkbox" formControlName="femaleAllowed" id="" />
+                        <span>Female</span>
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <p class="radio">
+                        <input type="checkbox" formControlName="otherGenderAllowed" id="" />
+                        <span>Other</span>
+                    </p>
+                </div>
+                <app-control-messages [touched]="touched" [control]="f.maleAllowed"></app-control-messages>
+                <app-control-messages [touched]="touched" [control]="f.femaleAllowed"></app-control-messages>
+                <app-control-messages [touched]="touched" [control]="f.otherGenderAllowed"></app-control-messages>
+            </div>
+
+            <div class="clearfix"></div>
+            <!-- <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Campus Name</label>
                     <input type="text" formControlName="campusName" placeholder="Enter campus name" />
                     <app-control-messages [touched]="touched" [control]="f.campusName"></app-control-messages>
                 </div> -->
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Campus Address Line 1</label>
-                    <input type="text" formControlName="campusAddressLine1" placeholder="Enter campus address line 1" />
-                    <app-control-messages [touched]="touched" [control]="f.campusAddressLine1"></app-control-messages>
-                </div>
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Campus Address Line 1</label>
+                <input type="text" formControlName="campusAddressLine1" placeholder="Enter campus address line 1" />
+                <app-control-messages [touched]="touched" [control]="f.campusAddressLine1"></app-control-messages>
+            </div>
 
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Campus Address Line 2</label>
-                    <input type="text" formControlName="campusAddressLine2" placeholder="Enter campus address line 2" />
-                    <app-control-messages [touched]="touched" [control]="f.campusAddressLine2"></app-control-messages>
-                </div>
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Campus Address Line 2</label>
+                <input type="text" formControlName="campusAddressLine2" placeholder="Enter campus address line 2" />
+                <app-control-messages [touched]="touched" [control]="f.campusAddressLine2"></app-control-messages>
+            </div>
 
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Campus Address Line 3</label>
-                    <input type="text" formControlName="campusAddressLine3" placeholder="Enter campus address line 3" />
-                    <app-control-messages [touched]="touched" [control]="f.campusAddressLine3"></app-control-messages>
-                </div>
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Campus Address Line 3</label>
+                <input type="text" formControlName="campusAddressLine3" placeholder="Enter campus address line 3" />
+                <app-control-messages [touched]="touched" [control]="f.campusAddressLine3"></app-control-messages>
+            </div>
 
-            
 
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Block</label>
-                    <input type="text" formControlName="block" placeholder="enter course stream" />
-                    <app-control-messages [touched]="touched" [control]="f.block"></app-control-messages>
-                </div>
 
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">CAMPUS LOCALITY </label>
-                    <input type="text" formControlName="locality" placeholder="enter course stream" />
-                    <app-control-messages [touched]="touched" [control]="f.locality"></app-control-messages>
-                </div>
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Block</label>
+                <input type="text" formControlName="block" placeholder="enter course stream" />
+                <app-control-messages [touched]="touched" [control]="f.block"></app-control-messages>
+            </div>
 
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">COURSE FEE INFO</label>
-                    <input type="text" formControlName="refundPolicy" placeholder="enter your refund policy" />
-                    <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages>
-                </div>
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Country</label>
-                    <input type="Text" formControlName="country" placeholder="enter course stream" />
-                    <app-control-messages [touched]="touched" [control]="f.country"></app-control-messages>
-                </div>
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">State</label>
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">CAMPUS LOCALITY </label>
+                <input type="text" formControlName="locality" placeholder="enter course stream" />
+                <app-control-messages [touched]="touched" [control]="f.locality"></app-control-messages>
+            </div>
 
-                    <select formControlName="stateId" (change)="loaddistricts($event)">
-                        <option value="">Choose State</option>
-                        <option *ngFor="let item of stateList" value="{{item.id}}">{{item.state}}</option>
-                    </select>
-                </div>
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">District</label>
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Refund Policy</label>
+                <input type="text" formControlName="refundPolicy" placeholder="enter your refund policy" />
+                <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages>
+            </div>
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Country</label>
+                <input type="Text" formControlName="country" placeholder="enter course stream" />
+                <app-control-messages [touched]="touched" [control]="f.country"></app-control-messages>
+            </div>
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">State</label>
 
-                    <select formControlName="districtId" >
-                        <option value="">Choose district</option>
-                        <option *ngFor="let item of districtList" value="{{item.id}}">{{item.district}}</option>
-                    </select>
-                </div>
-                <div class="col-sm-12 offset-3">
-                    <label class="req uppercase">Online class availability during lockdown, hartal, Pandemic ,
-                        unexpected weather Situations?</label>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="radio" formControlName="onlineClassAvailability" value="true" />
-                            <span style="    position: absolute;">
-                                Yes
-                            </span>
-                              
-                            <app-control-messages [touched]="touched" [control]="f.onlineClassAvailability">
-                            </app-control-messages>
-                        </p>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="radio" formControlName="onlineClassAvailability" value="false" /> <span style="    position: absolute;">
-                                No
-                            </span>
-                                
-                            <app-control-messages [touched]="touched" [control]="f.onlineClassAvailability">
-                            </app-control-messages>
-                        </p>
-                    </div>
-                </div>
+                <select formControlName="stateId" (change)="loaddistricts($event)">
+                    <option value="">Choose State</option>
+                    <option *ngFor="let item of stateList" value="{{item.id}}">{{item.state}}</option>
+                </select>
+            </div>
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">District</label>
 
-                <div class="col-sm-4 offset-3" style="margin-top: 40px;">
-                    <label class="req uppercase">Aptitude Test</label>
-                    <p class="checkbox">
-                        <input type="checkbox" [(ngModel)]="hasAptitudeTest" formControlName="aptituteTestRequired"
-                            (change)="onChangeAptitude()" /><span>Required
+                <select formControlName="districtId">
+                    <option value="">Choose district</option>
+                    <option *ngFor="let item of districtList" value="{{item.id}}">{{item.district}}</option>
+                </select>
+            </div>
+            <div class="col-sm-12 offset-3">
+                <label class="req uppercase">Online class availability during lockdown, hartal, Pandemic ,
+                    unexpected weather Situations?</label>
+                <div class="col-sm-4">
+                    <p class="radio">
+                        <input type="radio" formControlName="onlineClassAvailability" value="true" />
+                        <span style="    position: absolute;">
+                            Yes
                         </span>
+
+                        <app-control-messages [touched]="touched" [control]="f.onlineClassAvailability">
+                        </app-control-messages>
                     </p>
-                    <div class="clearfix"></div>
-                    <div *ngIf="form.value.aptituteTestRequired">
-                        <div class="col-md-10">
-                            <select formControlName="aptituteTestId" id="" style="margin-top: 10px;">
-                                <option value="">Choose a test from the list</option>
-                                <option *ngFor="let item of aptitudeTests" value="{{item.id}}">{{item.title}}</option>
-                            </select>
-                            <app-control-messages [touched]="touched" [control]="f.aptituteTestId">
-                            </app-control-messages>
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" (click)="onRefreshAptitude()" style="    margin-top: 10px;
+                </div>
+                <div class="col-sm-4">
+                    <p class="radio">
+                        <input type="radio" formControlName="onlineClassAvailability" value="false" /> <span
+                            style="    position: absolute;">
+                            No
+                        </span>
+
+                        <app-control-messages [touched]="touched" [control]="f.onlineClassAvailability">
+                        </app-control-messages>
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-sm-4 offset-3" style="margin-top: 40px;">
+                <label class="req uppercase">Aptitude Test</label>
+                <p class="checkbox">
+                    <input type="checkbox" [(ngModel)]="hasAptitudeTest" formControlName="aptituteTestRequired"
+                        (change)="onChangeAptitude()" /><span>Required
+                    </span>
+                </p>
+                <div class="clearfix"></div>
+                <div *ngIf="form.value.aptituteTestRequired">
+                    <div class="col-md-10">
+                        <select formControlName="aptituteTestId" id="" style="margin-top: 10px;">
+                            <option value="">Choose a test from the list</option>
+                            <option *ngFor="let item of aptitudeTests" value="{{item.id}}">{{item.title}}</option>
+                        </select>
+                        <app-control-messages [touched]="touched" [control]="f.aptituteTestId">
+                        </app-control-messages>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" (click)="onRefreshAptitude()" style="    margin-top: 10px;
                             padding: 10px;
                             width: 42px;
                             margin-left: -27px;
                             background: #00800038;
-                            border: none;"><i
-                                    class="zmdi zmdi-refresh"></i></button>
-                        </div>
-                        <div class="clearfix"></div>
-                        <!-- <a class="uppercase mt-3 float-right" style="float: right;" href="/institute/aptitude-test/view"
-                            target="_blank">Cannot find test you are looking for? Add a new Aptitude Test</a> -->
+                            border: none;"><i class="zmdi zmdi-refresh"></i></button>
                     </div>
+                    <div class="clearfix"></div>
+                    <!-- <a class="uppercase mt-3 float-right" style="float: right;" href="/institute/aptitude-test/view"
+                            target="_blank">Cannot find test you are looking for? Add a new Aptitude Test</a> -->
                 </div>
+            </div>
 
-                <div class="col-sm-4 offset-3"  style="margin-top: 40px;">
-                    <label class="req uppercase">Online interview</label>
-                    <p class="checkbox">
-                        <input type="checkbox" formControlName="onlineInterviewRequired" /><span>Required</span>
+            <div class="col-sm-4 offset-3" style="margin-top: 40px;">
+                <label class="req uppercase">Online interview</label>
+                <p class="checkbox">
+                    <input type="checkbox" formControlName="onlineInterviewRequired" /><span>Required</span>
+                </p>
+            </div>
+
+
+            <div class="col-sm-12 offset-3" style="margin-top: 20px;">
+                <label class="req uppercase">Regular Classroom </label>
+                <div class="col-sm-4">
+                    <p class="radio">
+                        <input type="radio" formControlName="regularClassOnly" value="true" />
+                        <span style="    position: absolute;">
+                            Yes
+                        </span>
+
+                        <app-control-messages [touched]="touched" [control]="f.regularClassOnly">
+                        </app-control-messages>
                     </p>
                 </div>
+                <div class="col-sm-4">
+                    <p class="radio">
+                        <input type="radio" formControlName="regularClassOnly" value="false" /> <span
+                            style="    position: absolute;">
+                            No
+                        </span>
 
-
-                <div class="col-sm-12 offset-3" style="margin-top: 20px;">
-                    <label class="req uppercase">Regular Classroom </label>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="radio" formControlName="regularClassOnly" value="true" />
-                            <span style="    position: absolute;">
-                                Yes
-                            </span>
-                              
-                            <app-control-messages [touched]="touched" [control]="f.regularClassOnly">
-                            </app-control-messages>
-                        </p>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="radio" formControlName="regularClassOnly" value="false" /> <span style="    position: absolute;">
-                                No
-                            </span>
-                                
-                            <app-control-messages [touched]="touched" [control]="f.regularClassOnly">
-                            </app-control-messages>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-12 offset-3" style="margin-top: 43px;">
-                    <label class="req uppercase">Online Class Only </label>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="radio" formControlName="onlineClassOnly" value="true" />
-                            <span style="    position: absolute;">
-                                Yes
-                            </span>
-                              
-                            <app-control-messages [touched]="touched" [control]="f.onlineClassOnly">
-                            </app-control-messages>
-                        </p>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="radio" formControlName="onlineClassOnly" value="false" /> <span style="    position: absolute;">
-                                No
-                            </span>
-                                
-                            <app-control-messages [touched]="touched" [control]="f.onlineClassOnly">
-                            </app-control-messages>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-sm-12 offset-3" style="margin-top: 43px;">
-                    <label class="req uppercase">Regular & Online Class </label>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="radio" formControlName="regularAndonlineClass" value="true" />
-                            <span style="    position: absolute;">
-                                Yes
-                            </span>
-                              
-                            <app-control-messages [touched]="touched" [control]="f.regularAndonlineClass">
-                            </app-control-messages>
-                        </p>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="radio" formControlName="regularAndonlineClass" value="false" /> <span style="    position: absolute;">
-                                No
-                            </span>
-                                
-                            <app-control-messages [touched]="touched" [control]="f.regularAndonlineClass">
-                            </app-control-messages>
-                        </p>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="row clearfix">
-                <div class="col-sm-12" style="margin-top: 50px;">
-                    <div class="pull-right">
-                        <button class="btn btn-info" id="submit-btn">
-                            SAVE AND CONTINUE
-                        </button>
-                    </div>
+                        <app-control-messages [touched]="touched" [control]="f.regularClassOnly">
+                        </app-control-messages>
+                    </p>
                 </div>
             </div>
-        </form>
+            <div class="col-sm-12 offset-3" style="margin-top: 43px;">
+                <label class="req uppercase">Online Class Only </label>
+                <div class="col-sm-4">
+                    <p class="radio">
+                        <input type="radio" formControlName="onlineClassOnly" value="true" />
+                        <span style="    position: absolute;">
+                            Yes
+                        </span>
+
+                        <app-control-messages [touched]="touched" [control]="f.onlineClassOnly">
+                        </app-control-messages>
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <p class="radio">
+                        <input type="radio" formControlName="onlineClassOnly" value="false" /> <span
+                            style="    position: absolute;">
+                            No
+                        </span>
+
+                        <app-control-messages [touched]="touched" [control]="f.onlineClassOnly">
+                        </app-control-messages>
+                    </p>
+                </div>
+            </div>
+            <div class="col-sm-12 offset-3" style="margin-top: 43px;">
+                <label class="req uppercase">Regular & Online Class </label>
+                <div class="col-sm-4">
+                    <p class="radio">
+                        <input type="radio" formControlName="regularAndonlineClass" value="true" />
+                        <span style="    position: absolute;">
+                            Yes
+                        </span>
+
+                        <app-control-messages [touched]="touched" [control]="f.regularAndonlineClass">
+                        </app-control-messages>
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <p class="radio">
+                        <input type="radio" formControlName="regularAndonlineClass" value="false" /> <span
+                            style="    position: absolute;">
+                            No
+                        </span>
+
+                        <app-control-messages [touched]="touched" [control]="f.regularAndonlineClass">
+                        </app-control-messages>
+                    </p>
+                </div>
+            </div>
+
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-sm-12" style="margin-top: 50px;">
+            <div class="pull-right">
+                <button class="btn btn-info" id="submit-btn">
+                    SAVE AND CONTINUE
+                </button>
+            </div>
+        </div>
+    </div>
+    </form>
     </div>
     <pre>{{form.value | json}}</pre>
 

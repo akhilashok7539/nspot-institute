@@ -53,10 +53,10 @@ export class CourseStep2Component implements OnInit {
       // nspotTax: ['', [Validators.required]],
       bankAccountId: ['', [Validators.required]],
       hasScolarship: [false],
-
-      title: [''],
+      spotfee: ['',[Validators.required]],
+      // title: [''],
       amount: [''],
-      validUpto: [''],
+      // validUpto: [''],
     });
     this.calculateTotalFee();
   }
@@ -106,10 +106,20 @@ export class CourseStep2Component implements OnInit {
     if (this.form.invalid) {
       return;
     } else {
-      (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
+      // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     }
     const formData = this.form.value;
-    this.apiService.doPostRequest(endPoints.Create_courseFee + this.instituteId, formData)
+    console.log(this.nspotFeeObj.nspotFee+this.nspotFeeObj.bankCharge+this.nspotFeeObj.nspotTax);
+    let totalamount = this.nspotFeeObj.nspotFee+this.nspotFeeObj.bankCharge+this.nspotFeeObj.nspotTax;
+    let spotaddmionchangres = this.form.value.spotfee;
+    console.log(spotaddmionchangres);
+    
+    if(totalamount>spotaddmionchangres)
+    {
+      this.toastr.error("Spot addmission fee is less than Nspot fee")
+    }
+    else{
+  this.apiService.doPostRequest(endPoints.Create_courseFee + this.instituteId, formData)
       .subscribe((returnData: any) => {
         console.log(returnData);
         this.toastr.success('Form submission successfull');
@@ -119,6 +129,8 @@ export class CourseStep2Component implements OnInit {
           this.toastr.error(error.error[0].message);
           console.error(error);
         });
+    }
+  
 
 
   }

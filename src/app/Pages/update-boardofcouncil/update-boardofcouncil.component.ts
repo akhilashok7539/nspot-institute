@@ -28,27 +28,48 @@ export class UpdateBoardofcouncilComponent implements OnInit {
   boardOfCouncilInfo:any = [];
   touched = false;
   ngOnInit(): void {
-    this.instituteId = this.authService.instituteProfile.id;
+    this.instituteId = this.authService.instituteProfile.userId;
 
 
     this.form = this.formBuilder.group({
-      // unitOfFile: [''], // now not in forms
-      unitOfLabel: ['', [Validators.required]],
-      affiliatedToFile: ['', [Validators.required]],
-      affiliatedToLabel: ['', [Validators.required]],
-      recongnizedByFile: ['', [Validators.required]],
-      recongnizedByLabel: ['', [Validators.required]],
-      registeredToFile: ['', [Validators.required]],
-      registeredToLabel: ['', [Validators.required]],
-      approvedByFile: ['', [Validators.required]],
-      approvedByLabel: ['', [Validators.required]],
-      accreditedByFile: ['', [Validators.required]],
-      accreditedByLabel: ['', [Validators.required]],
-      certifiedByFile: ['', [Validators.required]],
-      certifiedByLabel: ['', [Validators.required]],
-      memberOfFile: ['', [Validators.required]],
-      memberOfLabel: ['', [Validators.required]],
+      unitOfFile: [''], // now not in forms
+      rankofFile: ['', ],
+      rankofLabel: ['', ],
+      awardsofFile: ['', ],
+      awardsofLabel: ['', ],
+      ratedByLabel: ['', ],
+      ratedByFile: ['', ],
+      accordedByFile: ['', ],
+      accordedByLabel: ['', ],
+      underSectionActofLabel: ['', ],
+      underSectionActofFile: ['', ],
+      establishedOfFile: ['', ],
+      establishedOfLabel: ['', ],
+      boardByLabel: ['', ],
+      boardByFile: ['', ],
+      licenceByLabel: ['', ],
+      licenceByFile: ['', ],
+      collaborationByLabel: ['', ],
+      collaborationByFile: ['', ],
+      unitOfLabel: ['', ],
+      affiliatedToFile: ['', ],
+      affiliatedToLabel: ['', ],
+      recongnizedByFile: ['', ],
+      recongnizedByLabel: ['', ],
+      registeredToFile: ['', ],
+      registeredToLabel: ['', ],
+      approvedByFile: ['', ],
+      approvedByLabel: ['', ],
+      accreditedByFile: ['', ],
+      accreditedByLabel: ['', ],
+      certifiedByFile: ['', ],
+      certifiedByLabel: ['', ],
+      memberOfFile: ['', ],
+      memberOfLabel: ['', ],
 
+      brochuresFile: ['', ],
+      rulesFile: ['', ],
+      uniformFile: ['', ],
 
     });
     this.loadData();
@@ -73,7 +94,18 @@ export class UpdateBoardofcouncilComponent implements OnInit {
   {
     this.apiService.doGetRequest(endPoints.Get_boardOfCouncil + this.instituteId).subscribe((returnData: any) => {
       this.boardOfCouncilInfo = returnData.data;
-       this.form.controls['unitOfLabel'].setValue(this.boardOfCouncilInfo['unitOfLabel']);
+      this.form.controls['rankofLabel'].setValue(this.boardOfCouncilInfo['rankofLabel']);
+      this.form.controls['awardsofLabel'].setValue(this.boardOfCouncilInfo['awardsofLabel']);
+      this.form.controls['ratedByLabel'].setValue(this.boardOfCouncilInfo['ratedByLabel']);
+      this.form.controls['accordedByLabel'].setValue(this.boardOfCouncilInfo['accordedByLabel']);
+      this.form.controls['unitOfLabel'].setValue(this.boardOfCouncilInfo['unitOfLabel']);
+
+      this.form.controls['underSectionActofLabel'].setValue(this.boardOfCouncilInfo['underSectionActofLabel']);
+
+      this.form.controls['establishedOfLabel'].setValue(this.boardOfCouncilInfo['establishedOfLabel']);
+      this.form.controls['boardByLabel'].setValue(this.boardOfCouncilInfo['boardByLabel']);
+
+      
        this.form.controls['affiliatedToLabel'].setValue(this.boardOfCouncilInfo['affiliatedToLabel']);
        this.form.controls['recongnizedByLabel'].setValue(this.boardOfCouncilInfo['recongnizedByLabel']);
        this.form.controls['registeredToLabel'].setValue(this.boardOfCouncilInfo['registeredToLabel']);
@@ -81,9 +113,12 @@ export class UpdateBoardofcouncilComponent implements OnInit {
        this.form.controls['accreditedByLabel'].setValue(this.boardOfCouncilInfo['accreditedByLabel']);
        this.form.controls['certifiedByLabel'].setValue(this.boardOfCouncilInfo['certifiedByLabel']);
        this.form.controls['memberOfLabel'].setValue(this.boardOfCouncilInfo['memberOfLabel']);
+
+       this.form.controls['licenceByLabel'].setValue(this.boardOfCouncilInfo['licenceByLabel']);
+       this.form.controls['collaborationByLabel'].setValue(this.boardOfCouncilInfo['collaborationByLabel']);
     
-
-
+       
+       
 
     }, error => {
       console.error(error);
@@ -116,9 +151,19 @@ export class UpdateBoardofcouncilComponent implements OnInit {
     this.multiForm.append('registeredToLabel', formData.registeredToLabel);
     this.multiForm.append('approvedByLabel', formData.approvedByLabel);
     this.multiForm.append('accreditedByLabel', formData.accreditedByLabel);
-    this.multiForm.append('certifiedByFile', formData.certifiedByFile);
+    // this.multiForm.append('certifiedByFile', formData.certifiedByFile);
     this.multiForm.append('certifiedByLabel', formData.certifiedByLabel);
     this.multiForm.append('memberOfLabel', formData.memberOfLabel);
+    this.multiForm.append('rankofLabel', formData.rankofLabel);
+    this.multiForm.append('awardsofLabel', formData.awardsofLabel);
+    this.multiForm.append('ratedByLabel', formData.ratedByLabel);
+
+    this.multiForm.append('accordedByLabel', formData.accordedByLabel);
+    this.multiForm.append('underSectionActofLabel', formData.underSectionActofLabel);
+    this.multiForm.append('establishedOfLabel', formData.establishedOfLabel);
+    this.multiForm.append('boardByLabel', formData.boardByLabel);
+    this.multiForm.append('licenceByLabel', formData.licenceByLabel);
+    this.multiForm.append('collaborationByLabel', formData.collaborationByLabel);
 
     // console.warn(this.multiForm.getAll('affiliatedToFile'));
     this.apiService.doPutRequest(`institute/boardOfCouncil/update/` + this.instituteId, this.multiForm).subscribe((returnData: any) => {

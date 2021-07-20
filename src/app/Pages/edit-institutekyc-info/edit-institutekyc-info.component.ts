@@ -61,8 +61,8 @@ export class EditInstitutekycInfoComponent implements OnInit {
       town: ['', [Validators.required]],
       pin: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
-      telephone1: ['', [Validators.minLength(15)]],
-      telephone2: ['', [Validators.minLength(15)]],
+      telephone1: ['', [Validators.minLength(6)]],
+      telephone2: ['', [Validators.minLength(6)]],
       mobile1: ['', [Validators.maxLength(10), Validators.minLength(10)]],
       mobile2: ['', [Validators.maxLength(10), Validators.minLength(10)]],
       haveBoysHostel: [false],
@@ -71,35 +71,68 @@ export class EditInstitutekycInfoComponent implements OnInit {
       hostalAnnualFee: [''],
       transportationInfo: ['', [Validators.required]],
       gmapLatitude: ['', [Validators.required]],
-      gmapLongitude: ['', [Validators.required]]
+      gmapLongitude: ['', [Validators.required]],
+      year_of_establishment:['', [Validators.required]],
+      designation:['', [Validators.required]],
+      institute_aid_status:['', [Validators.required]],
+      ownership:['', [Validators.required]],
+      institute_category:['', [Validators.required]],
+      admission_office_email:['', [Validators.required]],
+      admission_office_mobileno1:['', [Validators.required]],
+      admission_office_mobileno2:['', [Validators.required]],
+      // recaptcha: ['', Validators.required],
+      busAvailablity:[false],
+      vanavailablity:[false],
+      routeInfo: [''],
+      officialEmail: ['', Validators.required],
     });
     this.loadData();
   }
   loadData()
   {
+    console.log(this.instituteid);
+    
     this.apiService.doGetRequest(`institute/`+this.instituteid).subscribe(
       data =>{
         console.log(data);
         this.instituteDetails = data['data']
         this.form.controls['name'].setValue(this.instituteDetails['name']);
+        this.form.controls['year_of_establishment'].setValue(this.instituteDetails['year_of_establishment']);
+        this.form.controls['typeId'].setValue(this.instituteDetails['typeId']);
+        this.form.controls['institute_category'].setValue(this.instituteDetails['institute_category']);
         this.form.controls['code'].setValue(this.instituteDetails['code']);
-        this.form.controls['typeId'].setValue(this.instituteDetails['InstituteType'].id);
+        this.form.controls['ownership'].setValue(this.instituteDetails['ownership']);
         this.form.controls['principalName'].setValue(this.instituteDetails['principalName']);
+        this.form.controls['designation'].setValue(this.instituteDetails['designation']);
+        this.form.controls['officialEmail'].setValue(this.instituteDetails['officialEmail']);
         this.form.controls['officialMobile'].setValue(this.instituteDetails['officialMobile']);
-        this.form.controls['licenseIssueAuthorityId'].setValue(this.instituteDetails['LicenceIssueAuthority'].id);
+        this.form.controls['licenseIssueAuthorityId'].setValue(this.instituteDetails['LicenceIssueAuthority']);
         this.form.controls['licenseAuthorityName'].setValue(this.instituteDetails['licenseAuthorityName']);
         this.form.controls['licenseNumber'].setValue(this.instituteDetails['licenseNumber']);
         this.form.controls['nameofTown'].setValue(this.instituteDetails['nameofTown']);
+        
         this.form.controls['licenseIssuedDate'].setValue(this.instituteDetails['licenseIssuedDate'].split("T")[0]);
         this.form.controls['licenseRenewalDate'].setValue(this.instituteDetails['licenseRenewalDate'].split("T")[0]);
+        this.form.controls['institute_aid_status'].setValue(this.instituteDetails['institute_aid_status']);
+
         this.form.controls['addressLine1'].setValue(this.instituteDetails['addressLine1']);
         this.form.controls['addressLine2'].setValue(this.instituteDetails['addressLine2']);
         this.form.controls['addressLine3'].setValue(this.instituteDetails['addressLine3']);
+
+        
+        // this.form.controls['principalName'].setValue(this.instituteDetails['principalName']);
+        this.form.controls['officialMobile'].setValue(this.instituteDetails['officialMobile']);
         this.form.controls['country'].setValue(this.instituteDetails['country']);
         this.form.controls['state'].setValue(this.instituteDetails['state']);
         this.form.controls['district'].setValue(this.instituteDetails['district']);
         this.form.controls['town'].setValue(this.instituteDetails['town']);
         this.form.controls['pin'].setValue(this.instituteDetails['pin']);
+        // this.form.controls['licenseAuthorityName'].setValue(this.instituteDetails['licenseAuthorityName']);
+        // this.form.controls['licenseNumber'].setValue(this.instituteDetails['licenseNumber']);
+        
+       
+        this.form.controls['officialEmail'].setValue(this.instituteDetails['officialEmail']);
+     
         this.form.controls['email'].setValue(this.instituteDetails['email']);
         this.form.controls['telephone1'].setValue(this.instituteDetails['telephone1']);
         this.form.controls['telephone2'].setValue(this.instituteDetails['telephone2']);
@@ -112,7 +145,11 @@ export class EditInstitutekycInfoComponent implements OnInit {
         this.form.controls['gmapLatitude'].setValue(this.instituteDetails['gmapLatitude']);
         this.form.controls['gmapLongitude'].setValue(this.instituteDetails['gmapLongitude']);
 
+        this.form.controls['admission_office_email'].setValue(this.instituteDetails['admission_office_email']);
+        this.form.controls['admission_office_mobileno1'].setValue(this.instituteDetails['admission_office_mobileno1']);
+        this.form.controls['admission_office_mobileno2'].setValue(this.instituteDetails['admission_office_mobileno2']);
 
+        
 
       },
       error =>{

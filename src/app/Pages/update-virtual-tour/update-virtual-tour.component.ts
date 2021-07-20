@@ -26,14 +26,29 @@ export class UpdateVirtualTourComponent implements OnInit {
   form: FormGroup;
   touched = false;
   ngOnInit(): void {
-    this.instituteId = this.authservice.instituteProfile.id;
+    this.instituteId = this.authservice.instituteProfile.userId;
     this.form = this.formBuilder.group({
-      campusOverview: ['',],
+      campusOverview: [''],
       classRoom: [''],
       lab: [''],
       library: [''],
       recreationalArea: [''],
       hostel: [''],
+
+      // website: [''],
+      youtube: [''],
+      twitter: [''],
+      instagram: [''],
+      linkedIn: [''],
+      facebook: [''],
+      // other: [''],
+      campusTourVideoLink: [''],
+      classRoomVideoLink: [''],
+      labTourVideoLink: [''],
+      hostelTourVideoLink: [''],
+      recreationAreaTourVideoLink: [''],
+      libraryTourVideoLink: [''],
+
     });
   }
   // Handling the file change events to append the file with the submitting object
@@ -62,7 +77,25 @@ export class UpdateVirtualTourComponent implements OnInit {
     }
     const formData = this.form.value;
 
+    this.multiForm.delete('youtube');
+    this.multiForm.delete('twitter');
+    this.multiForm.delete('instagram');
+    this.multiForm.delete('linkedIn');
+    this.multiForm.delete('facebook');
+    this.multiForm.delete('other');
 
+    this.multiForm.append('youtube', formData.youtube);
+    this.multiForm.append('twitter', formData.twitter);
+    this.multiForm.append('instagram', formData.instagram);
+    this.multiForm.append('linkedIn', formData.linkedIn);
+    this.multiForm.append('facebook', formData.facebook);
+    // this.multiForm.append('other', formData.other);
+    this.multiForm.append('campusTourVideoLink', formData.campusTourVideoLink);
+    this.multiForm.append('classRoomVideoLink', formData.classRoomVideoLink);
+    this.multiForm.append('labTourVideoLink', formData.labTourVideoLink);
+    this.multiForm.append('hostelTourVideoLink', formData.hostelTourVideoLink);
+    this.multiForm.append('libraryTourVideoLink', formData.libraryTourVideoLink);
+    this.multiForm.append('recreationAreaTourVideoLink', formData.recreationAreaTourVideoLink);
     
 
     this.apiService.doPutRequest(`institute/virtual-tour/update/` + this.instituteId, this.multiForm)

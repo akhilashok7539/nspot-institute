@@ -17,6 +17,12 @@
             <app-control-messages [touched]="touched" [control]="f.name"></app-control-messages>
           </div>
           <div class="col-sm-6">
+            <label class="req uppercase"> Establishment Year </label>
+  
+            <input type="text" placeholder="Enter Establishment Year" formControlName="year_of_establishment"  />
+            <app-control-messages [control]="f.year_of_establishment" [touched]="touched"></app-control-messages>
+          </div>
+          <div class="col-sm-6">
             <label class="req">TYPE OF THE INSTITUTION</label>
             <select formControlName="typeId">
               <option value="">Select Institution type</option>
@@ -33,19 +39,59 @@
             <app-control-messages [control]="f.typeId" [touched]="touched"></app-control-messages>
   
           </div>
+          <div class="col-sm-6">
+            <label class="req"> INSTITUTION CATEGORY</label>
+            <select formControlName="institute_category">
+              <option value="">Select Institution Category</option>
+              <option value="Organisation">Organisation</option>
+              <option value="University">University</option>
+              <option value="Council ">Council </option>
   
+            </select>
+            <app-control-messages [control]="f.typeId" [touched]="touched"></app-control-messages>
+  
+          </div>
           <div class="col-sm-6 offset-3">
-            <label class="req uppercase">Institution code</label>
+            <label class="req uppercase">College/Institute-Code</label>
             <input type="text" formControlName="code" placeholder="Enter institute code" />
             <app-control-messages [control]="f.code" [touched]="touched"></app-control-messages>
           </div>
+          <div class="col-sm-6 offset-3">
+            <label class="req uppercase">Ownership</label>
+            <!-- <input type="text"  placeholder="Enter ownership" /> -->
+            <select name="" id="" formControlName="ownership">
+              <option value="" selected disabled>Choose a ownership</option>
   
+              <option value="Public/Government">Public/Government</option>
+              <option value="Private">Private</option>
+              <option value="Community">Community</option>
+              <option value="Trade/Career">Trade/Career</option>
+              <option value="Global Partnership">Global Partnership</option>
+  
+  
+            </select>
+  
+  
+            <app-control-messages [control]="f.ownership" [touched]="touched"></app-control-messages>
+          </div>
           <div class="col-sm-6">
-            <label class="req uppercase">Name of the Pricipal</label>
+            <label class="req uppercase">Name of the Principal/Admission Counselor/Director or Authorised person</label>
             <input type="text" formControlName="principalName" placeholder="Enter name of the principal" />
             <app-control-messages [control]="f.principalName" [touched]="touched"></app-control-messages>
           </div>
+          <div class="col-sm-6">
+            <label class="req uppercase"> Designation </label>
   
+            <input type="text" placeholder="Enter Designation" formControlName="designation"/>
+            <app-control-messages [control]="f.designation" [touched]="touched"></app-control-messages>
+          </div>
+          <div class="col-sm-6">
+            <label class="req uppercase"> Official Email id of the Designated person </label>
+  
+            <input type="text" placeholder="Enter Official Email id of the Designated person" formControlName="officialEmail"/>
+            <app-control-messages [control]="f.officialEmail" [touched]="touched"></app-control-messages>
+          </div>
+          
           <div class="col-sm-6">
             <label class="req uppercase">Official mobile number of the Pricipal/Other official person</label>
             <div class="row">
@@ -70,6 +116,11 @@
   
           </div>
           <!-- <pre>{{licenseIssueAuthorities|json}}</pre> -->
+         <div class="col-sm-12">
+          <h4 class="sub-title" style="    margin-top: 67px;
+          margin-bottom: 51px;">GOVERNMENT LICENSE OF THE INSTITUTE /LEGAL REGISTRATION INFO</h4>
+  
+         </div>
           <div class="col-sm-6">
             <label class="req uppercase">License Issuing Authority</label>
             <select formControlName="licenseIssueAuthorityId">
@@ -93,7 +144,7 @@
             <app-control-messages [control]="f.licenseNumber" [touched]="touched"></app-control-messages>
           </div>
   
-          <div class="col-sm-12">
+          <div class="col-sm-6">
             <label class="req uppercase">Name of Panchayat/Municipality</label>
             <input type="text" formControlName="nameofTown" placeholder="Enter the name of the panchayath/municipality" />
             <app-control-messages [control]="f.nameofTown" [touched]="touched"></app-control-messages>
@@ -110,12 +161,22 @@
             <input type="date" formControlName="licenseRenewalDate" placeholder="Choose license renewal date" />
             <app-control-messages [control]="f.licenseRenewalDate" [touched]="touched"></app-control-messages>
           </div>
+          <div class="col-sm-6">
+            <label class="req uppercase">Institute AID Status</label>
+            <select formControlName="institute_aid_status">
+              <option value="" selected disabled>Choose a AID status</option>
+              <option value="Aided">Aided  </option>
+              <option value="Unaided">Unaided    </option>
+              <option value="N/A">N/A  </option>
   
+            </select>
+            <app-control-messages [control]="f.institute_aid_status" [touched]="touched"></app-control-messages>
+          </div>
         </div>
   
         <div class="clearfix"></div>
-        <h4 class="sub-title">
-          PERMANENT HEAD OFFICE ADDRESS OF THE INSTITUTION
+        <h4 class="sub-title" style="text-transform: uppercase;">
+          Corporate/Head Office Address Of the Institute
         </h4>
         <div class="row">
           <div class="col-sm-12">
@@ -167,7 +228,7 @@
           </div>
   
           <div class="col-sm-4">
-            <label class="req uppercase">Pin</label>
+            <label class="req uppercase">Postal Code</label>
             <input type="text" formControlName="pin" placeholder="Country" />
             <app-control-messages [control]="f.pin" [touched]="touched"></app-control-messages>
           </div>
@@ -179,19 +240,19 @@
           </div>
   
           <div class="col-sm-6">
-            <label class="req uppercase">Telephone 1</label>
+            <label class="req uppercase">Office Telephone 1</label>
             <input type="text" formControlName="telephone1" placeholder="Enter a telephone number" />
             <app-control-messages [control]="f.telephone1" [touched]="touched"></app-control-messages>
           </div>
   
           <div class="col-sm-6">
-            <label class="uppercase">Telephone 2</label>
+            <label class="uppercase">Office Telephone 2</label>
             <input type="text" formControlName="telephone2" placeholder="Enter a telephone number" />
             <app-control-messages [control]="f.telephone2" [touched]="touched"></app-control-messages>
           </div>
   
           <div class="col-sm-6">
-            <label class="uppercase">Mobile number 1</label>
+            <label class="uppercase">Office Mobile number 1</label>
             <div class="input-group">
               <span class="input-group-addon">+91</span>
               <input type="text" formControlName="mobile1" placeholder="Enter a mobile number" />
@@ -200,47 +261,82 @@
           </div>
   
           <div class="col-sm-6">
-            <label class="uppercase">Mobile number 2</label>
+            <label class="uppercase">Office Mobile number 2</label>
             <div class="input-group">
               <span class="input-group-addon">+91</span>
               <input type="text" formControlName="mobile2" placeholder="Enter a mobile number" />
               <app-control-messages [control]="f.mobile2" [touched]="touched"></app-control-messages>
             </div>
           </div>
-  
-          <div class="col-sm-6">
-            <label class="uppercase">Hostel Facility</label>
-            <div class="col-sm-3">
+          <div class="clearfix"></div>
+          <h4 class="sub-title" style="text-transform: uppercase;">
+            Official Primary Chief Admission Officer Info
+          </h4>
+          <div class="col-sm-12">
+            <label class="req uppercase">Enter Chief Admission Officer's Official Email ID for recieving all students admission notifications?</label>
+            <input type="text" formControlName="admission_office_email" placeholder="Enter a valid email address" />
+            <app-control-messages [control]="f.admission_office_email" [touched]="touched"></app-control-messages>
+          </div>
+          <div class="col-sm-12">
+            <label class="req uppercase">Enter Chief Admission Officer's Official Mob No: 1</label>
+            <input type="text" formControlName="admission_office_mobileno1" placeholder="Enter a Chief Admission Officer's Official Mob No: 1" />
+            <app-control-messages [control]="f.admission_office_mobileno1" [touched]="touched"></app-control-messages>
+          </div>
+          <div class="col-sm-12">
+            <label class="req uppercase">Enter Chief Admission Officer's Official Mob No: 2</label>
+            <input type="text" formControlName="admission_office_mobileno2" placeholder="Enter a Chief Admission Officer's Official Mob No: 2" />
+            <app-control-messages [control]="f.admission_office_mobileno2" [touched]="touched"></app-control-messages>
+          </div>
+          <div class="col-sm-12">
+            <label class="uppercase">Hostel & Transport </label>
+            <div class="col-sm-2">
               <p class="checkbox">
                 <input type="checkbox" formControlName="haveBoysHostel" />
                 <span>Boys</span>
               </p>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <p class="checkbox">
                 <input type="checkbox" formControlName="haveGirlsHostel" />
                 <span>Girls</span>
               </p>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
               <p class="checkbox">
                 <input type="checkbox" formControlName="foodAvailableAtHostel" />
                 <span>Food</span>
               </p>
             </div>
-            <div class="col-sm-3">
-              <input type="text" formControlName="hostalAnnualFee" placeholder="Annual Fees " />
-              <app-control-messages [control]="f.hostalAnnualFee" [touched]="touched"></app-control-messages>
+            <div class="col-sm-2">
+              <p class="checkbox">
+                <input type="checkbox" formControlName="busAvailablity" />
+                <span>Bus Facility</span>
+              </p>
+            </div>
+            <div class="col-sm-2">
+              <p class="checkbox">
+                <input type="checkbox" formControlName="vanavailablity" />
+                <span>Van Facility</span>
+              </p>
             </div>
           </div>
-  
+          
+          <div class="col-sm-6">
+            <label class="uppercase">Annual Fee INFO</label>
+            <input type="text" formControlName="hostalAnnualFee" placeholder="Annual Fees " />
+            <app-control-messages [control]="f.hostalAnnualFee" [touched]="touched"></app-control-messages>
+          </div>
           <div class="col-sm-6">
             <label class="uppercase">TRANSPORTATION INFO</label>
   
             <input type="text" formControlName="transportationInfo" placeholder="Enter transportation info" />
             <app-control-messages [control]="f.transportationInfo" [touched]="touched"></app-control-messages>
           </div>
-  
+          <div class="col-sm-6">
+            <label class="uppercase">Route & Distance Info</label>
+            <input type="text" formControlName="routeInfo" placeholder="Route " />
+            <app-control-messages [control]="f.routeInfo" [touched]="touched"></app-control-messages>
+          </div>
           <div class="col-sm-12">
             <label class="uppercase">Google MAP LOCATION</label>
   
@@ -253,9 +349,34 @@
               <app-control-messages [control]="f.gmapLongitude" [touched]="touched"></app-control-messages>
             </div>
           </div>
-  
+          <div class="col-sm-12">
+            <!-- (reset)="handleReset()"
+            (expire)="handleExpire()"
+            [size]="size"
+           [hl]="lang"
+           [theme]="theme"
+            [type]="type"
+          -->
+           
+            <!-- <ngx-recaptcha2 #captchaElem
+            [siteKey]="'6LeOZ4YUAAAAAJ8clQYNtOXNDHsd58KZHyJeILk6'"
+          
+            (success)="handleSuccess($event)"
+            [useGlobalDomain]="false"
+          
+           
+           
+            formControlName="recaptcha">
+          </ngx-recaptcha2> -->
+            <!-- <div class="card">
+              <input type="checkbox" class="form-control">
+            </div> -->
+          </div>
         </div>
   
+  
+        
+       
         <div class="row clearfix">
           <div class="col-sm-12">
             <div class="pull-right">

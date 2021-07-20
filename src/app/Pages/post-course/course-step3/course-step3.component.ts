@@ -16,6 +16,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class CourseStep3Component implements OnInit {
   multiForm: FormData = new FormData();
+  eligiblity;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
