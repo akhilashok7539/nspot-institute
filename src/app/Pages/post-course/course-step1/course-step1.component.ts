@@ -61,7 +61,7 @@ export class CourseStep1Component implements OnInit {
       courseTypeId: ['', [Validators.required]],
       courseCode: ['', [Validators.required]],
       universityTypeId: ['', [Validators.required]],
-      universityName: [''],
+      // universityName: [''],
       courseStreamId: ['', ],
       courseStreamSpecializationId: [''],
       availableSeats: [0, [Validators.required, Validators.min(1)]], // number validation

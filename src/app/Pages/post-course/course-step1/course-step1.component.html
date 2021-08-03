@@ -165,7 +165,7 @@
                 
                 </div>
 
-                <div class="col-sm-4 offset-3">
+                <!-- <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Course Stream</label>
                     <select formControlName="courseStreamId" (change)="subloadCourseStreamSpecializations($event)">
                         <option value="">Select Academic Level</option>
@@ -183,7 +183,7 @@
                     </select>
                     <app-control-messages [touched]="touched" [control]="f.courseStreamSpecializationId">
                     </app-control-messages>
-                </div>
+                </div> -->
 
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">No. Of Admission Seats</label>
@@ -396,7 +396,7 @@
                 <app-control-messages [touched]="touched" [control]="f.otherGenderAllowed"></app-control-messages>
             </div>
             <div class="col-sm-4 offset-sm-3">
-                <label class="req uppercase">Admission Category</label>
+                <label class="req uppercase">Admission Seat Quota Type</label>
                 <select formControlName="admissionType">
                     <option value="" disabled>Choose Admission Category </option>
                     <option value="Management">Management </option>

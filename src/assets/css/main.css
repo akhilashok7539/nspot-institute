@@ -302,7 +302,7 @@ nav > ul > li:hover .submenu {
 }
 
 .page header {
-  background-color: #1a4d59;
+  background-color:#1baee1;
 }
 
 #topbar > .pull-right {
@@ -455,7 +455,7 @@ nav > ul > li:hover .submenu {
 }
 
 .cart .cart-controls .viewcart {
-  background-color: #1a4d59;
+  background-color:#1baee1;
   line-height: 33px;
 }
 
@@ -1864,7 +1864,7 @@ h3 + p {
 }
 
 .grid-opts li a.active {
-  background-color: #1a4d59;
+  background-color:#1baee1;
   color: #fff;
   border-color: #1a4d59;
 }
@@ -2968,7 +2968,7 @@ h4 + .recent-post {
 /*Footer $footer*/
 
 footer {
-  background-color: #1a4d59;
+  background-color:#1baee1;
 }
 
 footer .logo {
@@ -3500,7 +3500,7 @@ a:hover {
   text-transform: capitalize;
 }
 .nbtn {
-  /* background-color: #1a4d59; */
+  /* background-color:#1baee1; */
   margin-top: 20px;
 }
 
@@ -3529,7 +3529,7 @@ color: #ff222c;
 }
 
 .square-green:hover{
-  background-color: #1A4D59;
+  background-color:#1baee1;
   border: none;
   color: #fff;
   transition: .2s;
