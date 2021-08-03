@@ -19,6 +19,7 @@ export class CourseStep1Component implements OnInit {
   courseStreamsSpecializations1: any;
   courseStreamsSpecializations2: any;
   courseStreamsSpecializations12: any;
+  universityList: any;
 
   constructor(
     private router: Router,
@@ -60,7 +61,7 @@ export class CourseStep1Component implements OnInit {
       courseTypeId: ['', [Validators.required]],
       courseCode: ['', [Validators.required]],
       universityTypeId: ['', [Validators.required]],
-      universityName: ['', [Validators.required]],
+      universityName: [''],
       courseStreamId: ['', ],
       courseStreamSpecializationId: [''],
       availableSeats: [0, [Validators.required, Validators.min(1)]], // number validation
@@ -68,7 +69,7 @@ export class CourseStep1Component implements OnInit {
       accademicYearMonth: [this.currentMonth, [Validators.required]], // number
       // courseDuration_year: [0, [Validators.required, Validators.min(0)]], // number
       // courseDuration_months: [0, [Validators.required, Validators.min(0)]], // number
-      courseDuration: ['', [Validators.required]],
+      courseDuration: [''],
       examConducted: ['', [Validators.required]],
       admissionStartDate: ['', [Validators.required]],
       admissionCloseDate: ['', [Validators.required]],
@@ -83,7 +84,7 @@ export class CourseStep1Component implements OnInit {
       country: ['', [Validators.required]],
       block: ['', [Validators.required]],
       locality: ['', [Validators.required]],
-      refundPolicy: ['', [Validators.required]],
+      refundPolicy: [''],
       onlineClassAvailability: ['false', [Validators.required]],
       aptituteTestRequired: [false],
       aptituteTestId: [0],
@@ -103,7 +104,14 @@ export class CourseStep1Component implements OnInit {
       stateId:['',[Validators.required]],
       districtId:['',[Validators.required]],
       instituteType:['',[Validators.required]],
-      instituteCatagory:['',[Validators.required]]
+      instituteCatagory:['',[Validators.required]],
+      year:['',[Validators.required]],
+      month:['',[Validators.required]],
+      day:['',[Validators.required]],
+      hour:['',[Validators.required]],
+      universityId:[''],
+      admissionType:['',[Validators.required]]
+
     });
   }
 
@@ -128,7 +136,10 @@ export class CourseStep1Component implements OnInit {
       this.stateList = returnData.data;
       console.log(this.stateList);
     });
-
+    this.apiService.doGetRequest(`university`).subscribe((returnData: any) => {
+      this.universityList = returnData.data;
+      console.log(this.universityList);
+    });
 
     this.loadAptitudeTests();
 
@@ -233,7 +244,7 @@ export class CourseStep1Component implements OnInit {
     // this.multiForm.delete('aptituteTestRequired');
     // this.multiForm.delete('aptituteTestId');
     // this.multiForm.delete('onlineInterviewRequired');
-
+    
     this.multiForm.append('accademicLevelId', formData.accademicLevelId);
     this.multiForm.append('courseTypeId', formData.courseTypeId);
     this.multiForm.append('courseCode', formData.courseCode);
@@ -245,7 +256,7 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('availableSeats', formData.availableSeats);
     this.multiForm.append('accademicYear', formData.accademicYear);
     this.multiForm.append('accademicYearMonth', formData.accademicYearMonth);
-    this.multiForm.append('courseDuration', formData.examConducted);
+    this.multiForm.append('courseDuration', formData.hour+'Hours' + formData.day +'Days'+ formData.month +'Months'+ formData.year+'Years');
     this.multiForm.append('examConducted', formData.examConducted);
     this.multiForm.append('admissionStartDate', formData.admissionStartDate);
     this.multiForm.append('admissionCloseDate', formData.admissionCloseDate);
@@ -265,6 +276,12 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('aptituteTestId', formData.aptituteTestId);
     this.multiForm.append('onlineInterviewRequired', formData.onlineInterviewRequired);
     this.multiForm.append('CourseCategoryId',formData.CourseCategoryId)
+    this.multiForm.append('year',formData.year)
+    this.multiForm.append('day',formData.day)
+    this.multiForm.append('month',formData.month)
+    this.multiForm.append('hour',formData.hour)
+
+
     if(formData.CourseSubCategoryId === "")
     {
       // this.multiForm.append('CourseSubCategoryId',null)

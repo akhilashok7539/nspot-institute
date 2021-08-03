@@ -9,14 +9,17 @@
       <div class="col-sm-12">
         <div class="card media">
           <a class="btn btn btn-info" [class.phase-active]="activeButton === 1" (click)="showPhase(1)"
-            style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Pre Admission Applications-Awaiting Approval</a>
+            style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Pre Admission Applications-Awaiting
+            Approval</a>
 
           <a class="btn btn btn-info" [class.phase-active]="activeButton === 2" (click)="showPhase(2)"
             style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Fee payment awaiting applicants</a>
 
+          <a class="btn btn btn-info" [class.phase-active]="activeButton === 3" (click)="showPhase(3)"
+            style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Payment Completed</a>
 
-          <!-- <a class="btn btn btn-info" [class.phase-active]="activeButton === 3" (click)="showPhase(3)"
-            style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Payment Complted Applications</a> -->
+          <a class="btn btn btn-info" [class.phase-active]="activeButton === 4" (click)="showPhase(4)"
+            style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Completed Applications</a>
 
 
         </div>
@@ -37,7 +40,7 @@
           </select>
         </div> -->
         <div class="clearfix"></div>
-        <div class="col-sm-6 mt-5">
+        <div class="col-sm-6 mt-5" *ngIf="activeButton === 1 || activeButton === 2">
           <label class="req uppercase">Select Course</label>
           <select (change)="changeCourse($event)" name="type">
             {{courses|json}}
@@ -55,7 +58,7 @@
       <div class="row mt-5" *ngIf="activeButton === 1">
         <!-- <h4>Pre Applications</h4> -->
         <!-- style="overflow-x: scroll;"   -->
-        <div class="col-md-12" >
+        <div class="col-md-12">
           <table class="table table-striped">
             <thead>
               <tr>
@@ -110,7 +113,7 @@
 
       <div class="row mt-5" *ngIf="activeButton === 2">
         <!-- <h4>Payment awaiting Applications</h4> -->
-        <div class="col-md-12" >
+        <div class="col-md-12">
           <table class="table table-striped">
             <thead>
               <tr>
@@ -159,7 +162,109 @@
         </div>
       </div>
 
+      <div class="row mt-5" *ngIf="activeButton === 3">
+        <!-- <h4>Pre Applications</h4> -->
+        <!-- style="overflow-x: scroll;"   -->
+        <div class="col-md-12">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>SL.No</th>
+                <th>NAME OF APPLICANT</th>
+                <th>DETAILS</th>
+                <!-- <th>DOWNLOAD APPLICATION</th> -->
+                <!-- <th>CHAT</th> -->
+                <!-- <th>DATE OF REPORTING</th> -->
+               <th>TRANACTION ID</th>
+               <th>TRANACTION TIME</th>
 
+                <th>PAYMENT STATUS</th>
+                <th>ACTION</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of preApplications; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{item.formFieldValues.personalInfo.fullName}}</td>
+                <td>
+                  <a (click)="viewApplicationStatus(item)">View</a>
+                </td>
+              
+                <td>{{item?.startDateTimeOfAptitudeTest | date:'MMM d, y'}}</td>
+                
+                <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
+                </td> -->
+
+                <td>{{item.remarks}}</td>
+                <td>{{item.remarks}}</td>
+                <td>  <button class="btn btn-danger" (click)="upload()">Upload Recepit</button></td>
+
+              </tr>
+              <tr>
+                <td colspan="12" align="center">Empty List</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row mt-5" *ngIf="activeButton === 4">
+        <!-- <h4>Pre Applications</h4> -->
+        <!-- style="overflow-x: scroll;"   -->
+        <div class="col-md-12">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>SL.No</th>
+                <th>NAME OF APPLICANT</th>
+                <th>DETAILS</th>
+                <!-- <th>DOWNLOAD APPLICATION</th> -->
+                <!-- <th>CHAT</th> -->
+                <!-- <th>DATE OF REPORTING</th> -->
+                <th>ROLL NUMBER</th>
+                <th>DATE OF ADMISSION</th>
+               
+                <th>PAYMENT PAID</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td></td>
+                <td></td>
+
+                <td></td>
+
+                <!-- <td>
+                  <button class="btn btn-actions btn-success">
+                    <i class="zmdi zmdi-download"></i> Download
+                  </button>
+                </td> -->
+                <!-- <td>
+                  <button class="btn btn-actions btn-success">
+                    <i class="zmdi zmdi-circle"></i> {{item.formFieldValues.personalInfo.fullName}}
+                  </button>
+                </td> -->
+                <td></td>
+
+                <td></td>
+
+                <td></td>
+               
+                <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
+                </td> -->
+
+     
+                  
+        
+              </tr>
+              <tr>
+                <td colspan="12" align="center">Empty List</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </form>
   </div>
 </main>

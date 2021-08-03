@@ -66,6 +66,7 @@ import { UpdateBoardofcouncilComponent } from './Pages/update-boardofcouncil/upd
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { UploadRecepitComponent } from './Pages/upload-recepit/upload-recepit.component';
+import { DownloadDocumentsComponent } from './Pages/download-documents/download-documents.component';
 const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
 
 @NgModule({
@@ -122,6 +123,7 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
     UpdateHostelinfoComponent,
     UpdateBoardofcouncilComponent,
     UploadRecepitComponent,
+    DownloadDocumentsComponent,
   ],
   imports: [
     BrowserModule,

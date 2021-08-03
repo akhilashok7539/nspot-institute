@@ -21,6 +21,17 @@
   
 
 }
+.downloaddoc{
+  width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background: #1a4d59;
+    border: none;
+    font-size: 17px;
+    font-weight: bold;
+    color: white;
+    border-radius: 8px;
+}
 /* .buttons-color{
   background: #1a4d59;
     color: white;

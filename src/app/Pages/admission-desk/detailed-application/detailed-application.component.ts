@@ -439,4 +439,9 @@ export class DetailedApplicationComponent implements OnInit {
     string = string.replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
     return string;
 }
+doc()
+{
+  sessionStorage.setItem("applicationID",this.applicationId)
+  this.router.navigate(['/institute/download-documents'])
+}
 }

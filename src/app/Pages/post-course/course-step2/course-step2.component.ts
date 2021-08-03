@@ -56,7 +56,7 @@ export class CourseStep2Component implements OnInit {
       spotfee: ['',[Validators.required]],
       // title: [''],
       amount: [''],
-      // validUpto: [''],
+      refundPolicy: ['',[Validators.required]],
     });
     this.calculateTotalFee();
   }

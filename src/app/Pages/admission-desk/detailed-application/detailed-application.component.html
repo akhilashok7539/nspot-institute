@@ -51,6 +51,7 @@
               <div class="col-lg-2 mt-2"><button>Update</button></div>
             </form>
           </div>
+
           <!-- <button (click)="downloadAsPDF()">Download</button> -->
           <button class="float-btn-right" (click)="downloadAsPDF()"><i
               class="zmdi zmdi-download  zmdi-hc-3x"></i></button>
@@ -290,11 +291,11 @@
     </div>
   </div> -->
   <div class="container" id="pdfTable" #pdfTable>
-    
+
     <div class="card">
       <div class="row">
         <div class="col-sm-2">
-          <img src="./assets/images/nspot-logo.jpg" alt="" width="148px">
+          <img src="./assets/images/accredited.jpg" alt="" width="148px">
 
         </div>
         <div class="col-sm-8">
@@ -305,14 +306,192 @@
         </div>
         <div class="col-sm-2">
           <!-- <img src="./images/logo.png" alt="" width="100px"> -->
-          <img src="./assets/images/nspot-logo.jpg" alt="" width="148px">
+          <img src="./assets/images/accredited.jpg" alt="" width="148px">
 
         </div>
       </div>
     </div>
     <div class="card">
+
       <div class="row">
-        <h5 class="headers">PERSONAL DETAILS OF THE APPLICANT </h5>
+
+
+        <h5 class="headers">INSTITUTION INFO </h5>
+
+      </div>
+      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+        <div class="col-sm-5">
+          <p> Institution Reg/Ref:No.(Enter Manually at the time of Admission Confirmation)</p>
+        </div>
+        <div class="col-sm-2">
+          <p style="
+            text-align: center;
+        ">:</p>
+        </div>
+        <div class="col-sm-5">
+          <p> .................................................</p>
+        </div>
+        
+      </div>
+      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+        <div class="col-sm-5">
+          <p> Admission Application Submitted Date</p>
+        </div>
+        <div class="col-sm-2">
+          <p style="
+            text-align: center;
+        ">:</p>
+        </div>
+        <div class="col-sm-5">
+          <p> .................................................</p>
+        </div>
+        
+      </div>
+
+
+      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+        <div class="col-sm-5">
+          <p> Admission Application Number</p>
+        </div>
+        <div class="col-sm-2">
+          <p style="
+            text-align: center;
+        ">:</p>
+        </div>
+        <div class="col-sm-5">
+          <p> .................................................</p>
+        </div>
+        
+      </div>
+
+
+      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+        <div class="col-sm-5">
+          <p> Admission Application for the Academic Year</p>
+        </div>
+        <div class="col-sm-2">
+          <p style="
+            text-align: center;
+        ">:</p>
+        </div>
+        <div class="col-sm-5">
+          <p> .................................................</p>
+        </div>
+        
+      </div>
+      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+        <div class="col-sm-5">
+          <p>NSpot Reference No </p>
+        </div>
+        <div class="col-sm-2">
+          <p style="
+            text-align: center;
+        ">:</p>
+        </div>
+        <div class="col-sm-5">
+          <p> .................................................</p>
+        </div>
+        
+      </div>
+
+
+
+      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+        <div class="col-sm-5">
+          <p>Roll No & Year (Enter Manually at the time of Admission Confirmation)</p>
+        </div>
+        <div class="col-sm-2">
+          <p style="
+            text-align: center;
+        ">:</p>
+        </div>
+        <div class="col-sm-5">
+          <p> .................................................</p>
+        </div>
+        
+      </div>
+
+
+      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+        <div class="col-sm-5">
+          <p>Institution Name</p>
+        </div>
+        <div class="col-sm-2">
+          <p style="
+            text-align: center;
+        ">:</p>
+        </div>
+        <div class="col-sm-5">
+          <p> {{instituteInfo?.name}}
+           
+          </p>
+        </div>
+        
+      </div>
+
+      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+        <div class="col-sm-5">
+          <p>Institution Type</p>
+        </div>
+        <div class="col-sm-2">
+          <p style="
+            text-align: center;
+        ">:</p>
+        </div>
+        <div class="col-sm-5">
+          <p> .................................................</p>
+
+        </div>
+        
+      </div>
+
+
+      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+        <div class="col-sm-5">
+          <p> Institution Category</p>
+        </div>
+        <div class="col-sm-2">
+          <p style="
+            text-align: center;
+        ">:</p>
+        </div>
+        <div class="col-sm-5">
+          <p> .................................................</p>
+
+        </div>
+        
+      </div>
+
+
+      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+        <div class="col-sm-5">
+          <p> Institution Head Office/Corporate Address</p>
+        </div>
+        <div class="col-sm-2">
+          <p style="
+            text-align: center;
+        ">:</p>
+        </div>
+        <div class="col-sm-5">
+          <p> .................................................</p>
+
+        </div>
+        
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <div class="row">
+
+
+        <h5 class="headers">PERSONAL INFORMATIONS OF THE APPLICANT </h5>
         <img src="./assets/images/kyc.png" alt="" style="
        width: 139px; float: right; margin-top: -65px; margin-right: 30px;height: 137px;">
       </div>
@@ -333,11 +512,11 @@
         </div>
       </div>
 
-      </div>
+    </div>
 
 
 
-      <div class="card">
+    <div class="card">
       <h5 class="headers">PERMANENT ADDRESS </h5>
       <hr>
 
@@ -408,7 +587,16 @@
         </div>
       </div>
       <!-- <h5 class="headers">CERTIFICATE DETAILS</h5> -->
+      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">Rules and Regulatons of the Institution
+      </p>
 
+      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I Agreee hereby declare that NPSOT TERMS
+      </p>
+      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I Agreee hereby declare that NSPOT PRIVACY
+      </p>
+      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I certify that the information submitted by me in support of this application is true to the best of my knowledge and belief.
+
+      </p>
       <div class="row">
         <img src="./assets/images/signature.png" style="width: 146px;
         float: right;
@@ -424,7 +612,12 @@
 
     </div>
   </div>
-  <!-- <h5 style="text-align: center;margin-top: 20px;margin-bottom: 20px;">Download Certificate</h5>
+  <div class="container">
+    <button class="downloaddoc" (click)="doc()">Download Documents</button>
+
+  </div>
+  <!-- <h5
+     style="text-align: center;margin-top: 20px;margin-bottom: 20px;">Download Certificate</h5>
   <div class="row" style="    display: flex; margin-left: 20px; margin-right: 20px;
   overflow: auto;">
     

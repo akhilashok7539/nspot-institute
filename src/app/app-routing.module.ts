@@ -42,6 +42,7 @@ import { UpdateBoardofcouncilComponent } from './Pages/update-boardofcouncil/upd
 import { UpdateDownloadComponent } from './Pages/update-download/update-download.component';
 import { UpdateHostelinfoComponent } from './Pages/update-hostelinfo/update-hostelinfo.component';
 import { UploadRecepitComponent } from './Pages/upload-recepit/upload-recepit.component';
+import { DownloadDocumentsComponent } from './Pages/download-documents/download-documents.component';
 
 const routes: Routes = [
   {
@@ -101,6 +102,7 @@ const routes: Routes = [
       { path: 'update-downloads', component: UpdateDownloadComponent },
       { path: 'update-hostel', component: UpdateHostelinfoComponent },
       { path: 'upload-receipt', component: UploadRecepitComponent },
+      { path: 'download-documents', component: DownloadDocumentsComponent },
 
 
     ],

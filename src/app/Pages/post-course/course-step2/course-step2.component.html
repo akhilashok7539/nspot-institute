@@ -189,7 +189,7 @@
                             <span style="    font-size: 10px;
                             font-style: italic;
                             color: red;
-                        ">Spot addmion fee must be greater than Nspot fee</span>
+                        ">Spot Addmission fee must be greater than Nspot fee</span>
                         </div>
                         <div class="col-md-3">
                          
@@ -198,7 +198,19 @@
                         </div>
                         <input type="text" formControlName="spotfee" placeholder="Spot addmission fee" />
                     </div>
-
+                    <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Refund Policy</label>
+                        </div>
+                        <div class="col-md-3">
+                         
+                                
+                         
+                        </div>
+                        <input type="text" formControlName="refundPolicy" placeholder="enter your refund policy" />
+                        <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages>
+                    </div>
+                   
 
                 </div>
 
