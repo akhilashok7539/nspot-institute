@@ -12,7 +12,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./add-admission-officer.component.css']
 })
 export class AddAdmissionOfficerComponent implements OnInit {
-
+  institutecourseList: any = [];
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -33,11 +33,14 @@ export class AddAdmissionOfficerComponent implements OnInit {
       instituteId: this.instituteId,
       name: ['', Validators.required],
       designation: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required]],
       phone1: ['', Validators.required],
       phone2: ['', Validators.required],
-      admissionDepartment: ['', Validators.required]
+      admissionDepartment: ['', Validators.required],
+      instituteCourseId: ['', Validators.required]
     });
+    this.getallcourses()
+
   }
 
   // submitting the multipart data to the api
@@ -64,4 +67,14 @@ export class AddAdmissionOfficerComponent implements OnInit {
         });
   }
   get f() { return this.form.controls; }
+  getallcourses() {
+    this.apiService.doGetRequest(`institute/courses/` + this.instituteId).subscribe(
+      data => {
+        this.institutecourseList = data['data']
+      },
+      error => {
+
+      }
+    )
+  }
 }

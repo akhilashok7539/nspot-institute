@@ -6,18 +6,19 @@
     </div>
   </div>
   <div class="container pricings">
-    <div class="row text-center" *ngIf="!currentSubscription">
+    <!-- *ngIf="!currentSubscription" -->
+    <div class="row text-center" >
 
-      <div class="col-md-4" *ngFor="let item of planList;let i=index">
+      <div class="col-md-3" *ngFor="let item of planList;let i=index">
         <div class="plan uppercase">
-          <h5>{{item.plan.item.name}}</h5>
+          <h5>{{item?.packageName}}</h5>
           <p class="ribbon">MOST POPULAR</p>
-          <p class="price">{{item.plan.item.amount/100}}</p>
-          <p class="crew">{{item.Subscription_Tier.admissionOfficerCount}} Admission Officer</p>
+          <p class="price">{{item?.prize}}</p>
+          <p class="crew">{{item?.validity}}</p>
 
           <div class="plan-details">
             <p>Virtual tour</p>
-            <p>{{item.Subscription_Tier.coursesCount}} Courses</p>
+            <p>{{item?.noOfCourses}} Courses</p>
           </div>
           <button class="square-green" (click)="placeOrder(item)">
             <i class="zmdi zmdi-arrow-right"></i>UPGRADE NOW
@@ -26,7 +27,7 @@
       </div>
     </div>
 
-    <div class="row text-center" *ngIf="currentSubscription">
+    <!-- <div class="row text-center" *ngIf="currentSubscription">
 
       <div class="col-md-6 col-md-offset-3">
         <div class="plan active-plan uppercase mb-5">
@@ -43,7 +44,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
 
   </div>

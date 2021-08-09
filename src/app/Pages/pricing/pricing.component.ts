@@ -35,23 +35,23 @@ export class PricingComponent implements OnInit {
    */
   loadData(): void {
 
-    this.apiService.doGetRequest(endPoints.Get_subscriptionOrderInstitute + this.instituteId).subscribe((returnData: any) => {
-      if (returnData.data.length > 0) {
-        this.currentSubscription = returnData.data[returnData.data.length - 1];
-        console.log(this.currentSubscription);
-      }
+    // this.apiService.doGetRequest(endPoints.Get_subscriptionOrderInstitute + this.instituteId).subscribe((returnData: any) => {
+    //   if (returnData.data.length > 0) {
+    //     this.currentSubscription = returnData.data[returnData.data.length - 1];
+    //     console.log(this.currentSubscription);
+    //   }
 
-    });
+    // });
 
-    this.apiService.doGetRequest(endPoints.Get_plans + 'national_boards').subscribe((returnData: any) => {
+    this.apiService.doGetRequest(`packages`).subscribe((returnData: any) => {
       this.planList = returnData.data;
       console.log(this.planList);
     });
 
-    this.apiService.doGetRequest(endPoints.GetInstituteInfo + this.instituteId).subscribe((returnData: any) => {
-      this.instituteDetails = returnData.data;
-      console.log(this.instituteDetails);
-    });
+    // this.apiService.doGetRequest(endPoints.GetInstituteInfo + this.instituteId).subscribe((returnData: any) => {
+    //   this.instituteDetails = returnData.data;
+    //   console.log(this.instituteDetails);
+    // });
   }
 
   /**

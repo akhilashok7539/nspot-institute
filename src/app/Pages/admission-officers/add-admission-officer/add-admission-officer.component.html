@@ -42,6 +42,13 @@
           <input type="text" formControlName="admissionDepartment" placeholder="Enter department name" />
           <app-control-messages [touched]="touched" [control]="f.admissionDepartment"></app-control-messages>
         </div>
+        <div class="col-sm-6">
+          <label>COURSE</label>
+          <select name="" id="" formControlName="instituteCourseId" class="form-control">
+            <option *ngFor="let s of institutecourseList" value="{{s.item.id}}">{{s.CourseName}}</option>
+          </select>
+          <app-control-messages [touched]="touched" [control]="f.instituteCourseId"></app-control-messages>
+        </div>
       </div>
 
 

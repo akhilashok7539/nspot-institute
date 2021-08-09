@@ -56,14 +56,14 @@ export class CourseStep1Component implements OnInit {
     this.maindesk();
     this.form = this.formBuilder.group({
       // unitOfFile: [''], // now not in forms
-      accademicLevelId: ['', [Validators.required]],
-      accademicLevelCourseId: ['', [Validators.required]],
+      // accademicLevelId: ['', [Validators.required]],
+      // accademicLevelCourseId: ['', [Validators.required]],
       courseTypeId: ['', [Validators.required]],
       courseCode: ['', [Validators.required]],
       universityTypeId: ['', [Validators.required]],
       // universityName: [''],
-      courseStreamId: ['', ],
-      courseStreamSpecializationId: [''],
+      // courseStreamId: ['', ],
+      // courseStreamSpecializationId: [''],
       availableSeats: [0, [Validators.required, Validators.min(1)]], // number validation
       accademicYear: [this.currentYear, [Validators.required, Validators.min(this.currentYear)]], // number
       accademicYearMonth: [this.currentMonth, [Validators.required]], // number
@@ -245,14 +245,14 @@ export class CourseStep1Component implements OnInit {
     // this.multiForm.delete('aptituteTestId');
     // this.multiForm.delete('onlineInterviewRequired');
     
-    this.multiForm.append('accademicLevelId', formData.accademicLevelId);
+    // this.multiForm.append('accademicLevelId', formData.accademicLevelId);
     this.multiForm.append('courseTypeId', formData.courseTypeId);
     this.multiForm.append('courseCode', formData.courseCode);
-    this.multiForm.append('accademicLevelCourseId', formData.accademicLevelCourseId); 
+    // this.multiForm.append('accademicLevelCourseId', formData.accademicLevelCourseId); 
     this.multiForm.append('universityTypeId', formData.universityTypeId);
-    this.multiForm.append('universityName', formData.universityName);
-    this.multiForm.append('courseStreamId', formData.courseStreamId);
-    this.multiForm.append('courseStreamSpecializationId', formData.courseStreamSpecializationId);
+    this.multiForm.append('universityId', formData.universityId);
+    // this.multiForm.append('courseStreamId', formData.courseStreamId);
+    // this.multiForm.append('courseStreamSpecializationId', formData.courseStreamSpecializationId);
     this.multiForm.append('availableSeats', formData.availableSeats);
     this.multiForm.append('accademicYear', formData.accademicYear);
     this.multiForm.append('accademicYearMonth', formData.accademicYearMonth);
@@ -280,6 +280,7 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('day',formData.day)
     this.multiForm.append('month',formData.month)
     this.multiForm.append('hour',formData.hour)
+    this.multiForm.append('admissionType',formData.admissionType)
 
 
     if(formData.CourseSubCategoryId === "")

@@ -56,7 +56,7 @@
 
                 <!-- Course stream specializations -->
                 <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Choose sub category Courses</label>
+                    <label class="req uppercase">Select Courses</label>
 
                     <select formControlName="CourseSubCategory3Id" (change)="loadAccademicLevelCoursessubcat2($event)">
                         <option value="">Choose Course</option>
@@ -66,7 +66,7 @@
 
                 </div>
                 <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Choose sub category Courses</label>
+                    <label class="req uppercase">Select Courses</label>
 
                     <select formControlName="CourseSubCategory4Id" (change)="loadAccademicLevelCoursessubcat3($event)">
                         <option value="">Choose Course</option>
@@ -76,7 +76,7 @@
 
                 </div>
                 <div class="col-sm-4 offset-sm-3" style="">
-                    <label class="req uppercase">Choose sub category Courses</label>
+                    <label class="req uppercase">Select Courses</label>
 
                     <select formControlName="CourseSubCategory5Id">
                         <option value="">Choose Course</option>
@@ -85,8 +85,8 @@
                     </select>
                 </div>
 
-                <div class="col-sm-4 offset-sm-3">
-                    <!-- <pre>{{accademicLevels | json}}</pre> -->
+                <!-- <div class="col-sm-4 offset-sm-3">
+                   
                     <label class="req uppercase">Select Academic level of Course</label>
                     <select formControlName="accademicLevelId" (change)="loadAccademicLevelCourses($event)">
                         <option value="">Select Academic Level</option>
@@ -103,7 +103,7 @@
                     </select>
                     <app-control-messages [touched]="touched" [control]="f.accademicLevelCourseId">
                     </app-control-messages>
-                </div>
+                </div> -->
 
                 <div class="col-sm-4 offset-sm-3">
                     <label class="req uppercase">Course Type</label>
@@ -186,7 +186,7 @@
                 </div> -->
 
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">No. Of Admission Seats</label>
+                    <label class="req uppercase">No. Of Vacant Admission Seat</label>
                     <input type="number" formControlName="availableSeats" placeholder="enter course stream" />
                     <app-control-messages [touched]="touched" [control]="f.availableSeats"></app-control-messages>
                 </div>
@@ -256,7 +256,7 @@
 
              
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Course duration Year</label>
+                    <label class="req uppercase">Course duration Year (Select if only applicable)</label>
                     <select  formControlName="year">
                         <option value="0">0 Year</option>
 
@@ -272,7 +272,7 @@
                 </div>
 
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Course duration Months</label>
+                    <label class="req uppercase">Course duration Months (Select if only applicable)</label>
                     <select  formControlName="month">
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -292,7 +292,7 @@
                     </select>
                 </div>
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Course duration Days</label>
+                    <label class="req uppercase">Course duration Days (Select if only applicable)</label>
                     <select  formControlName="day">
                         <option value="1">1</option>
                         <option value="1">2</option>
@@ -330,7 +330,7 @@
                     </select>
                 </div>
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Course duration Hours</label>
+                    <label class="req uppercase">Course duration Hours (Select if only applicable)</label>
                     <input type="text" formControlName="hour">
                    
                 </div>
@@ -361,7 +361,7 @@
             </div>
 
             <div class="col-sm-4 offset-3">
-                <label class="req uppercase">Admission Clossing Date</label>
+                <label class="req uppercase">Admission Closing Date</label>
                 <input type="date" formControlName="admissionCloseDate" placeholder="enter course stream" />
                 <app-control-messages [touched]="touched" [control]="f.admissionCloseDate"></app-control-messages>
             </div>
@@ -412,19 +412,19 @@
                     <app-control-messages [touched]="touched" [control]="f.campusName"></app-control-messages>
                 </div> -->
             <div class="col-sm-4 offset-3">
-                <label class="req uppercase">Campus Address Line 1</label>
+                <label class="req uppercase">Campus Name</label>
                 <input type="text" formControlName="campusAddressLine1" placeholder="Enter campus address line 1" />
                 <app-control-messages [touched]="touched" [control]="f.campusAddressLine1"></app-control-messages>
             </div>
 
             <div class="col-sm-4 offset-3">
-                <label class="req uppercase">Campus Address Line 2</label>
+                <label class="req uppercase">Campus Address Line 1</label>
                 <input type="text" formControlName="campusAddressLine2" placeholder="Enter campus address line 2" />
                 <app-control-messages [touched]="touched" [control]="f.campusAddressLine2"></app-control-messages>
             </div>
 
             <div class="col-sm-4 offset-3">
-                <label class="req uppercase">Campus Address Line 3</label>
+                <label class="req uppercase">Campus Address Line 2</label>
                 <input type="text" formControlName="campusAddressLine3" placeholder="Enter campus address line 3" />
                 <app-control-messages [touched]="touched" [control]="f.campusAddressLine3"></app-control-messages>
             </div>
@@ -432,7 +432,7 @@
 
 
             <div class="col-sm-4 offset-3">
-                <label class="req uppercase">Block</label>
+                <label class="req uppercase">City/Place</label>
                 <input type="text" formControlName="block" placeholder="enter course stream" />
                 <app-control-messages [touched]="touched" [control]="f.block"></app-control-messages>
             </div>
@@ -528,7 +528,7 @@
             </div>
 
             <div class="col-sm-4 offset-3" style="margin-top: 40px;">
-                <label class="req uppercase">Online interview</label>
+                <label class="req uppercase">Virtual Admission Counseling</label>
                 <p class="checkbox">
                     <input type="checkbox" formControlName="onlineInterviewRequired" /><span>Required</span>
                 </p>

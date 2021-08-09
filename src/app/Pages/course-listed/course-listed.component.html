@@ -22,9 +22,7 @@
                 <td class="tdclass">
                   <a (click)="view(institute)">View/Edit</a>
                 </td>
-                <td class="tdclass">
-                  <a>View Applications</a>
-                </td>
+              
                 <td  class="tdclass">
                   <a *ngIf="institute.item.isActive === true"> Course Enabled</a>
                   <a *ngIf="institute.item.isActive === false">Course Disable</a>

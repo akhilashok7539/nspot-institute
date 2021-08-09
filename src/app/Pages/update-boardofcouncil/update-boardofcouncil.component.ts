@@ -67,9 +67,9 @@ export class UpdateBoardofcouncilComponent implements OnInit {
       memberOfFile: ['', ],
       memberOfLabel: ['', ],
 
-      brochuresFile: ['', ],
-      rulesFile: ['', ],
-      uniformFile: ['', ],
+      // brochuresFile: ['', ],
+      // rulesFile: ['', ],
+      // uniformFile: ['', ],
 
     });
     this.loadData();

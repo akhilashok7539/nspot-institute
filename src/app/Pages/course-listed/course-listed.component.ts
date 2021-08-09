@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-course-listed',
@@ -62,6 +63,18 @@ export class CourseListedComponent implements OnInit {
       this.isactiveChecked = false;
     }
     else{
+      Swal.fire({
+        title: 'Important!',
+        customClass: { content: 'font-23' },
+        text: `Please re-check your CUSTOMISE ADMISSION APPLICATION FORM.`,
+        showCancelButton: true,
+        confirmButtonText: `OK`,
+        icon: 'warning',
+        // footer: '<a href="https://dan.com/buy-domain/nspot.com?redirected=true&tld=com" target="_blank">Terms and conditions</a>'
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        
+      })
       this.isactiveChecked = true;
 
     }
