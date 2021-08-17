@@ -36,7 +36,7 @@
 
                 <!-- Courses -->
                 <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Choose sub category Courses</label>
+                    <label class="req uppercase">Choose sub category Course</label>
 
                     <select formControlName="CourseSubCategoryId" (change)="submaindeksChange($event)">
                         <option value="">Choose Course</option>
@@ -46,7 +46,7 @@
 
                 <!-- Course streams -->
                 <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Choose sub category Courses</label>
+                    <label class="req uppercase">Choose sub category Course</label>
 
                     <select formControlName="CourseSubCategory2Id" (change)="loadAccademicLevelCoursessubcat1($event)">
                         <option value="">Choose Course</option>
@@ -56,7 +56,7 @@
 
                 <!-- Course stream specializations -->
                 <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Select Courses</label>
+                    <label class="req uppercase">Select Course</label>
 
                     <select formControlName="CourseSubCategory3Id" (change)="loadAccademicLevelCoursessubcat2($event)">
                         <option value="">Choose Course</option>
@@ -66,7 +66,7 @@
 
                 </div>
                 <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Select Courses</label>
+                    <label class="req uppercase">Select Course</label>
 
                     <select formControlName="CourseSubCategory4Id" (change)="loadAccademicLevelCoursessubcat3($event)">
                         <option value="">Choose Course</option>
@@ -76,13 +76,15 @@
 
                 </div>
                 <div class="col-sm-4 offset-sm-3" style="">
-                    <label class="req uppercase">Select Courses</label>
+                    <label class="req uppercase">Select Course</label>
 
                     <select formControlName="CourseSubCategory5Id">
                         <option value="">Choose Course</option>
                         <option *ngFor="let item of courseStreamsSpecializations2" value="{{item.id}}">{{item.title}}
                         </option>
                     </select>
+                    <p style="    margin-top: 15px;
+                    font-weight: bold;">Didn't Find any course <a routerLink="/institute/contact-us">Contact Us?</a></p>
                 </div>
 
                 <!-- <div class="col-sm-4 offset-sm-3">
@@ -145,14 +147,14 @@
 
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">University/Academic Board/Other</label>
-                    <select formControlName="universityTypeId">
+                    <select formControlName="universityTypeId" (change)="changeType($event)">
                         <option value="">Select one</option>
                         <option *ngFor="let item of universityTypes" value="{{item.id}}">{{item.title}}</option>
                     </select>
                     <app-control-messages [touched]="touched" [control]="f.universityTypeId"></app-control-messages>
                 </div>
 
-                <div class="col-sm-4 offset-3">
+                <div class="col-sm-4 offset-3" *ngIf="universityTypeSelected === '1'">
                     <label class="req uppercase">Name of University</label>
                     <select formControlName="universityId">
                         <option value="" disabled>Select one</option>
@@ -164,7 +166,30 @@
                 
                 
                 </div>
-
+                <div class="col-sm-4 offset-3" *ngIf="universityTypeSelected === '2'">
+                    <label class="req uppercase">Name of Board</label>
+                    <select formControlName="boardId">
+                        <option value="" disabled>Select one</option>
+                        <option *ngFor="let item of boardList" value="{{item.id}}">{{item.title}}</option>
+                    </select>
+                    
+                    
+                    <app-control-messages [touched]="touched" [control]="f.boardId"></app-control-messages>
+                
+                
+                </div>
+                <div class="col-sm-4 offset-3" *ngIf="universityTypeSelected === '3'">
+                    <label class="req uppercase">Other Types</label>
+                    <select formControlName="otherId">
+                        <option value="" disabled>Select one</option>
+                        <option *ngFor="let item of otherboardList" value="{{item.id}}">{{item.title}}</option>
+                    </select>
+                    
+                    
+                    <app-control-messages [touched]="touched" [control]="f.otherId"></app-control-messages>
+                
+                
+                </div>
                 <!-- <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Course Stream</label>
                     <select formControlName="courseStreamId" (change)="subloadCourseStreamSpecializations($event)">
@@ -533,7 +558,30 @@
                     <input type="checkbox" formControlName="onlineInterviewRequired" /><span>Required</span>
                 </p>
             </div>
+            <div class="col-sm-12 offset-3" style="margin-top: 20px;">
+                <label class="req uppercase">Co-Education</label>
+                <div class="col-sm-4">
+                    <p class="radio">
+                        <input type="radio" value="true" />
+                        <span style="    position: absolute;">
+                            Yes
+                        </span>
 
+                        
+                    </p>
+                </div>
+                <div class="col-sm-4">
+                    <p class="radio">
+                        <input type="radio"  value="false" /> <span
+                            style="    position: absolute;">
+                            No
+                        </span>
+
+                        <app-control-messages [touched]="touched" [control]="f.regularClassOnly">
+                        </app-control-messages>
+                    </p>
+                </div>
+            </div>
 
             <div class="col-sm-12 offset-3" style="margin-top: 20px;">
                 <label class="req uppercase">Regular Classroom </label>

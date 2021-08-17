@@ -1,7 +1,7 @@
 <main id="contact">
   <div class="page-heading text-center">
     <div class="container">
-      <h2 class="uppercase">LIVE ADMISSION DESK</h2>
+      <h2 class="uppercase">REVIEW ADMISSION DESK</h2>
     </div>
   </div>
   <div class="container success" style="margin-top: 30px;">
@@ -19,7 +19,7 @@
             style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Fee Payment Remitted Applicants</a>
 
           <a class="btn btn btn-info" [class.phase-active]="activeButton === 4" (click)="showPhase(4)"
-            style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Student Enrolment Register</a>
+            style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Rejected Applicants</a>
 
 
         </div>
@@ -47,7 +47,7 @@
             <option value="">Select Course</option>
             <option *ngFor="let item of courses" value="{{item.item.id}}">{{item.CourseName}}
             </option>
-            <option *ngIf="courses.length ===0" value="">--- No courses added yet ---</option>
+            <!-- <option *ngIf="courses.length ===0" value="">--- No courses added yet ---</option> -->
           </select>
         </div>
       </div>
@@ -62,7 +62,10 @@
           <table class="table table-striped">
             <thead>
               <tr>
-                <th>SL.No</th>
+                <th width="5%"></th>
+                <th>
+                 
+                  SL.No</th>
                 <th>NAME OF APPLICANT</th>
                 <th>DETAILS</th>
                 <!-- <th>DOWNLOAD APPLICATION</th> -->
@@ -77,7 +80,8 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of preApplications; let i=index">
-                <td>{{i+1}}</td>
+                <td><img src="./assets/images/new.gif" alt="" *ngIf="item.viewStatus === false"></td>
+                <td> {{i+1}}</td>
                 <td>{{item.formFieldValues.personalInfo.fullName}}</td>
                 <td>
                   <a (click)="viewApplicationStatus(item)">View</a>
@@ -117,6 +121,7 @@
           <table class="table table-striped">
             <thead>
               <tr>
+                <th width="5%"></th>
                 <th>SL.No</th>
                 <th>NAME OF APPLICANT</th>
                 <th>DETAILS</th>
@@ -131,7 +136,8 @@
             </thead>
             <tbody>
               <tr *ngFor="let item of paymentAwaitingApplications; let i=index">
-                <td>{{i+1}}</td>
+                <td width="5%"><img src="./assets/images/new.gif" alt="" *ngIf="item.viewStatus === false"></td>
+                <td> {{i+1}}</td>
                 <td>{{item.formFieldValues.personalInfo.fullName}}</td>
                 <td>
                   <a (click)="viewApplicationStatus(item)">View</a>
@@ -217,24 +223,24 @@
               <tr>
                 <th>SL.No</th>
                 <th>NAME OF APPLICANT</th>
-                <th>DETAILS</th>
+             
                 <!-- <th>DOWNLOAD APPLICATION</th> -->
                 <!-- <th>CHAT</th> -->
                 <!-- <th>DATE OF REPORTING</th> -->
-                <th>ROLL NUMBER</th>
+             
                 <th>DATE OF ADMISSION</th>
                
-                <th>PAYMENT PAID</th>
-
+                <th>REMARKS</th>
+                <th>REASON</th>
+                <th>ACTION</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td></td>
-                <td></td>
+              <tr *ngFor="let s of rejecterdapplciation;let i=index;">
+                <td>{{i+1}}</td>
+                <td>{{s.formFieldValues?.personalInfo?.fullName}}</td>
 
-                <td></td>
-
+                <td>{{s?.createdAt  | date:'MMM d, y'}}</td>
                 <!-- <td>
                   <button class="btn btn-actions btn-success">
                     <i class="zmdi zmdi-download"></i> Download
@@ -245,12 +251,12 @@
                     <i class="zmdi zmdi-circle"></i> {{item.formFieldValues.personalInfo.fullName}}
                   </button>
                 </td> -->
-                <td></td>
+                <td>{{s?.remarks }}</td>
 
-                <td></td>
+                <td>{{s?.reason }}</td>
 
-                <td></td>
-               
+              
+              <td><button class="btn btn-primary" (click)="deleteapplciation(s)">Delete</button></td>
                 <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
                 </td> -->
 
@@ -258,9 +264,7 @@
                   
         
               </tr>
-              <tr>
-                <td colspan="12" align="center">Empty List</td>
-              </tr>
+              
             </tbody>
           </table>
         </div>

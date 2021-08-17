@@ -89,4 +89,12 @@ export class ApiService {
       }),
     )
   }
+  dodeleteRequest(url: any)
+  {
+    return this.http.delete<any>(this.SERVER_URL + url, this.httpOptions).pipe(
+      map((response) => {
+        return response;
+      }),
+    );
+  }
 }

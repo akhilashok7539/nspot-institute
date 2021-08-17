@@ -20,6 +20,8 @@ export class CourseStep1Component implements OnInit {
   courseStreamsSpecializations2: any;
   courseStreamsSpecializations12: any;
   universityList: any;
+  boardList: any;
+  otherboardList: any;
 
   constructor(
     private router: Router,
@@ -33,7 +35,7 @@ export class CourseStep1Component implements OnInit {
   instituteId: number;
   form: FormGroup;
   touched = false;
-
+  universityTypeSelected;
   accademicLevels;
   accademicLevelsCourses;
   courseStreams;
@@ -110,8 +112,9 @@ export class CourseStep1Component implements OnInit {
       day:['',[Validators.required]],
       hour:['',[Validators.required]],
       universityId:[''],
-      admissionType:['',[Validators.required]]
-
+      admissionType:['',[Validators.required]],
+      boardId:[''],
+      otherId:[''],
     });
   }
 
@@ -174,6 +177,26 @@ export class CourseStep1Component implements OnInit {
       console.log(this.districtList);
     });
 
+  }
+  changeType(event)
+  {
+    this.universityTypeSelected =event.target.value;
+    console.log(this.universityTypeSelected);
+    
+    if(this.universityTypeSelected === '2')
+    {
+      this.apiService.doGetRequest(`boardType/`).subscribe((returnData: any) => {
+        this.boardList = returnData.data;
+        console.log(this.boardList);
+      });
+    }
+    if(this.universityTypeSelected === '3')
+    {
+      this.apiService.doGetRequest(`otherBoardType/`).subscribe((returnData: any) => {
+        this.otherboardList = returnData.data;
+        console.log(this.otherboardList);
+      });
+    }
   }
   onRefreshAptitude(): void {
     this.loadAptitudeTests();

@@ -17,6 +17,7 @@ export class AdmissionDeskComponent implements OnInit {
   preApplications
   paymentAwaitingApplications;
   activeButton = 1;
+  rejecterdapplciation;
   instituteId = this.authService.instituteProfile.id;
 
   constructor(
@@ -62,6 +63,25 @@ export class AdmissionDeskComponent implements OnInit {
   showPhase(index)
   {
     this.activeButton = index;
+    if(this.activeButton === 4)
+    {
+      this.getRejectedApplications();
+    }
+  }
+  getRejectedApplications()
+  {
+    this.apiService.doGetRequest(`applicationForm/applications/rejected`).subscribe(
+      data =>{
+       console.log(data);
+       this.rejecterdapplciation=data['data']
+       this.rejecterdapplciation.map(element => {
+        element.formFieldValues = JSON.parse(element.formFieldValues)
+      })
+      },
+      error =>{
+
+      }
+    )
   }
   loadData(): void {
     // this.apiService.doGetRequest(endPoints.Get_courses
@@ -227,7 +247,35 @@ export class AdmissionDeskComponent implements OnInit {
   }
   viewApplicationStatus(item)
   {
+    console.log(item);
+    if(item.viewStatus === false)
+    {
+      let req ={
+        "viewStatus":true
+     }
+      this.apiService.doPutRequest(`applicationForm/applications/updateView/`+item.id,req).subscribe(
+        data =>{
+
+        },
+        error =>{
+
+        }
+      )
+    }
     sessionStorage.setItem("status",item.applicationStatus);
     this.router.navigate(['/institute/admission-desk/detailed-application-view/'+item.id])
+  }
+  deleteapplciation(s)
+  {
+    this.apiService.dodeleteRequest(`applicationForm/applications/remove/`+s.id).subscribe(
+      data =>{
+        this.toastr.success("Application Deleted")
+        this.rejecterdapplciation();
+      },
+      error =>{
+        this.toastr.success("Application Unable to Deleted")
+
+      }
+    )
   }
 }

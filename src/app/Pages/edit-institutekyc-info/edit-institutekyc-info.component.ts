@@ -68,8 +68,8 @@ export class EditInstitutekycInfoComponent implements OnInit {
       haveBoysHostel: [false],
       haveGirlsHostel: [false],
       foodAvailableAtHostel: [false],
-      hostalAnnualFee: [''],
-      transportationInfo: ['', [Validators.required]],
+      // hostalAnnualFee: [''],
+      // transportationInfo: ['', [Validators.required]],
       gmapLatitude: ['', [Validators.required]],
       gmapLongitude: ['', [Validators.required]],
       year_of_establishment:['', [Validators.required]],
@@ -83,7 +83,7 @@ export class EditInstitutekycInfoComponent implements OnInit {
       // recaptcha: ['', Validators.required],
       busAvailablity:[false],
       vanavailablity:[false],
-      routeInfo: [''],
+      // routeInfo: [''],
       officialEmail: ['', Validators.required],
     });
     this.loadData();
