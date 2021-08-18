@@ -10,7 +10,7 @@
         <div class="card media">
           <a class="btn btn btn-info" [class.phase-active]="activeButton === 1" (click)="showPhase(1)"
             style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Admission Application-Awaiting Pre Approval
-            Approval</a>
+            </a>
 
           <a class="btn btn btn-info" [class.phase-active]="activeButton === 2" (click)="showPhase(2)"
             style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Fee Payment Awaiting Applicants</a>
@@ -183,6 +183,7 @@
                 <!-- <th>DATE OF REPORTING</th> -->
                <th>TRANACTION ID</th>
                <th>TRANACTION TIME</th>
+               <th>PAIED AMOUNT</th>
 
                 <th>PAYMENT STATUS</th>
                 <th>ACTION</th>
@@ -201,7 +202,7 @@
                 
                 <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
                 </td> -->
-
+                <th></th>
                 <td>{{item.remarks}}</td>
                 <td>{{item.remarks}}</td>
                 <td>  <button class="btn btn-danger" (click)="upload()">Upload Recepit</button></td>
@@ -228,7 +229,7 @@
                 <!-- <th>CHAT</th> -->
                 <!-- <th>DATE OF REPORTING</th> -->
              
-                <th>DATE OF ADMISSION</th>
+                <th>DATE OF ADMISSION APPLICATION RECEIVED </th>
                
                 <th>REMARKS</th>
                 <th>REASON</th>

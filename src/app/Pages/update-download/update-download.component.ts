@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { endPoints } from 'src/app/config/endPoints';
 import { ApiService } from 'src/app/services/api.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-update-download',
@@ -20,13 +21,14 @@ export class UpdateDownloadComponent implements OnInit {
     private formBuilder: FormBuilder,
     private apiService: ApiService,
     private toastr: ToastrService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private authService:AuthService
   ) { }
   instituteId: number;
   form: FormGroup;
   touched = false;
   ngOnInit(): void {
-    this.instituteId = parseInt(this.route.snapshot.paramMap.get('instituteId'));
+    this.instituteId = this.authService.userProfile.userId;;
     this.form = this.formBuilder.group({
       // unitOfFile: [''], // now not in forms
 

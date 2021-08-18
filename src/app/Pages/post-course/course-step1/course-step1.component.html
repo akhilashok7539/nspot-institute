@@ -397,23 +397,29 @@
                 <app-control-messages [touched]="touched" [control]="f.classStartDate"></app-control-messages>
             </div>
 
-            <div class="col-sm-4 offset-3">
+            <div class="col-sm-12 offset-3">
                 <label class="req uppercase">Gender Allowance</label>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <p class="radio">
-                        <input type="checkbox" formControlName="maleAllowed" id="" /><span>Male</span>
+                        <input type="checkbox" formControlName="maleAllowed" id="" /><span>Male Only</span>
                     </p>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <p class="radio">
                         <input type="checkbox" formControlName="femaleAllowed" id="" />
-                        <span>Female</span>
+                        <span>Female Only</span>
                     </p>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-3">
                     <p class="radio">
                         <input type="checkbox" formControlName="otherGenderAllowed" id="" />
                         <span>Other</span>
+                    </p>
+                </div>
+                <div class="col-sm-3">
+                    <p class="radio">
+                        <input type="checkbox" formControlName="otherGenderAllowed" id="" />
+                        <span>Co-Education</span>
                     </p>
                 </div>
                 <app-control-messages [touched]="touched" [control]="f.maleAllowed"></app-control-messages>
@@ -558,7 +564,7 @@
                     <input type="checkbox" formControlName="onlineInterviewRequired" /><span>Required</span>
                 </p>
             </div>
-            <div class="col-sm-12 offset-3" style="margin-top: 20px;">
+            <!-- <div class="col-sm-12 offset-3" style="margin-top: 20px;">
                 <label class="req uppercase">Co-Education</label>
                 <div class="col-sm-4">
                     <p class="radio">
@@ -581,7 +587,7 @@
                         </app-control-messages>
                     </p>
                 </div>
-            </div>
+            </div> -->
 
             <div class="col-sm-12 offset-3" style="margin-top: 20px;">
                 <label class="req uppercase">Regular Classroom </label>

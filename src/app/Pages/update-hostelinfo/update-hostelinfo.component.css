@@ -1,3 +1,11 @@
-input:checked  {
+/* input:checked  {
     background-color: green;
+} */
+
+.checkbox{
+    display: flex !important;
+    align-items: center;
+}
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+    position: relative !important;
 }

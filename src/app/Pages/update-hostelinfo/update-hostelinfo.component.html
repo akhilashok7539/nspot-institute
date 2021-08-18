@@ -10,25 +10,36 @@
     <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
         <div class="col-sm-12">
             <label class="uppercase">Hostel Facility</label>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <p class="checkbox">
                     <input type="checkbox" formControlName="haveBoysHostel" />
                     <span>Boys</span>
                 </p>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <p class="checkbox">
                     <input type="checkbox" formControlName="haveGirlsHostel" />
                     <span>Girls</span>
                 </p>
             </div>
-            <div class="col-sm-3">
+            <div class="col-sm-2">
                 <p class="checkbox">
                     <input type="checkbox" formControlName="foodAvailableAtHostel" />
                     <span>Food</span>
                 </p>
             </div>
-
+            <div class="col-sm-2">
+                <p class="checkbox">
+                  <input type="checkbox" formControlName="busAvailablity" />
+                  <span>Bus Facility</span>
+                </p>
+              </div>
+              <div class="col-sm-2">
+                <p class="checkbox">
+                  <input type="checkbox" formControlName="vanavailablity" />
+                  <span>Van Facility</span>
+                </p>
+              </div>
         </div>
         <div class="col-sm-12">
             <label class="uppercase">Annual Fee INFO</label>

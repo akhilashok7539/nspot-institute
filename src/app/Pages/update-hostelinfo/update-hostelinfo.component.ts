@@ -35,13 +35,16 @@ export class UpdateHostelinfoComponent implements OnInit {
       foodAvailableAtHostel: [false],
       hostalAnnualFee: [''],
       transportationInfo: ['', ],
-  
+      busAvailablity: [false],
+      vanavailablity: [false],
     });
     this.form.controls['haveBoysHostel'].setValue(this.feesInfoHostel['haveBoysHostel']);
     this.form.controls['haveGirlsHostel'].setValue(this.feesInfoHostel['haveGirlsHostel']);
     this.form.controls['foodAvailableAtHostel'].setValue(this.feesInfoHostel['foodAvailableAtHostel']);
     this.form.controls['hostalAnnualFee'].setValue(this.feesInfoHostel['hostalAnnualFee']);
     this.form.controls['transportationInfo'].setValue(this.feesInfoHostel['transportationInfo']);
+    this.form.controls['busAvailablity'].setValue(this.feesInfoHostel['busAvailablity']);
+    this.form.controls['vanavailablity'].setValue(this.feesInfoHostel['vanavailablity']);
 
 
   }

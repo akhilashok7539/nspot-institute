@@ -54,9 +54,12 @@ export class CourseStep2Component implements OnInit {
       bankAccountId: ['', [Validators.required]],
       hasScolarship: [false],
       spotfee: ['',[Validators.required]],
-      // title: [''],
+     
+      otherincludes: [''],
       amount: [''],
       refundPolicy: ['',[Validators.required]],
+      // validUpto: ['null'],
+      // title: ['tittlenull'],
     });
     this.calculateTotalFee();
   }
