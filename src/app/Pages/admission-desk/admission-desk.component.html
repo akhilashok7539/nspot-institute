@@ -41,10 +41,12 @@
         </div> -->
         <div class="clearfix"></div>
         <div class="col-sm-6 mt-5" *ngIf="activeButton === 1 || activeButton === 2">
-          <label class="req uppercase">Select Course</label>
+          <label class="req uppercase">SELECT COURSE PROGRAM
+</label>
           <select (change)="changeCourse($event)" name="type">
             {{courses|json}}
-            <option value="">Select Course</option>
+            <option value="">SELECT COURSE PROGRAM
+</option>
             <option *ngFor="let item of courses" value="{{item.item.id}}">{{item.CourseName}}
             </option>
             <!-- <option *ngIf="courses.length ===0" value="">--- No courses added yet ---</option> -->
@@ -67,13 +69,13 @@
                  
                   SL.No</th>
                 <th>NAME OF APPLICANT</th>
-                <th>DETAILS</th>
+                <th>KYC/CERTIFICATES</th>
                 <!-- <th>DOWNLOAD APPLICATION</th> -->
                 <!-- <th>CHAT</th> -->
                 <!-- <th>DATE OF REPORTING</th> -->
-                <th>DATE OF APTITUDE TEST</th>
-                <th>DATE OF ONLINE INTERVIEW</th>
-                <th colspan="3" align="center">ADMISSION APPROVAL</th>
+                <th>APTITUDE TEST DATE</th>
+                <th>VIRTUAL ADMISSION COUNSELING DATE</th>
+                <th colspan="3" align="center">ADMISSION STATUS</th>
                 <th>REMARKS</th>
 
               </tr>
@@ -117,6 +119,7 @@
 
       <div class="row mt-5" *ngIf="activeButton === 2">
         <!-- <h4>Payment awaiting Applications</h4> -->
+        <marquee behavior="" direction="">Application will be rejected after 48 hours without payment</marquee>
         <div class="col-md-12">
           <table class="table table-striped">
             <thead>
@@ -124,13 +127,14 @@
                 <th width="5%"></th>
                 <th>SL.No</th>
                 <th>NAME OF APPLICANT</th>
-                <th>DETAILS</th>
+                <th>KYC/CERTIFICATES</th>
                 <!-- <th>DOWNLOAD APPLICATION</th> -->
                 <!-- <th>CHAT</th> -->
-                <th>DATE OF REPORTING</th>
-                <!-- <th>DATE OF APTITUDE TEST</th>
-                <th>DATE OF ONLINE INTERVIEW</th> -->
-                <!-- <th colspan="3" align="center">ADMISSION APPROVAL</th> -->
+                <th>INTIAL FEE DUE </th>
+                <!-- <th>DATE OF REPORTING</th> -->
+                <!-- <th>APTITUDE TEST DATE</th>
+                <th>VIRTUAL ADMISSION CONSULING DATE</th> -->
+                <!-- <th colspan="3" align="center">ADMISSION STATUS</th> -->
                 <th>REMARKS</th>
               </tr>
             </thead>
@@ -153,6 +157,8 @@
                   </button>
                 </td> -->
                 <td></td>
+                <!-- <td></td> -->
+
                 <!-- <td></td>
                 <td></td> -->
                 <td></td>
@@ -177,13 +183,13 @@
               <tr>
                 <th>SL.No</th>
                 <th>NAME OF APPLICANT</th>
-                <th>DETAILS</th>
+                <th>KYC/CERTIFICATES</th>
                 <!-- <th>DOWNLOAD APPLICATION</th> -->
                 <!-- <th>CHAT</th> -->
                 <!-- <th>DATE OF REPORTING</th> -->
-               <th>TRANACTION ID</th>
-               <th>TRANACTION TIME</th>
-               <th>PAIED AMOUNT</th>
+               <th>TRANSACTION ID</th>
+               <th>TRANSACTION TIME</th>
+               <th>PAID AMOUNT</th>
 
                 <th>PAYMENT STATUS</th>
                 <th>ACTION</th>
