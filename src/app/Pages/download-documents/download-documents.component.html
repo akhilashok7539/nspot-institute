@@ -11,7 +11,7 @@
             <div class="col-sm-3" *ngFor="let certificates of finalArray" style="margin-bottom: 10px;">
             <div class="card" >
 
-                <h6>{{certificates.type | titlecase}}</h6>
+                <h6>{{insertSpaces(certificates.type) | titlecase}}</h6>
                 <button class="btn btn-info" style="margin-top: 18px;" (click)="download(certificates.value)">View Or Download</button>
             </div>
         </div>

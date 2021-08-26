@@ -42,6 +42,16 @@
               <div class="col-lg-2 mt-2"><button>Update</button></div>
             </form>
           </div>
+          <div class="row">
+            <form [formGroup]="onlineinterview" (ngSubmit)="onSubmit(onlineinterview)">
+              <div class="col-lg-3 mt-2">Online Interview status</div>
+              <div class="col-lg-6">
+                <input type="text" formControlName="onlineinterviewstatus" placeholder="online interview status">
+                <!-- <textarea class="height100" rows="10" formControlName="status" id=""></textarea> -->
+              </div>
+              <div class="col-lg-2 mt-2"><button>Update</button></div>
+            </form>
+          </div>
 
           <div class="row">
             <form [formGroup]="reviewForm" (ngSubmit)="onSubmit(reviewForm)">

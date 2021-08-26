@@ -76,6 +76,9 @@
                 <th>APTITUDE TEST DATE</th>
                 <th>VIRTUAL ADMISSION COUNSELING DATE</th>
                 <th colspan="3" align="center">ADMISSION STATUS</th>
+                <th>APTITUDE MARK</th>
+                <th>VIRTUAL ADMISSION COUNSELING STATUS</th>
+
                 <th>REMARKS</th>
 
               </tr>
@@ -88,6 +91,8 @@
                 <td>
                   <a (click)="viewApplicationStatus(item)">View</a>
                 </td>
+            
+
                 <!-- <td>
                   <button class="btn btn-actions btn-success">
                     <i class="zmdi zmdi-download"></i> Download
@@ -106,7 +111,8 @@
                 </td>
                 <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
                 </td> -->
-
+                <td></td>
+                <td></td>
                 <td>{{item.remarks}}</td>
               </tr>
               <tr *ngIf="preApplications?.length<=0">

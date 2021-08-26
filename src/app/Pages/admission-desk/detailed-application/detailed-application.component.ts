@@ -41,6 +41,7 @@ export class DetailedApplicationComponent implements OnInit {
   aptitudeForm: FormGroup
   interviewForm: FormGroup
   reviewForm: FormGroup
+  onlineinterview: FormGroup
   touched = false;
   applciaitonstatus;
   constructor(
@@ -76,7 +77,11 @@ export class DetailedApplicationComponent implements OnInit {
       dateOfInterview: [''],
       interviewLink: [''],
     });
-
+    this.onlineinterview = this.formBuilder.group({
+      id: this.applicationId,
+      onlineinterviewstatus: [''],
+     
+    });
     this.reviewForm = this.formBuilder.group({
       id: this.applicationId,
       remarks: [''],
