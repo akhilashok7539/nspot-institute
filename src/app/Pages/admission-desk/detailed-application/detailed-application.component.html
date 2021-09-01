@@ -353,7 +353,7 @@
         ">:</p>
         </div>
         <div class="col-sm-5">
-          <p> .................................................</p>
+          <p> {{applicationData?.createdAt | date }}</p>
         </div>
         
       </div>
@@ -385,7 +385,7 @@
         ">:</p>
         </div>
         <div class="col-sm-5">
-          <p> .................................................</p>
+          <p>{{getcurrentyear()}} <p>
         </div>
         
       </div>
@@ -399,7 +399,7 @@
         ">:</p>
         </div>
         <div class="col-sm-5">
-          <p> .................................................</p>
+          <p> {{applicationData?.nSpotReferenceId}}<p>
         </div>
         
       </div>
@@ -483,7 +483,7 @@
         ">:</p>
         </div>
         <div class="col-sm-5">
-          <p> .................................................</p>
+          <p>  {{instituteInfo?.addressLine1}},{{instituteInfo?.addressLine1}},{{instituteInfo?.addressLine1}}</p>
 
         </div>
         
@@ -670,7 +670,11 @@
     <div class="col-sm-6">
       <button class="btn btn-success width-160" (click)="confirmAcceptance(applicationId)">Approve</button>
     </div>
-    <button class="float-btn-right" (click)="downloadAsPDF()"><i class="zmdi zmdi-download  zmdi-hc-3x"></i></button>
-
+    <button class="float-btn-right" (click)="downloadAsPDF()"><i class="zmdi zmdi-download  zmdi-hc-3x"></i>
+      
+    
+      
+    </button>
+ 
   </div>
 </main>

@@ -40,13 +40,17 @@ export class PricingComponent implements OnInit {
     //     this.currentSubscription = returnData.data[returnData.data.length - 1];
     //     console.log(this.currentSubscription);
     //   }
-
     // });
 
-    this.apiService.doGetRequest(`packages`).subscribe((returnData: any) => {
+    this.apiService.doGetRequest(endPoints.Get_plans + 'national_boards').subscribe((returnData: any) => {
       this.planList = returnData.data;
       console.log(this.planList);
     });
+
+    // this.apiService.doGetRequest(`packages`).subscribe((returnData: any) => {
+    //   this.planList = returnData.data;
+    //   console.log(this.planList);
+    // });
 
     // this.apiService.doGetRequest(endPoints.GetInstituteInfo + this.instituteId).subscribe((returnData: any) => {
     //   this.instituteDetails = returnData.data;
@@ -58,10 +62,14 @@ export class PricingComponent implements OnInit {
    * Initializing the payment
    */
   placeOrder(product) {
+    console.log(product);
+    
     const subscriptionObj = {
       subscriptionPlanId: product.id,
       instituteId: this.instituteId,
-      razorpayPlan_id: product.plan.id
+      // razorpayPlan_id: product.plan.id
+      razorpayPlan_id: product.razorPayPlanId
+
     }
     console.log(subscriptionObj)
     this.apiService.doPostRequest(endPoints.Create_subscriptionOrder, subscriptionObj).subscribe((returnData: any) => {

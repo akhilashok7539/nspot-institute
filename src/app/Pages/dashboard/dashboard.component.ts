@@ -32,24 +32,24 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.instituteId = this.authService.instituteProfile.userId;
-
+    let tempinstId =  this.authService.instituteProfile.id;
 
     this.loadInstituteInfo();
     // fetching boardof council details
-    this.apiService.doGetRequest(endPoints.Get_boardOfCouncil + this.instituteId).subscribe((returnData: any) => {
+    this.apiService.doGetRequest(endPoints.Get_boardOfCouncil + tempinstId).subscribe((returnData: any) => {
       this.boardOfCouncilInfo = returnData.data;
     }, error => {
       console.error(error);
       this.toastr.error('Failed to fetch institute details');
     });
-    this.apiService.doGetRequest(`institute/virtual-tour/` + this.instituteId).subscribe((returnData: any) => {
+    this.apiService.doGetRequest(`institute/virtual-tour/` + tempinstId).subscribe((returnData: any) => {
       this.virtualTours = returnData.data;
     }, error => {
       console.error(error);
       this.toastr.error('Failed to fetch virtual tour details');
     });
     // fetching highlights
-    this.apiService.doGetRequest(endPoints.Get_highlights + this.instituteId).subscribe((returnData: any) => {
+    this.apiService.doGetRequest(endPoints.Get_highlights + tempinstId).subscribe((returnData: any) => {
       this.highlights = returnData.data;
     }, error => {
       console.error(error);
@@ -57,7 +57,7 @@ export class DashboardComponent implements OnInit {
     });
 
     // fetching social links
-    this.apiService.doGetRequest(endPoints.Get_socialMedia + this.instituteId).subscribe(returnData => {
+    this.apiService.doGetRequest(endPoints.Get_socialMedia + tempinstId).subscribe(returnData => {
       this.socialLinks = returnData;
     }, error => {
       console.error(error);

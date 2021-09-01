@@ -28,7 +28,7 @@ export class UpdateDownloadComponent implements OnInit {
   form: FormGroup;
   touched = false;
   ngOnInit(): void {
-    this.instituteId = this.authService.userProfile.userId;;
+    this.instituteId = this.authService.instituteProfile.id;;
     this.form = this.formBuilder.group({
       // unitOfFile: [''], // now not in forms
 

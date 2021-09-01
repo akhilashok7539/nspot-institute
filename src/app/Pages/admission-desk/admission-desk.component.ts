@@ -42,8 +42,11 @@ export class AdmissionDeskComponent implements OnInit {
       endPoints.Get_applications + "?where[courseId]=" + courseId + "&&where[applicationStatus]=pre-application-applied"
     ).subscribe((returnData: any) => {
       this.preApplications = returnData.data;
+    
       this.preApplications.map(element => {
-        element.formFieldValues = JSON.parse(element.formFieldValues)
+        console.log(element);
+        
+        element.formFieldValues = JSON.parse(element.item.formFieldValues)
       })
       console.log(this.preApplications)
     });
@@ -54,11 +57,17 @@ export class AdmissionDeskComponent implements OnInit {
     ).subscribe((returnData: any) => {
       this.paymentAwaitingApplications = returnData.data;
       this.paymentAwaitingApplications.map(element => {
-        element.formFieldValues = JSON.parse(element.formFieldValues)
+        console.log(element);
+        element.formFieldValues = JSON.parse(element.item.formFieldValues)
       })
       console.log(this.paymentAwaitingApplications);
 
     });
+  }
+  getName(item)
+  {
+    console.log(item.item.formFieldValues.personalInfo.fullName);
+    
   }
   showPhase(index)
   {

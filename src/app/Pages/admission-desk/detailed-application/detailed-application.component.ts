@@ -88,7 +88,11 @@ export class DetailedApplicationComponent implements OnInit {
     });
     this.getallapptituteTest();
   }
+getcurrentyear(){
+  let currentYear;
+  return currentYear=new Date().getFullYear();
 
+}
   loadData() {
     // instite details
 
@@ -106,7 +110,7 @@ export class DetailedApplicationComponent implements OnInit {
     this.apiService.doGetRequest(
       endPoints.Get_applications + "?where[id]=" + this.applicationId
     ).subscribe((returnData: any) => {
-      this.applicationData = returnData.data[0];
+      this.applicationData = returnData.data[0].item;
       this.reviewForm.controls.remarks.setValue(this.applicationData.remarks + '\n' + trim(new Date().toString()) + ' : ')
 
       const formData = JSON.parse(this.applicationData.formFieldValues)
