@@ -47,7 +47,6 @@
               <div class="col-lg-3 mt-2">Online Interview status</div>
               <div class="col-lg-6">
                 <input type="text" formControlName="onlineinterviewstatus" placeholder="online interview status">
-                <!-- <textarea class="height100" rows="10" formControlName="status" id=""></textarea> -->
               </div>
               <div class="col-lg-2 mt-2"><button>Update</button></div>
             </form>
@@ -62,12 +61,68 @@
             </form>
           </div>
 
-          <!-- <button (click)="downloadAsPDF()">Download</button> -->
           <button class="float-btn-right" (click)="downloadAsPDF()"><i
               class="zmdi zmdi-download  zmdi-hc-3x"></i></button>
         </div>
       </div>
     </div>
+    <!-- <div class="row">
+      <div class="col-sm-3">
+        <div class="card" style="margin-top: 21px;
+        border: none;
+        padding: 24px;
+        box-shadow: 0 0 10px 2px rgb(0 0 0 / 13%);
+        margin-bottom: 18px;
+       ">
+          <form [formGroup]="reportingForm" (ngSubmit)="onSubmit(reportingForm)">
+            <label for="">Schedule Date of Reporting</label>
+            <input style="    margin-top: 16px;" type="date" class="form-control" formControlName="dateOfReporting"
+              id="">
+            <div><button>Update</button></div>
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card" style="margin-top: 21px;
+        border: none;
+        padding: 24px;
+        box-shadow: 0 0 10px 2px rgb(0 0 0 / 13%);
+        margin-bottom: 18px;
+        ">
+        <form [formGroup]="aptitudeForm" (ngSubmit)="onSubmit(aptitudeForm)">
+          <label for="">Schedule Aptitude Test</label>
+          <div style="    margin-top: 16px;"><input class="form-control" type="date" formControlName="startDateTimeOfAptitudeTest" id=""></div>
+          <div style="    margin-top: 16px;"><input class="form-control" type="date" formControlName="endDateTimeOfAptitudeTest" id=""></div>
+          <div>
+            <select style="    margin-top: 16px;" class="form-control" formControlName="aptitudeTestId" id="">
+              <option *ngFor="let appttitudetestdetails of appttitudetestdetails"
+                value="{{appttitudetestdetails.id}}">{{appttitudetestdetails.title}}</option>
+            </select>
+          </div>
+          <div><button>Update</button></div>
+        </form>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card" style="margin-top: 21px;
+        border: none;
+        padding: 24px;
+        box-shadow: 0 0 10px 2px rgb(0 0 0 / 13%);
+        margin-bottom: 18px;
+        ">
+          <form [formGroup]="reviewForm" (ngSubmit)="onSubmit(reviewForm)">
+            <label>Remarks</label>
+            <div ><textarea class="form-control height100"  rows="10" formControlName="remarks" id=""></textarea>
+            </div>
+            <div ><button>Update</button></div>
+          </form>
+        </div>
+      </div>
+      <div class="col-sm-3">
+
+      </div>
+
+    </div> -->
   </div>
   <!-- <pre>{{applicationData|json}}</pre> -->
   <!-- <pre>{{entrance|json}}</pre> -->
@@ -341,7 +396,7 @@
         <div class="col-sm-5">
           <p> .................................................</p>
         </div>
-        
+
       </div>
       <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
         <div class="col-sm-5">
@@ -355,7 +410,7 @@
         <div class="col-sm-5">
           <p> {{applicationData?.createdAt | date }}</p>
         </div>
-        
+
       </div>
 
 
@@ -371,7 +426,7 @@
         <div class="col-sm-5">
           <p> .................................................</p>
         </div>
-        
+
       </div>
 
 
@@ -385,9 +440,10 @@
         ">:</p>
         </div>
         <div class="col-sm-5">
-          <p>{{getcurrentyear()}} <p>
+          <p>{{getcurrentyear()}}
+          <p>
         </div>
-        
+
       </div>
       <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
         <div class="col-sm-5">
@@ -399,9 +455,10 @@
         ">:</p>
         </div>
         <div class="col-sm-5">
-          <p> {{applicationData?.nSpotReferenceId}}<p>
+          <p> {{applicationData?.nSpotReferenceId}}
+          <p>
         </div>
-        
+
       </div>
 
 
@@ -418,7 +475,7 @@
         <div class="col-sm-5">
           <p> .................................................</p>
         </div>
-        
+
       </div>
 
 
@@ -433,10 +490,10 @@
         </div>
         <div class="col-sm-5">
           <p> {{instituteInfo?.name}}
-           
+
           </p>
         </div>
-        
+
       </div>
 
       <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
@@ -452,7 +509,7 @@
           <p> .................................................</p>
 
         </div>
-        
+
       </div>
 
 
@@ -469,7 +526,7 @@
           <p> .................................................</p>
 
         </div>
-        
+
       </div>
 
 
@@ -483,10 +540,10 @@
         ">:</p>
         </div>
         <div class="col-sm-5">
-          <p>  {{instituteInfo?.addressLine1}},{{instituteInfo?.addressLine1}},{{instituteInfo?.addressLine1}}</p>
+          <p> {{instituteInfo?.addressLine1}},{{instituteInfo?.addressLine1}},{{instituteInfo?.addressLine1}}</p>
 
         </div>
-        
+
       </div>
 
 
@@ -597,14 +654,18 @@
         </div>
       </div>
       <!-- <h5 class="headers">CERTIFICATE DETAILS</h5> -->
-      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">Rules and Regulatons of the Institution
+      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">Rules and Regulatons
+        of the Institution
       </p>
 
-      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I Agreee hereby declare that NPSOT TERMS
+      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I Agreee hereby
+        declare that NPSOT TERMS
       </p>
-      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I Agreee hereby declare that NSPOT PRIVACY
+      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I Agreee hereby
+        declare that NSPOT PRIVACY
       </p>
-      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I certify that the information submitted by me in support of this application is true to the best of my knowledge and belief.
+      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I certify that the
+        information submitted by me in support of this application is true to the best of my knowledge and belief.
 
       </p>
       <div class="row">
@@ -670,11 +731,11 @@
     <div class="col-sm-6">
       <button class="btn btn-success width-160" (click)="confirmAcceptance(applicationId)">Approve</button>
     </div>
-    <button class="float-btn-right" (click)="downloadAsPDF()"><i class="zmdi zmdi-download  zmdi-hc-3x"></i>
-      
-    
-      
+    <button class="float-btn-right" (click)="downloadAsPDF()">
+
+      <abbr title="Donwload Application Form"><i class="zmdi zmdi-download  zmdi-hc-3x"></i></abbr>
+
     </button>
- 
+
   </div>
 </main>

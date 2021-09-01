@@ -5,6 +5,14 @@
   font-weight: 600;
   margin-top: 50px;
 }
+.btn-info
+{
+  /* color: black !important; */
+  font-weight: 700;
+  color: #827979c4;
+  background-color: #ffffff !important;
+  border: none;
+}
 .contact select {
   width: 100%;
   border: none;
@@ -24,7 +32,13 @@
   width: 200px;
 }
 .phase-active{
-  color: white;
+  /* color: white; */
   /* background-color: #f8ad25 !important; */
-  border-bottom: 5px solid red;
+  /* border-bottom: 5px solid red; */
+
+  color: #1baee1;
+  font-weight: 700;
+  border-bottom: 5px solid #1baee1;
 }
+
+

@@ -8,3 +8,7 @@
   max-width: 140px;
   height: 60px;
 }
+.top-bar {
+  background: #1b335f;
+  padding: 16px;
+}

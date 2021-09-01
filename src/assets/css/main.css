@@ -171,9 +171,9 @@ h3::after {
 
 nav > ul > li > a {
   font-family: "Work Sans", sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 500;
-  color: #fff;
+  color: #1baadc;
   padding: 0;
   margin-right: 62px;
   transition: color 0.3s;
@@ -225,7 +225,8 @@ nav > ul > li > a {
 .submenu,
 .cart-container {
   background-color: rgba(255, 255, 255, 0.9);
-  top: 98px;
+  top: 105px !important;
+
   position: absolute;
   z-index: -1;
   opacity: 0;
@@ -302,7 +303,10 @@ nav > ul > li:hover .submenu {
 }
 
 .page header {
-  background-color:#1baee1;
+  /* background-color:#1baee1; */
+  background: rgba(255,255,255,0.95);
+    /* box-shadow: 0 0 5px rgb(0 0 0 / 30%); */
+    box-shadow: 0 0 10px 2px rgb(0 0 0 / 13%);
 }
 
 #topbar > .pull-right {
@@ -332,7 +336,7 @@ nav > ul > li:hover .submenu {
 .register {
   font-family: "Montserrat", sans-serif;
   font-size: 11px;
-  color: #fff;
+  color: #12c8fc;
   transition: background-color 0.5s ease;
   border-radius: 3px;
 }
@@ -346,7 +350,7 @@ nav > ul > li:hover .submenu {
 
 .blueplay {
   padding: 8px 12px 8px 0;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid #12c8fc;
 }
 
 .blueplay:hover {
@@ -354,8 +358,11 @@ nav > ul > li:hover .submenu {
 }
 
 .register {
-  background-color: #18c967;
+  /* background-color: #18c967;
+  padding: 9px 10px; */
+  background-color: #12c8fc;
   padding: 9px 10px;
+  color: white;
 }
 
 .register:hover {

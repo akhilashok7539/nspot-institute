@@ -2,24 +2,28 @@
   <div class="page-heading text-center">
     <div class="container">
       <h2 class="uppercase">REVIEW ADMISSION DESK</h2>
+    
     </div>
   </div>
+
+  
   <div class="container success" style="margin-top: 30px;">
     <div class="row">
       <div class="col-sm-12">
-        <div class="card media">
+        <div class="card media" style="    display: flex;
+        justify-content: center;">
           <a class="btn btn btn-info" [class.phase-active]="activeButton === 1" (click)="showPhase(1)"
-            style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Admission Application-Awaiting Pre Approval
+            style="margin-bottom: 0px;width: max-content;margin-left: 8px;">Admission Application-Awaiting Pre Approval
             </a>
 
           <a class="btn btn btn-info" [class.phase-active]="activeButton === 2" (click)="showPhase(2)"
-            style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Fee Payment Awaiting Applicants</a>
+            style="margin-bottom: 0px;width: max-content;margin-left: 8px;">Fee Payment Awaiting Applicants</a>
 
           <a class="btn btn btn-info" [class.phase-active]="activeButton === 3" (click)="showPhase(3)"
-            style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Fee Payment Remitted Applicants</a>
+            style="margin-bottom: 0px;width: max-content;margin-left: 8px;">Fee Payment Remitted Applicants</a>
 
           <a class="btn btn btn-info" [class.phase-active]="activeButton === 4" (click)="showPhase(4)"
-            style="margin-bottom: 5px;width: max-content;margin-left: 8px;">Rejected Applicants</a>
+            style="margin-bottom: 0px;width: max-content;margin-left: 8px;">Rejected Applicants</a>
 
 
         </div>

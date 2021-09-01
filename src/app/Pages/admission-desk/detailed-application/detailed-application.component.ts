@@ -111,7 +111,8 @@ getcurrentyear(){
       endPoints.Get_applications + "?where[id]=" + this.applicationId
     ).subscribe((returnData: any) => {
       this.applicationData = returnData.data[0].item;
-      this.reviewForm.controls.remarks.setValue(this.applicationData.remarks + '\n' + trim(new Date().toString()) + ' : ')
+
+      this.reviewForm.controls.remarks.setValue(this.applicationData.remarks)
 
       const formData = JSON.parse(this.applicationData.formFieldValues)
       const personalInfo = formData.personalInfo

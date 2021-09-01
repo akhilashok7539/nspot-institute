@@ -16,12 +16,22 @@
   font-size: 25px;
   color: #FFF;
 }
-.container {
-
-  
-
+button{
+  background: #1baee1;
+    color: white;
+    border: none;
+    padding: 9px;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 70%;
+    margin-top: 12px;
 }
-
+abbr[data-original-title], abbr[title] {
+  cursor: pointer;
+  border-bottom: 1px dotted #1baee1;
+}
 .downloaddoc{
   width: 100%;
     margin-top: 15px;
