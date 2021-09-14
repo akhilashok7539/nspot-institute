@@ -65,8 +65,9 @@ export class UpdateBoardofcouncilComponent implements OnInit {
       certifiedByFile: ['', ],
       certifiedByLabel: ['', ],
       memberOfFile: ['', ],
-      memberOfLabel: ['', ],
-
+      memberOfLabel: ['' ],
+      trust:[''],
+      group:['']
       // brochuresFile: ['', ],
       // rulesFile: ['', ],
       // uniformFile: ['', ],
@@ -164,6 +165,8 @@ export class UpdateBoardofcouncilComponent implements OnInit {
     this.multiForm.append('boardByLabel', formData.boardByLabel);
     this.multiForm.append('licenceByLabel', formData.licenceByLabel);
     this.multiForm.append('collaborationByLabel', formData.collaborationByLabel);
+    this.multiForm.append('trust', formData.trust);
+    this.multiForm.append('group', formData.group);
 
     // console.warn(this.multiForm.getAll('affiliatedToFile'));
     this.apiService.doPutRequest(`institute/boardOfCouncil/update/` + this.instituteId, this.multiForm).subscribe((returnData: any) => {

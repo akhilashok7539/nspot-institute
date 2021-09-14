@@ -83,7 +83,8 @@ export class EditInstitutekycInfoComponent implements OnInit {
       // recaptcha: ['', Validators.required],
       busAvailablity:[false],
       vanavailablity:[false],
-      // routeInfo: [''],
+      aboutUs: [''],
+      religiousMinority:[''],
       officialEmail: ['', Validators.required],
     });
     this.loadData();

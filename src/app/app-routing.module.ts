@@ -43,6 +43,8 @@ import { UpdateDownloadComponent } from './Pages/update-download/update-download
 import { UpdateHostelinfoComponent } from './Pages/update-hostelinfo/update-hostelinfo.component';
 import { UploadRecepitComponent } from './Pages/upload-recepit/upload-recepit.component';
 import { DownloadDocumentsComponent } from './Pages/download-documents/download-documents.component';
+import { InfrastructureEditComponent } from './Pages/infrastructure-edit/infrastructure-edit.component';
+import { InstituteTravelEditComponent } from './Pages/institute-travel-edit/institute-travel-edit.component';
 
 const routes: Routes = [
   {
@@ -104,6 +106,8 @@ const routes: Routes = [
       { path: 'upload-receipt', component: UploadRecepitComponent },
       { path: 'download-documents', component: DownloadDocumentsComponent },
 
+      { path: 'infrastructure-edit', component: InfrastructureEditComponent },
+      { path: 'travelinfo-edit', component: InstituteTravelEditComponent },
 
     ],
   },

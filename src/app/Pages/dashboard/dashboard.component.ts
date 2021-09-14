@@ -27,12 +27,13 @@ export class DashboardComponent implements OnInit {
   boardOfCouncilInfo;
   highlights;
   socialLinks;
+  travelinformations;
   virtualTours;
   baseApiUrl = environment.baseApiUrl;
 
   ngOnInit(): void {
     this.instituteId = this.authService.instituteProfile.userId;
-    let tempinstId =  this.authService.instituteProfile.id;
+    let tempinstId = this.authService.instituteProfile.id;
 
     this.loadInstituteInfo();
     // fetching boardof council details
@@ -63,7 +64,16 @@ export class DashboardComponent implements OnInit {
       console.error(error);
       this.toastr.error('Failed to fetch institute details')
     });
+    // fetching travel informations
 
+    this.apiService.doGetRequest('instituteTravelInfo/byInstituteId/' + tempinstId).subscribe(returnData => {
+      console.log(returnData);
+      
+      this.travelinformations = returnData['data'][0];
+    }, error => {
+      console.error(error);
+      this.toastr.error('Failed to fetch institute details')
+    });
   }
 
   loadInstituteInfo() {
@@ -112,20 +122,29 @@ export class DashboardComponent implements OnInit {
       }
     }
   }
-  edit()
-  {
-    this.router.navigate(['/institute/edit-institute/'+this.instituteId])
+  edit() {
+    this.router.navigate(['/institute/edit-institute/' + this.instituteId])
   }
-  view(s){
+  view(s) {
     let req = {
-      transportationInfo:s.transportationInfo,
-      hostalAnnualFee:s.hostalAnnualFee,
-      foodAvailableAtHostel:s.foodAvailableAtHostel,
-      haveGirlsHostel:s.haveGirlsHostel,
-      haveBoysHostel:s.haveBoysHostel
+      transportationInfo: s.transportationInfo,
+      hostalAnnualFee: s.hostalAnnualFee,
+      foodAvailableAtHostel: s.foodAvailableAtHostel,
+      haveGirlsHostel: s.haveGirlsHostel,
+      haveBoysHostel: s.haveBoysHostel
     }
-    sessionStorage.setItem("feeandinfo",JSON.stringify(req))
+    sessionStorage.setItem("feeandinfo", JSON.stringify(req))
     this.router.navigate(['/institute/update-hostel'])
+
+  }
+  editinfra(s) {
+
+    this.router.navigate(['/institute/infrastructure-edit/'])
+
+  }
+  editravel() {
+    this.router.navigate(['/institute/travelinfo-edit/'])
+
 
   }
 }

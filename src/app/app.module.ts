@@ -67,6 +67,8 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { UploadRecepitComponent } from './Pages/upload-recepit/upload-recepit.component';
 import { DownloadDocumentsComponent } from './Pages/download-documents/download-documents.component';
+import { InfrastructureEditComponent } from './Pages/infrastructure-edit/infrastructure-edit.component';
+import { InstituteTravelEditComponent } from './Pages/institute-travel-edit/institute-travel-edit.component';
 const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
 
 @NgModule({
@@ -124,6 +126,8 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
     UpdateBoardofcouncilComponent,
     UploadRecepitComponent,
     DownloadDocumentsComponent,
+    InfrastructureEditComponent,
+    InstituteTravelEditComponent,
   ],
   imports: [
     BrowserModule,

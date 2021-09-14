@@ -337,6 +337,24 @@
             <input type="text" formControlName="routeInfo" placeholder="Route " />
             <app-control-messages [control]="f.routeInfo" [touched]="touched"></app-control-messages>
           </div> -->
+          <div class="col-sm-6">
+            <label class="uppercase">Religious Minority Institute</label>
+            <select formControlName="religiousMinority">
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+
+              <!-- <option value="2">LP school</option>
+              <option value="3">UP school</option>
+              <option value="3">High School</option>
+              <option value="3">Higher Secondary School</option>
+              <option value="3">Professional College</option>
+              <option value="3">Training Institutes</option>
+              <option value="3">Tution Centres</option>
+              <option value="3">Other</option> -->
+            </select>
+            <app-control-messages [control]="f.typeId" [touched]="touched"></app-control-messages>
+  
+          </div>
           <div class="col-sm-12">
             <label class="uppercase">Google MAP LOCATION</label>
   
@@ -371,6 +389,11 @@
             <!-- <div class="card">
               <input type="checkbox" class="form-control">
             </div> -->
+            <label class="uppercase">About us</label>
+            <textarea formControlName="aboutUs" id="" cols="30" rows="10">
+
+
+            </textarea>
           </div>
         </div>
   

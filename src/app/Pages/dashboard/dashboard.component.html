@@ -19,8 +19,9 @@
   <div class="container courses-browse popular no-gutters">
     <div class="row tutorial">
       <div class="col-sm-4 profilePicDiv">
-        <input type="file" style="visibility: hidden;" id="profPicUploader" (change)="onProfileChange($event,instituteInfo?.id)">
-        <img  src="{{instituteInfo.profilePicFile?baseApiUrl+instituteInfo?.profilePicFile:'assets/images/kyc.png'}}" />
+        <input type="file" style="visibility: hidden;" id="profPicUploader"
+          (change)="onProfileChange($event,instituteInfo?.id)">
+        <img src="{{instituteInfo.profilePicFile?baseApiUrl+instituteInfo?.profilePicFile:'assets/images/kyc.png'}}" />
         <!-- <img *ngIf="instituteInfo.profilePicFile" src="{{instituteInfo.profilePicFile?baseApiUrl+instituteInfo?.profilePicFile:'assets/images/kyc.png'}}" />
         <img *ngIf="!instituteInfo.profilePicFile" src="./assets/images/kyc.png" /> -->
 
@@ -109,7 +110,7 @@
                 <td>{{boardOfCouncilInfo?.unitOfLabel}}</td>
               </tr>
 
-             
+
               <tr>
                 <th>Recongnized By</th>
                 <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.recongnizedByFile}}"><i
@@ -156,7 +157,8 @@
               <tr>
                 <th></th>
                 <td></td>
-                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-counicl">View / Edit</button></th>
+                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-counicl">View /
+                    Edit</button></th>
               </tr>
 
 
@@ -211,7 +213,8 @@
 
               <tr>
                 <td></td>
-                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-downloads">View / Edit</button></th>
+                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-downloads">View /
+                    Edit</button></th>
               </tr>
 
             </tbody>
@@ -272,8 +275,7 @@
                 <th>Library</th>
                 <th>
                   <a *ngIf="virtualTours?.library!=null" target="_blank" class="abs"
-                    href="{{baseApiUrl}}{{virtualTours?.library}}"><i
-                      class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                    href="{{baseApiUrl}}{{virtualTours?.library}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
                 </th>
               </tr>
 
@@ -289,18 +291,18 @@
                 <th>Hostel</th>
                 <th>
                   <a *ngIf="virtualTours?.hostel!=null" target="_blank" class="abs"
-                    href="{{baseApiUrl}}{{virtualTours?.hostel}}"><i
-                      class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                    href="{{baseApiUrl}}{{virtualTours?.hostel}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
                 </th>
               </tr>
               <tr>
                 <td></td>
-                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-virtualtour">View / Edit</button></th>
+                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-virtualtour">View /
+                    Edit</button></th>
               </tr>
 
             </tbody>
           </table>
-         
+
         </div>
       </div>
     </div>
@@ -343,7 +345,8 @@
 
               <tr>
                 <td></td>
-                <th><button class="btn btn-info pull-right width-160" (click)="view(instituteInfo)" >View / Edit</button></th>
+                <th><button class="btn btn-info pull-right width-160" (click)="view(instituteInfo)">View / Edit</button>
+                </th>
               </tr>
 
             </tbody>
@@ -351,7 +354,111 @@
         </div>
       </div>
     </div>
+    <div class="row tutorial">
+      <div class="col-sm-4">
+        <img src="assets/images/hostel.jpg" class="resp-img" alt="Tutorial" />
+      </div>
+      <div class="col-sm-8">
+        <div class="tutorial-details">
+          <h6>INFRASTRUCTURE-FACILITIES & EVENTS </h6>
 
+          <table class="table">
+            <tbody>
+
+              <tr>
+                <th>Area of Campus</th>
+                <td>{{instituteInfo.haveBoysHostel?'Yes':'No'}}</td>
+              </tr>
+
+              <tr>
+                <th>No. of Classrooms</th>
+                <td>{{instituteInfo.haveGirlsHostel?'Yes':'No'}}</td>
+              </tr>
+
+              <tr>
+                <th>Total Student Strength as on date</th>
+                <td>{{instituteInfo.foodAvailableAtHostel?'Yes':'No'}}</td>
+              </tr>
+
+              <tr>
+                <th>Student Teacher Ratio</th>
+                <td>{{instituteInfo.hostalAnnualFee}}</td>
+              </tr>
+
+              <tr>
+                <th>Total no.of Teachers</th>
+                <td>{{instituteInfo.transportationInfo}}</td>
+              </tr>
+              <tr>
+                <th>Language of Instruction</th>
+                <td>{{instituteInfo.transportationInfo}}</td>
+              </tr>
+              <tr>
+                <th>Sports</th>
+                <td>{{instituteInfo.transportationInfo}}</td>
+              </tr>
+              <tr>
+                <th>Indoor Games </th>
+                <td>{{instituteInfo.transportationInfo}}</td>
+              </tr>
+              <tr>
+                <th>Outdoor Games </th>
+                <td>{{instituteInfo.transportationInfo}}</td>
+              </tr>
+              <tr>
+                <td></td>
+                <th><button class="btn btn-info pull-right width-160" (click)="editinfra(instituteInfo)">View / Edit</button>
+                </th>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row tutorial">
+      <div class="col-sm-4">
+        <img src="assets/images/TRAVELINFO.jpg" class="resp-img" alt="Tutorial" />
+      </div>
+      <div class="col-sm-8">
+        <div class="tutorial-details">
+          <h6>TRAVEL INFORMATION </h6>
+
+          <table class="table">
+            <tbody>
+
+              <tr>
+                <th>Nearest Airport</th>
+                <td>{{travelinformations.nearestAirPort}}</td>
+              </tr>
+
+              <tr>
+                <th>Nearest Railway Station</th>
+                <td>{{travelinformations.nearestRailWayStation}}</td>
+              </tr>
+
+              <tr>
+                <th>Nearest Bus Station</th>
+                <td>{{travelinformations.nearestBusStation}}</td>
+              </tr>
+
+              <tr>
+                <th>Location On Map</th>
+                <td><a href="https://maps.google.com/?q={{travelinformations.currentLatitude}},{{travelinformations.currentLongitude}}" target="_blank"> {{travelinformations.currentLatitude}} , {{travelinformations.currentLongitude}}</a></td>
+              </tr>
+
+              
+              <tr>
+                <td></td>
+                <th><button class="btn btn-info pull-right width-160" (click)="editravel()">View / Edit</button>
+                </th>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
     <div style="height: 50px;"></div>
   </div>
 </main>

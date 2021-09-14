@@ -1,0 +1,47 @@
+<main id="register">
+    <div class="page-heading text-center">
+        <div class="container">
+            <h2>UPDATE TRAVEL INFORMATION </h2>
+        </div>
+    </div>
+    <div class="container">
+
+
+        <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div class="col-sm-12">
+                <label for="">NEAREST AIRPORT</label>
+                <input type="text" placeholder="nearest airport" formControlName="nearestAirPort">
+            </div>
+            <div class="col-sm-12">
+                <label class="uppercase">NEAREST RAILWAY STATION</label>
+                <input type="text" placeholder="nearest railway station" formControlName="nearestRailWayStation">
+
+            </div>
+            <div class="col-sm-12">
+                <label class="uppercase">NEAREST BUS STATION</label>
+                <input type="text" placeholder="Nearest Bus Station" formControlName="nearestBusStation">
+
+            </div>
+
+            <div class="col-sm-12">
+                <label class="uppercase">LOCATION ON MAP LATTITUDE & LONGITUDE</label>
+                <input type="text" placeholder="LATTITUDE" formControlName="currentLatitude">
+                <input type="text" placeholder="LONGITUDE" formControlName="currentLongitude">
+
+            </div>
+            
+            <div class="row clearfix">
+                <div class="col-sm-12">
+                  <div class="pull-right">
+                    <button type="submit" id="submit-btn" class="btn btn-info nbtn">
+                      Save and Continue
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+
+        </form>
+    </div>
+</main>
