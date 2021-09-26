@@ -24,7 +24,23 @@
         <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="col-sm-6">
-
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Duration Of Course</label>
+                        <input type="text">
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Enter Full Course Fees for the above Course duration</label>
+                        <input type="number" formControlName="otherFee" placeholder="Other"
+                                (blur)="calculateTotalFee()" />
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Full Course Fees Includes</label>
+                        <input type="text" formControlName="otherincludes">
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Full Course Fees Excludes</label>
+                        <input type="text">
+                    </div>
                     <div class="col-sm-12">
                         <label class="req uppercase">Fees payment Tenure</label>
                         <select formControlName="paymentTenureId">
@@ -111,7 +127,7 @@
                         </div>
                     </div> -->
 
-                    <div class="col-sm-12">
+                    <!-- <div class="col-sm-12">
                         <div class="col-sm-12">
                             <label class="req uppercase">Total Course fee
                                 <br>
@@ -124,7 +140,7 @@
                                 (blur)="calculateTotalFee()" />
                             <app-control-messages [touched]="touched" [control]="f.otherFee"></app-control-messages>
                         </div>
-                    </div>
+                    </div> -->
                     <hr />
                     <!-- <div class="col-sm-12 thumbnail">
                         <div class="col-sm-6">
@@ -198,6 +214,12 @@
                         </div>
                         <input type="text" formControlName="spotfee" placeholder="Spot addmission fee" />
                     </div>
+
+
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Amount credited to the INSTITUTE</label>
+                        <input type="text">
+                    </div>
                     <div class="col-sm-12">
                         <div class="col-md-9">
                             <label class="req uppercase">Refund Policy</label>
@@ -211,7 +233,7 @@
                         <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages>
                     </div>
                    
-                    <div class="col-sm-12">
+                    <!-- <div class="col-sm-12">
                         <div class="col-md-9">
                             <label class="req uppercase">Full Fee Includes</label>
                         </div>
@@ -221,8 +243,7 @@
                          
                         </div>
                         <input type="text" placeholder="Full Fee includes" formControlName="otherincludes" />
-                        <!-- <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages> -->
-                    </div>
+                    </div> -->
                 </div>
 
                 <div class="col-sm-6 nirus-fee">

@@ -24,7 +24,7 @@
         </h4>
         <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="row">
-                <div class="col-sm-6 offset-sm-3">
+                <div class="col-sm-12">
                     <label class="req uppercase">Brief description about eligibility for the course</label>
                     <textarea formControlName="eligibiliyInString" id="" cols="30" rows="10" placeholder="Educational qualification,Age, Cut off marks needed etc"></textarea>
                     <app-control-messages [touched]="touched" [control]="f.eligibiliyInString"></app-control-messages>
@@ -36,6 +36,26 @@
 
                     </select> -->
                 </div>
+
+                <div class="col-sm-12">
+                    <label for="">Age Limit Required</label>
+                    <input type="text" placeholder="Description Column eg: should be 18 years as on">
+                </div>
+                <div class="col-sm-12">
+                    <label for="">No Age Bar  </label>
+                   
+                    <input type="text" placeholder="yes or no">
+           
+                </div>
+                <div class="col-sm-12">
+                    <label for="">Academic Qualification Required</label>
+                    <input type="text">
+                </div>
+                <div class="col-sm-12">
+                    <label for="">Entrance Exam Required</label>
+                    <input type="text">
+                </div>
+                
                 <div class="row clearfix">
                     <div class="col-sm-12">
                         <div class="pull-right">
