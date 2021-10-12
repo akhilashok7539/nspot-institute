@@ -68,7 +68,6 @@ export class CourseStep3Component implements OnInit {
 
         });
 
-
   }
   get f() { return this.form.controls; }
 

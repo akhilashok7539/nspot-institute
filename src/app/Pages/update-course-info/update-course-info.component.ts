@@ -20,7 +20,10 @@ export class UpdateCourseInfoComponent implements OnInit {
   courseStreamsSpecializations1: any;
   courseStreamsSpecializations2: any;
   courseStreamsSpecializations12: any;
-
+  universityTypeSelected;
+  boardList: any;
+  otherboardList: any;
+  universityList;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -45,6 +48,8 @@ export class UpdateCourseInfoComponent implements OnInit {
   currentMonth = new Date().getMonth()
   maindeskdata;
   submaindesk;
+  institutionTypeList;
+  institutionCategoryList;
   courserListDetails:any=[];
   ngOnInit(): void {
     // this.instituteId = parseInt(this.route.snapshot.paramMap.get('instituteId'));
@@ -86,7 +91,7 @@ export class UpdateCourseInfoComponent implements OnInit {
       aptituteTestRequired: [false],
       aptituteTestId: [0],
       onlineInterviewRequired: [false],
-
+      programCode: [''],
       courseSyllabusFile: [''],
       CourseCategoryId: [''],
       CourseSubCategoryId: [''],
@@ -95,7 +100,9 @@ export class UpdateCourseInfoComponent implements OnInit {
       CourseSubCategory3Id: [''],
       CourseSubCategory4Id: [''],
       CourseSubCategory5Id: [''],
-
+      instituteType:['',[Validators.required]],
+      instituteCatagory:['',[Validators.required]],universityId:[''],  boardId:[''],
+      otherId:[''],
     });
     this.route.paramMap.subscribe(res =>{
       console.log(res['params'].id);
@@ -120,6 +127,10 @@ export class UpdateCourseInfoComponent implements OnInit {
     this.apiService.doGetRequest(endPoints.Get_courseStream).subscribe((returnData: any) => {
       this.courseStreams = returnData.data;
       console.log(this.universityTypes);
+    });
+    this.apiService.doGetRequest(`university`).subscribe((returnData: any) => {
+      this.universityList = returnData.data;
+      console.log(this.universityList);
     });
     this.loadAptitudeTests();
 
@@ -146,6 +157,19 @@ export class UpdateCourseInfoComponent implements OnInit {
       console.log(this.courseStreamsSpecializations);
     });
   }
+  getinsttiutetype(academicLevelId)
+  {
+    console.log(" herre");
+    
+    this.apiService.doGetRequest(`institute-type/courseCatagory/`+academicLevelId).subscribe((returnData: any) => {
+      this.institutionTypeList = returnData.data;
+      console.log(this.institutionTypeList);
+    });
+    this.apiService.doGetRequest(`institute-categories/courseCatagory/`+academicLevelId).subscribe((returnData: any) => {
+      this.institutionCategoryList = returnData.data;
+      console.log(this.institutionCategoryList);
+    });
+  }
   getCourseDetailsByiD(id)
   {
     this.apiService.doGetRequest(`institute/course/`+id).subscribe(
@@ -156,6 +180,10 @@ export class UpdateCourseInfoComponent implements OnInit {
 
         // get cooresponding based on main desk
         this.getsubcat1Basedon1(this.courserListDetails['CourseCategory'].id);
+
+        //get insttute type based on maindesk
+        this.getinsttiutetype(this.courserListDetails['CourseCategory'].id);
+
         // set 2 coresspondingdesk
         this.form.controls['CourseSubCategoryId'].setValue(this.courserListDetails['Course_Sub_Category'].id);
         this.getsubcat1Basedon2(this.courserListDetails['Course_Sub_Category'].id);
@@ -165,21 +193,62 @@ export class UpdateCourseInfoComponent implements OnInit {
        
         this.form.controls['CourseSubCategory3Id'].setValue(this.courserListDetails['Course_Sub_Categories3'].id);
         this.getsubcat1Basedon4(this.courserListDetails['Course_Sub_Categories3'].id);
-        this.form.controls['CourseSubCategory4Id'].setValue(this.courserListDetails['Course_Sub_Categories4'].id);
+        if(this.courserListDetails['Course_Sub_Categories4'] != null)
+        {
+          this.form.controls['CourseSubCategory4Id'].setValue(this.courserListDetails['Course_Sub_Categories4'].id);
+        }
+     
         this.getsubcat1Basedon5(this.courserListDetails['Course_Sub_Categories4'].id);
-        this.form.controls['CourseSubCategory5Id'].setValue(this.courserListDetails['Course_Sub_Categories5'].id);
+
+        if(this.courserListDetails['Course_Sub_Categories5'] != null)
+        {
+          this.form.controls['CourseSubCategory5Id'].setValue(this.courserListDetails['Course_Sub_Categories5'].id);
+        }
+      
         this.form.controls['accademicLevelId'].setValue(this.courserListDetails['accademicLevelId']);
         this.getacedemicLevelId(this.courserListDetails['accademicLevelId']);
         this.form.controls['accademicLevelCourseId'].setValue(this.courserListDetails['accademicLevelCourseId']);
-        
         this.form.controls['onlineClassAvailability'].setValue(this.courserListDetails['onlineClassAvailability']);
         this.form.controls['aptituteTestRequired'].setValue(this.courserListDetails['aptituteTestRequired']);
-        
         this.form.controls['aptituteTestId'].setValue(this.courserListDetails['aptituteTestId']);
-        console.log(this.courserListDetails['aptituteTestId']);
+    
         this.form.controls['courseTypeId'].setValue(this.courserListDetails['courseTypeId']);
         this.form.controls['courseCode'].setValue(this.courserListDetails['courseCode']);
+        this.form.controls['programCode'].setValue(this.courserListDetails['programCode']);
+
+        this.form.controls['instituteType'].setValue(this.courserListDetails['instituteType']);
+        this.form.controls['instituteCatagory'].setValue(this.courserListDetails['instituteCatagory']);
+        
         this.form.controls['universityTypeId'].setValue(this.courserListDetails['universityTypeId']);
+        if(this.courserListDetails['universityTypeId'] === 1)
+        {
+          this.universityTypeSelected = 1;
+          this.apiService.doGetRequest(`university`).subscribe((returnData: any) => {
+            this.universityList = returnData.data;
+            console.log(this.universityList);
+          });
+        }
+        if(this.courserListDetails['universityTypeId'] === 2)
+        {
+          this.universityTypeSelected = 2;
+
+          this.apiService.doGetRequest(`boardType/`).subscribe((returnData: any) => {
+            this.boardList = returnData.data;
+            console.log(this.boardList);
+          });
+        }
+        if(this.courserListDetails['universityTypeId'] === 3)
+        {
+          this.universityTypeSelected = 3;
+
+          this.apiService.doGetRequest(`otherBoardType/`).subscribe((returnData: any) => {
+            this.otherboardList = returnData.data;
+            console.log(this.otherboardList);
+          });
+        }
+        this.form.controls['universityId'].setValue(this.courserListDetails['University'].id);
+
+        
         this.form.controls['universityName'].setValue(this.courserListDetails['universityName']);
         this.form.controls['courseStreamId'].setValue(this.courserListDetails['courseStreamId']);
         this.subcoursestream(this.courserListDetails['courseStreamId']);
@@ -191,7 +260,6 @@ export class UpdateCourseInfoComponent implements OnInit {
         this.form.controls['examConducted'].setValue(this.courserListDetails['examConducted']);
         this.form.controls['admissionStartDate'].setValue(this.courserListDetails['admissionStartDate'].split("T")[0]);
         this.form.controls['admissionCloseDate'].setValue(this.courserListDetails['admissionCloseDate'].split("T")[0]);
-
         this.form.controls['classStartDate'].setValue(this.courserListDetails['classStartDate'].split("T")[0]);
         console.log(this.courserListDetails['admissionCloseDate'].split("T"));
         this.form.controls['campusAddressLine1'].setValue(this.courserListDetails['campusAddressLine1']);
@@ -446,5 +514,25 @@ export class UpdateCourseInfoComponent implements OnInit {
       this.courseStreamsSpecializations = returnData.data;
       console.log(this.courseStreamsSpecializations);
     });
+  }
+  changeType(event)
+  {
+    this.universityTypeSelected =event.target.value;
+    console.log(this.universityTypeSelected);
+    
+    if(this.universityTypeSelected === 2)
+    {
+      this.apiService.doGetRequest(`boardType/`).subscribe((returnData: any) => {
+        this.boardList = returnData.data;
+        console.log(this.boardList);
+      });
+    }
+    if(this.universityTypeSelected === 3)
+    {
+      this.apiService.doGetRequest(`otherBoardType/`).subscribe((returnData: any) => {
+        this.otherboardList = returnData.data;
+        console.log(this.otherboardList);
+      });
+    }
   }
 }

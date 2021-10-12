@@ -69,19 +69,16 @@
             <thead>
               <tr>
                 <th width="5%"></th>
-                <th>
-                 
-                  SL.No</th>
-                <th>NAME OF APPLICANT</th>
-                <th>KYC/CERTIFICATES</th>
+                <th> SL.No</th>
+                <th>NAME OF APPLICANT & DATE</th>
+                <th  style="text-align: center;">APPLICATION <br> VIEW</th>
                 <!-- <th>DOWNLOAD APPLICATION</th> -->
                 <!-- <th>CHAT</th> -->
                 <!-- <th>DATE OF REPORTING</th> -->
-                <th>APTITUDE TEST DATE</th>
-                <th>VIRTUAL ADMISSION COUNSELING DATE</th>
+                <th style="text-align: center;">APTITUDE TEST <br> DATE & MARKS</th>
+                <th  style="text-align: center;">ADMISSION INTERVIEW <br> DATE & MARKS</th>
            
-                <th>APTITUDE MARK</th>
-                <th>VIRTUAL ADMISSION COUNSELING STATUS</th>
+      
 
                 <th>REMARKS</th>
                 <th >ADMISSION STATUS</th>
@@ -93,8 +90,8 @@
                 <td><img src="./assets/images/new.gif" alt="" *ngIf="item.viewStatus === false"></td>
                 <td> {{i+1}}</td>
                 <td>{{item?.formFieldValues?.personalInfo?.fullName}}</td>
-                <td>
-                  <a (click)="viewApplicationStatus(item.item)">View</a>
+                <td style="text-align: center;">
+                  <a (click)="viewApplicationStatus(item.item)" >View</a>
                 </td>
             
 
@@ -110,16 +107,18 @@
                 </td> -->
                 <td>{{item?.item?.startDateTimeOfAptitudeTest | date:'MMM d, y'}}</td>
                 <td>{{item?.item?.dateOfInterview | date:'MMM d, y'}}</td>
-                <td></td>
+                <!-- <td></td> -->
               
                 <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
                 </td> -->
-                <td></td>
+                <!-- <td></td> -->
                
                 <td>{{item.item?.remarks}}</td>
-                <td><button class="btn btn-success" (click)="confirmAcceptance(item.item.id)">Approve</button>
+                <td> PENDING
                   </td>
-                <td><button class="btn btn-danger" (click)="confirmReject(item.item.id)">Reject</button></td>
+                <td>
+                  <button class="btn btn-success" (click)="confirmAcceptance(item.item.id)">Approve</button> &nbsp;
+                  <button class="btn btn-danger" (click)="confirmReject(item.item.id)">Reject</button></td>
               </tr>
               <tr *ngIf="preApplications?.length<=0">
                 <td colspan="12" align="center">Empty List</td>
@@ -155,8 +154,8 @@
                 <td width="5%"><img src="./assets/images/new.gif" alt="" *ngIf="item.viewStatus === false"></td>
                 <td> {{i+1}}</td>
                 <td>{{item?.formFieldValues?.personalInfo?.fullName}}</td>
-                <td>
-                  <a (click)="viewApplicationStatus(item.item)">View</a>
+                <td style="text-align: center;">
+                  <a (click)="viewApplicationStatus(item.item)" >View</a>
                 </td>
                 <!-- <td>
                   <button class="btn btn-actions btn-success">
@@ -212,8 +211,8 @@
               <tr *ngFor="let item of preApplications; let i=index">
                 <td>{{i+1}}</td>
                 <td>{{item?.formFieldValues?.personalInfo?.fullName}}</td>
-                <td>
-                  <a (click)="viewApplicationStatus(item)">View</a>
+                <td style="text-align: center;">
+                  <a (click)="viewApplicationStatus(item)" >View</a>
                 </td>
               
                 <td>{{item?.startDateTimeOfAptitudeTest | date:'MMM d, y'}}</td>
@@ -226,9 +225,7 @@
                 <td>  <button class="btn btn-danger" (click)="upload()">Upload Recepit</button></td>
 
               </tr>
-              <tr>
-                <td colspan="12" align="center">Empty List</td>
-              </tr>
+             
             </tbody>
           </table>
         </div>

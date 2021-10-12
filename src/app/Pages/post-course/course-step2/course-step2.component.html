@@ -19,7 +19,7 @@
 
     <div class="container success">
         <h4 class="sub-title uppercase">
-            FEE INFO
+            FEE INFO INDIAN/NRI STUDENTS
         </h4>
         <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="row">
@@ -302,5 +302,289 @@
             </div>
         </form>
     </div>
+    <div class="container success">
+        <h4 class="sub-title uppercase">
+            FEE INFO INTERNATIONAL STUDENTS
+        </h4>
+        <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Duration Of Course</label>
+                        <input type="text">
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Enter Full Course Fees for the above Course duration</label>
+                        <input type="number" formControlName="otherFee" placeholder="Other"
+                                (blur)="calculateTotalFee()" />
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Full Course Fees Includes</label>
+                        <input type="text" formControlName="otherincludes">
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Full Course Fees Excludes</label>
+                        <input type="text">
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Fees payment Tenure</label>
+                        <select formControlName="paymentTenureId">
+                            <option value="">Select a payment tenure</option>
+                            <option *ngFor="let item of paymentTenures" value="{{item.id}}">{{item.title}}</option>
+                        </select>
+                        <app-control-messages [touched]="touched" [control]="f.paymentTenureId"></app-control-messages>
+                    </div>
 
+                    <!-- <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <label class="req uppercase">Application Fees</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" formControlName="applicationFee" placeholder="Application Fees"
+                                (blur)="calculateTotalFee()" />
+                            <app-control-messages [touched]="touched" [control]="f.applicationFee">
+                            </app-control-messages>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <label class="req uppercase">Donation</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" formControlName="donation" placeholder="Donation"
+                                (blur)="calculateTotalFee()" />
+                            <app-control-messages [touched]="touched" [control]="f.donation"></app-control-messages>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <label class="req uppercase">Admission Fees</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" formControlName="admissionFee" placeholder="Admission Fees"
+                                (blur)="calculateTotalFee()" />
+                            <app-control-messages [touched]="touched" [control]="f.admissionFee"></app-control-messages>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <label class="req uppercase">Tution Fees</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" formControlName="tutionFee" placeholder="Tution Fees"
+                                (blur)="calculateTotalFee()" />
+                            <app-control-messages [touched]="touched" [control]="f.tutionFee"></app-control-messages>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <label class="req uppercase">Van Fees</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" formControlName="vanFee" placeholder="Van Fees"
+                                (blur)="calculateTotalFee()" />
+                            <app-control-messages [touched]="touched" [control]="f.vanFee"></app-control-messages>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <label class="req uppercase">Uniform Fees</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" formControlName="uniformFee" placeholder="Uniform Fees"
+                                (blur)="calculateTotalFee()" />
+                            <app-control-messages [touched]="touched" [control]="f.uniformFee"></app-control-messages>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <label class="req uppercase">TAX</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" formControlName="tax" placeholder="TAX" (blur)="calculateTotalFee()" />
+                            <app-control-messages [touched]="touched" [control]="f.tax"></app-control-messages>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="col-sm-12">
+                        <div class="col-sm-12">
+                            <label class="req uppercase">Total Course fee
+                                <br>
+                                ( For Selected Tenure )+( Application fee,Indirect fees/other institute Fees etc may
+                                also be included in Total Fees )
+                            </label>
+                        </div>
+                        <div class="col-sm-12 mb-3">
+                            <input type="number" formControlName="otherFee" placeholder="Other"
+                                (blur)="calculateTotalFee()" />
+                            <app-control-messages [touched]="touched" [control]="f.otherFee"></app-control-messages>
+                        </div>
+                    </div> -->
+                    <hr />
+                    <!-- <div class="col-sm-12 thumbnail">
+                        <div class="col-sm-6">
+                            <label class="uppercase">Total Course Fees</label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="uppercase">{{totalFee}}</label>
+                        </div>
+                    </div> -->
+
+                    <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Scolarship Benifites</label>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="checkbox">
+                                <input type="checkbox" formControlName="hasScolarship" /><span> </span>
+                            </p>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <div *ngIf="form.controls.hasScolarship.value">
+                            <!-- <div class="col-md-12">
+                                <label class="req uppercase">Scholarship Name</label>
+                                <input type="text" placeholder="enter scholarship name" formControlName="title" id="" />
+                                <app-control-messages [touched]="touched" [control]="f.title">
+                                </app-control-messages>
+                            </div> -->
+                            <div class="col-md-12">
+                                <label class="req uppercase">Scholarship Amount Upto</label>
+                                <input type="number" placeholder="enter scholarship amount" formControlName="amount"
+                                    id="" />
+                                <app-control-messages [touched]="touched" [control]="f.amount">
+                                </app-control-messages>
+                            </div>
+                            <!-- <div class="col-md-12">
+                                <label class="req uppercase">Valid Upto</label>
+                                <input type="date" formControlName="validUpto" id="" />
+                                <app-control-messages [touched]="touched" [control]="f.validUpto">
+                                </app-control-messages>
+                            </div> -->
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 thumbnail pt-3 pb-3 mt-3">
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-info uppercase" (click)="calculateNspotFee()">Calculate
+                                NSPOT
+                                Fees</button>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="uppercase">
+                                {{nspotFeeObj.nspotFee+nspotFeeObj.bankCharge+nspotFeeObj.nspotTax}}
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Spot Addmission Fee</label>
+                            <span style="    font-size: 10px;
+                            font-style: italic;
+                            color: red;
+                        ">Spot Addmission fee must be greater than Nspot fee</span>
+                        </div>
+                        <div class="col-md-3">
+                         
+                                
+                         
+                        </div>
+                        <input type="text" formControlName="spotfee" placeholder="Spot addmission fee" />
+                    </div>
+
+
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Amount credited to the INSTITUTE</label>
+                        <input type="text">
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Refund Policy</label>
+                        </div>
+                        <div class="col-md-3">
+                         
+                                
+                         
+                        </div>
+                        <input type="text" formControlName="refundPolicy" placeholder="enter your refund policy" />
+                        <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages>
+                    </div>
+                   
+                    <!-- <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Full Fee Includes</label>
+                        </div>
+                        <div class="col-md-3">
+                         
+                                
+                         
+                        </div>
+                        <input type="text" placeholder="Full Fee includes" formControlName="otherincludes" />
+                    </div> -->
+                </div>
+
+                <div class="col-sm-6 nirus-fee">
+                    <div class="col-sm-12 thumbnail">
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <label class="uppercase">NSPOT Service Charges</label>
+                            </div>
+                            <div class="col-sm-5">
+                                <label class="uppercase">{{nspotFeeObj.nspotFee}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <label class="uppercase">Bank Charges</label>
+                            </div>
+                            <div class="col-sm-5">
+                                <label class="uppercase">{{nspotFeeObj.bankCharge}}</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-7">
+                                <label class="uppercase">TAX</label>
+                            </div>
+                            <div class="col-sm-5">
+                                <label class="uppercase">{{nspotFeeObj.nspotTax}}</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <h4 class="sub-title uppercase bank-details">
+                        Bank Details
+                    </h4>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Select Account</label>
+                        <select formControlName="bankAccountId">
+                            <option value="">Select</option>
+                            <option *ngFor="let item of bankDetails" value="{{item.id}}">{{item.nickname}}</option>
+                        </select>
+                        <app-control-messages [touched]="touched" [control]="f.bankAccountId">
+                        </app-control-messages>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+                <div class="row clearfix">
+                    <div class="col-sm-12 mt-3">
+                        <div class="pull-right">
+                            <button type="submit" class="btn btn-info mb-5" id="submit-btn">
+                                SAVE AND CONTINUE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
 </main>
