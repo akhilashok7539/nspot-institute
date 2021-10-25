@@ -31,6 +31,7 @@ export class BankInfoComponent implements OnInit {
     this.instituteId = this.authService.instituteProfile.id;
     this.loadData();
     this.form = this.formBuilder.group({
+      bankName:[''],
       accountNumber: [''],
       name: [''],
       ifsc: [''],

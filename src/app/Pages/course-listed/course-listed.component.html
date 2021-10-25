@@ -1,50 +1,58 @@
 <main id="contact">
-  <div class="page-heading text-center">
-    <div class="container">
-      <h2 class="uppercase">Courses Listed</h2>
+    <div class="page-heading text-center">
+        <div class="container">
+            <h2 class="uppercase">Manage-Courses/Admission Desk</h2>
+        </div>
     </div>
-  </div>
-  <div class="container success">
+    <div class="container success">
 
-    <form class="contact">
-      <div class="row">
-        <div class="col-sm-6 offset-sm-3">
+        <form class="contact">
+            <div class="row">
+                <div class="col-sm-6 offset-sm-3">
 
-        </div>
-      </div>
-      <div class="row mt-5">
-        <div class="col-md-12">
-          <table class="table table-striped">
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <table class="table table-striped">
 
-            <tbody>
-              <tr *ngFor="let institute of institutecourseList">
-                <td class="tdclass">{{institute.CourseName}}</td>
-                <td class="tdclass">
-                  <a (click)="view(institute)">View/Edit</a>
-                </td>
-              
-                <td  class="tdclass">
-                  <a *ngIf="institute.item.isActive === true" style="color: green; font-weight: bold; text-decoration: none;"> ADMISSION DESK IS OPEN NOW</a>
-                  <a *ngIf="institute.item.isActive === false" style="color: red;font-weight: bold;text-decoration: none;">ADMISSION DESK IS CLOSED </a>
-              
+                        <tbody>
 
-                </td>
-                <td class="action-row">
-
-                  <input class="checkbox" type="checkbox" [checked]="institute.item.isActive"
-                    (change)="checkBoxChanged($event,institute.item)">
-                    
-                </td>
-              </tr>
+                            <tr>
+                                <th>Course Name</th>
+                                <th>View/Edit</th>
+                                <th>Status</th>
+                                <th> </th>
+                            </tr>
 
 
-            </tbody>
+                            <tr *ngFor="let institute of institutecourseList">
+                                <td class="tdclass">{{institute.CourseName}}</td>
+                                <td class="tdclass">
+                                    <a (click)="view(institute)">View/Edit</a>
+                                </td>
 
-          </table>
-        </div>
-      </div>
-    </form>
-  </div>
+                                <td class="tdclass">
+                                    <a *ngIf="institute.item.isActive === true" style="color: green; font-weight: bold; text-decoration: none;"> ADMISSION DESK IS OPEN NOW</a>
+                                    <a *ngIf="institute.item.isActive === false" style="color: red;font-weight: bold;text-decoration: none;">ADMISSION DESK IS CLOSED </a>
+
+
+                                </td>
+                                <td class="action-row">
+
+                                    <input class="checkbox" type="checkbox" [checked]="institute.item.isActive" (change)="checkBoxChanged($event,institute.item)">
+
+                                </td>
+                            </tr>
+
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </form>
+    </div>
 </main>
 
 <!-- 

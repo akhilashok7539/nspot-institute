@@ -1,33 +1,35 @@
 <main class="mb-5">
-  <div class="page-heading text-center">
-    <div class="container">
-      <h2 *ngIf="!currentSubscription">SUBSCRIPTION PLANS</h2>
-      <h2 *ngIf="currentSubscription">ACTIVE SUBSCRIPTION</h2>
+    <div class="page-heading text-center">
+        <div class="container">
+            <h2 *ngIf="!currentSubscription">SUBSCRIPTION PLANS</h2>
+            <h2 *ngIf="currentSubscription">ACTIVE SUBSCRIPTION</h2>
+        </div>
     </div>
-  </div>
-  <div class="container pricings">
-    <!-- *ngIf="!currentSubscription" -->
-    <div class="row text-center" >
+    <div class="container pricings">
+        <!-- *ngIf="!currentSubscription" -->
+        <div class="row text-center">
 
-      <div class="col-md-3" *ngFor="let item of planList;let i=index">
-        <div class="plan uppercase">
-          <h5>{{item?.packageName}}</h5>
-          <p class="ribbon">MOST POPULAR</p>
-          <p class="price">{{item?.prize}}</p>
-          <p class="crew">{{item?.validity}}</p>
+            <div class="col-md-3" *ngFor="let item of planList;let i=index">
+                <div class="plan uppercase">
+                    <h5>{{item?.item?.name}}</h5>
+                    <p class="ribbon">MOST POPULAR</p>
+                    <p class="price">₹ {{item?.item?.amount}}</p>
+                    <p class="crew">{{item?.item?.period}}</p>
 
-          <div class="plan-details">
-            <p>Virtual tour</p>
-            <p>{{item?.noOfCourses}} Courses</p>
-          </div>
-          <button class="square-green" (click)="placeOrder(item)">
+                    <div class="plan-details">
+
+                        <p>{{item?.noOfCourses}} Courses</p>
+                        <p>{{item?.noOfCourses}} Admission Officers</p>
+
+                    </div>
+                    <button class="square-green" (click)="placeOrder(item)">
             <i class="zmdi zmdi-arrow-right"></i>UPGRADE NOW
           </button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <!-- <div class="row text-center" *ngIf="currentSubscription">
+        <!-- <div class="row text-center" *ngIf="currentSubscription">
 
       <div class="col-md-6 col-md-offset-3">
         <div class="plan active-plan uppercase mb-5">
@@ -47,5 +49,5 @@
     </div> -->
 
 
-  </div>
+    </div>
 </main>

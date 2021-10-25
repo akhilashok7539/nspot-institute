@@ -1,36 +1,38 @@
-.applicationForm{
+.applicationForm {
     width: 100%;
     border-style: double;
-    margin:35px 0 35px 0;
+    margin: 35px 0 35px 0;
     border-radius: 20px;
     background-color: #EFF5F9;
 }
 
-.applicationForm h5{
+.applicationForm h5 {
     font-weight: 600;
     text-align: center;
     padding: 35px 0 35px 0;
-    margin:0 0 35px 0;
-    background-color:#1baee1;
-    border-radius: 20px 20px 0 0 ;
+    margin: 0 0 35px 0;
+    background-color: #1baee1;
+    border-radius: 20px 20px 0 0;
     font-size: 25px;
     color: #FFF;
 }
 
-.applicationFormItem{
+.applicationFormItem {
     margin: 10px 0 30px 0;
     text-align: left;
 }
-.applicationFormItem .checkBox{
+
+.applicationFormItem .checkBox {
     float: left;
     width: 120px
     /* margin: 0 30px 0 30px; */
 }
 
-.applicationFormItem .labels p{
+.applicationFormItem .labels p {
     font-size: 20px;
 }
-.applicationFormItem .checkBox input{
+
+.applicationFormItem .checkBox input {
     width: 30px;
     height: 30px;
     margin: 0 0 0 35px;
@@ -42,8 +44,37 @@
     padding: 20px 20px 0 20px;
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.13);
     background-color: #FFF;
-  }
-  .additionalForm h5 {
+}
+
+.additionalForm h5 {
     margin-top: 30px;
-  }
-  
+}
+
+input[type=checkbox]:after {
+    background: #a70000!important;
+    visibility: visible;
+    content: "✘";
+    display: inline-block;
+    color: white;
+    /* font-size: 17px; */
+    font-size: 31px;
+    height: 44px;
+    width: 44px;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+
+input[type=checkbox]:checked:after {
+    background: #3eb983!important;
+    content: "✔";
+    padding-left: 2px;
+    color: white;
+    /* font-size: 17px; */
+    font-size: 31px;
+}
+
+.checkbox {
+    visibility: hidden;
+    margin-left: 53px;
+    margin-bottom: 13px;
+}

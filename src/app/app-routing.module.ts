@@ -103,7 +103,7 @@ const routes: Routes = [
       { path: 'update-counicl', component: UpdateBoardofcouncilComponent },
       { path: 'update-downloads', component: UpdateDownloadComponent },
       { path: 'update-hostel', component: UpdateHostelinfoComponent },
-      { path: 'upload-receipt', component: UploadRecepitComponent },
+      { path: 'upload-receipt/:id', component: UploadRecepitComponent },
       { path: 'download-documents', component: DownloadDocumentsComponent },
 
       { path: 'infrastructure-edit', component: InfrastructureEditComponent },

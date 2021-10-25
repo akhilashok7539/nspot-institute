@@ -42,8 +42,8 @@ export class PricingComponent implements OnInit {
     //   }
     // });
 
-    this.apiService.doGetRequest(endPoints.Get_plans + 'national_boards').subscribe((returnData: any) => {
-      this.planList = returnData.data;
+    this.apiService.doGetRequest('payment/razorpay/plans').subscribe((returnData: any) => {
+      this.planList = returnData.data['items'];
       console.log(this.planList);
     });
 
@@ -67,48 +67,49 @@ export class PricingComponent implements OnInit {
     const subscriptionObj = {
       subscriptionPlanId: product.id,
       instituteId: this.instituteId,
-      // razorpayPlan_id: product.plan.id
-      razorpayPlan_id: product.razorPayPlanId
+      razorpayPlan_id: product.id
 
     }
-    console.log(subscriptionObj)
-    this.apiService.doPostRequest(endPoints.Create_subscriptionOrder, subscriptionObj).subscribe((returnData: any) => {
-      this.createdSuscription = returnData.data
+    console.log(subscriptionObj);
+    
+    // console.log(subscriptionObj)
+    // this.apiService.doPostRequest('payment/subscription/create', subscriptionObj).subscribe((returnData: any) => {
+    //   this.createdSuscription = returnData.data
 
-      const that = this;
-      var options = {
-        "key": environment.RAZORPAY_KEY_ID,
-        "name": "Nspot",
-        "description": product.plan.name,
-        "subscription_id": this.createdSuscription.razorpaySubscription_id,
-        "handler": function (response) {
-          console.log(response)
-          that.paymentSuccess(response)
-        },
-        "prefill": {
-          "name": this.instituteId.name,
-          "email": this.instituteDetails.email,
-          "contact": this.instituteDetails.officialMobile
-        },
-        "notes": {
-          "address": "NSPOT CONSULTANCY SERVICES PRIVATE LIMITED 39/2475-B1, Suite#118 LR Towers, SJRRA 104, S Janatha Rd, Palarivattom, Kochi, Kerala 682025"
-        },
-        "theme": {
-          "color": "#1a4d59"
-        }
-      };
+    //   const that = this;
+    //   var options = {
+    //     "key": "rzp_test_J7wOs0sSPhfvXU",
+    //     "name": "Nspot",
+    //     "description": product.plan.name,
+    //     "subscription_id": this.createdSuscription.razorpaySubscription_id,
+    //     "handler": function (response) {
+    //       console.log(response)
+    //       that.paymentSuccess(response)
+    //     },
+    //     "prefill": {
+    //       "name": this.instituteId.name,
+    //       "email": this.instituteDetails.email,
+    //       "contact": this.instituteDetails.officialMobile
+    //     },
+    //     "notes": {
+    //       "address": "NSPOT CONSULTANCY SERVICES PRIVATE LIMITED 39/2475-B1, Suite#118 LR Towers, SJRRA 104, S Janatha Rd, Palarivattom, Kochi, Kerala 682025"
+    //     },
+    //     "theme": {
+    //       "color": "#1a4d59"
+    //     }
+    //   };
 
-      var rzp1 = new Razorpay(options);
-      rzp1.on('payment.failed', function (response) {
-        that.paymentFailed(response)
-      });
+    //   var rzp1 = new Razorpay(options);
+    //   rzp1.on('payment.failed', function (response) {
+    //     that.paymentFailed(response)
+    //   });
 
-      rzp1.open();
+    //   rzp1.open();
 
-    }, error => {
-      console.error(error);
+    // }, error => {
+    //   console.error(error);
 
-    });
+    // });
   }
 
   paymentSuccess(successRespose) {

@@ -3,25 +3,22 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-3 ">
-                </div>
+            </div>
             <div class="col-sm-6 ">
                 <div class="card">
                     <div class="colum">
                         <p>Upload recepit of addmission</p>
                     </div>
                     <div class="colums">
-                      <input type="file">
-                      <button class="btn btn-danger" style="    margin-top: 56px;
-                      width: 48%;">Submit</button>
+                        <input type="file" (change)="selectedfile($event)">
+                        <button class="btn btn-danger" style="    margin-top: 56px;
+                      width: 48%;" (click)="update()">Submit</button>
                     </div>
                     <div class="columss">
-                       
-                      </div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </main>
-
-
-

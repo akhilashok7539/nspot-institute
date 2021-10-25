@@ -1,159 +1,159 @@
 <main id="register">
     <div class="page-heading text-center">
         <div class="container">
-            <h2>UPDATE VIRTUAL TOUR </h2>
+            <h2>UPDATE 360 VIRTUAL TOUR </h2>
         </div>
     </div>
     <div class="container success">
         <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
             <div class="row">
-            
-      
-              <div class="col-sm-6">
-                <label class="uppercase">Campus Overview </label>
-                <input type="file" accept=".png" (change)="onchangeFile('campusOverview',$event)" formControlName="campusOverview" id="" />
-                <app-control-messages [touched]="touched" [control]="f.campusOverview"></app-control-messages>
-              </div>
-      
-              <div class="col-sm-6">
-                <label class="uppercase">Class Room Tour </label>
-                <input type="file" (change)="onchangeFile('classRoom',$event)" formControlName="classRoom" id="" />
-                <app-control-messages [touched]="touched" [control]="f.classRoom"></app-control-messages>
-              </div>
-      
-              <div class="col-sm-6">
-                <label class="uppercase">Lab Tour </label>
-                <input type="file" (change)="onchangeFile('lab',$event)" formControlName="lab" id="" />
-                <app-control-messages [touched]="touched" [control]="f.lab"></app-control-messages>
-              </div>
-      
-              <div class="col-sm-6">
-                <label class="uppercase">Library </label>
-                <input type="file" (change)="onchangeFile('library',$event)" formControlName="library" id="" />
-                <app-control-messages [touched]="touched" [control]="f.library"></app-control-messages>
-              </div>
-      
-              <div class="col-sm-6">
-                <label class="uppercase">Recreational Area </label>
-                <input type="file" (change)="onchangeFile('recreationalArea',$event)" formControlName="recreationalArea" id="" />
-                <app-control-messages [touched]="touched" [control]="f.recreationalArea"></app-control-messages>
-              </div>
-      
-              <div class="col-sm-6">
-                <label class="uppercase">Hostel Tour </label>
-                <input type="file" (change)="onchangeFile('hostel',$event)" formControlName="hostel" id="" />
-                <app-control-messages [touched]="touched" [control]="f.hostel"></app-control-messages>
-              </div>
-      
+
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Campus Overview </label>
+                    <input type="file" accept=".png" (change)="onchangeFile('campusOverview',$event)" formControlName="campusOverview" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.campusOverview"></app-control-messages>
+                </div>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Class Room Tour </label>
+                    <input type="file" (change)="onchangeFile('classRoom',$event)" formControlName="classRoom" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.classRoom"></app-control-messages>
+                </div>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Lab Tour </label>
+                    <input type="file" (change)="onchangeFile('lab',$event)" formControlName="lab" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.lab"></app-control-messages>
+                </div>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Library </label>
+                    <input type="file" (change)="onchangeFile('library',$event)" formControlName="library" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.library"></app-control-messages>
+                </div>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Recreational Area </label>
+                    <input type="file" (change)="onchangeFile('recreationalArea',$event)" formControlName="recreationalArea" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.recreationalArea"></app-control-messages>
+                </div>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Hostel Tour </label>
+                    <input type="file" (change)="onchangeFile('hostel',$event)" formControlName="hostel" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.hostel"></app-control-messages>
+                </div>
+
             </div>
             <div class="row">
-              <h4 class="sub-title uppercase">
-                VIRTUAL VIDEO TOUR LINKS
-              </h4>
-              <div class="col-sm-6">
-                <label class="uppercase">Campus Overview - Add Virtual video Link here </label>
-                <input type="text"  placeholder="https://" formControlName="campusTourVideoLink" id="" />
-                <app-control-messages [touched]="touched" [control]="f.campusTourVideoLink"></app-control-messages>
-              </div>
-              <div class="col-sm-6">
-                <label class="uppercase">Class Room Tour - Add Virtual video Link here </label>
-                <input type="text"  placeholder="https://" formControlName="classRoomVideoLink" id="" />
-                <app-control-messages [touched]="touched" [control]="f.classRoomVideoLink"></app-control-messages>
-              </div>
-              <div class="col-sm-6">
-                <label class="uppercase">Lab Tour - Add Virtual video Link here </label>
-                <input type="text"  placeholder="https://" formControlName="labTourVideoLink" id="" />
-                <app-control-messages [touched]="touched" [control]="f.labTourVideoLink"></app-control-messages>
-              </div>
-              <div class="col-sm-6">
-                <label class="uppercase">Hostel Tour - Add Virtual video Link here </label>
-                <input type="text"  placeholder="https://" formControlName="hostelTourVideoLink" id="" />
-                <app-control-messages [touched]="touched" [control]="f.hostelTourVideoLink"></app-control-messages>
-              </div>
-              <div class="col-sm-6">
-                <label class="uppercase">Recreational Area - Add Virtual video Link here </label>
-                <input type="text"  placeholder="https://"  formControlName="recreationAreaTourVideoLink" id="" />
-                <app-control-messages [touched]="touched" [control]="f.recreationAreaTourVideoLink"></app-control-messages>
-              </div>
-              <div class="col-sm-6">
-                <label class="uppercase">Library - Add Virtual video Link here </label>
-                <input type="text"  placeholder="https://"  formControlName="libraryTourVideoLink" id="" />
-                <app-control-messages [touched]="touched" [control]="f.libraryTourVideoLink"></app-control-messages>
-              </div>
-              
+                <h4 class="sub-title uppercase">
+                    VIRTUAL VIDEO TOUR LINKS
+                </h4>
+                <div class="col-sm-6">
+                    <label class="uppercase">Campus Overview - Add Virtual video Link here </label>
+                    <input type="text" placeholder="https://" formControlName="campusTourVideoLink" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.campusTourVideoLink"></app-control-messages>
+                </div>
+                <div class="col-sm-6">
+                    <label class="uppercase">Class Room Tour - Add Virtual video Link here </label>
+                    <input type="text" placeholder="https://" formControlName="classRoomVideoLink" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.classRoomVideoLink"></app-control-messages>
+                </div>
+                <div class="col-sm-6">
+                    <label class="uppercase">Lab Tour - Add Virtual video Link here </label>
+                    <input type="text" placeholder="https://" formControlName="labTourVideoLink" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.labTourVideoLink"></app-control-messages>
+                </div>
+                <div class="col-sm-6">
+                    <label class="uppercase">Hostel Tour - Add Virtual video Link here </label>
+                    <input type="text" placeholder="https://" formControlName="hostelTourVideoLink" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.hostelTourVideoLink"></app-control-messages>
+                </div>
+                <div class="col-sm-6">
+                    <label class="uppercase">Recreational Area - Add Virtual video Link here </label>
+                    <input type="text" placeholder="https://" formControlName="recreationAreaTourVideoLink" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.recreationAreaTourVideoLink"></app-control-messages>
+                </div>
+                <div class="col-sm-6">
+                    <label class="uppercase">Library - Add Virtual video Link here </label>
+                    <input type="text" placeholder="https://" formControlName="libraryTourVideoLink" id="" />
+                    <app-control-messages [touched]="touched" [control]="f.libraryTourVideoLink"></app-control-messages>
+                </div>
+
             </div>
             <div class="row">
-              <h4 class="sub-title uppercase">
-                PROMOTIONAL SOCIAL MEDIA ADDRESS (We help to promote you)
-              </h4>
-      
-              <div class="col-sm-6">
-                <label class="uppercase">Youtube link </label>
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="zmdi zmdi-youtube"></i></span>
-                  <input type="text" placeholder="https://" formControlName="youtube" id="" />
-                  <app-control-messages [touched]="touched" [control]="f.youtube"></app-control-messages>
+                <h4 class="sub-title uppercase">
+                    PROMOTIONAL SOCIAL MEDIA ADDRESS (We help to promote you)
+                </h4>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Youtube link </label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="zmdi zmdi-youtube"></i></span>
+                        <input type="text" placeholder="https://" formControlName="youtube" id="" />
+                        <app-control-messages [touched]="touched" [control]="f.youtube"></app-control-messages>
+                    </div>
                 </div>
-              </div>
-      
-              <div class="col-sm-6">
-                <label class="uppercase">Twitter link </label>
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="zmdi zmdi-twitter"></i></span>
-                  <input type="text" placeholder="https://" formControlName="twitter" id="" />
-                  <app-control-messages [touched]="touched" [control]="f.twitter"></app-control-messages>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Twitter link </label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="zmdi zmdi-twitter"></i></span>
+                        <input type="text" placeholder="https://" formControlName="twitter" id="" />
+                        <app-control-messages [touched]="touched" [control]="f.twitter"></app-control-messages>
+                    </div>
                 </div>
-              </div>
-      
-              <div class="col-sm-6">
-                <label class="uppercase">Instragram link </label>
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="zmdi zmdi-instagram"></i></span>
-                  <input type="text" placeholder="https://" formControlName="instagram" id="" />
-                  <app-control-messages [touched]="touched" [control]="f.instagram"></app-control-messages>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Instragram link </label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="zmdi zmdi-instagram"></i></span>
+                        <input type="text" placeholder="https://" formControlName="instagram" id="" />
+                        <app-control-messages [touched]="touched" [control]="f.instagram"></app-control-messages>
+                    </div>
                 </div>
-              </div>
-      
-              <div class="col-sm-6">
-                <label class="uppercase">Linkedin link </label>
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="zmdi zmdi-linkedin"></i></span>
-                  <input type="text" placeholder="https://" formControlName="linkedIn" id="" />
-                  <app-control-messages [touched]="touched" [control]="f.linkedIn"></app-control-messages>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Linkedin link </label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="zmdi zmdi-linkedin"></i></span>
+                        <input type="text" placeholder="https://" formControlName="linkedIn" id="" />
+                        <app-control-messages [touched]="touched" [control]="f.linkedIn"></app-control-messages>
+                    </div>
                 </div>
-              </div>
-      
-              <div class="col-sm-6">
-                <label class="uppercase">Facebook link </label>
-                <div class="input-group">
-                  <span class="input-group-addon"><i class="zmdi zmdi-facebook"></i></span>
-                  <input type="text" placeholder="https://" formControlName="facebook" id="" />
-                  <app-control-messages [touched]="touched" [control]="f.facebook"></app-control-messages>
+
+                <div class="col-sm-6">
+                    <label class="uppercase">Facebook link </label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="zmdi zmdi-facebook"></i></span>
+                        <input type="text" placeholder="https://" formControlName="facebook" id="" />
+                        <app-control-messages [touched]="touched" [control]="f.facebook"></app-control-messages>
+                    </div>
                 </div>
-              </div>
-      
-              <div class="clearfix"></div>
-              <div class="col-sm-6"></div>
-      
-        
-      
-              <div class="clearfix"></div>
-              <div class="col-sm-6"></div>
-      
-             
-      
+
+                <div class="clearfix"></div>
+                <div class="col-sm-6"></div>
+
+
+
+                <div class="clearfix"></div>
+                <div class="col-sm-6"></div>
+
+
+
             </div>
-      
+
             <div class="row clearfix">
-              <div class="col-sm-12">
-                <div class="pull-right">
-                  <button id="submit-btn" type="submit" class="btn btn-info nbtn">
+                <div class="col-sm-12">
+                    <div class="pull-right">
+                        <button id="submit-btn" type="submit" class="btn btn-info nbtn">
                     Save and Continue
                   </button>
+                    </div>
                 </div>
-              </div>
             </div>
-          </form>
-      
+        </form>
+
     </div>
 </main>

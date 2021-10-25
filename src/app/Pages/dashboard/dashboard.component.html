@@ -1,8 +1,8 @@
 <main id="courses-list">
-  <div class="page-heading text-center">
-    <div class="container">
-      <div class="pull-right">
-        <!-- <ul class="grid-opts">
+    <div class="page-heading text-center">
+        <div class="container">
+            <div class="pull-right">
+                <!-- <ul class="grid-opts">
           <li>
             <a class="active" href="#"
               ><i class="zmdi zmdi-view-list zmdi-hc-lg"></i
@@ -12,453 +12,442 @@
             <a href="#"><i class="zmdi zmdi-view-module zmdi-hc-lg"></i></a>
           </li>
         </ul> -->
-      </div>
-      <h2 class="uppercase">My Account</h2>
+            </div>
+            <h2 class="uppercase">My Account</h2>
+        </div>
     </div>
-  </div>
-  <div class="container courses-browse popular no-gutters">
-    <div class="row tutorial">
-      <div class="col-sm-4 profilePicDiv">
-        <input type="file" style="visibility: hidden;" id="profPicUploader"
-          (change)="onProfileChange($event,instituteInfo?.id)">
-        <img src="{{instituteInfo.profilePicFile?baseApiUrl+instituteInfo?.profilePicFile:'assets/images/kyc.png'}}" />
-        <!-- <img *ngIf="instituteInfo.profilePicFile" src="{{instituteInfo.profilePicFile?baseApiUrl+instituteInfo?.profilePicFile:'assets/images/kyc.png'}}" />
+    <div class="container courses-browse popular no-gutters">
+        <div class="row tutorial">
+            <div class="col-sm-4 profilePicDiv">
+                <input type="file" style="visibility: hidden;" id="profPicUploader" (change)="onProfileChange($event,instituteInfo?.id)">
+                <img src="{{instituteInfo.profilePicFile?baseApiUrl+instituteInfo?.profilePicFile:'assets/images/kyc.png'}}" />
+                <!-- <img *ngIf="instituteInfo.profilePicFile" src="{{instituteInfo.profilePicFile?baseApiUrl+instituteInfo?.profilePicFile:'assets/images/kyc.png'}}" />
         <img *ngIf="!instituteInfo.profilePicFile" src="./assets/images/kyc.png" /> -->
 
 
-        <label for="profPicUploader" class="profilePicBtn">
+                <label for="profPicUploader" class="profilePicBtn">
           <i class="zmdi zmdi-edit zmdi-hc-2x"></i>
         </label>
 
-      </div>
-      <div class="col-sm-8">
-        <div class="tutorial-details">
-          <h6>INSTITUTION KYC INFO</h6>
+            </div>
+            <div class="col-sm-8">
+                <div class="tutorial-details">
+                    <h6>INSTITUTION KYC INFO</h6>
 
-          <p class="abs">
+                    <p class="abs">
 
-          </p>
-          <div class="row dashboard-item">
+                    </p>
+                    <div class="row dashboard-item">
 
-            <div class="col-md-6">
-              <p class="abs">Name :</p>
-            </div>
-            <!-- {{instituteInfo | json}} -->
-            <div class="col-md-6">
-              <p class="abs">{{instituteInfo?.name}}</p>
-            </div>
+                        <div class="col-md-6">
+                            <p class="abs">Name :</p>
+                        </div>
+                        <!-- {{instituteInfo | json}} -->
+                        <div class="col-md-6">
+                            <p class="abs">{{instituteInfo?.name}}</p>
+                        </div>
 
-            <div class="col-md-6 mt-2">
-              <p class="abs">Email :</p>
-            </div>
-            <div class="col-md-6 mt-2">
-              <p class="abs">{{instituteInfo?.email}}</p>
-            </div>
+                        <div class="col-md-6 mt-2">
+                            <p class="abs">Email :</p>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <p class="abs">{{instituteInfo?.email}}</p>
+                        </div>
 
-            <div class="col-md-6 mt-2">
-              <p class="abs">Name of Principal :</p>
-            </div>
-            <div class="col-md-6 mt-2">
-              <p class="abs">{{instituteInfo?.principalName}}</p>
-            </div>
+                        <div class="col-md-6 mt-2">
+                            <p class="abs">Name of Principal :</p>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <p class="abs">{{instituteInfo?.principalName}}</p>
+                        </div>
 
-            <div class="col-md-6 mt-2">
-              <p class="abs">
-                Number of the contact person :
-              </p>
-            </div>
-            <div class="col-md-6 mt-2">
-              <p class="abs">{{instituteInfo?.officialMobile}}</p>
-            </div>
+                        <div class="col-md-6 mt-2">
+                            <p class="abs">
+                                Number of the contact person :
+                            </p>
+                        </div>
+                        <div class="col-md-6 mt-2">
+                            <p class="abs">{{instituteInfo?.officialMobile}}</p>
+                        </div>
 
-            <div class="col-md-12 mt-3 mb-4">
-              <button class="btn btn-info pull-right width-160" (click)="edit()">
+                        <div class="col-md-12 mt-3 mb-4">
+                            <button class="btn btn-info pull-right width-160" (click)="edit()">
                 View / Edit Full Data
               </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
 
 
 
-    <div class="row tutorial">
-      <div class="col-sm-4">
-        <img src="assets/images/accredited.jpg" class="resp-img" alt="Tutorial" />
-      </div>
-      <div class="col-sm-8">
-        <div class="tutorial-details">
-          <h6>BOARD OF COUNCIL AWARDED</h6>
+        <div class="row tutorial">
+            <div class="col-sm-4">
+                <img src="assets/images/accredited.jpg" class="resp-img" alt="Tutorial" />
+            </div>
+            <div class="col-sm-8">
+                <div class="tutorial-details">
+                    <h6>BOARD OF COUNCIL AWARDED</h6>
 
-          <table class="table">
-            <tbody>
-              <tr>
-                <th>Affiliated To :</th>
-                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.affiliatedToFile}}"><i
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Affiliated To :</th>
+                                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.affiliatedToFile}}"><i
                       class="zmdi zmdi-file  zmdi-hc-2x"></i></a></td>
-                <td>{{boardOfCouncilInfo?.affiliatedToLabel}}</td>
-              </tr>
-              <tr>
-                <th>Rank :</th>
-                <td></td>
-                <td>{{boardOfCouncilInfo?.rankofLabel}}</td>
-              </tr>
-              <tr>
-                <th>Unit of :</th>
-                <td></td>
-                <td>{{boardOfCouncilInfo?.unitOfLabel}}</td>
-              </tr>
+                                <td>{{boardOfCouncilInfo?.affiliatedToLabel}}</td>
+                            </tr>
+                            <tr>
+                                <th>Rank :</th>
+                                <td></td>
+                                <td>{{boardOfCouncilInfo?.rankofLabel}}</td>
+                            </tr>
+                            <tr>
+                                <th>Unit of :</th>
+                                <td></td>
+                                <td>{{boardOfCouncilInfo?.unitOfLabel}}</td>
+                            </tr>
 
 
-              <tr>
-                <th>Recongnized By</th>
-                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.recongnizedByFile}}"><i
+                            <tr>
+                                <th>Recongnized By</th>
+                                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.recongnizedByFile}}"><i
                       class="zmdi zmdi-file  zmdi-hc-2x"></i></a></td>
-                <td>{{boardOfCouncilInfo?.recongnizedByLabel}}</td>
-              </tr>
+                                <td>{{boardOfCouncilInfo?.recongnizedByLabel}}</td>
+                            </tr>
 
-              <tr>
-                <th>Registered To</th>
-                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.registeredToFile}}"><i
+                            <tr>
+                                <th>Registered To</th>
+                                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.registeredToFile}}"><i
                       class="zmdi zmdi-file  zmdi-hc-2x"></i></a></td>
-                <td>{{boardOfCouncilInfo?.registeredToLabel}}</td>
-              </tr>
+                                <td>{{boardOfCouncilInfo?.registeredToLabel}}</td>
+                            </tr>
 
-              <tr>
-                <th>Approved By</th>
-                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.approvedByFile}}"><i
+                            <tr>
+                                <th>Approved By</th>
+                                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.approvedByFile}}"><i
                       class="zmdi zmdi-file  zmdi-hc-2x"></i></a></td>
-                <td>{{boardOfCouncilInfo?.approvedByLabel}}</td>
-              </tr>
+                                <td>{{boardOfCouncilInfo?.approvedByLabel}}</td>
+                            </tr>
 
-              <tr>
-                <th>Accredited By</th>
-                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.accreditedByFile}}"><i
+                            <tr>
+                                <th>Accredited By</th>
+                                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.accreditedByFile}}"><i
                       class="zmdi zmdi-file  zmdi-hc-2x"></i></a></td>
-                <td>{{boardOfCouncilInfo?.accreditedByLabel}}</td>
-              </tr>
+                                <td>{{boardOfCouncilInfo?.accreditedByLabel}}</td>
+                            </tr>
 
-              <tr>
-                <th>Certified By</th>
-                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.certifiedByFile}}"><i
+                            <tr>
+                                <th>Certified By</th>
+                                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.certifiedByFile}}"><i
                       class="zmdi zmdi-file  zmdi-hc-2x"></i></a></td>
-                <td>{{boardOfCouncilInfo?.certifiedByLabel}}</td>
-              </tr>
+                                <td>{{boardOfCouncilInfo?.certifiedByLabel}}</td>
+                            </tr>
 
-              <tr>
-                <th>Member Of</th>
-                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.memberOfFile}}"><i
+                            <tr>
+                                <th>Member Of</th>
+                                <td><a class="abs" href="{{baseApiUrl}}{{boardOfCouncilInfo?.memberOfFile}}"><i
                       class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
-                </td>
-                <td>{{boardOfCouncilInfo?.memberOfLabel}}</td>
-              </tr>
+                                </td>
+                                <td>{{boardOfCouncilInfo?.memberOfLabel}}</td>
+                            </tr>
 
-              <tr>
-                <th></th>
-                <td></td>
-                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-counicl">View /
+                            <tr>
+                                <th></th>
+                                <td></td>
+                                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-counicl">View /
                     Edit</button></th>
-              </tr>
+                            </tr>
 
 
 
 
-            </tbody>
-          </table>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="row tutorial">
-      <div class="col-sm-4">
-        <img src="assets/images/brochure.jpg" class="resp-img" alt="Tutorial" />
-      </div>
-      <div class="col-sm-8">
-        <div class="tutorial-details">
-          <h6 class="uppercase">Downloads</h6>
-          <!-- {{highlights|json}} -->
-          <table class="table">
-            <tbody>
+        <div class="row tutorial">
+            <div class="col-sm-4">
+                <img src="assets/images/brochure.jpg" class="resp-img" alt="Tutorial" />
+            </div>
+            <div class="col-sm-8">
+                <div class="tutorial-details">
+                    <h6 class="uppercase">Downloads</h6>
+                    <!-- {{highlights|json}} -->
+                    <table class="table">
+                        <tbody>
 
-              <tr>
-                <th>Brochure</th>
-                <th><a *ngIf="highlights?.brochuresFile!=null" target="_blank" class="abs"
-                    href="{{baseApiUrl}}{{highlights?.brochuresFile}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
-                </th>
-              </tr>
+                            <tr>
+                                <th>Brochure</th>
+                                <th><a *ngIf="highlights?.brochuresFile!=null" target="_blank" class="abs" href="{{baseApiUrl}}{{highlights?.brochuresFile}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                                </th>
+                            </tr>
 
-              <tr>
-                <th>Rules And Regulations</th>
-                <th><a *ngIf="highlights?.rulesFile!=null" target="_blank" class="abs"
-                    href="{{baseApiUrl}}{{highlights?.rulesFile}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a></th>
-              </tr>
+                            <tr>
+                                <th>Rules,Policies and Code of Conduct for Students</th>
+                                <th><a *ngIf="highlights?.rulesFile!=null" target="_blank" class="abs" href="{{baseApiUrl}}{{highlights?.rulesFile}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a></th>
+                            </tr>
 
-              <tr>
-                <th>Uniform</th>
-                <th>
-                  <a *ngIf="highlights?.uniformFile!=null" target="_blank" class="abs"
-                    href="{{baseApiUrl}}{{highlights?.uniformFile}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
-                </th>
-              </tr>
+                            <tr>
+                                <th>Uniform</th>
+                                <th>
+                                    <a *ngIf="highlights?.uniformFile!=null" target="_blank" class="abs" href="{{baseApiUrl}}{{highlights?.uniformFile}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                                </th>
+                            </tr>
 
-              <tr>
-                <th>Infrastructure/Highlights </th>
-                <th>
-                  <a *ngIf="highlights?.specialFeaturesFile!=null" target="_blank" class="abs"
-                    href="{{baseApiUrl}}{{highlights?.specialFeaturesFile}}"><i
+                            <tr>
+                                <th>Infrastructure/Highlights </th>
+                                <th>
+                                    <a *ngIf="highlights?.specialFeaturesFile!=null" target="_blank" class="abs" href="{{baseApiUrl}}{{highlights?.specialFeaturesFile}}"><i
                       class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
-                </th>
-              </tr>
+                                </th>
+                            </tr>
 
-              <tr>
-                <td></td>
-                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-downloads">View /
+                            <tr>
+                                <td></td>
+                                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-downloads">View /
                     Edit</button></th>
-              </tr>
+                            </tr>
 
-            </tbody>
-          </table>
+                        </tbody>
+                    </table>
 
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="row tutorial">
-      <div class="col-sm-4">
-        <img src="assets/images/gallery.jpeg" class="resp-img" alt="Tutorial" />
-      </div>
-      <div class="col-sm-8">
-        <div class="tutorial-details">
-          <h6>GALLERY</h6>
-          <p>Manage your gallery section</p>
-          <div class=" bottom-0">
-            <a routerLink="/institute/gallery" class="btn btn-info pull-right width-160">Manage Gallery >></a>
-          </div>
+        <div class="row tutorial">
+            <div class="col-sm-4">
+                <img src="assets/images/gallery.jpeg" class="resp-img" alt="Tutorial" />
+            </div>
+            <div class="col-sm-8">
+                <div class="tutorial-details">
+                    <h6>GALLERY</h6>
+                    <p>Manage your gallery section</p>
+                    <div class=" bottom-0">
+                        <a routerLink="/institute/gallery" class="btn btn-info pull-right width-160">Manage Gallery >></a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="row tutorial">
-      <div class="col-sm-4">
-        <img src="assets/images/virtual-tour.jpeg" class="resp-img" alt="Tutorial" />
-      </div>
-      <div class="col-sm-8">
-        <div class="tutorial-details">
-          <h6>VIRTUAL TOUR</h6>
-          <!-- <p>Manage your virtual tour section</p> -->
-          <table class="table">
-            <tbody>
+        <div class="row tutorial">
+            <div class="col-sm-4">
+                <img src="assets/images/virtual-tour.jpeg" class="resp-img" alt="Tutorial" />
+            </div>
+            <div class="col-sm-8">
+                <div class="tutorial-details">
+                    <h6>360 VIRTUAL TOUR</h6>
+                    <!-- <p>Manage your virtual tour section</p> -->
+                    <table class="table">
+                        <tbody>
 
-              <tr>
-                <th>Campus Overview</th>
-                <th><a *ngIf="virtualTours?.campusOverview!=null" target="_blank" class="abs"
-                    href="{{baseApiUrl}}{{virtualTours?.campusOverview}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
-                </th>
-              </tr>
+                            <tr>
+                                <th>Campus Overview</th>
+                                <th><a *ngIf="virtualTours?.campusOverview!=null" target="_blank" class="abs" href="{{baseApiUrl}}{{virtualTours?.campusOverview}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                                </th>
+                            </tr>
 
-              <tr>
-                <th>Class Room</th>
-                <th><a *ngIf="virtualTours?.classRoom!=null" target="_blank" class="abs"
-                    href="{{baseApiUrl}}{{virtualTours?.classRoom}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a></th>
-              </tr>
+                            <tr>
+                                <th>Class Room</th>
+                                <th><a *ngIf="virtualTours?.classRoom!=null" target="_blank" class="abs" href="{{baseApiUrl}}{{virtualTours?.classRoom}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a></th>
+                            </tr>
 
-              <tr>
-                <th>Lab</th>
-                <th>
-                  <a *ngIf="virtualTours?.lab!=null" target="_blank" class="abs"
-                    href="{{baseApiUrl}}{{virtualTours?.lab}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
-                </th>
-              </tr>
+                            <tr>
+                                <th>Lab</th>
+                                <th>
+                                    <a *ngIf="virtualTours?.lab!=null" target="_blank" class="abs" href="{{baseApiUrl}}{{virtualTours?.lab}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                                </th>
+                            </tr>
 
-              <tr>
-                <th>Library</th>
-                <th>
-                  <a *ngIf="virtualTours?.library!=null" target="_blank" class="abs"
-                    href="{{baseApiUrl}}{{virtualTours?.library}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
-                </th>
-              </tr>
+                            <tr>
+                                <th>Library</th>
+                                <th>
+                                    <a *ngIf="virtualTours?.library!=null" target="_blank" class="abs" href="{{baseApiUrl}}{{virtualTours?.library}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                                </th>
+                            </tr>
 
-              <tr>
-                <th>Recreational Area</th>
-                <th>
-                  <a *ngIf="virtualTours?.recreationalArea!=null" target="_blank" class="abs"
-                    href="{{baseApiUrl}}{{virtualTours?.recreationalArea}}"><i
+                            <tr>
+                                <th>Recreational Area</th>
+                                <th>
+                                    <a *ngIf="virtualTours?.recreationalArea!=null" target="_blank" class="abs" href="{{baseApiUrl}}{{virtualTours?.recreationalArea}}"><i
                       class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
-                </th>
-              </tr>
-              <tr>
-                <th>Hostel</th>
-                <th>
-                  <a *ngIf="virtualTours?.hostel!=null" target="_blank" class="abs"
-                    href="{{baseApiUrl}}{{virtualTours?.hostel}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
-                </th>
-              </tr>
-              <tr>
-                <td></td>
-                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-virtualtour">View /
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Hostel</th>
+                                <th>
+                                    <a *ngIf="virtualTours?.hostel!=null" target="_blank" class="abs" href="{{baseApiUrl}}{{virtualTours?.hostel}}"><i class="zmdi zmdi-file  zmdi-hc-2x"></i></a>
+                                </th>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th><button class="btn btn-info pull-right width-160" routerLink="/institute/update-virtualtour">View /
                     Edit</button></th>
-              </tr>
+                            </tr>
 
-            </tbody>
-          </table>
+                        </tbody>
+                    </table>
 
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="row tutorial">
-      <div class="col-sm-4">
-        <img src="assets/images/hostel.jpg" class="resp-img" alt="Tutorial" />
-      </div>
-      <div class="col-sm-8">
-        <div class="tutorial-details">
-          <h6>HOSTEL & TRANSPORTATION </h6>
+        <div class="row tutorial">
+            <div class="col-sm-4">
+                <img src="assets/images/hostel.jpg" class="resp-img" alt="Tutorial" />
+            </div>
+            <div class="col-sm-8">
+                <div class="tutorial-details">
+                    <h6>HOSTEL & TRANSPORTATION </h6>
 
-          <table class="table">
-            <tbody>
+                    <table class="table">
+                        <tbody>
 
-              <tr>
-                <th>Hostel for Boys</th>
-                <td>{{instituteInfo.haveBoysHostel?'Yes':'No'}}</td>
-              </tr>
+                            <tr>
+                                <th>Hostel for Boys</th>
+                                <td>{{instituteInfo.haveBoysHostel?'Yes':'No'}}</td>
+                            </tr>
 
-              <tr>
-                <th>Hostel for Girls</th>
-                <td>{{instituteInfo.haveGirlsHostel?'Yes':'No'}}</td>
-              </tr>
+                            <tr>
+                                <th>Hostel for Girls</th>
+                                <td>{{instituteInfo.haveGirlsHostel?'Yes':'No'}}</td>
+                            </tr>
 
-              <tr>
-                <th>Is food available ?</th>
-                <td>{{instituteInfo.foodAvailableAtHostel?'Yes':'No'}}</td>
-              </tr>
+                            <tr>
+                                <th>Is food available ?</th>
+                                <td>{{instituteInfo.foodAvailableAtHostel?'Yes':'No'}}</td>
+                            </tr>
 
-              <tr>
-                <th>Hostal Annual Fee</th>
-                <td>{{instituteInfo.hostalAnnualFee}}</td>
-              </tr>
+                            <tr>
+                                <th>Hostal Annual Fee</th>
+                                <td>{{instituteInfo.hostalAnnualFee}}</td>
+                            </tr>
 
-              <tr>
-                <th>Transportation info</th>
-                <td>{{instituteInfo.transportationInfo}}</td>
-              </tr>
+                            <tr>
+                                <th>Transportation info</th>
+                                <td>{{instituteInfo.transportationInfo}}</td>
+                            </tr>
 
-              <tr>
-                <td></td>
-                <th><button class="btn btn-info pull-right width-160" (click)="view(instituteInfo)">View / Edit</button>
-                </th>
-              </tr>
+                            <tr>
+                                <td></td>
+                                <th><button class="btn btn-info pull-right width-160" (click)="view(instituteInfo)">View / Edit</button>
+                                </th>
+                            </tr>
 
-            </tbody>
-          </table>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="row tutorial">
-      <div class="col-sm-4">
-        <img src="assets/images/hostel.jpg" class="resp-img" alt="Tutorial" />
-      </div>
-      <div class="col-sm-8">
-        <div class="tutorial-details">
-          <h6>INFRASTRUCTURE-FACILITIES & EVENTS </h6>
+        <div class="row tutorial">
+            <div class="col-sm-4">
+                <img src="assets/images/hostel.jpg" class="resp-img" alt="Tutorial" />
+            </div>
+            <div class="col-sm-8">
+                <div class="tutorial-details">
+                    <h6>INFRASTRUCTURE-FACILITIES & EVENTS </h6>
 
-          <table class="table">
-            <tbody>
+                    <table class="table">
+                        <tbody>
 
-              <tr>
-                <th>Area of Campus</th>
-                <td>{{instituteInfo.haveBoysHostel?'Yes':'No'}}</td>
-              </tr>
+                            <tr>
+                                <th>Area of Campus</th>
+                                <td>{{instituteInfo.haveBoysHostel?'Yes':'No'}}</td>
+                            </tr>
 
-              <tr>
-                <th>No. of Classrooms</th>
-                <td>{{instituteInfo.haveGirlsHostel?'Yes':'No'}}</td>
-              </tr>
+                            <tr>
+                                <th>No. of Classrooms</th>
+                                <td>{{instituteInfo.haveGirlsHostel?'Yes':'No'}}</td>
+                            </tr>
 
-              <tr>
-                <th>Total Student Strength as on date</th>
-                <td>{{instituteInfo.foodAvailableAtHostel?'Yes':'No'}}</td>
-              </tr>
+                            <tr>
+                                <th>Total Student Strength as on date</th>
+                                <td>{{instituteInfo.foodAvailableAtHostel?'Yes':'No'}}</td>
+                            </tr>
 
-              <tr>
-                <th>Student Teacher Ratio</th>
-                <td>{{instituteInfo.hostalAnnualFee}}</td>
-              </tr>
+                            <tr>
+                                <th>Student Teacher Ratio</th>
+                                <td>{{instituteInfo.hostalAnnualFee}}</td>
+                            </tr>
 
-              <tr>
-                <th>Total no.of Teachers</th>
-                <td>{{instituteInfo.transportationInfo}}</td>
-              </tr>
-              <tr>
-                <th>Language of Instruction</th>
-                <td>{{instituteInfo.transportationInfo}}</td>
-              </tr>
-              <tr>
-                <th>Sports</th>
-                <td>{{instituteInfo.transportationInfo}}</td>
-              </tr>
-              <tr>
-                <th>Indoor Games </th>
-                <td>{{instituteInfo.transportationInfo}}</td>
-              </tr>
-              <tr>
-                <th>Outdoor Games </th>
-                <td>{{instituteInfo.transportationInfo}}</td>
-              </tr>
-              <tr>
-                <td></td>
-                <th><button class="btn btn-info pull-right width-160" (click)="editinfra(instituteInfo)">View / Edit</button>
-                </th>
-              </tr>
+                            <tr>
+                                <th>Total no.of Teachers</th>
+                                <td>{{instituteInfo.transportationInfo}}</td>
+                            </tr>
+                            <tr>
+                                <th>Language of Instruction</th>
+                                <td>{{instituteInfo.transportationInfo}}</td>
+                            </tr>
+                            <tr>
+                                <th>Sports</th>
+                                <td>{{instituteInfo.transportationInfo}}</td>
+                            </tr>
+                            <tr>
+                                <th>Indoor Games </th>
+                                <td>{{instituteInfo.transportationInfo}}</td>
+                            </tr>
+                            <tr>
+                                <th>Outdoor Games </th>
+                                <td>{{instituteInfo.transportationInfo}}</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <th><button class="btn btn-info pull-right width-160" (click)="editinfra(instituteInfo)">View / Edit</button>
+                                </th>
+                            </tr>
 
-            </tbody>
-          </table>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <div class="row tutorial">
-      <div class="col-sm-4">
-        <img src="assets/images/TRAVELINFO.jpg" class="resp-img" alt="Tutorial" />
-      </div>
-      <div class="col-sm-8">
-        <div class="tutorial-details">
-          <h6>TRAVEL INFORMATION </h6>
+        <div class="row tutorial">
+            <div class="col-sm-4">
+                <img src="assets/images/TRAVELINFO.jpg" class="resp-img" alt="Tutorial" />
+            </div>
+            <div class="col-sm-8">
+                <div class="tutorial-details">
+                    <h6>TRAVEL INFORMATION </h6>
 
-          <table class="table">
-            <tbody>
+                    <table class="table">
+                        <tbody>
 
-              <tr>
-                <th>Nearest Airport</th>
-                <td>{{travelinformations.nearestAirPort}}</td>
-              </tr>
+                            <tr>
+                                <th>Nearest Airport</th>
+                                <td>{{travelinformations.nearestAirPort}}</td>
+                            </tr>
 
-              <tr>
-                <th>Nearest Railway Station</th>
-                <td>{{travelinformations.nearestRailWayStation}}</td>
-              </tr>
+                            <tr>
+                                <th>Nearest Railway Station</th>
+                                <td>{{travelinformations.nearestRailWayStation}}</td>
+                            </tr>
 
-              <tr>
-                <th>Nearest Bus Station</th>
-                <td>{{travelinformations.nearestBusStation}}</td>
-              </tr>
+                            <tr>
+                                <th>Nearest Bus Station</th>
+                                <td>{{travelinformations.nearestBusStation}}</td>
+                            </tr>
 
-              <tr>
-                <th>Location On Map</th>
-                <td><a href="https://maps.google.com/?q={{travelinformations.currentLatitude}},{{travelinformations.currentLongitude}}" target="_blank"> {{travelinformations.currentLatitude}} , {{travelinformations.currentLongitude}}</a></td>
-              </tr>
+                            <tr>
+                                <th>Location On Map</th>
+                                <td><a href="https://maps.google.com/?q={{travelinformations.currentLatitude}},{{travelinformations.currentLongitude}}" target="_blank"> {{travelinformations.currentLatitude}} , {{travelinformations.currentLongitude}}</a></td>
+                            </tr>
 
-              
-              <tr>
-                <td></td>
-                <th><button class="btn btn-info pull-right width-160" (click)="editravel()">View / Edit</button>
-                </th>
-              </tr>
 
-            </tbody>
-          </table>
+                            <tr>
+                                <td></td>
+                                <th><button class="btn btn-info pull-right width-160" (click)="editravel()">View / Edit</button>
+                                </th>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-      </div>
+        <div style="height: 50px;"></div>
     </div>
-    <div style="height: 50px;"></div>
-  </div>
 </main>

@@ -18,6 +18,7 @@ export class AdmissionDeskComponent implements OnInit {
   paymentAwaitingApplications;
   activeButton = 1;
   rejecterdapplciation;
+  feeremmitedSApplicants:any=[];
   instituteId = this.authService.instituteProfile.id;
 
   constructor(
@@ -63,6 +64,32 @@ export class AdmissionDeskComponent implements OnInit {
       console.log(this.paymentAwaitingApplications);
 
     });
+
+
+    // get fee paied student list by courseId
+
+    this.apiService.doGetRequest('payment/courseFee/institute/'+courseId).subscribe(
+      data =>{
+        console.log(data);
+        
+        let arr = [];
+        arr = data['result']
+        // console.log("Fee paid students list",arr);
+        for(let i=0;i<=arr.length;i++)
+        {
+          if(arr[i]?.item?.status === "paid")
+          {
+            this.feeremmitedSApplicants.push(arr[i])
+          }
+        }
+        console.log("Fee paied students",this.feeremmitedSApplicants);
+        
+      },
+      error =>{
+
+      }
+    )
+
   }
   getName(item)
   {
@@ -286,5 +313,9 @@ export class AdmissionDeskComponent implements OnInit {
 
       }
     )
+  }
+  upload(s)
+  {
+    this.router.navigate(['/institute/upload-receipt/'+s])
   }
 }

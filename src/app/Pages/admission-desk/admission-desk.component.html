@@ -1,53 +1,49 @@
 <main id="contact">
-  <div class="page-heading text-center">
-    <div class="container">
-      <h2 class="uppercase">REVIEW ADMISSION DESK</h2>
-    
-    </div>
-  </div>
-
-  
-  <div class="container success" style="margin-top: 30px;">
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="card media" style="    display: flex;
-        justify-content: center;">
-          <a class="btn btn btn-info" [class.phase-active]="activeButton === 1" (click)="showPhase(1)"
-            style="margin-bottom: 0px;width: max-content;margin-left: 8px;">Admission Application-Awaiting Pre Approval
-            </a>
-
-          <a class="btn btn btn-info" [class.phase-active]="activeButton === 2" (click)="showPhase(2)"
-            style="margin-bottom: 0px;width: max-content;margin-left: 8px;">Fee Payment Awaiting Applicants</a>
-
-          <a class="btn btn btn-info" [class.phase-active]="activeButton === 3" (click)="showPhase(3)"
-            style="margin-bottom: 0px;width: max-content;margin-left: 8px;">Fee Payment Remitted Applicants</a>
-
-          <a class="btn btn btn-info" [class.phase-active]="activeButton === 4" (click)="showPhase(4)"
-            style="margin-bottom: 0px;width: max-content;margin-left: 8px;">Rejected Applicants</a>
-
+    <div class="page-heading text-center">
+        <div class="container">
+            <h2 class="uppercase">REVIEW ADMISSION DESK</h2>
 
         </div>
-
-      </div>
-
     </div>
-  </div>
 
-  <div class="container success">
-    <form class="contact">
-      <div class="row">
-        <!-- <div class="col-sm-6 offset-sm-3">
+
+    <div class="container success" style="margin-top: 30px;">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card media" style="    display: flex;
+        justify-content: center;">
+                    <a class="btn btn btn-info" [class.phase-active]="activeButton === 1" (click)="showPhase(1)" style="margin-bottom: 0px;width: max-content;margin-left: 8px;">Admission Application-Awaiting Pre Approval
+            </a>
+
+                    <a class="btn btn btn-info" [class.phase-active]="activeButton === 2" (click)="showPhase(2)" style="margin-bottom: 0px;width: max-content;margin-left: 8px;">Fee Payment Awaiting Applicants</a>
+
+                    <a class="btn btn btn-info" [class.phase-active]="activeButton === 3" (click)="showPhase(3)" style="margin-bottom: 0px;width: max-content;margin-left: 8px;">Fee Payment Remitted Applicants</a>
+
+                    <a class="btn btn btn-info" [class.phase-active]="activeButton === 4" (click)="showPhase(4)" style="margin-bottom: 0px;width: max-content;margin-left: 8px;">Rejected Applicants</a>
+
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container success">
+        <form class="contact">
+            <div class="row">
+                <!-- <div class="col-sm-6 offset-sm-3">
           <label class="req uppercase">Select Academic level</label>
           <select (change)="loadAccademicLevelCourses($event)" [(ngModel)]="academicLevel" name="type">
             <option value="">Select Academic Level</option>
             <option *ngFor="let item of accademicLevels" value="{{item.id}}">{{item.title}}</option>
           </select>
         </div> -->
-        <div class="clearfix"></div>
-        <div class="col-sm-6 mt-5" *ngIf="activeButton === 1 || activeButton === 2">
-          <label class="req uppercase">SELECT COURSE PROGRAM
+                <div class="clearfix"></div>
+                <div class="col-sm-6 mt-5" *ngIf="activeButton === 1 || activeButton === 2 || activeButton === 3">
+                    <label class="req uppercase">SELECT COURSE PROGRAM
 </label>
-          <select (change)="changeCourse($event)" name="type">
+                    <select (change)="changeCourse($event)" name="type">
             {{courses|json}}
             <option value="">SELECT COURSE PROGRAM
 </option>
@@ -55,236 +51,231 @@
             </option>
             <!-- <option *ngIf="courses.length ===0" value="">--- No courses added yet ---</option> -->
           </select>
-        </div>
-      </div>
+                </div>
+            </div>
 
 
 
 
-      <div class="row mt-5" *ngIf="activeButton === 1">
-        <!-- <h4>Pre Applications</h4> -->
-        <!-- style="overflow-x: scroll;"   -->
-        <div class="col-md-12">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th width="5%"></th>
-                <th> SL.No</th>
-                <th>NAME OF APPLICANT & DATE</th>
-                <th  style="text-align: center;">APPLICATION <br> VIEW</th>
-                <!-- <th>DOWNLOAD APPLICATION</th> -->
-                <!-- <th>CHAT</th> -->
-                <!-- <th>DATE OF REPORTING</th> -->
-                <th style="text-align: center;">APTITUDE TEST <br> DATE & MARKS</th>
-                <th  style="text-align: center;">ADMISSION INTERVIEW <br> DATE & MARKS</th>
-           
-      
+            <div class="row mt-5" *ngIf="activeButton === 1">
+                <!-- <h4>Pre Applications</h4> -->
+                <!-- style="overflow-x: scroll;"   -->
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th width="5%"></th>
+                                <th> SL.No</th>
+                                <th>NAME OF APPLICANT & DATE</th>
+                                <th style="text-align: center;">APPLICATION <br> VIEW</th>
 
-                <th>REMARKS</th>
-                <th >ADMISSION STATUS</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of preApplications; let i=index">
-                <td><img src="./assets/images/new.gif" alt="" *ngIf="item.viewStatus === false"></td>
-                <td> {{i+1}}</td>
-                <td>{{item?.formFieldValues?.personalInfo?.fullName}}</td>
-                <td style="text-align: center;">
-                  <a (click)="viewApplicationStatus(item.item)" >View</a>
-                </td>
-            
+                                <th style="text-align: center;">APTITUDE TEST <br> DATE & MARKS</th>
+                                <th style="text-align: center;">ADMISSION INTERVIEW <br> DATE & MARKS</th>
 
-                <!-- <td>
+
+
+                                <th>REMARKS</th>
+                                <th>ADMISSION STATUS</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of preApplications; let i=index">
+                                <td><img src="./assets/images/new.gif" alt="" *ngIf="item.viewStatus === false"></td>
+                                <td> {{i+1}}</td>
+                                <td>{{item?.formFieldValues?.personalInfo?.fullName}}</td>
+                                <td style="text-align: center;">
+                                    <a (click)="viewApplicationStatus(item.item)">View</a>
+                                </td>
+
+
+                                <!-- <td>
                   <button class="btn btn-actions btn-success">
                     <i class="zmdi zmdi-download"></i> Download
                   </button>
                 </td> -->
-                <!-- <td>
+                                <!-- <td>
                   <button class="btn btn-actions btn-success">
                     <i class="zmdi zmdi-circle"></i> {{item.formFieldValues.personalInfo.fullName}}
                   </button>
                 </td> -->
-                <td>{{item?.item?.startDateTimeOfAptitudeTest | date:'MMM d, y'}}</td>
-                <td>{{item?.item?.dateOfInterview | date:'MMM d, y'}}</td>
-                <!-- <td></td> -->
-              
-                <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
-                </td> -->
-                <!-- <td></td> -->
-               
-                <td>{{item.item?.remarks}}</td>
-                <td> PENDING
-                  </td>
-                <td>
-                  <button class="btn btn-success" (click)="confirmAcceptance(item.item.id)">Approve</button> &nbsp;
-                  <button class="btn btn-danger" (click)="confirmReject(item.item.id)">Reject</button></td>
-              </tr>
-              <tr *ngIf="preApplications?.length<=0">
-                <td colspan="12" align="center">Empty List</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+                                <td>{{item?.item?.startDateTimeOfAptitudeTest | date:'MMM d, y'}}</td>
+                                <td>{{item?.item?.dateOfInterview | date:'MMM d, y'}}</td>
+                                <!-- <td></td> -->
 
-      <div class="row mt-5" *ngIf="activeButton === 2">
-        <!-- <h4>Payment awaiting Applications</h4> -->
-        <marquee behavior="" direction="">Application will be rejected after 48 hours without payment</marquee>
-        <div class="col-md-12">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th width="5%"></th>
-                <th>SL.No</th>
-                <th>NAME OF APPLICANT</th>
-                <th>KYC/CERTIFICATES</th>
-                <!-- <th>DOWNLOAD APPLICATION</th> -->
-                <!-- <th>CHAT</th> -->
-                <th>INTIAL FEE DUE </th>
-                <!-- <th>DATE OF REPORTING</th> -->
-                <!-- <th>APTITUDE TEST DATE</th>
+                                <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
+                </td> -->
+                                <!-- <td></td> -->
+
+                                <td>{{item.item?.remarks}}</td>
+                                <td> PENDING
+                                </td>
+                                <td>
+                                    <button class="btn btn-success" (click)="confirmAcceptance(item.item.id)">Approve</button> &nbsp;
+                                    <button class="btn btn-danger" (click)="confirmReject(item.item.id)">Reject</button></td>
+                            </tr>
+                            <tr *ngIf="preApplications?.length<=0">
+                                <td colspan="12" align="center">Empty List</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row mt-5" *ngIf="activeButton === 2">
+                <!-- <h4>Payment awaiting Applications</h4> -->
+                <marquee behavior="" direction="">Application will be rejected after 48 hours without payment</marquee>
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th width="5%"></th>
+                                <th>SL.No</th>
+                                <th>NAME OF APPLICANT</th>
+                                <th>APPLICATION VIEW</th>
+                                <!-- <th>DOWNLOAD APPLICATION</th> -->
+                                <th>DATE OF PRE APPROVAL </th>
+                                <th>INTIAL FEE DUE </th>
+                                <!-- <th>DATE OF REPORTING</th> -->
+                                <!-- <th>APTITUDE TEST DATE</th>
                 <th>VIRTUAL ADMISSION CONSULING DATE</th> -->
-                <!-- <th colspan="3" align="center">ADMISSION STATUS</th> -->
-                <th>REMARKS</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of paymentAwaitingApplications; let i=index">
-                <td width="5%"><img src="./assets/images/new.gif" alt="" *ngIf="item.viewStatus === false"></td>
-                <td> {{i+1}}</td>
-                <td>{{item?.formFieldValues?.personalInfo?.fullName}}</td>
-                <td style="text-align: center;">
-                  <a (click)="viewApplicationStatus(item.item)" >View</a>
-                </td>
-                <!-- <td>
-                  <button class="btn btn-actions btn-success">
-                    <i class="zmdi zmdi-download"></i> Download
-                  </button>
-                </td> -->
-                <!-- <td>
-                  <button class="btn btn-actions btn-success">
-                    <i class="zmdi zmdi-circle"></i> {{item.formFieldValues.personalInfo.fullName}}
-                  </button>
-                </td> -->
-                <td>{{item?.courseFee?.spotfee}}</td>
-                <!-- <td></td> -->
+                                <!-- <th colspan="3" align="center">ADMISSION STATUS</th> -->
+                                <th>REMARKS</th>
+                                <th>ADMISSION STATUS</th>
 
-                <!-- <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of paymentAwaitingApplications; let i=index">
+                                <td width="5%"><img src="./assets/images/new.gif" alt="" *ngIf="item.viewStatus === false"></td>
+                                <td> {{i+1}}</td>
+                                <td>{{item?.formFieldValues?.personalInfo?.fullName}}</td>
+                                <td style="text-align: center;">
+                                    <a (click)="viewApplicationStatus(item.item)">View</a>
+                                </td>
+                                <td></td>
+                                <td>{{item?.courseFee?.spotfee}}</td>
+                                <!-- <td></td> -->
+
+                                <!-- <td></td>
                 <td></td> -->
-                <td></td>
-              </tr>
-              <tr *ngIf="paymentAwaitingApplications?.length<=0">
-                <td colspan="10" align="center">Empty List</td>
-              </tr>
-            </tbody>
-          </table>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr *ngIf="paymentAwaitingApplications?.length<=0">
+                                <td colspan="10" align="center">Empty List</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
 
 
-        </div>
-      </div>
+                </div>
+            </div>
 
-      <div class="row mt-5" *ngIf="activeButton === 3">
-        <!-- <h4>Pre Applications</h4> -->
-        <!-- style="overflow-x: scroll;"   -->
-        <div class="col-md-12">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>SL.No</th>
-                <th>NAME OF APPLICANT</th>
-                <th>KYC/CERTIFICATES</th>
-                <!-- <th>DOWNLOAD APPLICATION</th> -->
-                <!-- <th>CHAT</th> -->
-                <!-- <th>DATE OF REPORTING</th> -->
-               <th>TRANSACTION ID</th>
-               <th>TRANSACTION TIME</th>
-               <th>PAID AMOUNT</th>
+            <div class="row mt-5" *ngIf="activeButton === 3">
+                <!-- <h4>Pre Applications</h4> -->
+                <!-- style="overflow-x: scroll;"   -->
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>SL.No</th>
+                                <th>NAME OF APPLICANT</th>
+                                <th>APPLICATION VIEW</th>
+                                <!-- <th>DOWNLOAD APPLICATION</th> -->
+                                <!-- <th>CHAT</th> -->
+                                <!-- <th>DATE OF REPORTING</th> -->
+                                <th>TRANSACTION ID</th>
+                                <th>TRANSACTION TIME</th>
+                                <th>PAID AMOUNT</th>
 
-                <th>PAYMENT STATUS</th>
-                <th>ACTION</th>
+                                <th>PAYMENT STATUS</th>
+                                <th>ACTION</th>
+                                <!-- <th></th> -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of feeremmitedSApplicants; let i=index">
+                                <td>{{i+1}}</td>
+                                <td>{{item?.formFieldValues?.personalInfo?.fullName}}</td>
+                                <td style="text-align: center;">
+                                    <a (click)="viewApplicationStatus(item)">View</a>
+                                </td>
 
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let item of preApplications; let i=index">
-                <td>{{i+1}}</td>
-                <td>{{item?.formFieldValues?.personalInfo?.fullName}}</td>
-                <td style="text-align: center;">
-                  <a (click)="viewApplicationStatus(item)" >View</a>
-                </td>
-              
-                <td>{{item?.startDateTimeOfAptitudeTest | date:'MMM d, y'}}</td>
-                
-                <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
+                                <td>{{item?.item?.localTransactionId }}</td>
+
+                                <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
                 </td> -->
-                <th></th>
-                <td>{{item.remarks}}</td>
-                <td>{{item.remarks}}</td>
-                <td>  <button class="btn btn-danger" (click)="upload()">Upload Recepit</button></td>
 
-              </tr>
-             
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div class="row mt-5" *ngIf="activeButton === 4">
-        <!-- <h4>Pre Applications</h4> -->
-        <!-- style="overflow-x: scroll;"   -->
-        <div class="col-md-12">
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th>SL.No</th>
-                <th>NAME OF APPLICANT</th>
-             
-                <!-- <th>DOWNLOAD APPLICATION</th> -->
-                <!-- <th>CHAT</th> -->
-                <!-- <th>DATE OF REPORTING</th> -->
-             
-                <th>DATE OF ADMISSION APPLICATION RECEIVED </th>
-               
-                <th>REMARKS</th>
-                <th>REASON</th>
-                <th>ACTION</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let s of rejecterdapplciation;let i=index;">
-                <td>{{i+1}}</td>
-                <td>{{s?.formFieldValues?.personalInfo?.fullName}}</td>
+                                <td>{{item?.item?.updatedAt | date:'h:mm a'}}</td>
+                                <th></th>
+                                <td>Amount Paid</td>
+                                <td> <button class="btn btn-danger" (click)="upload(item?.item?.id)">Upload Recepit</button></td>
+                                <!-- <td *ngIf="item?.item?.transactionRecipt != null"> Download Recepit </td> -->
+                            </tr>
 
-                <td>{{s?.createdAt  | date:'MMM d, y'}}</td>
-                <!-- <td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row mt-5" *ngIf="activeButton === 4">
+                <!-- <h4>Pre Applications</h4> -->
+                <!-- style="overflow-x: scroll;"   -->
+                <div class="col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>SL.No</th>
+                                <th>NAME OF APPLICANT</th>
+                                <th>REMARKS</th>
+                                <!-- <th>DOWNLOAD APPLICATION</th> -->
+                                <!-- <th>CHAT</th> -->
+                                <!-- <th>DATE OF REPORTING</th> -->
+                                <th>REASON</th>
+                                <!-- <th>DATE OF ADMISSION APPLICATION RECEIVED </th> -->
+
+
+
+                                <th>ACTION</th>
+                                <th>ADMISSION STATUS</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let s of rejecterdapplciation;let i=index;">
+                                <td>{{i+1}}</td>
+                                <td>{{s?.formFieldValues?.personalInfo?.fullName}}</td>
+
+                                <!-- <td>{{s?.createdAt | date:'MMM d, y'}}</td> -->
+                                <!-- <td>
                   <button class="btn btn-actions btn-success">
                     <i class="zmdi zmdi-download"></i> Download
                   </button>
                 </td> -->
-                <!-- <td>
+                                <!-- <td>
                   <button class="btn btn-actions btn-success">
                     <i class="zmdi zmdi-circle"></i> {{item.formFieldValues.personalInfo.fullName}}
                   </button>
                 </td> -->
-                <td>{{s?.remarks }}</td>
+                                <td>{{s?.remarks }}</td>
 
-                <td>{{s?.reason }}</td>
+                                <td>{{s?.reason }}</td>
 
-              
-              <td><button class="btn btn-primary" (click)="deleteapplciation(s)">Delete</button></td>
-                <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
+
+                                <td><button class="btn btn-primary" (click)="deleteapplciation(s)">Delete</button></td>
+                                <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
                 </td> -->
 
-     
-                  
-        
-              </tr>
-              
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </form>
-  </div>
+                                <td>Rejected</td>
+
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+    </div>
 </main>
