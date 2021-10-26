@@ -1,72 +1,71 @@
 <main>
-  <div class="page-heading text-center">
-    <div class="container">
-      <h2 class="titlecase">Review Student Application</h2>
+    <div class="page-heading text-center">
+        <div class="container">
+            <h2 class="titlecase">Review Student Application</h2>
+        </div>
     </div>
-  </div>
-  <div class="container index-3-categories">
-    <div class="row contact">
-      <p></p>
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-        <div class="additionalForm text-center">
-          <div class="row">
-            <form [formGroup]="reportingForm" (ngSubmit)="onSubmit(reportingForm)">
-              <div class="col-lg-3 mt-2"> Schedule Date of Reporting</div>
-              <div class="col-lg-6"><input type="date" formControlName="dateOfReporting" id=""></div>
-              <div class="col-lg-2 mt-2"><button>Update</button></div>
-            </form>
-          </div>
+    <div class="container index-3-categories" *ngIf="applicationstatus != 'payment-done'">
+        <div class="row contact">
+            <p></p>
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="additionalForm text-center">
+                    <div class="row">
+                        <form [formGroup]="reportingForm" (ngSubmit)="onSubmit(reportingForm)">
+                            <div class="col-lg-3 mt-2"> Schedule Date of Reporting</div>
+                            <div class="col-lg-6"><input type="date" formControlName="dateOfReporting" id=""></div>
+                            <div class="col-lg-2 mt-2"><button>Update</button></div>
+                        </form>
+                    </div>
 
-          <div class="row">
-            <form [formGroup]="aptitudeForm" (ngSubmit)="onSubmit(aptitudeForm)">
-              <div class="col-lg-3 mt-2"> Schedule Aptitude Test</div>
-              <div class="col-lg-2"><input type="date" formControlName="startDateTimeOfAptitudeTest" id=""></div>
-              <div class="col-lg-2"><input type="date" formControlName="endDateTimeOfAptitudeTest" id=""></div>
-              <div class="col-lg-2">
-                <select formControlName="aptitudeTestId" id="">
+                    <div class="row">
+                        <form [formGroup]="aptitudeForm" (ngSubmit)="onSubmit(aptitudeForm)">
+                            <div class="col-lg-3 mt-2"> Schedule Aptitude Test</div>
+                            <div class="col-lg-2"><input type="date" formControlName="startDateTimeOfAptitudeTest" id=""></div>
+                            <div class="col-lg-2"><input type="date" formControlName="endDateTimeOfAptitudeTest" id=""></div>
+                            <div class="col-lg-2">
+                                <select formControlName="aptitudeTestId" id="">
                   <option *ngFor="let appttitudetestdetails of appttitudetestdetails"
                     value="{{appttitudetestdetails.id}}">{{appttitudetestdetails.title}}</option>
                 </select>
-              </div>
-              <div class="col-lg-2 mt-2"><button>Update</button></div>
-            </form>
-          </div>
+                            </div>
+                            <div class="col-lg-2 mt-2"><button>Update</button></div>
+                        </form>
+                    </div>
 
-          <div class="row">
-            <form [formGroup]="interviewForm" (ngSubmit)="onSubmit(interviewForm)">
-              <div class="col-lg-3 mt-2">Schedule Virtual Admission Counseling</div>
-              <div class="col-lg-3"><input type="date" formControlName="dateOfInterview" id=""></div>
-              <div class="col-lg-3"><input type="text" formControlName="interviewLink"
-                  placeholder="video interview meeting link" id=""></div>
-              <div class="col-lg-2 mt-2"><button>Update</button></div>
-            </form>
-          </div>
-          <div class="row">
-            <form [formGroup]="onlineinterview" (ngSubmit)="onSubmit(onlineinterview)">
-              <div class="col-lg-3 mt-2">Online Interview status</div>
-              <div class="col-lg-6">
-                <input type="text" formControlName="onlineinterviewstatus" placeholder="online interview status">
-              </div>
-              <div class="col-lg-2 mt-2"><button>Update</button></div>
-            </form>
-          </div>
+                    <div class="row">
+                        <form [formGroup]="interviewForm" (ngSubmit)="onSubmit(interviewForm)">
+                            <div class="col-lg-3 mt-2">Schedule Virtual Admission Counseling</div>
+                            <div class="col-lg-3"><input type="date" formControlName="dateOfInterview" id=""></div>
+                            <div class="col-lg-3"><input type="text" formControlName="interviewLink" placeholder="video interview meeting link" id=""></div>
+                            <div class="col-lg-2 mt-2"><button>Update</button></div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <form [formGroup]="onlineinterview" (ngSubmit)="onSubmit(onlineinterview)">
+                            <div class="col-lg-3 mt-2">Online Interview status</div>
+                            <div class="col-lg-6">
+                                <input type="text" formControlName="onlineinterviewstatus" placeholder="online interview status">
+                            </div>
+                            <div class="col-lg-2 mt-2"><button>Update</button></div>
+                        </form>
+                    </div>
 
-          <div class="row">
-            <form [formGroup]="reviewForm" (ngSubmit)="onSubmit(reviewForm)">
-              <div class="col-lg-3 mt-2">Remarks</div>
-              <div class="col-lg-6"><textarea class="height100" rows="10" formControlName="remarks" id=""></textarea>
-              </div>
-              <div class="col-lg-2 mt-2"><button>Update</button></div>
-            </form>
-          </div>
+                    <div class="row">
+                        <form [formGroup]="reviewForm" (ngSubmit)="onSubmit(reviewForm)">
+                            <div class="col-lg-3 mt-2">Remarks</div>
+                            <div class="col-lg-6"><textarea class="height100" rows="10" formControlName="remarks" id=""></textarea>
+                            </div>
+                            <div class="col-lg-2 mt-2"><button>Update</button></div>
+                        </form>
+                    </div>
 
-          <button class="float-btn-right" (click)="downloadAsPDF()"><i
+                    <button class="float-btn-right" (click)="downloadAsPDF()"><i
               class="zmdi zmdi-download  zmdi-hc-3x"></i></button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-- <div class="row">
+        <!-- <div class="row">
       <div class="col-sm-3">
         <div class="card" style="margin-top: 21px;
         border: none;
@@ -123,12 +122,12 @@
       </div>
 
     </div> -->
-  </div>
-  <!-- <pre>{{applicationData|json}}</pre> -->
-  <!-- <pre>{{entrance|json}}</pre> -->
+    </div>
+    <!-- <pre>{{applicationData|json}}</pre> -->
+    <!-- <pre>{{entrance|json}}</pre> -->
 
 
-  <!-- <div class="container index-3-categories">
+    <!-- <div class="container index-3-categories">
     <div class="row contact">
 
       <div class="col-md-1"></div>
@@ -355,198 +354,196 @@
 
     </div>
   </div> -->
-  <div class="container" id="pdfTable" #pdfTable>
+    <div class="container" id="pdfTable" #pdfTable>
 
-    <div class="card">
-      <div class="row">
-        <div class="col-sm-2">
-          <img src="./assets/images/accredited.jpg" alt="" width="148px">
+        <div class="card">
+            <div class="row">
+                <div class="col-sm-2">
+                    <img src="./assets/images/accredited.jpg" alt="" width="148px">
 
+                </div>
+                <div class="col-sm-8">
+                    <h6 style="text-align: center;margin-bottom: 11px;">{{instituteInfo?.name}}</h6>
+                    <p style="text-align: center;margin-bottom: 11px;">
+                        {{instituteInfo?.nameofTown}},{{instituteInfo?.block}},{{instituteInfo?.district}},{{instituteInfo?.state}}
+                    </p>
+                </div>
+                <div class="col-sm-2">
+                    <!-- <img src="./images/logo.png" alt="" width="100px"> -->
+                    <img src="./assets/images/accredited.jpg" alt="" width="148px">
+
+                </div>
+            </div>
         </div>
-        <div class="col-sm-8">
-          <h6 style="text-align: center;margin-bottom: 11px;">{{instituteInfo?.name}}</h6>
-          <p style="text-align: center;margin-bottom: 11px;">
-            {{instituteInfo?.nameofTown}},{{instituteInfo?.block}},{{instituteInfo?.district}},{{instituteInfo?.state}}
-          </p>
-        </div>
-        <div class="col-sm-2">
-          <!-- <img src="./images/logo.png" alt="" width="100px"> -->
-          <img src="./assets/images/accredited.jpg" alt="" width="148px">
+        <div class="card">
 
-        </div>
-      </div>
-    </div>
-    <div class="card">
-
-      <div class="row">
+            <div class="row">
 
 
-        <h5 class="headers">INSTITUTION INFO </h5>
+                <h5 class="headers">INSTITUTION INFO </h5>
 
-      </div>
-      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
-        <div class="col-sm-5">
-          <p> Institution Reg/Ref:No.(Enter Manually at the time of Admission Confirmation)</p>
-        </div>
-        <div class="col-sm-2">
-          <p style="
+            </div>
+            <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+                <div class="col-sm-5">
+                    <p> Institution Reg/Ref:No.(Enter Manually at the time of Admission Confirmation)</p>
+                </div>
+                <div class="col-sm-2">
+                    <p style="
             text-align: center;
         ">:</p>
-        </div>
-        <div class="col-sm-5">
-          <p> .................................................</p>
-        </div>
+                </div>
+                <div class="col-sm-5">
+                    <p> .................................................</p>
+                </div>
 
-      </div>
-      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
-        <div class="col-sm-5">
-          <p> Admission Application Submitted Date</p>
-        </div>
-        <div class="col-sm-2">
-          <p style="
+            </div>
+            <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+                <div class="col-sm-5">
+                    <p> Admission Application Submitted Date</p>
+                </div>
+                <div class="col-sm-2">
+                    <p style="
             text-align: center;
         ">:</p>
-        </div>
-        <div class="col-sm-5">
-          <p> {{applicationData?.createdAt | date }}</p>
-        </div>
+                </div>
+                <div class="col-sm-5">
+                    <p> {{applicationData?.createdAt | date }}</p>
+                </div>
 
-      </div>
+            </div>
 
 
-      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
-        <div class="col-sm-5">
-          <p> Admission Application Number</p>
-        </div>
-        <div class="col-sm-2">
-          <p style="
+            <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+                <div class="col-sm-5">
+                    <p> Admission Application Number</p>
+                </div>
+                <div class="col-sm-2">
+                    <p style="
             text-align: center;
         ">:</p>
-        </div>
-        <div class="col-sm-5">
-          <p> .................................................</p>
-        </div>
+                </div>
+                <div class="col-sm-5">
+                    <p> .................................................</p>
+                </div>
 
-      </div>
+            </div>
 
 
-      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
-        <div class="col-sm-5">
-          <p> Admission Application for the Academic Year</p>
-        </div>
-        <div class="col-sm-2">
-          <p style="
+            <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+                <div class="col-sm-5">
+                    <p> Admission Application for the Academic Year</p>
+                </div>
+                <div class="col-sm-2">
+                    <p style="
             text-align: center;
         ">:</p>
-        </div>
-        <div class="col-sm-5">
-          <p>{{getcurrentyear()}}
-          <p>
-        </div>
+                </div>
+                <div class="col-sm-5">
+                    <p>{{getcurrentyear()}}
+                        <p>
+                </div>
 
-      </div>
-      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
-        <div class="col-sm-5">
-          <p>NSpot Reference No </p>
-        </div>
-        <div class="col-sm-2">
-          <p style="
+            </div>
+            <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+                <div class="col-sm-5">
+                    <p>NSpot Reference No </p>
+                </div>
+                <div class="col-sm-2">
+                    <p style="
             text-align: center;
         ">:</p>
-        </div>
-        <div class="col-sm-5">
-          <p> {{applicationData?.nSpotReferenceId}}
-          <p>
-        </div>
+                </div>
+                <div class="col-sm-5">
+                    <p> {{applicationData?.nSpotReferenceId}}
+                        <p>
+                </div>
 
-      </div>
+            </div>
 
 
 
-      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
-        <div class="col-sm-5">
-          <p>Roll No & Year (Enter Manually at the time of Admission Confirmation)</p>
-        </div>
-        <div class="col-sm-2">
-          <p style="
+            <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+                <div class="col-sm-5">
+                    <p>Roll No & Year (Enter Manually at the time of Admission Confirmation)</p>
+                </div>
+                <div class="col-sm-2">
+                    <p style="
             text-align: center;
         ">:</p>
-        </div>
-        <div class="col-sm-5">
-          <p> .................................................</p>
-        </div>
+                </div>
+                <div class="col-sm-5">
+                    <p> .................................................</p>
+                </div>
 
-      </div>
+            </div>
 
 
-      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
-        <div class="col-sm-5">
-          <p>Institution Name</p>
-        </div>
-        <div class="col-sm-2">
-          <p style="
+            <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+                <div class="col-sm-5">
+                    <p>Institution Name</p>
+                </div>
+                <div class="col-sm-2">
+                    <p style="
             text-align: center;
         ">:</p>
-        </div>
-        <div class="col-sm-5">
-          <p> {{instituteInfo?.name}}
+                </div>
+                <div class="col-sm-5">
+                    <p> {{instituteInfo?.name}}
 
-          </p>
-        </div>
+                    </p>
+                </div>
 
-      </div>
+            </div>
 
-      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
-        <div class="col-sm-5">
-          <p>Institution Type</p>
-        </div>
-        <div class="col-sm-2">
-          <p style="
+            <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+                <div class="col-sm-5">
+                    <p>Institution Type</p>
+                </div>
+                <div class="col-sm-2">
+                    <p style="
             text-align: center;
         ">:</p>
-        </div>
-        <div class="col-sm-5">
-          <p> .................................................</p>
+                </div>
+                <div class="col-sm-5">
+                    <p> .................................................</p>
 
-        </div>
+                </div>
 
-      </div>
+            </div>
 
 
-      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
-        <div class="col-sm-5">
-          <p> Institution Category</p>
-        </div>
-        <div class="col-sm-2">
-          <p style="
+            <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+                <div class="col-sm-5">
+                    <p> Institution Category</p>
+                </div>
+                <div class="col-sm-2">
+                    <p style="
             text-align: center;
         ">:</p>
-        </div>
-        <div class="col-sm-5">
-          <p> .................................................</p>
+                </div>
+                <div class="col-sm-5">
+                    <p> .................................................</p>
 
-        </div>
+                </div>
 
-      </div>
+            </div>
 
 
-      <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
-        <div class="col-sm-5">
-          <p> Institution Head Office/Corporate Address</p>
-        </div>
-        <div class="col-sm-2">
-          <p style="
+            <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+                <div class="col-sm-5">
+                    <p> Institution Head Office/Corporate Address</p>
+                </div>
+                <div class="col-sm-2">
+                    <p style="
             text-align: center;
         ">:</p>
-        </div>
-        <div class="col-sm-5">
-          <p> {{instituteInfo?.addressLine1}},{{instituteInfo?.addressLine1}},{{instituteInfo?.addressLine1}}</p>
+                </div>
+                <div class="col-sm-5">
+                    <p> {{instituteInfo?.addressLine1}},{{instituteInfo?.addressLine1}},{{instituteInfo?.addressLine1}}</p>
 
-        </div>
+                </div>
 
-      </div>
-
-
+            </div>
 
 
 
@@ -555,139 +552,134 @@
 
 
 
-      <div class="row">
 
 
-        <h5 class="headers">PERSONAL INFORMATIONS OF THE APPLICANT </h5>
-        <img src="./assets/images/kyc.png" alt="" style="
+            <div class="row">
+
+
+                <h5 class="headers">PERSONAL INFORMATIONS OF THE APPLICANT </h5>
+                <img src="./assets/images/kyc.png" alt="" style="
        width: 139px; float: right; margin-top: -65px; margin-right: 30px;height: 137px;">
-      </div>
+            </div>
 
-      <hr>
-      <div class="row" *ngFor="let item of personalInfo;let i=index"
-        style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
-        <div class="col-sm-5">
-          <p>{{insertSpaces(personalInfoKeys[i]) | titlecase}}</p>
-        </div>
-        <div class="col-sm-2">
-          <p style="
+            <hr>
+            <div class="row" *ngFor="let item of personalInfo;let i=index" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+                <div class="col-sm-5">
+                    <p>{{insertSpaces(personalInfoKeys[i]) | titlecase}}</p>
+                </div>
+                <div class="col-sm-2">
+                    <p style="
               text-align: center;
           ">:</p>
+                </div>
+                <div class="col-sm-5">
+                    <p> {{item | titlecase}}</p>
+                </div>
+            </div>
+
         </div>
-        <div class="col-sm-5">
-          <p> {{item | titlecase}}</p>
-        </div>
-      </div>
-
-    </div>
 
 
 
-    <div class="card">
-      <h5 class="headers">PERMANENT ADDRESS </h5>
-      <hr>
+        <div class="card">
+            <h5 class="headers">PERMANENT ADDRESS </h5>
+            <hr>
 
-      <div class="row" *ngFor="let item of permanentAddress;let i=index"
-        style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
-        <div class="col-sm-5">
-          <p>{{insertSpaces(permanentAddressKeys[i]) | titlecase}}</p>
-        </div>
-        <div class="col-sm-2">
-          <p style="
+            <div class="row" *ngFor="let item of permanentAddress;let i=index" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+                <div class="col-sm-5">
+                    <p>{{insertSpaces(permanentAddressKeys[i]) | titlecase}}</p>
+                </div>
+                <div class="col-sm-2">
+                    <p style="
             text-align: center;
         ">:</p>
-        </div>
-        <div class="col-sm-5">
-          <p> {{item | titlecase}}</p>
-        </div>
+                </div>
+                <div class="col-sm-5">
+                    <p> {{item | titlecase}}</p>
+                </div>
 
 
-      </div>
-      <h5 class="headers">COMMUNICATION ADDRESS</h5>
-      <hr>
+            </div>
+            <h5 class="headers">COMMUNICATION ADDRESS</h5>
+            <hr>
 
-      <div class="row" *ngFor="let item of communicationAddress;let i=index"
-        style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
-        <div class="col-sm-5">
-          <p>{{insertSpaces(communicationAddressKeys[i]) | titlecase}}</p>
-        </div>
-        <div class="col-sm-2">
-          <p style="
+            <div class="row" *ngFor="let item of communicationAddress;let i=index" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+                <div class="col-sm-5">
+                    <p>{{insertSpaces(communicationAddressKeys[i]) | titlecase}}</p>
+                </div>
+                <div class="col-sm-2">
+                    <p style="
             text-align: center;
         ">:</p>
-        </div>
-        <div class="col-sm-5">
-          <p> {{item | titlecase}}</p>
-        </div>
-      </div>
-      <h5 class="headers">EDUCATION DETAILS</h5>
-      <hr>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="additionalForm" *ngFor="let item of education;let j=index">
-            <div class="applicationFormItem" *ngFor="let item of education[j];let i=index">
-              <div class="checkBox">
-                <p>{{insertSpaces(educationKeys?educationKeys[j][i]:'')}}</p>
-              </div>
-              <div class="labels">
-                <p><span>:</span>{{item}}</p>
-              </div>
-              <div class="clearfix"></div>
+                </div>
+                <div class="col-sm-5">
+                    <p> {{item | titlecase}}</p>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <h5 class="headers">ENTRANCE DETAILS</h5>
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="additionalForm" *ngFor="let item of entrance;let j=index">
-            <div class="applicationFormItem" *ngFor="let item of entrance[j];let i=index">
-              <div class="checkBox">
-                <p>{{insertSpaces(entranceKeys[j][i])}}</p>
-              </div>
-              <div class="labels">
-                <p><span>:</span>{{item}}</p>
-              </div>
-              <div class="clearfix"></div>
+            <h5 class="headers">EDUCATION DETAILS</h5>
+            <hr>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="additionalForm" *ngFor="let item of education;let j=index">
+                        <div class="applicationFormItem" *ngFor="let item of education[j];let i=index">
+                            <div class="checkBox">
+                                <p>{{insertSpaces(educationKeys?educationKeys[j][i]:'')}}</p>
+                            </div>
+                            <div class="labels">
+                                <p><span>:</span>{{item}}</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      <!-- <h5 class="headers">CERTIFICATE DETAILS</h5> -->
-      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">Rules and Regulatons
-        of the Institution
-      </p>
+            <h5 class="headers">ENTRANCE DETAILS</h5>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="additionalForm" *ngFor="let item of entrance;let j=index">
+                        <div class="applicationFormItem" *ngFor="let item of entrance[j];let i=index">
+                            <div class="checkBox">
+                                <p>{{insertSpaces(entranceKeys[j][i])}}</p>
+                            </div>
+                            <div class="labels">
+                                <p><span>:</span>{{item}}</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <h5 class="headers">CERTIFICATE DETAILS</h5> -->
+            <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">Rules and Regulatons of the Institution
+            </p>
 
-      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I Agreee hereby
-        declare that NPSOT TERMS
-      </p>
-      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I Agreee hereby
-        declare that NSPOT PRIVACY
-      </p>
-      <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I certify that the
-        information submitted by me in support of this application is true to the best of my knowledge and belief.
+            <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I Agreee hereby declare that NPSOT TERMS
+            </p>
+            <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I Agreee hereby declare that NSPOT PRIVACY
+            </p>
+            <p style="    font-size: 19px;"> <input type="checkbox" checked disabled style="width: 44px;">I certify that the information submitted by me in support of this application is true to the best of my knowledge and belief.
 
-      </p>
-      <div class="row">
-        <img src="./assets/images/signature.png" style="width: 146px;
+            </p>
+            <div class="row">
+                <img src="./assets/images/signature.png" style="width: 146px;
         float: right;
         margin-right: 48px;
         margin-bottom: 20px;" alt="">
-        <p style="float: right;
+                <p style="float: right;
         margin-top: 20px;
         margin-right: 11px;
         font-size: 23px;
         font-weight: bold;">Signature</p>
-        <!-- <input type="checkbox" checked>I accept the Terms of Service -->
-      </div>
+                <!-- <input type="checkbox" checked>I accept the Terms of Service -->
+            </div>
+
+        </div>
+    </div>
+    <div class="container">
+        <button class="downloaddoc" (click)="doc()">Download Documents</button>
 
     </div>
-  </div>
-  <div class="container">
-    <button class="downloaddoc" (click)="doc()">Download Documents</button>
-
-  </div>
-  <!-- <h5
+    <!-- <h5
      style="text-align: center;margin-top: 20px;margin-bottom: 20px;">Download Certificate</h5>
   <div class="row" style="    display: flex; margin-left: 20px; margin-right: 20px;
   overflow: auto;">
@@ -720,22 +712,22 @@
     
 
   </div> -->
-  <div class="row text-center" style="margin-top: 15px;" *ngIf="applciaitonstatus != 'pre-application-approved'">
-    <div class="col-sm-6">
-      <button class="btn btn-danger width-160" (click)="confirmReject(applicationId)">Reject</button>
-    </div>
-    <!-- <div class="col-sm-4">
+    <div class="row text-center" style="margin-top: 15px;" *ngIf="applciaitonstatus === 'pre-application-applied'">
+        <div class="col-sm-6">
+            <button class="btn btn-danger width-160" (click)="confirmReject(applicationId)">Reject</button>
+        </div>
+        <!-- <div class="col-sm-4">
       <button class="btn btn-info width-160" (click)="confirmResubmission(applicationId)">Request
         Resubmition</button>
     </div> -->
-    <div class="col-sm-6">
-      <button class="btn btn-success width-160" (click)="confirmAcceptance(applicationId)">Approve</button>
-    </div>
-    <button class="float-btn-right" (click)="downloadAsPDF()">
+        <div class="col-sm-6">
+            <button class="btn btn-success width-160" (click)="confirmAcceptance(applicationId)">Approve</button>
+        </div>
+        <button class="float-btn-right" (click)="downloadAsPDF()">
 
       <abbr title="Donwload Application Form"><i class="zmdi zmdi-download  zmdi-hc-3x"></i></abbr>
 
     </button>
 
-  </div>
+    </div>
 </main>

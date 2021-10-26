@@ -318,4 +318,18 @@ export class AdmissionDeskComponent implements OnInit {
   {
     this.router.navigate(['/institute/upload-receipt/'+s])
   }
+  getname(s)
+  {
+    // console.log(JSON.parse(s.item.ApplicationForm_submission.formFieldValues));
+    let personalinfo = JSON.parse(s.item.ApplicationForm_submission.formFieldValues);
+    // console.log(personalinfo.personalInfo.fullName);
+    return personalinfo.personalInfo.fullName
+  }
+  viewapplication(s)
+  {
+    console.log(s);
+    
+    this.router.navigate(['/institute/admission-desk/detailed-application-view/'+s])
+
+  }
 }

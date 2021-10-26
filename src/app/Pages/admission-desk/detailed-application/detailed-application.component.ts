@@ -19,6 +19,7 @@ import { trim } from 'lodash';
 export class DetailedApplicationComponent implements OnInit {
   instituteId = this.authService.instituteProfile.id;
   mainInstitueId= this.authService.instituteProfile.userId;
+  applicationstatus;
   appttitudetestdetails:any=[];
   applicationId;
   applicationData;
@@ -111,7 +112,9 @@ getcurrentyear(){
       endPoints.Get_applications + "?where[id]=" + this.applicationId
     ).subscribe((returnData: any) => {
       this.applicationData = returnData.data[0].item;
-
+      this.applicationstatus = this.applicationData['applicationStatus'];
+      console.log(this.applicationstatus);
+      
       this.reviewForm.controls.remarks.setValue(this.applicationData.remarks)
 
       const formData = JSON.parse(this.applicationData.formFieldValues)

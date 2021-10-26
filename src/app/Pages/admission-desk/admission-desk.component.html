@@ -198,9 +198,9 @@
                         <tbody>
                             <tr *ngFor="let item of feeremmitedSApplicants; let i=index">
                                 <td>{{i+1}}</td>
-                                <td>{{item?.formFieldValues?.personalInfo?.fullName}}</td>
+                                <td>{{getname(item)}}</td>
                                 <td style="text-align: center;">
-                                    <a (click)="viewApplicationStatus(item)">View</a>
+                                    <a (click)="viewapplication(item.item.applicationId)">View</a>
                                 </td>
 
                                 <td>{{item?.item?.localTransactionId }}</td>
@@ -208,8 +208,8 @@
                                 <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
                 </td> -->
 
-                                <td>{{item?.item?.updatedAt | date:'h:mm a'}}</td>
-                                <th></th>
+                                <td>{{item?.item?.createdAt | date:'h:mm a'}}</td>
+                                <th>RS.{{item?.order?.amount_paid}}/-</th>
                                 <td>Amount Paid</td>
                                 <td> <button class="btn btn-danger" (click)="upload(item?.item?.id)">Upload Recepit</button></td>
                                 <!-- <td *ngIf="item?.item?.transactionRecipt != null"> Download Recepit </td> -->
