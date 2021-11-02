@@ -1,0 +1,132 @@
+<div class="container" id="pdfTable" #pdfTable>
+    <div class="row">
+        <div class="col-sm-12">
+            <img src="./assets/images/logo.jpg" alt="" style="width: 200px;
+        margin: 0 auto;
+        display: block;">
+            <p style="float: right; ">Date : {{responselist?.updatedAt | date:'MMM d, y'}}</p>
+            <p>Nspot Ref : {{responselist?.nSpotReferenceId}}</p>
+
+
+
+
+
+        </div>
+        <!-- <div class="col-sm-6">
+            <p style="float: left; ">Auto Institute Ref : Nspot/addmission/54655</p>
+        </div>
+        <div class="col-sm-6">
+            <p style="float: right; ">Auto Admission Application No : Nspot/addmission/54655</p>
+        </div> -->
+        <div class="col-sm-12">
+            <h6 style="text-align: center;
+      font-size: 16px;
+      line-height: 80px;">Sub: Confirmation of Admission cum Fee Receipt
+            </h6>
+        </div>
+        <div class="col-sm-12">
+            <h6 style="line-height: 58px;">Congratulations!! <em style="    color: red;
+        font-style: inherit;"> {{studentDetails?.personalInfo?.fullName}}</em>
+            </h6>
+        </div>
+
+        <br>
+        <div class="col-sm-12">
+            <h6 style="line-height: 58px;">We are glad to inform you that your Admission for the course/Programme <em style="color: red; ">{{courseName}}</em> commencing from {{responselist?.Institute_Course?.classStartDate | date:'MMM d, y'}} session has been confirmed.</h6>
+        </div>
+
+
+        <div class="col-sm-12">
+
+
+            <h5 style="font-size: 19px;
+      text-decoration: underline;
+      font-weight: bold;">Important Credentials</h5>
+            <br>
+
+            <h6>Student Applicant Name :<em style="color: red; ">{{studentDetails?.personalInfo?.fullName}}</em> </h6>
+            <br>
+
+            <h6>Enrollment Number : .....................................................................................................................................................................</h6>
+            <br>
+
+            <h6>Other Reference Code/No:.....................................................................................................................................................................</h6>
+            <br>
+
+            <!-- <h6>Applicant KYC Details</h6> -->
+            <br>
+
+            <h6>Address :
+
+
+            </h6>
+            <h6 style="line-height: 26px;
+            margin-left: 43px;color: red;
+            margin-top: 14px;">
+                {{studentDetails?.personalInfo?.fullName}} , <br> {{responselist?.Student?.communicationAddressLine1}}
+
+                <br> {{responselist?.Student?.permanentAddressLine1}}, <br> {{responselist?.Student?.permanentAddressLine2}}, {{responselist?.Student?.permanentDistrict}}, <br> {{responselist?.Student?.permanentMobile}}
+                <br> {{responselist?.Student?.permanentPin}},{{responselist?.Student?.permanentState}}</h6>
+            <br>
+
+
+            <h6>Course/Programme Name : <em style="color: red; "> {{courseName}}</em></h6>
+            <br>
+
+            <h6>Full Course Fee : <em style="color: red; "> {{courseFeelist?.otherFee}}</em> </h6>
+            <br>
+
+            <h6>Spot Admission Fee Payment Received : <em style="color: red; ">{{courseFeelist?.spotfee}}</em> </h6>
+            <br>
+
+            <!-- <h6>Online Receipt Info - </h6> -->
+
+            <!-- <h6>Institutes Spot Admission Fee Refund Policy
+            </h6> -->
+
+
+
+
+            <h6>Institute Name <em style="color: red; ">{{institutelist?.name}}</em>
+            </h6>
+            <br>
+            <h6>Institute Address :
+
+
+            </h6>
+            <h6 style="line-height: 26px;
+            margin-left: 43px;color: red;
+            margin-top: 14px;">
+                {{institutelist?.addressLine1}} , <br> {{institutelist?.addressLine2}}
+
+                <br> {{institutelist?.block}}, <br>{{institutelist?.state}},<br> {{responselist?.country}}
+            </h6>
+            <br>
+            <h6> Student Report to Admission Officer Name : <em style="color: red; ">{{admissionOfficerList?.name}}</em>
+            </h6>
+            <br>
+            <h6> Admission Officer Name Email : <em style="color: red; ">{{admissionOfficerList?.email}}</em>
+            </h6>
+            <br>
+            <h6> Admission Officer Name Phone 1 : <em style="color: red; ">{{admissionOfficerList?.phone1}}</em>
+            </h6> <br>
+            <h6> Admission Officer Name Phone 2 : <em style="color: red; ">{{admissionOfficerList?.phone2}}</em>
+            </h6>
+
+            <br>
+            <p>Note: If we find your certificates produced are fraudulent etc </p>
+
+        </div>
+
+
+    </div>
+</div>
+<button class="btn btn-dark" (click)="download()" style="    position: fixed;
+right: 45px;
+bottom: 45px;
+width: 70px;
+height: 70px;
+border-radius: 50%;
+background-color: #1A4D59;
+border-color: #1A4D59;
+color: #FFF;"><img src="./assets/images/download.png" style="    width: 48px;"/></button>

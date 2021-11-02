@@ -401,6 +401,12 @@
                 <label class="req uppercase">Gender Allowance</label>
                 <div class="col-sm-3">
                     <p class="radio">
+                        <input type="checkbox" formControlName="otherGenderAllowed" id="" />
+                        <span>Co-Education</span>
+                    </p>
+                </div>
+                <div class="col-sm-3">
+                    <p class="radio">
                         <input type="checkbox" formControlName="maleAllowed" id="" /><span>Male Only</span>
                     </p>
                 </div>
@@ -416,12 +422,7 @@
                         <span>Other</span>
                     </p>
                 </div>
-                <div class="col-sm-3">
-                    <p class="radio">
-                        <input type="checkbox" formControlName="otherGenderAllowed" id="" />
-                        <span>Co-Education</span>
-                    </p>
-                </div>
+              
                 <app-control-messages [touched]="touched" [control]="f.maleAllowed"></app-control-messages>
                 <app-control-messages [touched]="touched" [control]="f.femaleAllowed"></app-control-messages>
                 <app-control-messages [touched]="touched" [control]="f.otherGenderAllowed"></app-control-messages>

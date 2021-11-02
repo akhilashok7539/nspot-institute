@@ -15,7 +15,7 @@
         <a [ngClass]="{ 'nav-link': true, 'py-2': true, active: true   }">
             Eligibility Required</a>
         <a [ngClass]="{ 'nav-link': true, 'py-2': true }">
-            Job Opertunities Info</a>
+            Job Opportunities Info</a>
     </div>
 
     <div class="container success">
@@ -25,7 +25,7 @@
         <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="col-sm-12">
-                    <label class="req uppercase">Brief description about eligibility for the course</label>
+                    <label class="req uppercase">Brief description - eligibility REQUIRED  for the course</label>
                     <textarea formControlName="eligibiliyInString" id="" cols="30" rows="10" placeholder="Educational qualification,Age, Cut off marks needed etc"></textarea>
                     <app-control-messages [touched]="touched" [control]="f.eligibiliyInString"></app-control-messages>
 
@@ -35,7 +35,7 @@
                         <option value="">Educational qualification</option>
 
                     </select> -->
-                    <button>Add next line</button>
+                    <!-- <button>Add next line</button> -->
                 </div>
 
                 <div class="col-sm-12">

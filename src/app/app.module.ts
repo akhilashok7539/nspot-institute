@@ -69,6 +69,8 @@ import { UploadRecepitComponent } from './Pages/upload-recepit/upload-recepit.co
 import { DownloadDocumentsComponent } from './Pages/download-documents/download-documents.component';
 import { InfrastructureEditComponent } from './Pages/infrastructure-edit/infrastructure-edit.component';
 import { InstituteTravelEditComponent } from './Pages/institute-travel-edit/institute-travel-edit.component';
+import { AddAdmisionNumberComponent } from './Pages/add-admision-number/add-admision-number.component';
+import { ConfirmationLetterComponent } from './Pages/confirmation-letter/confirmation-letter.component';
 const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
 
 @NgModule({
@@ -128,6 +130,8 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
     DownloadDocumentsComponent,
     InfrastructureEditComponent,
     InstituteTravelEditComponent,
+    AddAdmisionNumberComponent,
+    ConfirmationLetterComponent,
   ],
   imports: [
     BrowserModule,

@@ -86,6 +86,7 @@ export class EditInstitutekycInfoComponent implements OnInit {
       aboutUs: [''],
       religiousMinority:[''],
       officialEmail: ['', Validators.required],
+      websitelink:[''],
     });
     this.loadData();
   }

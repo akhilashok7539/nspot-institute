@@ -1,0 +1,17 @@
+.card{
+    border: 1px solid #d1caca;
+        padding: 44px;
+        text-align: center; 
+}
+h4{
+    font-size: 31px;
+    color: #1baee1;
+}
+.btn{
+    width: 34%;
+    margin-top: 26px;
+}
+.form-control{
+    margin-top: 26px;
+
+}

@@ -211,7 +211,11 @@
                                 <td>{{item?.item?.createdAt | date:'h:mm a'}}</td>
                                 <th>RS.{{item?.order?.amount_paid}}/-</th>
                                 <td>Amount Paid</td>
-                                <td> <button class="btn btn-danger" (click)="upload(item?.item?.id)">Upload Recepit</button></td>
+                                <td> 
+                                    <button class="btn btn-danger" (click)="upload(item?.item?.id)">Upload Recepit</button> 
+                                    &nbsp;
+                                    <button class="btn btn-success" routerLink="/institute/view-receipt/{{item?.item?.applicationId}}">View Admission Letter</button>
+                                </td>
                                 <!-- <td *ngIf="item?.item?.transactionRecipt != null"> Download Recepit </td> -->
                             </tr>
 

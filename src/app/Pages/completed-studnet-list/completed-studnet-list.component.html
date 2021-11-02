@@ -1,7 +1,7 @@
 <main id="register">
     <div class="page-heading text-center">
         <div class="container">
-            <h2>STUDENT ENTROLMENT REGISTER </h2>
+            <h2>STUDENT ENROLMENT REGISTER </h2>
         </div>
     </div>
     <div class="row" style="    padding: 47px;">
@@ -31,7 +31,8 @@
                     <th>DATE OF ONLINE INTERVIEW</th>
 
                     <th>PAYMENT STATUS</th>
-                    <th>ACTION</th>
+                    <th>College Admission Id</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -54,11 +55,12 @@
                     <td>{{item?.item?.ApplicationForm_submission.endDateTimeOfAptitudeTest | date:'MMM d, y'}}</td>
                     <td>{{item?.item?.ApplicationForm_submission.dateOfInterview | date:'MMM d, y'}}</td>
                     <td>PAYMENT COMPLETED</td>
+                    <td>{{item?.item?.ApplicationForm_submission?.admissionId}}</td>
                     <td>
                         <!-- <input type="text" name="" id="" [(ngModel)]="admisionnumber" placeholder="Enter Addmision number" class="form-control"> -->
                         <button class="btn btn-success" style="display: flex;
                         margin: 0 auto;
-                        margin-top: 8px;" (click)="update()">Add Addmission Number</button></td>
+                        margin-top: 8px;" (click)="update(item)">Add / update Addmission Number</button></td>
                     <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
               </td> -->
                 </tr>

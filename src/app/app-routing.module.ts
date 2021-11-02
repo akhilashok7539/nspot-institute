@@ -45,6 +45,8 @@ import { UploadRecepitComponent } from './Pages/upload-recepit/upload-recepit.co
 import { DownloadDocumentsComponent } from './Pages/download-documents/download-documents.component';
 import { InfrastructureEditComponent } from './Pages/infrastructure-edit/infrastructure-edit.component';
 import { InstituteTravelEditComponent } from './Pages/institute-travel-edit/institute-travel-edit.component';
+import { AddAdmisionNumberComponent } from './Pages/add-admision-number/add-admision-number.component';
+import { ConfirmationLetterComponent } from './Pages/confirmation-letter/confirmation-letter.component';
 
 const routes: Routes = [
   {
@@ -108,6 +110,9 @@ const routes: Routes = [
 
       { path: 'infrastructure-edit', component: InfrastructureEditComponent },
       { path: 'travelinfo-edit', component: InstituteTravelEditComponent },
+      { path: 'add-admissionnumber', component: AddAdmisionNumberComponent },
+
+      { path: 'view-receipt/:applicationId', component: ConfirmationLetterComponent },
 
     ],
   },

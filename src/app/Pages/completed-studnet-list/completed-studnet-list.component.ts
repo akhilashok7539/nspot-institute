@@ -30,6 +30,7 @@ export class CompletedStudnetListComponent implements OnInit {
     )
   }
   changeCourse(event) {
+    this.feeremmitedSApplicants = [];
     this.currentCourseId = event.target.value;
     this.loadDataForCourse(this.currentCourseId)
   }
@@ -72,12 +73,10 @@ export class CompletedStudnetListComponent implements OnInit {
     this.router.navigate(['/institute/admission-desk/detailed-application-view/'+s])
 
   }
-  update()
+  update(item)
   {
-    let req ={
-      admissionId:this.admisionnumber
-    }
-    console.log(req);
+    sessionStorage.setItem("applciationdata",JSON.stringify(item))
+   this.router.navigate(['/institute/add-admissionnumber'])
     
   }
 }
