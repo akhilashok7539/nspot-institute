@@ -283,14 +283,14 @@
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Course duration Year (Select if only applicable)</label>
                     <select  formControlName="year">
-                        <option value="0">0 Year</option>
+                        <option value="0 Year">0 Year</option>
 
-                        <option value="1">1 Year</option>
-                        <option value="2">2 Year</option>
-                        <option value="3">3 Year</option>
-                        <option value="4">4 Year</option>
-                        <option value="5">5 Year</option>
-                        <option value="6">6 Year</option>
+                        <option value="1 Year">1 Year</option>
+                        <option value="2 Year">2 Year</option>
+                        <option value="3 Year">3 Year</option>
+                        <option value="4 Year">4 Year</option>
+                        <option value="5 Year">5 Year</option>
+                        <option value="6 Year">6 Year</option>
                         <option value="--">--</option>
 
                     </select>
@@ -299,17 +299,17 @@
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Course duration Months (Select if only applicable)</label>
                     <select  formControlName="month">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
+                        <option value="1 Month">1 Month</option>
+                        <option value="2 Month">2 Month</option>
+                        <option value="3 Month">3 Month</option>
+                        <option value="4 Month">4 Month</option>
+                        <option value="5 Month">5 Month</option>
+                        <option value="6 Month">6 Month</option>
+                        <option value="7 Month">7 Month</option>
+                        <option value="8 Month">8 Month</option>
+                        <option value="9 Month">9 Month</option>
+                        <option value="10 Month">10 Month</option>
+                        <option value="11 Month">11 Month</option>
                      
                        
                         <option value="--">--</option>
@@ -319,37 +319,37 @@
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Course duration Days (Select if only applicable)</label>
                     <select  formControlName="day">
-                        <option value="1">1</option>
-                        <option value="1">2</option>
-                        <option value="1">3</option>
-                        <option value="1">4</option>
-                        <option value="1">5</option>
-                        <option value="1">6</option>
-                        <option value="1">7</option>
-                        <option value="1">8</option>
-                        <option value="1">9</option>
-                        <option value="1">10</option>
-                        <option value="1">11</option>
-                        <option value="1">12</option>
-                        <option value="1">13</option>
-                        <option value="1">14</option>
-                        <option value="1">15</option>
-                        <option value="1">16</option>
-                        <option value="1">17</option>
-                        <option value="1">18</option>
-                        <option value="1">19</option>
-                        <option value="1">20</option>
-                        <option value="1">21</option>
-                        <option value="1">22</option>
-                        <option value="1">23</option>
-                        <option value="1">24</option>
-                        <option value="1">25</option>
-                        <option value="1">26</option>
-                        <option value="1">27</option>
-                        <option value="1">28</option>
-                        <option value="1">29</option>
-                        <option value="1">30</option>
-                        <option value="1">31</option>
+                        <option value="1 Days">1 Days</option>
+                        <option value="2 Days">2 Days</option>
+                        <option value="3 Days">3 Days</option>
+                        <option value="4 Days">4 Days</option>
+                        <option value="5 Days">5 Days</option>
+                        <option value="6 Days">6 Days</option>
+                        <option value="7 Days">7 Days</option>
+                        <option value="8 Days">8 Days</option>
+                        <option value="9 Days">9 Days</option>
+                        <option value="10 Days">10 Days</option>
+                        <option value="11 Days">11 Days</option>
+                        <option value="12 Days">12 Days</option>
+                        <option value="13 Days">13 Days</option>
+                        <option value="14 Days">14 Days</option>
+                        <option value="15 Days">15 Days</option>
+                        <option value="16 Days">16 Days</option>
+                        <option value="17 Days">17 Days</option>
+                        <option value="18 Days">18 Days</option>
+                        <option value="19 Days">19 Days</option>
+                        <option value="20 Days">20 Days</option>
+                        <option value="21 Days">21 Days</option>
+                        <option value="22 Days">22 Days</option>
+                        <option value="23 Days">23 Days</option>
+                        <option value="24 Days">24 Days</option>
+                        <option value="25 Days">25 Days</option>
+                        <option value="26 Days">26 Days</option>
+                        <option value="27 Days">27 Days</option>
+                        <option value="28 Days">28 Days</option>
+                        <option value="29 Days">29 Days</option>
+                        <option value="30 Days">30 Days</option>
+                        <option value="31 Days">31 Days</option>
                         <option value="--">--</option>
 
                     </select>
@@ -471,7 +471,13 @@
 
             <div class="col-sm-4 offset-3">
                 <label class="req uppercase">CAMPUS LOCALITY </label>
-                <input type="text" formControlName="locality" placeholder="enter course stream" />
+                <select name="" id="" formControlName="locality">
+                    <option value="" selected disabled>Choose a Campus Locality</option>
+                    <option value="Urban">Urban</option>
+                    <option value="Rural">Rural</option>
+
+                </select>
+                <!-- <input type="text" formControlName="locality" placeholder="enter course stream" /> -->
                 <app-control-messages [touched]="touched" [control]="f.locality"></app-control-messages>
             </div>
 <!-- 

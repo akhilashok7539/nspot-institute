@@ -63,7 +63,7 @@
 
                     <input type="text" formControlName="nickname" placeholder="Nickname" required />
                     <app-control-messages [touched]="touched" [control]="f.nickname"></app-control-messages>
-                    <label for="">Aadhar Number </label>
+                    <label for="">Aadhaar Number </label>
 
                     <input type="text" formControlName="aadharNumber" placeholder="aadhar Number" required />
                     <app-control-messages [touched]="touched" [control]="f.aadharNumber"></app-control-messages>
@@ -77,7 +77,7 @@
                     <label for="">Passbook File</label>
                     <input type="file" (change)="onchangeFile('passbookFile',$event)" formControlName="passbookFile" />
                     <app-control-messages [touched]="touched" [control]="f.passbookFile"></app-control-messages>
-                    <label for="">Aadhar File</label>
+                    <label for="">Aadhaar File</label>
                     <input type="file" (change)="onchangeFile('aadharFile',$event)" formControlName="aadharFile" />
                     <app-control-messages [touched]="touched" [control]="f.aadharFile"></app-control-messages>
                     <label for="">Pan card File</label>

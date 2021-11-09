@@ -41,11 +41,11 @@
         </div> -->
                 <div class="clearfix"></div>
                 <div class="col-sm-6 mt-5" *ngIf="activeButton === 1 || activeButton === 2 || activeButton === 3">
-                    <label class="req uppercase">SELECT COURSE PROGRAM
+                    <label class="req uppercase">SELECT COURSE / PROGRAM
 </label>
                     <select (change)="changeCourse($event)" name="type">
             {{courses|json}}
-            <option value="">SELECT COURSE PROGRAM
+            <option value="">SELECT COURSE / PROGRAM
 </option>
             <option *ngFor="let item of courses" value="{{item.item.id}}">{{item.CourseName}}
             </option>
@@ -160,7 +160,7 @@
                                 <!-- <td></td>
                 <td></td> -->
                                 <td></td>
-                                <td></td>
+                                <td>Payment Pending</td>
                             </tr>
                             <tr *ngIf="paymentAwaitingApplications?.length<=0">
                                 <td colspan="10" align="center">Empty List</td>
@@ -187,7 +187,7 @@
                                 <!-- <th>CHAT</th> -->
                                 <!-- <th>DATE OF REPORTING</th> -->
                                 <th>TRANSACTION ID</th>
-                                <th>TRANSACTION TIME</th>
+                                <th>TRANSACTION DATE & TIME</th>
                                 <th>PAID AMOUNT</th>
 
                                 <th>PAYMENT STATUS</th>
@@ -208,7 +208,7 @@
                                 <!-- <td> <button class="btn btn-info" (click)="confirmResubmission(item.id)">Request Resubmition</button>
                 </td> -->
 
-                                <td>{{item?.item?.createdAt | date:'h:mm a'}}</td>
+                                <td>{{item?.item?.createdAt | date:'MMM d, y'}}  {{item?.item?.createdAt | date:'h:mm a'}}</td>
                                 <th>RS.{{item?.order?.amount_paid}}/-</th>
                                 <td>Amount Paid</td>
                                 <td> 

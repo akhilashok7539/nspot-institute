@@ -28,10 +28,13 @@
                     <!-- <th>CHAT</th> -->
                     <!-- <th>DATE OF REPORTING</th> -->
                     <th>DATE OF APTITUDE TEST</th>
+                    <th>DATE OF APTITUDE TEST MARKS</th>
+
                     <th>DATE OF ONLINE INTERVIEW</th>
+                    <th>DATE OF ONLINE INTERVIEW MARKS</th>
 
                     <th>PAYMENT STATUS</th>
-                    <th>College Admission Id</th>
+                    <th>COLLEGE ADMISSION ID</th>
                     <th></th>
                 </tr>
             </thead>
@@ -53,7 +56,11 @@
                 </button>
               </td> -->
                     <td>{{item?.item?.ApplicationForm_submission.endDateTimeOfAptitudeTest | date:'MMM d, y'}}</td>
+                    <td>{{item?.item?.ApplicationForm_submission.onlineinterviewstatus}}</td>
+
                     <td>{{item?.item?.ApplicationForm_submission.dateOfInterview | date:'MMM d, y'}}</td>
+                    <td>{{item?.item?.ApplicationForm_submission.onlineinterviewstatus}}</td>
+
                     <td>PAYMENT COMPLETED</td>
                     <td>{{item?.item?.ApplicationForm_submission?.admissionId}}</td>
                     <td>
