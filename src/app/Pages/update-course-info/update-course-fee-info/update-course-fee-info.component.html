@@ -1,0 +1,329 @@
+<!-- <main id="register">
+    <div class="page-heading text-center">
+        <div class="container">
+            <h2>UPDATE COURSE FEE DETAILS</h2>
+        </div>
+    </div>
+</main> -->
+
+
+<main id="register">
+    <div class="page-heading text-center">
+        <div class="container">
+            <h2> UPDATE COURSE FEE DETAILS</h2>
+
+        </div>
+    </div>
+
+
+    <div class="container success">
+
+        <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4 class="sub-title uppercase">
+                        FEE INFO INDIAN/NRI STUDENTS
+                    </h4>
+                    <div class="col-sm-12">
+                        <label class="uppercase">Duration Of Course</label>
+                        <input type="text" [(ngModel)]="courseDuration" [ngModelOptions]="{standalone: true}" disabled>
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Enter Full Course Fees for the above Course duration</label>
+                        <input type="number" formControlName="otherFee" placeholder="Other"
+                            (blur)="calculateTotalFee()" />
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Full Course Fees Includes</label>
+                        <input type="text" formControlName="otherincludes">
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Full Course Fees Excludes</label>
+                        <input type="text" formControlName="otherexcludes">
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">FULL FEE PAYMENT PLAN</label>
+                        <select formControlName="paymentTenureId">
+                            <option value="">Select a payment tenure</option>
+                            <option *ngFor="let item of paymentTenures" value="{{item.id}}">{{item.title}}</option>
+                        </select>
+                        <app-control-messages [touched]="touched" [control]="f.paymentTenureId"></app-control-messages>
+                    </div>
+
+
+                    <hr />
+
+
+                    <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Scholarship Benifites</label>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="checkbox">
+                                <input type="checkbox" formControlName="hasScolarship" /><span> </span>
+                            </p>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <div *ngIf="form.controls.hasScolarship.value">
+
+                            <div class="col-md-12">
+                                <label class="req uppercase">Scholarship Amount Upto</label>
+                                <input type="number" placeholder="enter scholarship amount" formControlName="amount"
+                                    id="" />
+                                <app-control-messages [touched]="touched" [control]="f.amount">
+                                </app-control-messages>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 thumbnail pt-3 pb-3 mt-3">
+                        <div class="col-sm-6 ">
+                            <button type="button" class="btn btn-info uppercase" (click)="calculateNspotFee()">Calculate
+                                NSPOT
+                                Fees</button>
+                        </div>
+                        <div class="col-sm-6 align-items">
+                               
+                            <button type="button" class="btn btn-secondary uppercase" style="background-color: none !important;">{{nspotFeeObj.nspotFee+nspotFeeObj.bankCharge+nspotFeeObj.nspotTax}}</button>
+                      
+                        </div>
+                    </div>
+                    <div class="col-sm-12 nirus-fee">
+                        <div class="col-sm-12 thumbnail">
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <label class="uppercase">NSPOT Service Charges</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <label class="uppercase">{{nspotFeeObj.nspotFee}}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <label class="uppercase">Bank Charges</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <label class="uppercase">{{nspotFeeObj.bankCharge}}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <label class="uppercase">TAX</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <label class="uppercase">{{nspotFeeObj.nspotTax}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <h4 class="sub-title uppercase bank-details">
+                            Bank Details
+                        </h4>
+                        <div class="col-sm-12">
+                            <label class="req uppercase">Select Account</label>
+                            <select formControlName="bankAccountId">
+                                <option value="">Select</option>
+                                <option *ngFor="let item of bankDetails" value="{{item.id}}">{{item.nickname}}</option>
+                            </select>
+                            <app-control-messages [touched]="touched" [control]="f.bankAccountId">
+                            </app-control-messages>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Spot Admission Fee</label>
+                            <span style="    font-size: 10px;
+                            font-style: italic;
+                            color: red;
+                        ">Spot Admission fee must be greater than Nspot fee</span>
+                        </div>
+                        <div class="col-md-3">
+
+
+
+                        </div>
+                        <input type="text" formControlName="spotfee" placeholder="Spot Admission fee" />
+                    </div>
+
+
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Amount credited to the INSTITUTE</label>
+                        <input type="text" formControlName="amountcreditedInstitute" placeholder="Amount credited to institute">
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Admission cancellation policy and Fee refund policy</label>
+                        </div>
+                        <div class="col-md-3">
+
+
+
+                        </div>
+                        <input type="text" formControlName="refundPolicy" placeholder="enter your refund policy" />
+                        <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages>
+                    </div>
+
+                </div>
+
+                <!-- second form fee  -->
+                
+                <div class="col-sm-6">
+                    <h4 class="sub-title uppercase">
+                        FEE INFO INTERNATIONAL STUDENTS
+                    </h4>
+                    <div class="col-sm-12">
+                        <label class="uppercase">Duration Of Course</label>
+                        <input type="text" [(ngModel)]="courseDuration" [ngModelOptions]="{standalone: true}" disabled>
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Enter Full Course Fees for the above Course duration</label>
+                        <input type="number" formControlName="nriotherFee" placeholder="Other"
+                            (blur)="calculateTotalFee()" />
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Full Course Fees Includes</label>
+                        <input type="text" formControlName="nriOtherIncludes">
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Full Course Fees Excludes</label>
+                        <input type="text" formControlName="nriOtherexcludes">
+                    </div>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">FULL FEE PAYMENT PLAN</label>
+                        <select formControlName="nripaymentTenureId">
+                            <option value="">Select a payment tenure</option>
+                            <option *ngFor="let item of paymentTenures" value="{{item.id}}">{{item.title}}</option>
+                        </select>
+                        <app-control-messages [touched]="touched" [control]="f.paymentTenureId"></app-control-messages>
+                    </div>
+
+
+                    <hr />
+
+
+                    <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Scholarship Benifites</label>
+                        </div>
+                        <div class="col-md-3">
+                            <p class="checkbox">
+                                <input type="checkbox" formControlName="hasScolarshipNri" /><span> </span>
+                            </p>
+                        </div>
+
+                        <div class="clearfix"></div>
+                        <div *ngIf="form.controls.hasScolarshipNri.value">
+
+                            <div class="col-md-12">
+                                <label class="req uppercase">Scholarship Amount Upto</label>
+                                <input type="number" placeholder="enter scholarship amount" formControlName="nrischlorshipamount"
+                                    id="" />
+                                <app-control-messages [touched]="touched" [control]="f.amount">
+                                </app-control-messages>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 thumbnail pt-3 pb-3 mt-3">
+                        <div class="col-sm-6">
+                            <button type="button" class="btn btn-info uppercase" (click)="calculateNspotFee()">Calculate
+                                NSPOT
+                                Fees</button>
+                        </div>
+                        <div class="col-sm-6 align-items">
+                            <button type="button" class="btn btn-secondary uppercase" style="background-color: none !important;">{{nspotFeeObj.nspotFee+nspotFeeObj.bankCharge+nspotFeeObj.nspotTax}}</button>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-12 nirus-fee">
+                        <div class="col-sm-12 thumbnail">
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <label class="uppercase">NSPOT Service Charges</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <label class="uppercase">{{nspotFeeObj.nspotFee}}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <label class="uppercase">Bank Charges</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <label class="uppercase">{{nspotFeeObj.bankCharge}}</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-7">
+                                    <label class="uppercase">TAX</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <label class="uppercase">{{nspotFeeObj.nspotTax}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <h4 class="sub-title uppercase bank-details">
+                            Bank Details
+                        </h4>
+                        <div class="col-sm-12">
+                            <label class="req uppercase">Select Account</label>
+                            <select formControlName="bankAccountId">
+                                <option value="">Select</option>
+                                <option *ngFor="let item of bankDetails" value="{{item.id}}">{{item.nickname}}</option>
+                            </select>
+                            <app-control-messages [touched]="touched" [control]="f.bankAccountId">
+                            </app-control-messages>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Spot Admission Fee</label>
+                            <span style="    font-size: 10px;
+                            font-style: italic;
+                            color: red;
+                        ">Spot Admission fee must be greater than Nspot fee</span>
+                        </div>
+                        <div class="col-md-3">
+
+
+
+                        </div>
+                        <input type="text" formControlName="nriSpotfee" placeholder="Spot Admission fee" />
+                    </div>
+
+
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Amount credited to the INSTITUTE</label>
+                        <input type="text" formControlName="nriAmountCreditedinstitute">
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Admission cancellation policy and Fee refund policy</label>
+                        </div>
+                        <div class="col-md-3">
+
+
+
+                        </div>
+                        <input type="text" formControlName="nrirefundPolicy" placeholder="enter your refund policy" />
+                        <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages>
+                    </div>
+                </div>
+            </div>
+            <div class="row clearfix">
+                <div class="col-sm-12 mt-3" style="display: flex;
+                justify-content: center;">
+                        <button type="submit" class="btn btn-info mb-5" id="submit-btn">
+                           UPDATE
+                        </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <pre>{{form.value | json}}</pre>
+    
+</main>

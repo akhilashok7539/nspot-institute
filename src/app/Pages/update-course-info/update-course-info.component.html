@@ -15,7 +15,7 @@
         <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Select Main Desk</label>
+                    <label class="req uppercase">Select Admission Desk</label>
                     <select formControlName="CourseCategoryId" (change)="maindeksChange($event)">
                         <option value="">Choose Main Desk</option>
                         <option *ngFor="let item of maindeskdata" value="{{item.id}}">{{item.title}}</option>
@@ -24,7 +24,7 @@
 
                 <!-- Courses -->
                 <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Choose sub category Courses</label>
+                    <label class="req uppercase">Choose category Course</label>
 
                     <select formControlName="CourseSubCategoryId" (change)="submaindeksChange($event)">
                         <option value="">Choose Course</option>
@@ -34,7 +34,7 @@
 
                 <!-- Course streams -->
                 <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Choose sub category Courses</label>
+                    <label class="req uppercase">Choose sub category Course</label>
 
                     <select formControlName="CourseSubCategory2Id" (change)="loadAccademicLevelCoursessubcat1($event)">
                         <option value="">Choose Course</option>
@@ -44,37 +44,57 @@
 
                 <!-- Course stream specializations -->
                 <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Choose sub category Courses</label>
+                    <label class="req uppercase">Select Course</label>
 
                     <select formControlName="CourseSubCategory3Id" (change)="loadAccademicLevelCoursessubcat2($event)">
                         <option value="">Choose Course</option>
                         <option *ngFor="let item of courseStreamsSpecializations12" value="{{item.id}}">{{item.title}}
                         </option>
                     </select>
-                   
+
                 </div>
                 <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Choose sub category Courses</label>
+                    <label class="req uppercase">Select Course</label>
 
                     <select formControlName="CourseSubCategory4Id" (change)="loadAccademicLevelCoursessubcat3($event)">
                         <option value="">Choose Course</option>
                         <option *ngFor="let item of courseStreamsSpecializations1" value="{{item.id}}">{{item.title}}
                         </option>
                     </select>
-                   
+
                 </div>
                 <div class="col-sm-4 offset-sm-3" style="">
-                    <label class="req uppercase">Choose sub category Courses</label>
+                    <label class="req uppercase">Select Course</label>
 
                     <select formControlName="CourseSubCategory5Id">
                         <option value="">Choose Course</option>
                         <option *ngFor="let item of courseStreamsSpecializations2" value="{{item.id}}">{{item.title}}
                         </option>
                     </select>
-
                     <p style="    margin-top: 15px;
                     font-weight: bold;">Didn’t find the course you offer? <a routerLink="/institute/contact-us">Contact Us?</a></p>
                 </div>
+
+                <!-- <div class="col-sm-4 offset-sm-3">
+                   
+                    <label class="req uppercase">Select Academic level of Course</label>
+                    <select formControlName="accademicLevelId" (change)="loadAccademicLevelCourses($event)">
+                        <option value="">Select Academic Level</option>
+                        <option *ngFor="let item of accademicLevels" value="{{item.id}}">{{item.title}}</option>
+                    </select>
+                    <app-control-messages [touched]="touched" [control]="f.accademicLevelId"></app-control-messages>
+                </div>
+
+                <div class="col-sm-4 offset-sm-3">
+                    <label class="req uppercase">Course Name</label>
+                    <select formControlName="accademicLevelCourseId">
+                        <option value="">Select Academic Level</option>
+                        <option *ngFor="let item of accademicLevelsCourses" value="{{item.id}}">{{item.title}}</option>
+                    </select>
+                    <app-control-messages [touched]="touched" [control]="f.accademicLevelCourseId">
+                    </app-control-messages>
+                </div> -->
+
                 <div class="col-sm-4 offset-sm-3">
                     <label class="req uppercase">Course Type</label>
                     <select formControlName="courseTypeId">
@@ -83,6 +103,7 @@
                     </select>
                     <app-control-messages [touched]="touched" [control]="f.courseTypeId"></app-control-messages>
                 </div>
+
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Course Code</label>
                     <input type="text" formControlName="courseCode" placeholder="enter course code" required />
@@ -93,19 +114,10 @@
                     <input type="text" formControlName="programCode" placeholder="enter program code" required />
                     <app-control-messages [touched]="touched" [control]="f.programCode"></app-control-messages>
                 </div>
-<!-- 
-                <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Select Academic level of Course</label>
-                    <select formControlName="accademicLevelId" (change)="loadAccademicLevelCourses($event)">
-                        <option value="">Select Academic Level</option>
-                        <option *ngFor="let item of accademicLevels" value="{{item.id}}">{{item.title}}</option>
-                    </select>
-                    <app-control-messages [touched]="touched" [control]="f.accademicLevelId"></app-control-messages>
-                </div> -->
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Institution Type</label>
                     <select formControlName="instituteType">
-                        <option value="">Select one</option>
+                        <option value="" disabled selected>Select one</option>
                         <option *ngFor="let item of institutionTypeList" value="{{item.title}}">{{item.title}}</option>
                     </select>
                     <app-control-messages [touched]="touched" [control]="f.instituteType"></app-control-messages>
@@ -114,23 +126,23 @@
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Institution Category</label>
                     <select formControlName="instituteCatagory">
-                        <option value="">Select one</option>
+                        <option value="" disabled selected>Select one</option>
                         <option *ngFor="let item of institutionCategoryList" value="{{item.title}}">{{item.title}}
                         </option>
                     </select>
                     <app-control-messages [touched]="touched" [control]="f.instituteCatagory"></app-control-messages>
                 </div>
+
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">University/Academic Board/Other</label>
                     <select formControlName="universityTypeId" (change)="changeType($event)">
-                        <option value="">Select one</option>
+                        <option value="" disabled selected> Select one</option>
                         <option *ngFor="let item of universityTypes" value="{{item.id}}">{{item.title}}</option>
                     </select>
                     <app-control-messages [touched]="touched" [control]="f.universityTypeId"></app-control-messages>
                 </div>
 
-
-                <div class="col-sm-4 offset-3" *ngIf="universityTypeSelected === 1">
+                <div class="col-sm-4 offset-3" *ngIf="universityTypeSelected === '1'">
                     <label class="req uppercase">Name of University</label>
                     <select formControlName="universityId">
                         <option value="" disabled>Select one</option>
@@ -142,7 +154,7 @@
                 
                 
                 </div>
-                <div class="col-sm-4 offset-3" *ngIf="universityTypeSelected === 2">
+                <div class="col-sm-4 offset-3" *ngIf="universityTypeSelected === '2'">
                     <label class="req uppercase">Name of Board</label>
                     <select formControlName="boardId">
                         <option value="" disabled>Select one</option>
@@ -154,7 +166,7 @@
                 
                 
                 </div>
-                <div class="col-sm-4 offset-3" *ngIf="universityTypeSelected === 3">
+                <div class="col-sm-4 offset-3" *ngIf="universityTypeSelected === '3'">
                     <label class="req uppercase">Other Types</label>
                     <select formControlName="otherId">
                         <option value="" disabled>Select one</option>
@@ -166,11 +178,14 @@
                 
                 
                 </div>
+               
+
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">No. Of Vacant Admission Seat</label>
                     <input type="number" formControlName="availableSeats" placeholder="enter course stream" />
                     <app-control-messages [touched]="touched" [control]="f.availableSeats"></app-control-messages>
                 </div>
+
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Admission Seat Posting For The Academic Year-Month</label>
                     <div class="col-sm-6 offset-3">
@@ -184,282 +199,139 @@
                     </div>
                 </div>
 
-                <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Course Name</label>
-                    <select formControlName="accademicLevelCourseId">
-                        <option value="">Select Academic Level</option>
-                        <option *ngFor="let item of accademicLevelsCourses" value="{{item.id}}">{{item.title}}</option>
+              
+
+             
+                <div class="col-sm-4 offset-3">
+                    <label class="req uppercase">Course duration Year (Select if only applicable)</label>
+                    <select  formControlName="year">
+                        <option value="0 Year">0 Year</option>
+
+                        <option value="1 Year">1 Year</option>
+                        <option value="2 Year">2 Year</option>
+                        <option value="3 Year">3 Year</option>
+                        <option value="4 Year">4 Year</option>
+                        <option value="5 Year">5 Year</option>
+                        <option value="6 Year">6 Year</option>
+                        <option value="--">--</option>
+
                     </select>
-                    <app-control-messages [touched]="touched" [control]="f.accademicLevelCourseId">
-                    </app-control-messages>
                 </div>
 
-                <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Course Type</label>
-                    <select formControlName="courseTypeId">
-                        <option value="">Select course type</option>
-                        <option *ngFor="let item of courseTypes" value="{{item.id}}">{{item.title}}</option>
+                <div class="col-sm-4 offset-3">
+                    <label class="req uppercase">Course duration Months (Select if only applicable)</label>
+                    <select  formControlName="month">
+                        <option value="1 Month">1 Month</option>
+                        <option value="2 Month">2 Month</option>
+                        <option value="3 Month">3 Month</option>
+                        <option value="4 Month">4 Month</option>
+                        <option value="5 Month">5 Month</option>
+                        <option value="6 Month">6 Month</option>
+                        <option value="7 Month">7 Month</option>
+                        <option value="8 Month">8 Month</option>
+                        <option value="9 Month">9 Month</option>
+                        <option value="10 Month">10 Month</option>
+                        <option value="11 Month">11 Month</option>
+                     
+                       
+                        <option value="--">--</option>
+
                     </select>
-                    <app-control-messages [touched]="touched" [control]="f.courseTypeId"></app-control-messages>
                 </div>
-
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Course Code</label>
-                    <input type="text" formControlName="courseCode" placeholder="enter course code" required />
-                    <app-control-messages [touched]="touched" [control]="f.courseCode"></app-control-messages>
-                </div>
+                    <label class="req uppercase">Course duration Days (Select if only applicable)</label>
+                    <select  formControlName="day">
+                        <option value="1 Days">1 Days</option>
+                        <option value="2 Days">2 Days</option>
+                        <option value="3 Days">3 Days</option>
+                        <option value="4 Days">4 Days</option>
+                        <option value="5 Days">5 Days</option>
+                        <option value="6 Days">6 Days</option>
+                        <option value="7 Days">7 Days</option>
+                        <option value="8 Days">8 Days</option>
+                        <option value="9 Days">9 Days</option>
+                        <option value="10 Days">10 Days</option>
+                        <option value="11 Days">11 Days</option>
+                        <option value="12 Days">12 Days</option>
+                        <option value="13 Days">13 Days</option>
+                        <option value="14 Days">14 Days</option>
+                        <option value="15 Days">15 Days</option>
+                        <option value="16 Days">16 Days</option>
+                        <option value="17 Days">17 Days</option>
+                        <option value="18 Days">18 Days</option>
+                        <option value="19 Days">19 Days</option>
+                        <option value="20 Days">20 Days</option>
+                        <option value="21 Days">21 Days</option>
+                        <option value="22 Days">22 Days</option>
+                        <option value="23 Days">23 Days</option>
+                        <option value="24 Days">24 Days</option>
+                        <option value="25 Days">25 Days</option>
+                        <option value="26 Days">26 Days</option>
+                        <option value="27 Days">27 Days</option>
+                        <option value="28 Days">28 Days</option>
+                        <option value="29 Days">29 Days</option>
+                        <option value="30 Days">30 Days</option>
+                        <option value="31 Days">31 Days</option>
+                        <option value="--">--</option>
 
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">University/Academic Board/Other</label>
-                    <select formControlName="universityTypeId">
-                        <option value="">Select one</option>
-                        <option *ngFor="let item of universityTypes" value="{{item.id}}">{{item.title}}</option>
                     </select>
-                    <app-control-messages [touched]="touched" [control]="f.universityTypeId"></app-control-messages>
                 </div>
-
-                <!-- <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Name of University</label>
-                    <input type="text" formControlName="universityName" placeholder="enter name of university" />
-                    <app-control-messages [touched]="touched" [control]="f.universityName"></app-control-messages>
-                </div> -->
-
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Course Stream</label>
-                    <select formControlName="courseStreamId" (change)="subloadCourseStreamSpecializations($event)">
-                        <option value="">Select Academic Level</option>
-                        <option *ngFor="let item of courseStreams" value="{{item.id}}">{{item.title}}</option>
-                    </select>
-                    <app-control-messages [touched]="touched" [control]="f.courseStreamId"></app-control-messages>
+                    <label class="req uppercase">Course duration Hours (Select if only applicable)</label>
+                    <input type="text" formControlName="hour">
+                   
                 </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="uppercase">Specialisation</label>
-                    <select formControlName="courseStreamSpecializationId">
-                        <option value="">Select Academic Level</option>
-                        <option *ngFor="let item of courseStreamsSpecializations" value="{{item.id}}">{{item.title}}
-                        </option>
-                    </select>
-                    <app-control-messages [touched]="touched" [control]="f.courseStreamSpecializationId">
-                    </app-control-messages>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">No. Of Available Seats</label>
-                    <input type="number" formControlName="availableSeats" placeholder="enter course stream" />
-                    <app-control-messages [touched]="touched" [control]="f.availableSeats"></app-control-messages>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">For The Academic Year/Session</label>
-                    <div class="col-sm-4 offset-3">
-                        <input type="text" formControlName="accademicYear" placeholder="yyyy" />
-                        <app-control-messages [touched]="touched" [control]="f.accademicYear"></app-control-messages>
-                    </div>
-                    <div class="col-sm-4 offset-3">
-                        <input type="text" formControlName="accademicYearMonth" placeholder="mm" />
-                        <app-control-messages [touched]="touched" [control]="f.accademicYearMonth">
-                        </app-control-messages>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Course duration</label>
-                    <input type="text" formControlName="courseDuration"
-                        placeholder="enter course duration Eg: 1 year 3 months OR 200 hours" />
-                    <app-control-messages [touched]="touched" [control]="f.courseDuration"></app-control-messages>
-                    <!-- <div class="col-sm-4 offset-3">
-                        <input type="text" formControlName="courseDuration_year" placeholder="yyyy" />
-                        <app-control-messages [touched]="touched" [control]="f.courseDuration_year">
-                        </app-control-messages>
-                    </div>
-                    <div class="col-sm-4 offset-3">
-                        <input type="text" formControlName="courseDuration_months" placeholder="mm" />
-                        <app-control-messages [touched]="touched" [control]="f.courseDuration_months">
-                        </app-control-messages>
-                    </div> -->
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Exam Conducted</label>
-                    <select formControlName="examConducted" id="">
-                        <option value="">Slect option</option>
-                        <option value="daily">Daily</option>
-                        <option value="weekly">Weekly</option>
-                        <option value="monthly">Monthly</option>
-                        <option value="quarterly">Quarterly</option>
-                        <option value="yearly">Yearly</option>
-                    </select>
-                    <app-control-messages [touched]="touched" [control]="f.examConducted"></app-control-messages>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Course Syllabus</label>
-                    <input type="file" formControlName="courseSyllabusFile"
-                        (change)="onchangeFile('courseSyllabusFile',$event)" />
-                    <app-control-messages [touched]="touched" [control]="f.courseSyllabusFile"></app-control-messages>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Admission Starting Date</label>
-                    <input type="date" formControlName="admissionStartDate" placeholder="enter course stream" />
-                    <app-control-messages [touched]="touched" [control]="f.admissionStartDate"></app-control-messages>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Admission Clossing Date</label>
-                    <input type="date" formControlName="admissionCloseDate" placeholder="enter course stream" />
-                    <app-control-messages [touched]="touched" [control]="f.admissionCloseDate"></app-control-messages>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Class Starting Date</label>
-                    <input type="date" formControlName="classStartDate" placeholder="enter course stream" />
-                    <app-control-messages [touched]="touched" [control]="f.classStartDate"></app-control-messages>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Gender Allowance</label>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="checkbox" formControlName="maleAllowed" id="" [checked]="courserListDetails.maleAllowed== true"/><span>Male</span>
-                        </p>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="checkbox" formControlName="femaleAllowed" id="" [checked]="courserListDetails.femaleAllowed== true" />
-                            <span>Female</span>
-                        </p>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="checkbox" formControlName="otherGenderAllowed" id="" [checked]="courserListDetails.otherGenderAllowed== true" />
-                            <span>Other</span>
-                        </p>
-                    </div>
-                    <app-control-messages [touched]="touched" [control]="f.maleAllowed"></app-control-messages>
-                    <app-control-messages [touched]="touched" [control]="f.femaleAllowed"></app-control-messages>
-                    <app-control-messages [touched]="touched" [control]="f.otherGenderAllowed"></app-control-messages>
-                </div>
-
-                <div class="clearfix"></div>
-                <!-- <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Campus Name</label>
-                    <input type="text" formControlName="campusName" placeholder="Enter campus name" />
-                    <app-control-messages [touched]="touched" [control]="f.campusName"></app-control-messages>
-                </div> -->
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Campus Address Line 1</label>
-                    <input type="text" formControlName="campusAddressLine1" placeholder="Enter campus address line 1" />
-                    <app-control-messages [touched]="touched" [control]="f.campusAddressLine1"></app-control-messages>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Campus Address Line 2</label>
-                    <input type="text" formControlName="campusAddressLine2" placeholder="Enter campus address line 2" />
-                    <app-control-messages [touched]="touched" [control]="f.campusAddressLine2"></app-control-messages>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Campus Address Line 3</label>
-                    <input type="text" formControlName="campusAddressLine3" placeholder="Enter campus address line 3" />
-                    <app-control-messages [touched]="touched" [control]="f.campusAddressLine3"></app-control-messages>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Country</label>
-                    <input type="Text" formControlName="country" placeholder="enter course stream" />
-                    <app-control-messages [touched]="touched" [control]="f.country"></app-control-messages>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Block</label>
-                    <input type="text" formControlName="block" placeholder="enter course stream" />
-                    <app-control-messages [touched]="touched" [control]="f.block"></app-control-messages>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Locality</label>
-                    <input type="text" formControlName="locality" placeholder="enter course stream" />
-                    <app-control-messages [touched]="touched" [control]="f.locality"></app-control-messages>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">REFUND POLICY</label>
-                    <input type="text" formControlName="refundPolicy" placeholder="enter your refund policy" />
-                    <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages>
-                </div>
-
-                <div class="col-sm-12 offset-3">
-                    <label class="req uppercase">Online class availability during lockdown, hartal, Pandemic ,
-                        unexpected weather Situations?</label>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="radio" formControlName="onlineClassAvailability" [checked]="courserListDetails.onlineClassAvailability==true" value="true" /><span>Yes,
-                                online classes are
-                                available for
-                                this course</span>
-                            <app-control-messages [touched]="touched" [control]="f.onlineClassAvailability">
-                            </app-control-messages>
-                        </p>
-                    </div>
-                    <div class="col-sm-4">
-                        <p class="radio">
-                            <input type="radio" formControlName="onlineClassAvailability" [checked]="courserListDetails.onlineClassAvailability==false" value="false" /><span>No,
-                                online classes are not
-                                available
-                                for this course</span>
-                            <app-control-messages [touched]="touched" [control]="f.onlineClassAvailability">
-                            </app-control-messages>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Aptitude Test</label>
-                    <p class="checkbox">
-                        <input type="checkbox" [(ngModel)]="hasAptitudeTest" formControlName="aptituteTestRequired"
-                            (change)="onChangeAptitude()" [checked]="courserListDetails.aptituteTestRequired==true" /><span>Required
-                        </span>
-                    </p>
-                    <div class="clearfix"></div>
-                    <div *ngIf="form.value.aptituteTestRequired" style="margin-top: 36px;">
-                        <div class="col-md-10">
-                            <select formControlName="aptituteTestId" id="">
-                                <option value="">Choose a test from the list</option>
-                                <option *ngFor="let item of aptitudeTests" value="{{item.id}}">{{item.title}}</option>
-                            </select>
-                            <app-control-messages [touched]="touched" [control]="f.aptituteTestId">
-                            </app-control-messages>
-                        </div>
-                        <div class="col-md-2">
-                            <button type="button" (click)="onRefreshAptitude()"><i
-                                    class="zmdi zmdi-refresh"></i></button>
-                        </div>
-                        <div class="clearfix"></div>
-                        <a class="uppercase mt-3 float-right" style="float: right;" href="/institute/aptitude-test/view"
-                            target="_blank">Cannot find test you are looking for? Add a new Aptitude Test</a>
-                    </div>
-                </div>
-
-                <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Online interview</label>
-                    <p class="checkbox">
-                        <input type="checkbox" formControlName="onlineInterviewRequired" [checked]="courserListDetails.onlineInterviewRequired==true" /><span>Required</span>
-                    </p>
-                </div>
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Exam Conducted</label>
+                <select formControlName="examConducted" id="">
+                    <option value="">Slect option</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="quarterly">Quarterly</option>
+                    <option value="yearly">Yearly</option>
+                </select>
+                <app-control-messages [touched]="touched" [control]="f.examConducted"></app-control-messages>
             </div>
 
-            <div class="row clearfix">
-                <div class="col-sm-12">
-                    <div class="pull-right">
-                        <button class="btn btn-info" id="submit-btn">
-                            SAVE AND CONTINUE
-                        </button>
-                    </div>
-                </div>
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Course Syllabus</label>
+                <input type="file" formControlName="courseSyllabusFile"
+                    (change)="onchangeFile('courseSyllabusFile',$event)" />
+                <app-control-messages [touched]="touched" [control]="f.courseSyllabusFile"></app-control-messages>
             </div>
-        </form>
+
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Admission Starting Date</label>
+                <input type="date" formControlName="admissionStartDate" placeholder="enter course stream" />
+                <app-control-messages [touched]="touched" [control]="f.admissionStartDate"></app-control-messages>
+            </div>
+
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Admission Closing Date</label>
+                <input type="date" formControlName="admissionCloseDate" placeholder="enter course stream" />
+                <app-control-messages [touched]="touched" [control]="f.admissionCloseDate"></app-control-messages>
+            </div>
+
+            <div class="col-sm-4 offset-3">
+                <label class="req uppercase">Class Starting Date</label>
+                <input type="date" formControlName="classStartDate" placeholder="enter course stream" />
+                <app-control-messages [touched]="touched" [control]="f.classStartDate"></app-control-messages>
+            </div>
+
+
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-sm-12" style="margin-top: 50px;">
+            <div class="pull-right">
+                <button class="btn btn-info" id="submit-btn">
+                    SAVE AND CONTINUE
+                </button>
+            </div>
+        </div>
+    </div>
+    </form>
     </div>
     <pre>{{form.value | json}}</pre>
 

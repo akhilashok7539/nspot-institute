@@ -71,6 +71,8 @@ import { InfrastructureEditComponent } from './Pages/infrastructure-edit/infrast
 import { InstituteTravelEditComponent } from './Pages/institute-travel-edit/institute-travel-edit.component';
 import { AddAdmisionNumberComponent } from './Pages/add-admision-number/add-admision-number.component';
 import { ConfirmationLetterComponent } from './Pages/confirmation-letter/confirmation-letter.component';
+import { UpdateCourseInfoSecondpageComponent } from './Pages/update-course-info/update-course-info-secondpage/update-course-info-secondpage.component';
+import { UpdateCourseFeeInfoComponent } from './Pages/update-course-info/update-course-fee-info/update-course-fee-info.component';
 const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
 
 @NgModule({
@@ -132,6 +134,8 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
     InstituteTravelEditComponent,
     AddAdmisionNumberComponent,
     ConfirmationLetterComponent,
+    UpdateCourseInfoSecondpageComponent,
+    UpdateCourseFeeInfoComponent,
   ],
   imports: [
     BrowserModule,

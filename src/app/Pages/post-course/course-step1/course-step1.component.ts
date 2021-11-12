@@ -279,7 +279,7 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('availableSeats', formData.availableSeats);
     this.multiForm.append('accademicYear', formData.accademicYear);
     this.multiForm.append('accademicYearMonth', formData.accademicYearMonth);
-    this.multiForm.append('courseDuration', formData.hour+'Hours' + formData.day +'Days'+ formData.month +'Months'+ formData.year+'Years');
+    this.multiForm.append('courseDuration', formData.hour + formData.day + formData.month + formData.year);
     this.multiForm.append('examConducted', formData.examConducted);
     this.multiForm.append('admissionStartDate', formData.admissionStartDate);
     this.multiForm.append('admissionCloseDate', formData.admissionCloseDate);
@@ -304,7 +304,15 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('month',formData.month)
     this.multiForm.append('hour',formData.hour)
     this.multiForm.append('admissionType',formData.admissionType)
+    this.multiForm.append('regularAndonlineClass',formData.regularAndonlineClass)
+    this.multiForm.append('onlineClassOnly',formData.onlineClassOnly)
+    this.multiForm.append('regularClassOnly',formData.regularClassOnly)
+    this.multiForm.append('programCode',formData.programCode)
+    this.multiForm.append('instituteCatagory',formData.instituteCatagory)
+    this.multiForm.append('instituteType',formData.instituteType)
 
+    this.multiForm.append('stateId',formData.stateId)
+    this.multiForm.append('districtId',formData.districtId)
 
     if(formData.CourseSubCategoryId === "")
     {
@@ -345,16 +353,7 @@ export class CourseStep1Component implements OnInit {
       this.multiForm.append('CourseSubCategory5Id',formData.CourseSubCategory5Id)
     }
     
-    this.multiForm.append('regularAndonlineClass',formData.regularAndonlineClass)
-    this.multiForm.append('onlineClassOnly',formData.onlineClassOnly)
-    this.multiForm.append('regularClassOnly',formData.regularClassOnly)
-    this.multiForm.append('programCode',formData.programCode)
-    this.multiForm.append('instituteCatagory',formData.instituteCatagory)
-    this.multiForm.append('instituteType',formData.instituteType)
-
-    this.multiForm.append('stateId',formData.stateId)
-    this.multiForm.append('districtId',formData.districtId)
-    
+    sessionStorage.setItem("courseDuration",JSON.stringify(formData.hour +' Hours-'+ formData.day +'-'+ formData.month +'-'+ formData.year))
 
     this.apiService.doPostRequest_upload(endPoints.Create_course + this.instituteId, this.multiForm)
       .subscribe((returnData: any) => {

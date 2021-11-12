@@ -47,6 +47,8 @@ import { InfrastructureEditComponent } from './Pages/infrastructure-edit/infrast
 import { InstituteTravelEditComponent } from './Pages/institute-travel-edit/institute-travel-edit.component';
 import { AddAdmisionNumberComponent } from './Pages/add-admision-number/add-admision-number.component';
 import { ConfirmationLetterComponent } from './Pages/confirmation-letter/confirmation-letter.component';
+import { UpdateCourseInfoSecondpageComponent } from './Pages/update-course-info/update-course-info-secondpage/update-course-info-secondpage.component';
+import { UpdateCourseFeeInfoComponent } from './Pages/update-course-info/update-course-fee-info/update-course-fee-info.component';
 
 const routes: Routes = [
   {
@@ -99,6 +101,8 @@ const routes: Routes = [
       { path: 'aptitude-test/view', component: AptitudeTestComponent },
       { path: 'edit-institute/:id', component: EditInstitutekycInfoComponent },
       { path: 'edit-course/:id', component: UpdateCourseInfoComponent },
+      { path: 'edit-course-info/:id', component: UpdateCourseInfoSecondpageComponent },
+
       { path: 'studentList', component: CompletedStudnetListComponent },
       { path: 'paymentHistory', component: PaymentHistoryComponent },
       { path: 'update-virtualtour', component: UpdateVirtualTourComponent },
@@ -113,6 +117,8 @@ const routes: Routes = [
       { path: 'add-admissionnumber', component: AddAdmisionNumberComponent },
 
       { path: 'view-receipt/:applicationId', component: ConfirmationLetterComponent },
+      { path: 'view-receipt-fee/:applicationId/:feeid', component: UpdateCourseFeeInfoComponent },
+
 
     ],
   },

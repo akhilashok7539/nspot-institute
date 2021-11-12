@@ -13,6 +13,7 @@ export class ViewCourseComponent implements OnInit {
   mainDesk:any=[];
   courseFees:any=[];
   paymentTenures:any=[];
+  feeidDetails;
   constructor(private instituteService:ApiService) { }
 
   ngOnInit(): void {
@@ -50,7 +51,8 @@ export class ViewCourseComponent implements OnInit {
   }
   getfeeInfo()
   {
-    let id = this.institutecourseList['item'].instituteId
+    let id = this.institutecourseList['item'].instituteId;
+    this.feeidDetails = id;
     this.instituteService.doGetRequest(`institute/course/fees/`+id).subscribe(
       data =>{
         console.log("feess",data);

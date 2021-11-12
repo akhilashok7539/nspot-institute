@@ -25,8 +25,8 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="col-sm-12">
-                        <label class="req uppercase">Duration Of Course</label>
-                        <input type="text">
+                        <label class="uppercase">Duration Of Course</label>
+                        <input type="text" [(ngModel)]="courseDuration" [ngModelOptions]="{standalone: true}" disabled>
                     </div>
                     <div class="col-sm-12">
                         <label class="req uppercase">Enter Full Course Fees for the above Course duration</label>
