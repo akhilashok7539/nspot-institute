@@ -32,20 +32,36 @@
                         <input type="text" [(ngModel)]="courseDuration" [ngModelOptions]="{standalone: true}" disabled>
                     </div>
                     <div class="col-sm-12">
-                        <label class="req uppercase">Enter Full Course Fees for the above Course duration <i mattooltip="s" style="    font-size: 15px;" class="zmdi zmdi-info"></i> </label>
+                        <label class="req uppercase">Enter Full Course Fees for the above Course duration 
+                            <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                                <span class="tooltiptext">The entire fees of the course for the total time period the course is offered</span>
+
+                            </i> 
+                        </label>
                         <input type="number" formControlName="otherFee" placeholder="Other"
                             (blur)="calculateTotalFee()" />
                     </div>
                     <div class="col-sm-12">
-                        <label class="req uppercase">Full Course Fees Includes</label>
+                        <label class="req uppercase">Full Course Fees Includes
+                            <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                                <span class="tooltiptext">Fee Includes Info entered here will be shown in the Admission Confirmation Letter</span>
+
+                            </i> 
+
+                        </label>
                         <input type="text" formControlName="otherIncludes">
                     </div>
                     <div class="col-sm-12">
-                        <label class="req uppercase">Full Course Fees Excludes</label>
+                        <label class="req uppercase">Full Course Fees Excludes
+                            <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                                <span class="tooltiptext">Fee Excludes Info entered here will be shown in the Admission Confirmation Letter</span>
+
+                            </i> 
+                        </label>
                         <input type="text" formControlName="otherexcludes">
                     </div>
                     <div class="col-sm-12">
-                        <label class="req uppercase">FULL FEE PAYMENT PLAN</label>
+                        <label class="req uppercase">FEE PAYMENT PLAN</label>
                         <select formControlName="paymentTenureId">
                             <option value="">Select a payment tenure</option>
                             <option *ngFor="let item of paymentTenures" value="{{item.id}}">{{item.title}}</option>
@@ -123,6 +139,10 @@
                         <div class="clearfix"></div>
                         <h4 class="sub-title uppercase bank-details">
                             Bank Details
+                            <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                                <span class="tooltiptext">You may add multiple accounts for each course, for receiving the spot admission fees</span>
+
+                            </i>
                         </h4>
                         <div class="col-sm-12">
                             <label class="req uppercase">Select Account</label>
@@ -136,7 +156,13 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="col-md-9">
-                            <label class="req uppercase">Spot Admission Fee</label>
+                            <label class="req uppercase">Spot Admission Fee
+
+                                <i style="font-size: 15px;" class="zmdi zmdi-info">
+                                    <span class="tooltiptext">An initial/advance fee amount collected from the student applicant for confirming an admission seat</span>
+    
+                                </i> 
+                            </label>
                             <span style="    font-size: 10px;
                             font-style: italic;
                             color: red;
@@ -152,12 +178,24 @@
 
 
                     <div class="col-sm-12">
-                        <label class="req uppercase">Amount credited to the INSTITUTE</label>
+                        <label class="req uppercase">Amount credited to the INSTITUTE
+
+                            <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                                <span class="tooltiptext">The amount credited to the institute after deducting the nspot processing fee</span>
+
+                            </i>
+                        </label>
                         <input type="text" formControlName="amountcreditedInstitute" placeholder="Amount credited to institute">
                     </div>
                     <div class="col-sm-12">
                         <div class="col-md-9">
-                            <label class="req uppercase">Admission cancellation policy and Fee refund policy</label>
+                            <label class="req uppercase">Admission cancellation policy and Fee refund policy
+                                <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                                    <span class="tooltiptext">In case a student decides to withdraw his/her admission, institutes terms and policies should be informed mandatorily</span>
+    
+                                </i>    
+
+                            </label>
                         </div>
                         <div class="col-md-3">
 
@@ -194,7 +232,7 @@
                         <input type="text" formControlName="feeexcludesNri">
                     </div>
                     <div class="col-sm-12">
-                        <label class="req uppercase">FULL FEE PAYMENT PLAN</label>
+                        <label class="req uppercase">FEE PAYMENT PLAN</label>
                         <select formControlName="nripaymentTenureId">
                             <option value="">Select a payment tenure</option>
                             <option *ngFor="let item of paymentTenures" value="{{item.id}}">{{item.title}}</option>
@@ -284,7 +322,12 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="col-md-9">
-                            <label class="req uppercase">Spot Admission Fee</label>
+                            <label class="req uppercase">Spot Admission Fee
+                                <!-- <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                                    <span class="tooltiptext">An initial/advance fee amount collected from the student applicant for confirming an admission seat</span>
+    
+                                </i>  -->
+                            </label>
                             <span style="    font-size: 10px;
                             font-style: italic;
                             color: red;
@@ -300,7 +343,9 @@
 
 
                     <div class="col-sm-12">
-                        <label class="req uppercase">Amount credited to the INSTITUTE</label>
+                        <label class="req uppercase">Amount credited to the INSTITUTE
+                           
+                        </label>
                         <input type="text" formControlName="nriAmountCreditedinstitute">
                     </div>
                     <div class="col-sm-12">

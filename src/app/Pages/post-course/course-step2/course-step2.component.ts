@@ -163,5 +163,13 @@ export class CourseStep2Component implements OnInit {
 
   }
   get f() { return this.form.controls; }
-
+  calculateNspotFeeNri(): void
+  {
+    const formData = this.form.value;
+    const otherFee = _.parseInt(formData.nriotherFee);
+    let totalfeesnri = otherFee;
+    this.apiService.doGetRequest(endPoints.Calculate_NspotFee + totalfeesnri).subscribe((returnData: any) => {
+      this.nspotFeeObjNri = returnData.data;
+    });
+  }
 }

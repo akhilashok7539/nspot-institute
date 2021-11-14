@@ -192,7 +192,9 @@
 
                                 <th>PAYMENT STATUS</th>
                                 <th>ACTION</th>
-                                <!-- <th></th> -->
+                                <th></th>
+                                <th></th>
+
                             </tr>
                         </thead>
                         <tbody>
@@ -214,9 +216,11 @@
                                 <td> 
                                     <button class="btn btn-danger" (click)="upload(item?.item?.id)">Upload Recepit</button> 
                                     &nbsp;
-                                    <button class="btn btn-success" routerLink="/institute/view-receipt/{{item?.item?.applicationId}}">View Admission Letter</button>
+                                </td>
+                                <td><button class="btn btn-success" routerLink="/institute/view-receipt/{{item?.item?.applicationId}}">View Admission Letter</button>
                                 </td>
                                 <!-- <td *ngIf="item?.item?.transactionRecipt != null"> Download Recepit </td> -->
+                                <td><button class="btn btn-success" (click)="viewReciptadmin(item.item.transactionReciptAdmin)">View Recepit From NSPOT</button> </td>
                             </tr>
 
                         </tbody>

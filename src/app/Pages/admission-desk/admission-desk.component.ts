@@ -332,4 +332,8 @@ export class AdmissionDeskComponent implements OnInit {
     this.router.navigate(['/institute/admission-desk/detailed-application-view/'+s])
 
   }
+  viewReciptadmin(s)
+  {
+    window.open("https://nspot-server.herokuapp.com/"+s,"_blank")
+  }
 }

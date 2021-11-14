@@ -60,7 +60,7 @@
           <label class="req uppercase">Ownership</label>
           <!-- <input type="text"  placeholder="Enter ownership" /> -->
           <select name="" id="" formControlName="ownership">
-            <option value="" selected disabled>Choose a ownership</option>
+            <option value="" selected disabled>Select Ownership Type </option>
 
             <option value="Public/Government">Public/Government</option>
             <option value="Private">Private</option>
@@ -76,7 +76,7 @@
         </div>
         <div class="col-sm-6">
           <label class="req uppercase">Name of the Principal/Admission Counselor/Director or Authorised person</label>
-          <input type="text" formControlName="principalName" placeholder="Enter name of the principal" />
+          <input type="text" formControlName="principalName" placeholder="Enter full name of the person" />
           <app-control-messages [control]="f.principalName" [touched]="touched"></app-control-messages>
         </div>
         <div class="col-sm-6">
@@ -124,7 +124,7 @@
         <div class="col-sm-6">
           <label class="req uppercase">License Issuing Authority</label>
           <select formControlName="licenseIssueAuthorityId">
-            <option value="">Select </option>
+            <option value="">Select Authority  </option>
             <option *ngFor="let item of licenseIssueAuthorities" value="{{item.id}}">{{item.title}}</option>
           </select>
 
@@ -134,7 +134,7 @@
         <div class="col-sm-6">
           <label class="req uppercase">License Issuing Authority Body Name</label>
           <input type="text" formControlName="licenseAuthorityName"
-            placeholder="Enter license issue authority body name" />
+            placeholder="Enter License Issued Authority Body Name" />
           <app-control-messages [control]="f.licenseAuthorityName" [touched]="touched"></app-control-messages>
         </div>
 
@@ -164,7 +164,7 @@
         <div class="col-sm-6">
           <label class="req uppercase">Institute AID Status</label>
           <select formControlName="institute_aid_status">
-            <option value="" selected disabled>Choose a AID status</option>
+            <option value="" selected disabled>Select Aid Status Type</option>
             <option value="Aided">Aided  </option>
             <option value="Unaided">Unaided    </option>
             <option value="N/A">N/A  </option>
@@ -235,19 +235,19 @@
 
         <div class="col-sm-12">
           <label class="req uppercase">OFFICIAL Institute Email id</label>
-          <input type="text" formControlName="email" placeholder="Enter a valid email address" />
+          <input type="text" formControlName="email" placeholder="Enter valid email address" />
           <app-control-messages [control]="f.email" [touched]="touched"></app-control-messages>
         </div>
 
         <div class="col-sm-6">
           <label class="req uppercase">Office Telephone 1</label>
-          <input type="text" formControlName="telephone1" placeholder="Enter a telephone number" />
+          <input type="text" formControlName="telephone1" placeholder="Enter telephone number" />
           <app-control-messages [control]="f.telephone1" [touched]="touched"></app-control-messages>
         </div>
 
         <div class="col-sm-6">
           <label class="uppercase">Office Telephone 2</label>
-          <input type="text" formControlName="telephone2" placeholder="Enter a telephone number" />
+          <input type="text" formControlName="telephone2" placeholder="Enter telephone number" />
           <app-control-messages [control]="f.telephone2" [touched]="touched"></app-control-messages>
         </div>
 
@@ -255,7 +255,7 @@
           <label class="uppercase">Office Mobile number 1</label>
           <div class="input-group">
             <span class="input-group-addon">+91</span>
-            <input type="text" formControlName="mobile1" placeholder="Enter a mobile number" />
+            <input type="text" formControlName="mobile1" placeholder="Enter mobile number" />
             <app-control-messages [control]="f.mobile1" [touched]="touched"></app-control-messages>
           </div>
         </div>
@@ -264,7 +264,7 @@
           <label class="uppercase">Office Mobile number 2</label>
           <div class="input-group">
             <span class="input-group-addon">+91</span>
-            <input type="text" formControlName="mobile2" placeholder="Enter a mobile number" />
+            <input type="text" formControlName="mobile2" placeholder="Enter mobile number" />
             <app-control-messages [control]="f.mobile2" [touched]="touched"></app-control-messages>
           </div>
         </div>
@@ -274,17 +274,17 @@
         </h4>
         <div class="col-sm-12">
           <label class="req uppercase">Enter Chief Admission Officer's Official Email ID for recieving all students admission notifications?</label>
-          <input type="text" formControlName="admission_office_email" placeholder="Enter a valid email address" />
+          <input type="text" formControlName="admission_office_email" placeholder="Enter valid email address" />
           <app-control-messages [control]="f.admission_office_email" [touched]="touched"></app-control-messages>
         </div>
         <div class="col-sm-12">
           <label class="req uppercase">Enter Chief Admission Officer's Official Mob No: 1</label>
-          <input type="text" formControlName="admission_office_mobileno1" placeholder="Enter a Chief Admission Officer's Official Mob No: 1" />
+          <input type="text" formControlName="admission_office_mobileno1" placeholder="Enter Chief Admission Officer's Official Mob No: 1" />
           <app-control-messages [control]="f.admission_office_mobileno1" [touched]="touched"></app-control-messages>
         </div>
         <div class="col-sm-12">
           <label class="req uppercase">Enter Chief Admission Officer's Official Mob No: 2</label>
-          <input type="text" formControlName="admission_office_mobileno2" placeholder="Enter a Chief Admission Officer's Official Mob No: 2" />
+          <input type="text" formControlName="admission_office_mobileno2" placeholder="Enter Chief Admission Officer's Official Mob No: 2" />
           <app-control-messages [control]="f.admission_office_mobileno2" [touched]="touched"></app-control-messages>
         </div>
         <div class="col-sm-12">
