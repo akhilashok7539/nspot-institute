@@ -33,6 +33,8 @@ export class CourseStep2Component implements OnInit {
   bankDetails;
   totalFee: number;
   nspotFeeObj = { nspotFee: 0, bankCharge: 0, nspotTax: 0 };
+  nspotFeeObjNri = { nspotFee: 0, bankCharge: 0, nspotTax: 0 };
+
   ngOnInit(): void {
     this.courseId = _.parseInt(this.route.snapshot.paramMap.get('courseId'));
     this.courseDuration = JSON.parse(sessionStorage.getItem("courseDuration"));
@@ -42,27 +44,47 @@ export class CourseStep2Component implements OnInit {
     this.loadData();
     this.form = this.formBuilder.group({
       instituteCourseId: [this.courseId, [Validators.required]],
-      paymentTenureId: ['', [Validators.required]],
-      // applicationFee: [0, [Validators.required]],
-      // donation: [0, [Validators.required]],
-      // admissionFee: [0, [Validators.required]],
-      // tutionFee: [0, [Validators.required]],
-      // vanFee: [0, [Validators.required]],
-      // uniformFee: [0, [Validators.required]],
-      // tax: [0, [Validators.required]],
-      otherFee: [0, [Validators.required]],
-      // nspotServiceCharge: ['', [Validators.required]],
-      // nspotBankCharge: ['', [Validators.required]],
-      // nspotTax: ['', [Validators.required]],
-      bankAccountId: ['', [Validators.required]],
-      hasScolarship: [false],
-      spotfee: ['',[Validators.required]],
+      // paymentTenureId: ['', [Validators.required]],
+      // // applicationFee: [0, [Validators.required]],
+      // // donation: [0, [Validators.required]],
+      // // admissionFee: [0, [Validators.required]],
+      // // tutionFee: [0, [Validators.required]],
+      // // vanFee: [0, [Validators.required]],
+      // // uniformFee: [0, [Validators.required]],
+      // // tax: [0, [Validators.required]],
+      // otherFee: [0, [Validators.required]],
+      // // nspotServiceCharge: ['', [Validators.required]],
+      // // nspotBankCharge: ['', [Validators.required]],
+      // // nspotTax: ['', [Validators.required]],
+      // bankAccountId: ['', [Validators.required]],
+      // hasScolarship: [false],
+      // spotfee: ['',[Validators.required]],
      
-      otherincludes: [''],
+      // otherincludes: [''],
+      // amount: [''],
+      // refundPolicy: ['',[Validators.required]],
+      // // validUpto: ['null'],
+      // // title: ['tittlenull'],
+      paymentTenureId: ['', ],
+      otherIncludes: ['', ],
+      otherFee: [0, ],
+      otherexcludes: ['', ],
+      bankAccountId: ['', ],
+      hasScolarship: [false],
+      hasScolarshipNri:[false],
       amount: [''],
-      refundPolicy: ['',[Validators.required]],
-      // validUpto: ['null'],
-      // title: ['tittlenull'],
+      spotfee: ['',],
+      amountcreditedInstitute: [''],
+      refundPolicy: [''],
+      // nriOtherexcludes: ['',],
+      nriotherFee: [''],
+      nrischlorshipamount: [''],
+      nriSpotfee:[''],
+      nriAmountCreditedinstitute:[''],
+      nripaymentTenureId:[''],
+      nrirefundPolicy:[''],
+      nriOtherIncludes:[''],
+      feeexcludesNri:[''],
     });
     this.calculateTotalFee();
   }

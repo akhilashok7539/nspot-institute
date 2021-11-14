@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-sm-12">
                         <label class="req uppercase">Full Course Fees Includes</label>
-                        <input type="text" formControlName="otherincludes">
+                        <input type="text" formControlName="otherIncludes">
                     </div>
                     <div class="col-sm-12">
                         <label class="req uppercase">Full Course Fees Excludes</label>
@@ -179,7 +179,7 @@
                     </div>
                     <div class="col-sm-12">
                         <label class="req uppercase">Enter Full Course Fees for the above Course duration</label>
-                        <input type="number" formControlName="nriotherFee" placeholder="Other"
+                        <input type="number" formControlName="nriotherFee" placeholder="full course fee"
                             (blur)="calculateTotalFee()" />
                     </div>
                     <div class="col-sm-12">
@@ -188,7 +188,7 @@
                     </div>
                     <div class="col-sm-12">
                         <label class="req uppercase">Full Course Fees Excludes</label>
-                        <input type="text" formControlName="nriOtherexcludes">
+                        <input type="text" formControlName="feeexcludesNri">
                     </div>
                     <div class="col-sm-12">
                         <label class="req uppercase">FULL FEE PAYMENT PLAN</label>
@@ -229,12 +229,12 @@
                     </div>
                     <div class="col-sm-12 thumbnail pt-3 pb-3 mt-3">
                         <div class="col-sm-6">
-                            <button type="button" class="btn btn-info uppercase" (click)="calculateNspotFee()">Calculate
+                            <button type="button" class="btn btn-info uppercase" (click)="calculateNspotFeeNri()">Calculate
                                 NSPOT
                                 Fees</button>
                         </div>
                         <div class="col-sm-6 align-items">
-                            <button type="button" class="btn btn-secondary uppercase" style="background-color: none !important;">{{nspotFeeObj.nspotFee+nspotFeeObj.bankCharge+nspotFeeObj.nspotTax}}</button>
+                            <button type="button" class="btn btn-secondary uppercase" style="background-color: none !important;">{{nspotFeeObjNri.nspotFee+nspotFeeObjNri.bankCharge+nspotFeeObjNri.nspotTax}}</button>
 
                         </div>
                     </div>
@@ -245,7 +245,7 @@
                                     <label class="uppercase">NSPOT Service Charges</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <label class="uppercase">{{nspotFeeObj.nspotFee}}</label>
+                                    <label class="uppercase">{{nspotFeeObjNri.nspotFee}}</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -253,7 +253,7 @@
                                     <label class="uppercase">Bank Charges</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <label class="uppercase">{{nspotFeeObj.bankCharge}}</label>
+                                    <label class="uppercase">{{nspotFeeObjNri.bankCharge}}</label>
                                 </div>
                             </div>
                             <div class="row">
@@ -261,7 +261,7 @@
                                     <label class="uppercase">TAX</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <label class="uppercase">{{nspotFeeObj.nspotTax}}</label>
+                                    <label class="uppercase">{{nspotFeeObjNri.nspotTax}}</label>
                                 </div>
                             </div>
                         </div>

@@ -1,16 +1,11 @@
 <main id="register">
-
     <div class="page-heading text-center">
         <div class="container">
             <h2>UPDATE COURSE</h2>
         </div>
     </div>
-
-
-
     <div class="container success">
         <h4 class="sub-title">
-
         </h4>
         <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="row">
@@ -39,7 +34,6 @@
                             <span>Other</span>
                         </p>
                     </div>
-
                     <app-control-messages [touched]="touched" [control]="f.maleAllowed"></app-control-messages>
                     <app-control-messages [touched]="touched" [control]="f.femaleAllowed"></app-control-messages>
                     <app-control-messages [touched]="touched" [control]="f.otherGenderAllowed"></app-control-messages>
@@ -55,44 +49,35 @@
                     </select>
                 </div>
                 <div class="clearfix"></div>
-
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Campus Name</label>
                     <input type="text" formControlName="campusAddressLine1" placeholder="Enter campus address line 1" />
                     <app-control-messages [touched]="touched" [control]="f.campusAddressLine1"></app-control-messages>
                 </div>
-
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Campus Address Line 1</label>
                     <input type="text" formControlName="campusAddressLine2" placeholder="Enter campus address line 2" />
                     <app-control-messages [touched]="touched" [control]="f.campusAddressLine2"></app-control-messages>
                 </div>
-
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Campus Address Line 2</label>
                     <input type="text" formControlName="campusAddressLine3" placeholder="Enter campus address line 3" />
                     <app-control-messages [touched]="touched" [control]="f.campusAddressLine3"></app-control-messages>
                 </div>
-
-
-
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">City/Place</label>
                     <input type="text" formControlName="block" placeholder="enter course stream" />
                     <app-control-messages [touched]="touched" [control]="f.block"></app-control-messages>
                 </div>
-
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">CAMPUS LOCALITY </label>
                     <select name="" id="" formControlName="locality">
                         <option value="" selected disabled>Choose a Campus Locality</option>
                         <option value="Urban">Urban</option>
                         <option value="Rural">Rural</option>
-
                     </select>
                     <app-control-messages [touched]="touched" [control]="f.locality"></app-control-messages>
                 </div>
-
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Country</label>
                     <input type="Text" formControlName="country" placeholder="enter course stream" />
@@ -100,7 +85,6 @@
                 </div>
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">State</label>
-
                     <select formControlName="stateId" (change)="loaddistricts($event)">
                         <option value="">Choose State</option>
                         <option *ngFor="let item of stateList" value="{{item.id}}">{{item.state}}</option>
@@ -108,7 +92,6 @@
                 </div>
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">District</label>
-
                     <select formControlName="districtId">
                         <option value="">Choose district</option>
                         <option *ngFor="let item of districtList" value="{{item.id}}">{{item.district}}</option>
@@ -134,13 +117,11 @@
                                 style="    position: absolute;">
                                 No
                             </span>
-
                             <app-control-messages [touched]="touched" [control]="f.onlineClassAvailability">
                             </app-control-messages>
                         </p>
                     </div>
                 </div>
-
                 <div class="col-sm-4 offset-3" style="margin-top: 40px;">
                     <label class="req uppercase">Aptitude Test</label>
                     <p class="checkbox">
@@ -167,42 +148,14 @@
                             border: none;"><i class="zmdi zmdi-refresh"></i></button>
                         </div>
                         <div class="clearfix"></div>
-                        <!-- <a class="uppercase mt-3 float-right" style="float: right;" href="/institute/aptitude-test/view"
-                            target="_blank">Cannot find test you are looking for? Add a new Aptitude Test</a> -->
                     </div>
                 </div>
-
                 <div class="col-sm-4 offset-3" style="margin-top: 40px;">
                     <label class="req uppercase">Virtual Admission Counseling</label>
                     <p class="checkbox">
                         <input type="checkbox" formControlName="onlineInterviewRequired" /><span>Required</span>
                     </p>
                 </div>
-                <!-- <div class="col-sm-12 offset-3" style="margin-top: 20px;">
-                <label class="req uppercase">Co-Education</label>
-                <div class="col-sm-4">
-                    <p class="radio">
-                        <input type="radio" value="true" />
-                        <span style="    position: absolute;">
-                            Yes
-                        </span>
-
-                        
-                    </p>
-                </div>
-                <div class="col-sm-4">
-                    <p class="radio">
-                        <input type="radio"  value="false" /> <span
-                            style="    position: absolute;">
-                            No
-                        </span>
-
-                        <app-control-messages [touched]="touched" [control]="f.regularClassOnly">
-                        </app-control-messages>
-                    </p>
-                </div>
-            </div> -->
-
                 <div class="col-sm-12 offset-3" style="margin-top: 20px;">
                     <label class="req uppercase">Regular Classroom </label>
                     <div class="col-sm-4">
@@ -211,7 +164,6 @@
                             <span style="    position: absolute;">
                                 Yes
                             </span>
-
                             <app-control-messages [touched]="touched" [control]="f.regularClassOnly">
                             </app-control-messages>
                         </p>
@@ -222,7 +174,6 @@
                                 style="    position: absolute;">
                                 No
                             </span>
-
                             <app-control-messages [touched]="touched" [control]="f.regularClassOnly">
                             </app-control-messages>
                         </p>
@@ -236,7 +187,6 @@
                             <span style="    position: absolute;">
                                 Yes
                             </span>
-
                             <app-control-messages [touched]="touched" [control]="f.onlineClassOnly">
                             </app-control-messages>
                         </p>
@@ -247,7 +197,6 @@
                                 style="    position: absolute;">
                                 No
                             </span>
-
                             <app-control-messages [touched]="touched" [control]="f.onlineClassOnly">
                             </app-control-messages>
                         </p>
@@ -261,7 +210,6 @@
                             <span style="    position: absolute;">
                                 Yes
                             </span>
-
                             <app-control-messages [touched]="touched" [control]="f.regularAndonlineClass">
                             </app-control-messages>
                         </p>

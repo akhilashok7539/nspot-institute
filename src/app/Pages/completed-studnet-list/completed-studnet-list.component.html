@@ -6,10 +6,10 @@
     </div>
     <div class="row" style="    padding: 47px;">
         <div class="col-sm-6">
-            <label class="req uppercase">SELECT COURSE PROGRAM</label>
+            <label class="req uppercase">SELECT COURSE / PROGRAM</label>
             <select (change)="changeCourse($event)" name="type" class="form-control">
                         {{courses|json}}
-                        <option value="">SELECT COURSE PROGRAM
+                        <option value="">SELECT COURSE / PROGRAM
                                  </option>
                         <option *ngFor="let item of courses" value="{{item.item.id}}">{{item.CourseName}}
                         </option>
@@ -34,7 +34,8 @@
                     <th>DATE OF ONLINE INTERVIEW MARKS</th>
 
                     <th>PAYMENT STATUS</th>
-                    <th>COLLEGE ADMISSION ID</th>
+                    <th style="text-align: center;">STUDENT ADMISSION NUMBER <br>
+                    (as per institute records) </th>
                     <th></th>
                 </tr>
             </thead>

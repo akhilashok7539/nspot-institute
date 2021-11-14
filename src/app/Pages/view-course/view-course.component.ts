@@ -53,7 +53,8 @@ export class ViewCourseComponent implements OnInit {
   {
     let id = this.institutecourseList['item'].instituteId;
     this.feeidDetails = id;
-    this.instituteService.doGetRequest(`institute/course/fees/`+id).subscribe(
+    let idcourse = this.institutecourseList['item'].id
+    this.instituteService.doGetRequest(`institute/course/fees/`+idcourse).subscribe(
       data =>{
         console.log("feess",data);
         this.courseFees = data['data']

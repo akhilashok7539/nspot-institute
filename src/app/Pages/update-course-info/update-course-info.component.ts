@@ -463,7 +463,7 @@ export class UpdateCourseInfoComponent implements OnInit {
     this.multiForm.append('CourseSubCategory5Id',formData.CourseSubCategory5Id)
 
     
-    this.apiService.doPostRequest_upload(`institute/course/update/` + this.instituteId, this.multiForm)
+    this.apiService.doPostRequest_upload(`institute/course/update/` + this.courserListDetails['id'], this.multiForm)
       .subscribe((returnData: any) => {
         console.log(returnData);
         this.toastr.success('Course Updated successfull');

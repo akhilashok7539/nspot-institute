@@ -279,7 +279,7 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('availableSeats', formData.availableSeats);
     this.multiForm.append('accademicYear', formData.accademicYear);
     this.multiForm.append('accademicYearMonth', formData.accademicYearMonth);
-    this.multiForm.append('courseDuration', formData.hour + formData.day + formData.month + formData.year);
+    this.multiForm.append('courseDuration', formData.hour +' Hours -'+ formData.day +'-'+ formData.month +'-'+ formData.year);
     this.multiForm.append('examConducted', formData.examConducted);
     this.multiForm.append('admissionStartDate', formData.admissionStartDate);
     this.multiForm.append('admissionCloseDate', formData.admissionCloseDate);
