@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { endPoints } from 'src/app/config/endPoints';
 import { ApiService } from 'src/app/services/api.service';
 
@@ -14,7 +15,7 @@ export class ViewCourseComponent implements OnInit {
   courseFees:any=[];
   paymentTenures:any=[];
   feeidDetails;
-  constructor(private instituteService:ApiService) { }
+  constructor(private instituteService:ApiService,private router:Router) { }
 
   ngOnInit(): void {
     // this.getallcourserbyInstitute();
@@ -70,4 +71,12 @@ export class ViewCourseComponent implements OnInit {
       }
     );
   }
+
+
+  updatedata()
+  {
+    sessionStorage.setItem("eligilibility",JSON.stringify(this.courseFees));
+    this.router.navigate(['/institute/update-eligibility'])
+  }
+  
 }

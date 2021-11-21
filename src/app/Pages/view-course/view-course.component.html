@@ -107,6 +107,30 @@
                 </div>
             </div>
         </div>
+        <div class="card" style="margin-top: 5px;">
+            <div class="row">
+                <h4>Eligibility & Job Areas</h4>
+                <div class="col-sm-6">
+                    <p>BRIEF DESCRIPTION : Rs.{{courseFees?.Institute_Course?.eligibiliyInString}}</p>
+                    <p>Age Limit  : {{courseFees?.Institute_Course?.ageLimit}}</p>
+                    <p>Age Bar : {{courseFees?.Institute_Course?.agebar}}</p>
+                    <p>Academic Qualifications : {{courseFees?.Institute_Course?.academicqualifications}}</p>
+                    <p>Academic Qualifications : {{courseFees?.Institute_Course?.entranceexam}}</p>
+       
+                    
+                </div>
+                <div class="col-sm-4">
+                    <p>Job Areas : {{courseFees?.Institute_Course?.jobAreas}}</p>
+                    <p>Job Positions : {{courseFees?.Institute_Course?.jobPositions}}</p>
+                    <p>Salary Range : {{courseFees?.Institute_Course?.salaryRange}}</p>
 
+
+                </div>
+                <div class="col-sm-2">
+                    <button (click)="updatedata()">Edit</button>
+
+                </div>
+            </div>
+        </div>
     </div>
 </main>

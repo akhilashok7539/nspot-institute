@@ -49,6 +49,7 @@ import { AddAdmisionNumberComponent } from './Pages/add-admision-number/add-admi
 import { ConfirmationLetterComponent } from './Pages/confirmation-letter/confirmation-letter.component';
 import { UpdateCourseInfoSecondpageComponent } from './Pages/update-course-info/update-course-info-secondpage/update-course-info-secondpage.component';
 import { UpdateCourseFeeInfoComponent } from './Pages/update-course-info/update-course-fee-info/update-course-fee-info.component';
+import { UpdateEligibilityJobAreasComponent } from './Pages/view-course/update-eligibility-job-areas/update-eligibility-job-areas.component';
 
 const routes: Routes = [
   {
@@ -118,6 +119,7 @@ const routes: Routes = [
 
       { path: 'view-receipt/:applicationId', component: ConfirmationLetterComponent },
       { path: 'view-receipt-fee/:applicationId/:feeid', component: UpdateCourseFeeInfoComponent },
+      { path: 'update-eligibility', component: UpdateEligibilityJobAreasComponent },
 
 
     ],

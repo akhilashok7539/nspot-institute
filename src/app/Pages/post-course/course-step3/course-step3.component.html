@@ -6,7 +6,7 @@
 
         </div>
     </div>
-
+    <marquee behavior="" direction=""> Important Note:Please make sure you carefully enter the Full course fee info,Initial fee to be paid by the student info,Required Eligibility etc as these details will be mentioned  in the admisision confirmation letter sent to the applicant where changes cannot be done</marquee>
     <div class="course-tabs nav" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a [ngClass]="{ 'nav-link': true, 'py-2': true}">
             Course Info</a>
@@ -25,7 +25,7 @@
         <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="col-sm-12">
-                    <label class="req uppercase">Brief description - eligibility REQUIRED  for the course</label>
+                    <label class="req uppercase">ELIGIBILITY REQUIRED FOR THE COURSE</label>
                     <textarea formControlName="eligibiliyInString" id="" cols="30" rows="10" placeholder="Educational qualification,Age, Cut off marks needed etc"></textarea>
                     <app-control-messages [touched]="touched" [control]="f.eligibiliyInString"></app-control-messages>
 
@@ -40,21 +40,21 @@
 
                 <div class="col-sm-12">
                     <label for="">Age Limit Required</label>
-                    <input type="text" placeholder="Description Column eg: should be 18 years as on">
+                    <input type="text" placeholder="Description Column eg: should be 18 years as on" formControlName="ageLimit" >
                 </div>
                 <div class="col-sm-12">
                     <label for="">No Age Bar  </label>
                    
-                    <input type="text" placeholder="yes or no">
+                    <input type="text" placeholder="yes or no" formControlName="agebar">
            
                 </div>
                 <div class="col-sm-12">
                     <label for="">Academic Qualification Required</label>
-                    <input type="text">
+                    <input type="text" formControlName="academicqualifications" placeholder="Enter required academic qualification/percentage/criteria required for the course">
                 </div>
                 <div class="col-sm-12">
                     <label for="">Entrance Exam Required</label>
-                    <input type="text">
+                    <input type="text" formControlName="entranceexam" placeholder="Enter required entrance exam name/criteria required for the course">
                 </div>
                 
                 <div class="row clearfix">

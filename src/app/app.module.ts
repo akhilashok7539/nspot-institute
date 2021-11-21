@@ -73,6 +73,7 @@ import { AddAdmisionNumberComponent } from './Pages/add-admision-number/add-admi
 import { ConfirmationLetterComponent } from './Pages/confirmation-letter/confirmation-letter.component';
 import { UpdateCourseInfoSecondpageComponent } from './Pages/update-course-info/update-course-info-secondpage/update-course-info-secondpage.component';
 import { UpdateCourseFeeInfoComponent } from './Pages/update-course-info/update-course-fee-info/update-course-fee-info.component';
+import { UpdateEligibilityJobAreasComponent } from './Pages/view-course/update-eligibility-job-areas/update-eligibility-job-areas.component';
 const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
 
 @NgModule({
@@ -136,6 +137,7 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
     ConfirmationLetterComponent,
     UpdateCourseInfoSecondpageComponent,
     UpdateCourseFeeInfoComponent,
+    UpdateEligibilityJobAreasComponent,
   ],
   imports: [
     BrowserModule,

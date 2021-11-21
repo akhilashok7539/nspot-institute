@@ -5,6 +5,7 @@
             <h2> POST YOUR ADMISSION SEAT</h2>
         </div>
     </div>
+    <marquee behavior="" direction=""> Important Note:Please make sure you carefully enter the Full course fee info,Initial fee to be paid by the student info,Required Eligibility etc as these details will be mentioned  in the admisision confirmation letter sent to the applicant where changes cannot be done</marquee>
 
     <div class="course-tabs nav" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a [ngClass]="{ 'nav-link': true, 'py-2': true, active: true }">
@@ -465,7 +466,7 @@
 
             <div class="col-sm-4 offset-3">
                 <label class="req uppercase">City/Place</label>
-                <input type="text" formControlName="block" placeholder="enter course stream" />
+                <input type="text" formControlName="block" placeholder="Enter City/Place" />
                 <app-control-messages [touched]="touched" [control]="f.block"></app-control-messages>
             </div>
 
@@ -488,7 +489,7 @@
             </div> -->
             <div class="col-sm-4 offset-3">
                 <label class="req uppercase">Country</label>
-                <input type="Text" formControlName="country" placeholder="enter course stream" />
+                <input type="Text" formControlName="country" placeholder="Enter Country" />
                 <app-control-messages [touched]="touched" [control]="f.country"></app-control-messages>
             </div>
             <div class="col-sm-4 offset-3">
