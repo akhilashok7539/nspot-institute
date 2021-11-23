@@ -14,6 +14,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class AdmissionOfficersComponent implements OnInit {
 
   officerList;
+  couresname;
   instituteId = this.authService.instituteProfile.id;
 
   constructor(
@@ -34,8 +35,13 @@ export class AdmissionOfficersComponent implements OnInit {
   loadData(): void {
     this.apiService.doGetRequest(endPoints.Get_admissionOfficerByInstitute + this.instituteId).subscribe((returnData: any) => {
       this.officerList = returnData.data;
+      // this.officerList.map(x => x  )
       console.log(this.officerList);
+
     });
   }
-
+  getcoursename(s)
+  {
+    return this.apiService.doGetRequest("institute/course/courseName/"+s);
+  }
 }

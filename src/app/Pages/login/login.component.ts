@@ -55,9 +55,9 @@ export class LoginComponent implements OnInit {
       }
     },
       error => {
-        console.error(error);
-        this.toastr.error(error.error[0].message);
-        (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+        console.error(error.error.error.message);
+        this.toastr.error(error.error.error.message);
+        // (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
       });
 
   }

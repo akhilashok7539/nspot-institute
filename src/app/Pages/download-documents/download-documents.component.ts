@@ -12,6 +12,7 @@ export class DownloadDocumentsComponent implements OnInit {
   arr:any = [];
   listarray:any = [];
   finalArray:any = [];
+  SoretedList:any=[];
   constructor(private apiservice:ApiService) { }
 
   ngOnInit(): void {
@@ -47,7 +48,13 @@ export class DownloadDocumentsComponent implements OnInit {
               }
             });
             console.log(this.finalArray);
-            
+            for(let j=0;j<this.finalArray.length;j++)
+            {
+              if(this.finalArray[j].value != null)
+              {
+                this.SoretedList.push(this.finalArray[j])
+              }
+            }
       }
     )
   }

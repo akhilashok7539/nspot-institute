@@ -87,6 +87,9 @@ export class Signup2TwoComponent implements OnInit {
       busAvailablity:[false],
       vanavailablity:[false],
       routeInfo: [''],
+      religiousMinority:[''],
+      aboutUs:[''],
+      websitelink:[''],
       officialEmail: ['', Validators.required],
     });
   }
@@ -210,7 +213,7 @@ export class Signup2TwoComponent implements OnInit {
         this.toastr.success('Form submission successfull');
         console.log(returnData)
         // this.router.navigate([`/signup/step-3/${returnData.data.id}`]);
-        this.router.navigate([`/signup/step-3/${returnData.data.userId}`]);
+        this.router.navigate([`/signup/step-3/${returnData.data.id}`]);
 
       }
       else {

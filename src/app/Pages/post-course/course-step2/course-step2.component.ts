@@ -85,6 +85,12 @@ export class CourseStep2Component implements OnInit {
       nrirefundPolicy:[''],
       nriOtherIncludes:[''],
       feeexcludesNri:[''],
+      nspotTaxNri:[''],
+      nspotTax:[''],
+      nspotServiceChargeNri:[''],
+      nspotServiceCharge:[''],
+      nspotBankChargenNri:[''],
+      nspotBankCharge:[''],
     });
     this.calculateTotalFee();
   }
@@ -123,9 +129,23 @@ export class CourseStep2Component implements OnInit {
     this.apiService.doGetRequest(endPoints.Calculate_NspotFee + this.totalFee).subscribe((returnData: any) => {
       // console.log(returnData);
       this.nspotFeeObj = returnData.data;
+      this.form.controls['nspotTax'].setValue(this.nspotFeeObj.nspotTax);
+      this.form.controls['nspotServiceCharge'].setValue(this.nspotFeeObj.nspotFee);
+      this.form.controls['nspotBankCharge'].setValue(this.nspotFeeObj.bankCharge);
     });
   }
-
+  calculateNspotFeeNri(): void
+  {
+    const formData = this.form.value;
+    const otherFee = _.parseInt(formData.nriotherFee);
+    let totalfeesnri = otherFee;
+    this.apiService.doGetRequest(endPoints.Calculate_NspotFee + totalfeesnri).subscribe((returnData: any) => {
+      this.nspotFeeObjNri = returnData.data;
+      this.form.controls['nspotTaxNri'].setValue(this.nspotFeeObjNri.nspotTax);
+      this.form.controls['nspotServiceChargeNri'].setValue(this.nspotFeeObjNri.nspotFee);
+      this.form.controls['nspotBankChargenNri'].setValue(this.nspotFeeObjNri.bankCharge);
+    });
+  }
   // submitting the multipart data to the api
   onSubmit(): void {
     console.log(this.form.valid)
@@ -163,13 +183,5 @@ export class CourseStep2Component implements OnInit {
 
   }
   get f() { return this.form.controls; }
-  calculateNspotFeeNri(): void
-  {
-    const formData = this.form.value;
-    const otherFee = _.parseInt(formData.nriotherFee);
-    let totalfeesnri = otherFee;
-    this.apiService.doGetRequest(endPoints.Calculate_NspotFee + totalfeesnri).subscribe((returnData: any) => {
-      this.nspotFeeObjNri = returnData.data;
-    });
-  }
+  
 }

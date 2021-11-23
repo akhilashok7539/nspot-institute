@@ -67,6 +67,13 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
       nrirefundPolicy:[''],
       nriOtherIncludes:[''],
       feeexcludesNri:[''],
+      nspotTaxNri:[''],
+      nspotTax:[''],
+      nspotServiceChargeNri:[''],
+      nspotServiceCharge:[''],
+      nspotBankChargenNri:[''],
+      nspotBankCharge:[''],
+
     });
     this.calculateTotalFee();
     this.loadData();
@@ -128,6 +135,17 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
    
     
     this.form.controls['bankAccountId'].setValue(this.courserListDetails['bankAccountId']);
+
+    this.form.controls['nspotTax'].setValue(this.courserListDetails['nspotTax']);
+    this.form.controls['nspotServiceCharge'].setValue(this.courserListDetails['nspotServiceCharge']);
+    this.form.controls['nspotBankCharge'].setValue(this.courserListDetails['nspotBankCharge']);
+
+    this.form.controls['nspotTaxNri'].setValue(this.courserListDetails['nspotTaxNri']);
+    this.form.controls['nspotServiceChargeNri'].setValue(this.courserListDetails['nspotServiceChargeNri']);
+    this.form.controls['nspotBankChargenNri'].setValue(this.courserListDetails['nspotBankChargenNri']);
+
+
+    
     // let req ={
     //   bankCharge: this.courserListDetails['nspotBankCharge'] ,
     //   nspotFee: this.courserListDetails['nspotServiceCharge'],
@@ -147,6 +165,11 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
       this.apiService.doGetRequest(endPoints.Calculate_NspotFee + this.totalFee).subscribe((returnData: any) => {
         // console.log(returnData);
         this.nspotFeeObj = returnData.data;
+        console.log(this.nspotFeeObj);
+        
+        this.form.controls['nspotTax'].setValue(this.nspotFeeObj.nspotTax);
+        this.form.controls['nspotServiceCharge'].setValue(this.nspotFeeObj.nspotFee);
+        this.form.controls['nspotBankCharge'].setValue(this.nspotFeeObj.bankCharge);
       });
     }
     setNspotCalculations(data)
@@ -154,6 +177,10 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
       this.apiService.doGetRequest(endPoints.Calculate_NspotFee + data).subscribe((returnData: any) => {
         // console.log(returnData);
         this.nspotFeeObj = returnData.data;
+        this.form.controls['nspotTaxNri'].setValue(this.nspotFeeObjNri.nspotTax);
+    this.form.controls['nspotServiceChargeNri'].setValue(this.nspotFeeObjNri.nspotFee);
+    this.form.controls['nspotBankChargenNri'].setValue(this.nspotFeeObjNri.bankCharge);
+
       });
     }
     setNspotCalculationNri(data)

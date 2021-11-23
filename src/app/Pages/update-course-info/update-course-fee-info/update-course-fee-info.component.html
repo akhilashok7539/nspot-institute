@@ -42,7 +42,7 @@
                         <input type="text" formControlName="otherexcludes">
                     </div>
                     <div class="col-sm-12">
-                        <label class="req uppercase">FULL FEE PAYMENT PLAN</label>
+                        <label class="req uppercase"> FEE PAYMENT PLAN</label>
                         <select formControlName="paymentTenureId">
                             <option value="">Select a payment tenure</option>
                             <option *ngFor="let item of paymentTenures" value="{{item.id}}">{{item.title}}</option>
@@ -191,7 +191,7 @@
                         <input type="text" formControlName="feeexcludesNri">
                     </div>
                     <div class="col-sm-12">
-                        <label class="req uppercase">FULL FEE PAYMENT PLAN</label>
+                        <label class="req uppercase">FEE PAYMENT PLAN</label>
                         <select formControlName="nripaymentTenureId">
                             <option value="">Select a payment tenure</option>
                             <option *ngFor="let item of paymentTenures" value="{{item.id}}">{{item.title}}</option>
@@ -266,20 +266,20 @@
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                        <h4 class="sub-title uppercase bank-details">
+                        <!-- <h4 class="sub-title uppercase bank-details">
                             Bank Details
-                        </h4>
+                        </h4> -->
                         <div class="col-sm-12">
-                            <label class="req uppercase">Select Account</label>
+                            <!-- <label class="req uppercase">Select Account</label>
                             <select formControlName="bankAccountId">
                                 <option value="">Select</option>
                                 <option *ngFor="let item of bankDetails" value="{{item.id}}">{{item.nickname}}</option>
                             </select>
                             <app-control-messages [touched]="touched" [control]="f.bankAccountId">
-                            </app-control-messages>
+                            </app-control-messages> -->
                         </div>
                     </div>
-                    <div class="col-sm-12">
+                    <div class="col-sm-12" style="margin-top: 155px;">
                         <div class="col-md-9">
                             <label class="req uppercase">Spot Admission Fee</label>
                             <span style="    font-size: 10px;

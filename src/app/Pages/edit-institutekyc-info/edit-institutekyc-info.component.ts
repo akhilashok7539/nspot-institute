@@ -108,7 +108,7 @@ export class EditInstitutekycInfoComponent implements OnInit {
         this.form.controls['designation'].setValue(this.instituteDetails['designation']);
         this.form.controls['officialEmail'].setValue(this.instituteDetails['officialEmail']);
         this.form.controls['officialMobile'].setValue(this.instituteDetails['officialMobile']);
-        this.form.controls['licenseIssueAuthorityId'].setValue(this.instituteDetails['LicenceIssueAuthority']);
+        this.form.controls['licenseIssueAuthorityId'].setValue(this.instituteDetails['licenseIssueAuthorityId']);
         this.form.controls['licenseAuthorityName'].setValue(this.instituteDetails['licenseAuthorityName']);
         this.form.controls['licenseNumber'].setValue(this.instituteDetails['licenseNumber']);
         this.form.controls['nameofTown'].setValue(this.instituteDetails['nameofTown']);
@@ -150,6 +150,7 @@ export class EditInstitutekycInfoComponent implements OnInit {
         this.form.controls['admission_office_email'].setValue(this.instituteDetails['admission_office_email']);
         this.form.controls['admission_office_mobileno1'].setValue(this.instituteDetails['admission_office_mobileno1']);
         this.form.controls['admission_office_mobileno2'].setValue(this.instituteDetails['admission_office_mobileno2']);
+        this.form.controls['websitelink'].setValue(this.instituteDetails['websitelink']);
 
         
 

@@ -10,7 +10,8 @@ import Swal from 'sweetalert2';
 import { jsPDF } from 'jspdf';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { trim } from 'lodash';
-
+// import * as html2canvas from 'html2canvas';
+import html2canvas from 'html2canvas';
 @Component({
   selector: 'app-detailed-application',
   templateUrl: './detailed-application.component.html',
@@ -31,6 +32,7 @@ export class DetailedApplicationComponent implements OnInit {
   certificates = new Array();
   instituteInfo;
   personalInfoKeys = {}
+  personalinfomationDetaiedmasked :any = [];
   permanentAddressKeys = {}
   communicationAddressKeys = {}
   educationKeys = new Array()
@@ -118,9 +120,27 @@ getcurrentyear(){
       this.reviewForm.controls.remarks.setValue(this.applicationData.remarks)
 
       const formData = JSON.parse(this.applicationData.formFieldValues)
-      const personalInfo = formData.personalInfo
+      let  personalInfo = formData.personalInfo
       console.log("Personal Info",personalInfo);
-      
+      // // personalInfo.map(x => x.mothersPhoneNumber = "masked data"
+      // )
+     
+      if(this.applciaitonstatus === "pre-application-applied")
+      {
+      this.personalinfomationDetaiedmasked.push(personalInfo);
+      this.personalinfomationDetaiedmasked.map(x =>  x.mothersPhoneNumber = "+91*********************************02")
+      this.personalinfomationDetaiedmasked.map(x =>  x.fathersPhoneNumber = "+91*********************************09")
+      this.personalinfomationDetaiedmasked.map(x =>  x.fathersEmail = "****************************************@gmail.com")
+      this.personalinfomationDetaiedmasked.map(x =>  x.gaurdiansEmail = "****************************************@gmail.com")
+      this.personalinfomationDetaiedmasked.map(x =>  x.gaurdiansPhoneNumber = "+91*********************************19")
+      this.personalinfomationDetaiedmasked.map(x =>  x.mothersEmail = "****************************************@gmail.com")
+      // this.personalinfomationDetaiedmasked.map(x =>  x.fathersEmail = "****************************************")
+      console.log("Personal masked = ",this.personalinfomationDetaiedmasked);
+      personalInfo = this.personalinfomationDetaiedmasked[0]
+      console.log(this.personalInfo)
+      }
+
+
       let i = 0;
       for (let property in personalInfo) {
         if (property == 'additionalFields') {
@@ -135,8 +155,6 @@ getcurrentyear(){
           i++;
         }
       }
-      // console.log(this.personalInfo)
-
       // setting permanent address
       i = 0;
       for (let property in formData.permanentAddress) {
@@ -404,16 +422,49 @@ getcurrentyear(){
 
 
   public downloadAsPDF() {
-    const doc = new jsPDF();
+    const input = document.getElementById('pdfTable');
+    var HTML_Width =  input.getBoundingClientRect().width;
+		var HTML_Height =  input.getBoundingClientRect().height;
+		var top_left_margin = 15;
+		var PDF_Width:any = HTML_Width+(top_left_margin*2);
+		var PDF_Height:any = (PDF_Width*1.5)+(top_left_margin*2);
+		var canvas_image_width = HTML_Width;
+		var canvas_image_height = HTML_Height;
+		// html2canvas
+		// var totalPDFPages = Math.ceil(HTML_Height/PDF_Height)-1;
 
+
+    // html2canvas(document.getElementById('pdfTable')).then(function(canvas) {
+		// 	canvas.getContext('2d');
+			
+		// 	console.log(canvas.height+"  "+canvas.width);
+			
+			
+		// 	var imgData = canvas.toDataURL("image/jpeg", 1.0);
+		// 	var pdf = new jsPDF('p', 'pt',  [PDF_Width, PDF_Height]);
+		//     pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin,canvas_image_width,canvas_image_height);
+			
+			
+		// 	for (var i = 1; i <= totalPDFPages; i++) { 
+		// 		pdf.addPage(PDF_Width, PDF_Height);
+		// 		pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+		// 	}
+			
+		//     pdf.save("HTML-Document.pdf");
+    //     });
+    const doc = new jsPDF('p', 'pt',  [200, 650]);
     const pdfTable = this.pdfTable.nativeElement;
 
+   
+    
+   
     doc.html(pdfTable, {
       callback: function (doc) {
         doc.save('ApplicationForm.pdf');
       },
-      margin: [15, 15, 15, 20],
-      html2canvas: { scale: .17 },
+      margin: [60, 60, 60, 60],
+      html2canvas: { scale: .14 }
+
     });
 
   }

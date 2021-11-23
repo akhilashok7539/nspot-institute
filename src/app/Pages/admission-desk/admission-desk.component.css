@@ -5,6 +5,9 @@
   font-weight: 600;
   margin-top: 50px;
 }
+a{
+  cursor: pointer;
+}
 .btn-info
 {
   /* color: black !important; */
@@ -12,6 +15,33 @@
   color: #827979c4;
   background-color: #ffffff !important;
   border: none;
+}
+.pending{
+  background: #ff000045;
+  padding: 5px;
+  text-align: center;
+  border-radius: 15px;
+  color: #f65454;
+  width: 61%;
+  font-weight: bold;
+}
+.paymentpending{
+  background: #ffb00052;
+  padding: 5px;
+  text-align: center;
+  border-radius: 15px;
+  color: #ff8910;
+  width: 83%;
+  font-weight: bold;
+}
+.paiedamount{
+  background: #00f32052;
+  padding: 5px;
+  text-align: center;
+  border-radius: 15px;
+  color: #0c5203;
+  width: 83%;
+  font-weight: bold;
 }
 .contact select {
   width: 100%;
