@@ -439,7 +439,8 @@
 
                             <tr>
                                 <td></td>
-                                <th><button class="btn btn-info pull-right width-160" (click)="editravel()">View / Edit</button>
+                                <th><button class="btn btn-info pull-right width-160"  *ngIf="travelinformations" (click)="editravel()">View / Edit</button>
+                                    <button class="btn btn-info pull-right width-160"  *ngIf="!travelinformations" (click)="add()">Add</button>
                                 </th>
                             </tr>
 

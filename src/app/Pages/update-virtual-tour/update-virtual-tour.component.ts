@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class UpdateVirtualTourComponent implements OnInit {
   multiForm: FormData = new FormData();
   instituteId;
+  virtualTour:any=[];
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -50,6 +51,7 @@ export class UpdateVirtualTourComponent implements OnInit {
       libraryTourVideoLink: [''],
 
     });
+    this.loadData();
   }
   // Handling the file change events to append the file with the submitting object
   onchangeFile(controlname, event): void {
@@ -98,7 +100,7 @@ export class UpdateVirtualTourComponent implements OnInit {
     this.multiForm.append('recreationAreaTourVideoLink', formData.recreationAreaTourVideoLink);
     
 
-    this.apiService.doPutRequest(`institute/virtual-tour/update/` + this.instituteId, this.multiForm)
+    this.apiService.doPutRequest(`institute/virtual-tour/update/` + this.virtualTour['id'], this.multiForm)
       .subscribe((returnData: any) => {
         console.log(returnData);
         this.toastr.success('Updated Successful');
@@ -114,4 +116,24 @@ export class UpdateVirtualTourComponent implements OnInit {
 
   }
   get f() { return this.form.controls; }
+
+  loadData(){
+    this.apiService.doGetRequest("/institute/virtual-tour/"+this.instituteId).subscribe(
+      data =>{
+        this.virtualTour = data['data']
+       this.form.controls['campusTourVideoLink'].setValue(this.virtualTour['campusTourVideoLink']);
+       this.form.controls['classRoomVideoLink'].setValue(this.virtualTour['classRoomVideoLink']);
+       this.form.controls['hostelTourVideoLink'].setValue(this.virtualTour['hostelTourVideoLink']);
+       this.form.controls['labTourVideoLink'].setValue(this.virtualTour['labTourVideoLink']);
+       this.form.controls['libraryTourVideoLink'].setValue(this.virtualTour['libraryTourVideoLink']);
+       this.form.controls['recreationAreaTourVideoLink'].setValue(this.virtualTour['recreationAreaTourVideoLink']);
+       this.form.controls['campusTourVideoLink'].setValue(this.virtualTour['campusTourVideoLink']);
+
+
+      },
+      error =>{
+
+      }
+    )
+  }
 }

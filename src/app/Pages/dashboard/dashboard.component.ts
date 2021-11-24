@@ -70,6 +70,8 @@ export class DashboardComponent implements OnInit {
       console.log(returnData);
       
       this.travelinformations = returnData['data'][0];
+      console.log(this.travelinformations);
+      
     }, error => {
       console.error(error);
       this.toastr.error('Failed to fetch institute details')
@@ -146,5 +148,10 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/institute/travelinfo-edit/'])
 
 
+  }
+  add()
+  {
+    
+    this.router.navigate(['/institute/travelinfo-add'])
   }
 }

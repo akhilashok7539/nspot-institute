@@ -50,6 +50,8 @@ import { ConfirmationLetterComponent } from './Pages/confirmation-letter/confirm
 import { UpdateCourseInfoSecondpageComponent } from './Pages/update-course-info/update-course-info-secondpage/update-course-info-secondpage.component';
 import { UpdateCourseFeeInfoComponent } from './Pages/update-course-info/update-course-fee-info/update-course-fee-info.component';
 import { UpdateEligibilityJobAreasComponent } from './Pages/view-course/update-eligibility-job-areas/update-eligibility-job-areas.component';
+import { AddInstituteTravelinfoComponent } from './Pages/add-institute-travelinfo/add-institute-travelinfo.component';
+import { ForgotPasswordComponent } from './Pages/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {
@@ -59,6 +61,8 @@ const routes: Routes = [
       { path: '', pathMatch: 'full', redirectTo: 'login' },
       { path: 'login', component: LoginComponent },
       { path: 'contact-us', component: ContactUsComponent },
+      { path: 'forgotpassword', component:  ForgotPasswordComponent},
+      
     ],
   },
   {
@@ -90,10 +94,7 @@ const routes: Routes = [
       { path: 'admission-desk/detailed-application-view/:applicationId', component: DetailedApplicationComponent },
       { path: 'admission-register-list', component: StudetntListComponent },
       { path: 'admission-officer', component: AdmissionOfficersComponent },
-      {
-        path: 'admission-officer/add',
-        component: AddAdmissionOfficerComponent,
-      },
+      { path: 'admission-officer/add',component: AddAdmissionOfficerComponent,},
       { path: 'customize-application', component: CustomApplicationComponent },
       { path: 'forms', component: FormsComponent },
       { path: 'viewcourse', component: ViewCourseComponent },
@@ -115,12 +116,14 @@ const routes: Routes = [
 
       { path: 'infrastructure-edit', component: InfrastructureEditComponent },
       { path: 'travelinfo-edit', component: InstituteTravelEditComponent },
+      { path: 'travelinfo-add', component: AddInstituteTravelinfoComponent },
+
       { path: 'add-admissionnumber', component: AddAdmisionNumberComponent },
 
       { path: 'view-receipt/:applicationId', component: ConfirmationLetterComponent },
       { path: 'view-receipt-fee/:applicationId/:feeid', component: UpdateCourseFeeInfoComponent },
       { path: 'update-eligibility', component: UpdateEligibilityJobAreasComponent },
-
+      
 
     ],
   },

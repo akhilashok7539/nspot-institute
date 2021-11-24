@@ -55,6 +55,11 @@ export class CourseStep3Component implements OnInit {
     }
     const formData = this.form.value;
     this.multiForm.append("eligibiliyInString", this.form.value.eligibiliyInString);
+    this.multiForm.append("agebar", this.form.value.agebar);
+    this.multiForm.append("ageLimit", this.form.value.ageLimit);
+    this.multiForm.append("academicqualifications", this.form.value.academicqualifications);
+    this.multiForm.append("entranceexam", this.form.value.entranceexam);
+
 
     this.apiService.doPostRequest_upload(endPoints.Update_course + this.courseId, this.multiForm)
       .subscribe((returnData: any) => {
@@ -65,6 +70,8 @@ export class CourseStep3Component implements OnInit {
         this.router.navigate(['/institute/post/course/step-4/' + this.courseId]);
       },
         error => {
+          // this.multiForm.delete();
+          this.multiForm = new FormData();
           this.toastr.error(error.error[0].message);
           console.error(error);
           this.spinner.hide();

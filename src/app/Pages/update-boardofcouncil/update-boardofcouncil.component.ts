@@ -28,7 +28,7 @@ export class UpdateBoardofcouncilComponent implements OnInit {
   boardOfCouncilInfo:any = [];
   touched = false;
   ngOnInit(): void {
-    this.instituteId = this.authService.instituteProfile.userId;
+    this.instituteId = this.authService.instituteProfile.id;
 
 
     this.form = this.formBuilder.group({
@@ -169,7 +169,7 @@ export class UpdateBoardofcouncilComponent implements OnInit {
     this.multiForm.append('group', formData.group);
 
     // console.warn(this.multiForm.getAll('affiliatedToFile'));
-    this.apiService.doPutRequest(`institute/boardOfCouncil/update/` + this.instituteId, this.multiForm).subscribe((returnData: any) => {
+    this.apiService.doPutRequest(`institute/boardOfCouncil/update/` + this.boardOfCouncilInfo['id'], this.multiForm).subscribe((returnData: any) => {
       console.log(returnData);
       this.toastr.success('Updated successfull');
       this.router.navigate(['/institute/dashboard']);

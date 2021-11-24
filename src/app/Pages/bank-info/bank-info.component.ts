@@ -41,6 +41,7 @@ export class BankInfoComponent implements OnInit {
       panNumber:[''],
       panFile:[''],
       aadharFile:[''],
+      razorpay_linkedAccount_id:['']
     });
   }
 
@@ -80,7 +81,9 @@ export class BankInfoComponent implements OnInit {
     this.multiForm.append('nickname', formData.nickname);
     this.multiForm.append('aadharNumber', formData.aadharNumber);
     this.multiForm.append('panNumber', formData.panNumber);
+    this.multiForm.append('razorpay_linkedAccount_id', formData.accountNumber);
 
+    
 
     this.apiService.doPostRequest_upload(endPoints.Create_bankDetails + this.instituteId, this.multiForm)
       .subscribe((returnData: any) => {
