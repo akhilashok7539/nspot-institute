@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { ApiService } from 'src/app/services/api.service';
 import { endPoints } from '../../../config/endPoints';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -13,10 +14,15 @@ import { endPoints } from '../../../config/endPoints';
 export class InnerHeaderComponent implements OnInit {
   userId = this.authService.instituteProfile.id;
   notifications;
+  currentselectedPlans:any=[];
+  courseslist:any=[];
+  courseCountLengthSubscribe:any=[];
+  curentcourseCountLength;
   constructor(
     private authService: AuthService,
     private apiService: ApiService,
-    private router: Router
+    private router: Router,
+    private toaster:ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -24,7 +30,20 @@ export class InnerHeaderComponent implements OnInit {
     setInterval(function () {
       // that.checkForNotification();
     }, 10000)
+    this.loaddata();
+  }
 
+  loaddata()
+  {
+    this.apiService.doGetRequest('payment/subscription/institute/'+this.userId).subscribe((returnData: any) => {
+      this.currentselectedPlans = returnData['data'][0];
+      this.courseCountLengthSubscribe = this.currentselectedPlans['Subscription_Tier'].coursesCount;
+      console.log(this.currentselectedPlans);
+    });
+    this.apiService.doGetRequest('institute/courses/2').subscribe((returnData: any) =>{
+      this.courseslist = returnData['data']
+      this.curentcourseCountLength = this.courseslist.length;
+    })
   }
 
   checkForNotification() {
@@ -54,5 +73,16 @@ export class InnerHeaderComponent implements OnInit {
   logout(): void {
     this.authService.logoutUser();
     this.router.navigate(['/login']);
+  }
+  postCourse()
+  {
+    if(this.curentcourseCountLength < this.courseCountLengthSubscribe)
+    {
+      this.router.navigate(['/institute/post/course'])
+
+    }
+    else{
+      this.toaster.warning("Course Count limit Reached! Upgrade your plan")
+    }
   }
 }

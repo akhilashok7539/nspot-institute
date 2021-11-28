@@ -39,7 +39,7 @@ export class CourseStep2Component implements OnInit {
     this.courseId = _.parseInt(this.route.snapshot.paramMap.get('courseId'));
     this.courseDuration = JSON.parse(sessionStorage.getItem("courseDuration"));
     console.log(this.courseDuration);
-    
+
     this.instituteId = this.authService.instituteProfile.id;
     this.loadData();
     this.form = this.formBuilder.group({
@@ -59,19 +59,19 @@ export class CourseStep2Component implements OnInit {
       // bankAccountId: ['', [Validators.required]],
       // hasScolarship: [false],
       // spotfee: ['',[Validators.required]],
-     
+
       // otherincludes: [''],
       // amount: [''],
       // refundPolicy: ['',[Validators.required]],
       // // validUpto: ['null'],
       // // title: ['tittlenull'],
-      paymentTenureId: ['', ],
-      otherIncludes: ['', ],
-      otherFee: [0, ],
-      otherexcludes: ['', ],
-      bankAccountId: ['', ],
+      paymentTenureId: ['',],
+      otherIncludes: ['',],
+      otherFee: [0,],
+      otherexcludes: ['',],
+      bankAccountId: ['',],
       hasScolarship: [false],
-      hasScolarshipNri:[false],
+      hasScolarshipNri: [false],
       amount: [''],
       spotfee: ['',],
       amountcreditedInstitute: [''],
@@ -79,18 +79,18 @@ export class CourseStep2Component implements OnInit {
       // nriOtherexcludes: ['',],
       nriotherFee: [''],
       nrischlorshipamount: [''],
-      nriSpotfee:[''],
-      nriAmountCreditedinstitute:[''],
-      nripaymentTenureId:[''],
-      nrirefundPolicy:[''],
-      nriOtherIncludes:[''],
-      feeexcludesNri:[''],
-      nspotTaxNri:[''],
-      nspotTax:[''],
-      nspotServiceChargeNri:[''],
-      nspotServiceCharge:[''],
-      nspotBankChargenNri:[''],
-      nspotBankCharge:[''],
+      nriSpotfee: [''],
+      nriAmountCreditedinstitute: [''],
+      nripaymentTenureId: [''],
+      nrirefundPolicy: [''],
+      nriOtherIncludes: [''],
+      feeexcludesNri: [''],
+      nspotTaxNri: [''],
+      nspotTax: [''],
+      nspotServiceChargeNri: [''],
+      nspotServiceCharge: [''],
+      nspotBankChargenNri: [''],
+      nspotBankCharge: [''],
     });
     this.calculateTotalFee();
   }
@@ -134,8 +134,7 @@ export class CourseStep2Component implements OnInit {
       this.form.controls['nspotBankCharge'].setValue(this.nspotFeeObj.bankCharge);
     });
   }
-  calculateNspotFeeNri(): void
-  {
+  calculateNspotFeeNri(): void {
     const formData = this.form.value;
     const otherFee = _.parseInt(formData.nriotherFee);
     let totalfeesnri = otherFee;
@@ -157,31 +156,36 @@ export class CourseStep2Component implements OnInit {
       // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     }
     const formData = this.form.value;
-    console.log(this.nspotFeeObj.nspotFee+this.nspotFeeObj.bankCharge+this.nspotFeeObj.nspotTax);
-    let totalamount = this.nspotFeeObj.nspotFee+this.nspotFeeObj.bankCharge+this.nspotFeeObj.nspotTax;
+    console.log(this.nspotFeeObj.nspotFee + this.nspotFeeObj.bankCharge + this.nspotFeeObj.nspotTax);
+    let totalamount = this.nspotFeeObj.nspotFee + this.nspotFeeObj.bankCharge + this.nspotFeeObj.nspotTax;
     let spotaddmionchangres = this.form.value.spotfee;
     console.log(spotaddmionchangres);
-    
-    if(totalamount>spotaddmionchangres)
-    {
+
+    if (totalamount > spotaddmionchangres) {
       this.toastr.error("Spot addmission fee is less than Nspot fee")
     }
-    else{
-  this.apiService.doPostRequest(endPoints.Create_courseFee + this.instituteId, formData)
-      .subscribe((returnData: any) => {
-        console.log(returnData);
-        this.toastr.success('Form submission successfull');
-        this.router.navigate(['/institute/post/course/step-3/' + this.courseId]);
-      },
-        error => {
-          this.toastr.error(error.error[0].message);
-          console.error(error);
-        });
+    else {
+
+      console.log(formData);
+      
+
+      this.apiService.doPostRequest(endPoints.Create_courseFee + this.instituteId, formData)
+        .subscribe((returnData: any) => {
+          console.log(returnData);
+          this.toastr.success('Form submission successfull');
+          this.router.navigate(['/institute/post/course/step-3/' + this.courseId]);
+        },
+          error => {
+            this.toastr.error(error.error[0].message);
+            console.error(error);
+          });
+
+          
     }
-  
+
 
 
   }
   get f() { return this.form.controls; }
-  
+
 }

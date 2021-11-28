@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="row" style="    padding: 47px;">
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <label class="req uppercase">SELECT COURSE / PROGRAM</label>
             <select (change)="changeCourse($event)" name="type" class="form-control">
                         {{courses|json}}
@@ -15,6 +15,15 @@
                         </option>
                         <!-- <option *ngIf="courses.length ===0" value="">--- No courses added yet ---</option> -->
                       </select>
+        </div>
+        <div class="col-sm-2">
+            <label class="req uppercase">Choose Date</label>
+            <input type="date" class="form-control" (change)="getselectedDate($event)">
+        </div>
+        <div class="col-sm-6">
+            <label class="req uppercase">Search NSPOT Reference ID</label>
+
+            <input type="text" placeholder="Search NSPOT Reference ID" [(ngModel)]="search" class="form-control">
         </div>
     </div>
     <div class="col-md-12" style="overflow-x: auto;">
@@ -41,7 +50,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let item of feeremmitedSApplicants; let i=index">
+                <tr *ngFor="let item of feeremmitedSApplicants | filtercustome:search; let i=index">
                     <td>{{i+1}}</td>
                     <td>{{getname(item)}}</td>
                     <td>

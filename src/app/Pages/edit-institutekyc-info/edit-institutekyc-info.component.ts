@@ -142,8 +142,8 @@ export class EditInstitutekycInfoComponent implements OnInit {
         this.form.controls['mobile2'].setValue(this.instituteDetails['mobile2']);
         this.form.controls['haveBoysHostel'].setValue(this.instituteDetails['haveBoysHostel']);
         this.form.controls['haveGirlsHostel'].setValue(this.instituteDetails['haveGirlsHostel']);
-        this.form.controls['hostalAnnualFee'].setValue(this.instituteDetails['hostalAnnualFee']);
-        this.form.controls['transportationInfo'].setValue(this.instituteDetails['transportationInfo']);
+        // this.form.controls['hostalAnnualFee'].setValue(this.instituteDetails['hostalAnnualFee']);
+        // this.form.controls['transportationInfo'].setValue(this.instituteDetails['transportationInfo']);
         this.form.controls['gmapLatitude'].setValue(this.instituteDetails['gmapLatitude']);
         this.form.controls['gmapLongitude'].setValue(this.instituteDetails['gmapLongitude']);
 
@@ -151,8 +151,10 @@ export class EditInstitutekycInfoComponent implements OnInit {
         this.form.controls['admission_office_mobileno1'].setValue(this.instituteDetails['admission_office_mobileno1']);
         this.form.controls['admission_office_mobileno2'].setValue(this.instituteDetails['admission_office_mobileno2']);
         this.form.controls['websitelink'].setValue(this.instituteDetails['websitelink']);
-
+        this.form.controls['aboutUs'].setValue(this.instituteDetails['aboutUs']);
+        // religiousMinority
         
+        this.form.controls['religiousMinority'].setValue(this.instituteDetails['religiousMinority']);
 
       },
       error =>{
@@ -270,7 +272,7 @@ export class EditInstitutekycInfoComponent implements OnInit {
     //   (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     // }
     const formData = this.form.value;
-    this.apiService.doPutRequest(`institute/update/`+this.instituteid, formData).subscribe((returnData: any) => {
+    this.apiService.doPutRequest(`institute/update/`+this.instituteDetails['id'], formData).subscribe((returnData: any) => {
       if (returnData.status == true) {
         this.toastr.success('Form submission successfull');
         console.log(returnData)

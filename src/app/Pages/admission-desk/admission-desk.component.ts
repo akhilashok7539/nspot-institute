@@ -68,7 +68,11 @@ export class AdmissionDeskComponent implements OnInit {
 
     // get fee paied student list by courseId
 
-    this.apiService.doGetRequest('payment/courseFee/institute/'+courseId).subscribe(
+    let courseFeeRemittedreq ={
+      "courseId":courseId,
+     
+    }
+    this.apiService.doPostRequest('payment/courseFee/institute/',courseFeeRemittedreq).subscribe(
       data =>{
         console.log(data);
         
@@ -334,6 +338,6 @@ export class AdmissionDeskComponent implements OnInit {
   }
   viewReciptadmin(s)
   {
-    window.open("https://nspot-server.herokuapp.com/"+s,"_blank")
+    window.open("https://nspot-qa.herokuapp.com/"+s,"_blank")
   }
 }

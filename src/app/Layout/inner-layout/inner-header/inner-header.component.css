@@ -12,7 +12,12 @@
 /* .notification-icon i{
   margin-left: 5px;
 } */
-
+.coursecount{
+  background: rgb(27 174 225);
+  padding: 9px;
+  color: white;
+  border-radius: 21px;
+}
 nav > ul > li > a{
   font-size: 13px !important;
 }

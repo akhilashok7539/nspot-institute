@@ -76,6 +76,7 @@ import { UpdateCourseFeeInfoComponent } from './Pages/update-course-info/update-
 import { UpdateEligibilityJobAreasComponent } from './Pages/view-course/update-eligibility-job-areas/update-eligibility-job-areas.component';
 import { AddInstituteTravelinfoComponent } from './Pages/add-institute-travelinfo/add-institute-travelinfo.component';
 import { ForgotPasswordComponent } from './Pages/forgot-password/forgot-password.component';
+import {FilterPipecustome} from './Pages/completed-studnet-list/searchFilter';
 const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
 
 @NgModule({
@@ -142,6 +143,7 @@ const config: SocketIoConfig = { url: environment.baseApiUrl, options: {} };
     UpdateEligibilityJobAreasComponent,
     AddInstituteTravelinfoComponent,
     ForgotPasswordComponent,
+    FilterPipecustome
   ],
   imports: [
     BrowserModule,

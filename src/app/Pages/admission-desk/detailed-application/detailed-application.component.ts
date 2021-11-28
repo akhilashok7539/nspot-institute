@@ -19,9 +19,9 @@ import html2canvas from 'html2canvas';
 })
 export class DetailedApplicationComponent implements OnInit {
   instituteId = this.authService.instituteProfile.id;
-  mainInstitueId= this.authService.instituteProfile.userId;
+  mainInstitueId = this.authService.instituteProfile.userId;
   applicationstatus;
-  appttitudetestdetails:any=[];
+  appttitudetestdetails: any = [];
   applicationId;
   applicationData;
   personalInfo = new Array();
@@ -32,14 +32,14 @@ export class DetailedApplicationComponent implements OnInit {
   certificates = new Array();
   instituteInfo;
   personalInfoKeys = {}
-  personalinfomationDetaiedmasked :any = [];
+  personalinfomationDetaiedmasked: any = [];
   permanentAddressKeys = {}
   communicationAddressKeys = {}
   educationKeys = new Array()
   entranceKeys = new Array()
   certificatesKeys = {}
   baseApiUrl = environment.baseApiUrl;
-
+  studentDetailedlist: any = [];
   reportingForm: FormGroup
   aptitudeForm: FormGroup
   interviewForm: FormGroup
@@ -47,6 +47,10 @@ export class DetailedApplicationComponent implements OnInit {
   onlineinterview: FormGroup
   touched = false;
   applciaitonstatus;
+  studentsignatureFile;
+  mothersSignatureFile;
+  fathersSignatureFile;
+  guardiansSignatureFile;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -58,9 +62,9 @@ export class DetailedApplicationComponent implements OnInit {
 
   ngOnInit(): void {
     this.applicationId = _.parseInt(this.route.snapshot.paramMap.get('applicationId'));
-    this.applciaitonstatus = sessionStorage.getItem("status");  
+    this.applciaitonstatus = sessionStorage.getItem("status");
     console.log(this.applciaitonstatus);
-    
+
     this.loadData()
 
     this.reportingForm = this.formBuilder.group({
@@ -83,7 +87,7 @@ export class DetailedApplicationComponent implements OnInit {
     this.onlineinterview = this.formBuilder.group({
       id: this.applicationId,
       onlineinterviewstatus: [''],
-     
+
     });
     this.reviewForm = this.formBuilder.group({
       id: this.applicationId,
@@ -91,11 +95,11 @@ export class DetailedApplicationComponent implements OnInit {
     });
     this.getallapptituteTest();
   }
-getcurrentyear(){
-  let currentYear;
-  return currentYear=new Date().getFullYear();
+  getcurrentyear() {
+    let currentYear;
+    return currentYear = new Date().getFullYear();
 
-}
+  }
   loadData() {
     // instite details
 
@@ -103,41 +107,55 @@ getcurrentyear(){
       console.log(returnData)
       this.instituteInfo = returnData.data;
       console.log(this.instituteInfo);
-      
+
     }, error => {
       console.error(error);
       this.toastr.error('Failed to fetch institute details')
     });
+    // files application
+    this.apiService.doGetRequest("applicationForm/applications/files/" + this.applicationId).subscribe(
+      data => {
+        console.log(data);
+        this.guardiansSignatureFile = data['data']['guardiansSignatureFile']
+        this.fathersSignatureFile = data['data']['fathersSignatureFile']
+        this.mothersSignatureFile = data['data']['mothersSignatureFile']
+        this.studentsignatureFile = data['data']['signatureFile']
 
+      },
+      error => {
+
+      }
+    )
     // getting pre-applications
     this.apiService.doGetRequest(
       endPoints.Get_applications + "?where[id]=" + this.applicationId
     ).subscribe((returnData: any) => {
       this.applicationData = returnData.data[0].item;
+      this.studentDetailedlist = returnData['data'][0]['student'];
+
       this.applicationstatus = this.applicationData['applicationStatus'];
       console.log(this.applicationstatus);
-      
+
       this.reviewForm.controls.remarks.setValue(this.applicationData.remarks)
 
       const formData = JSON.parse(this.applicationData.formFieldValues)
-      let  personalInfo = formData.personalInfo
-      console.log("Personal Info",personalInfo);
+      let personalInfo = formData.personalInfo
+      console.log("Personal Info", personalInfo);
       // // personalInfo.map(x => x.mothersPhoneNumber = "masked data"
       // )
-     
-      if(this.applciaitonstatus === "pre-application-applied")
-      {
-      this.personalinfomationDetaiedmasked.push(personalInfo);
-      this.personalinfomationDetaiedmasked.map(x =>  x.mothersPhoneNumber = "+91*********************************02")
-      this.personalinfomationDetaiedmasked.map(x =>  x.fathersPhoneNumber = "+91*********************************09")
-      this.personalinfomationDetaiedmasked.map(x =>  x.fathersEmail = "****************************************@gmail.com")
-      this.personalinfomationDetaiedmasked.map(x =>  x.gaurdiansEmail = "****************************************@gmail.com")
-      this.personalinfomationDetaiedmasked.map(x =>  x.gaurdiansPhoneNumber = "+91*********************************19")
-      this.personalinfomationDetaiedmasked.map(x =>  x.mothersEmail = "****************************************@gmail.com")
-      // this.personalinfomationDetaiedmasked.map(x =>  x.fathersEmail = "****************************************")
-      console.log("Personal masked = ",this.personalinfomationDetaiedmasked);
-      personalInfo = this.personalinfomationDetaiedmasked[0]
-      console.log(this.personalInfo)
+
+      if (this.applciaitonstatus === "pre-application-applied") {
+        this.personalinfomationDetaiedmasked.push(personalInfo);
+        this.personalinfomationDetaiedmasked.map(x => x.mothersPhoneNumber = "+91*********************************02")
+        this.personalinfomationDetaiedmasked.map(x => x.fathersPhoneNumber = "+91*********************************09")
+        this.personalinfomationDetaiedmasked.map(x => x.fathersEmail = "****************************************@gmail.com")
+        this.personalinfomationDetaiedmasked.map(x => x.gaurdiansEmail = "****************************************@gmail.com")
+        this.personalinfomationDetaiedmasked.map(x => x.gaurdiansPhoneNumber = "+91*********************************19")
+        this.personalinfomationDetaiedmasked.map(x => x.mothersEmail = "****************************************@gmail.com")
+        // this.personalinfomationDetaiedmasked.map(x =>  x.fathersEmail = "****************************************")
+        console.log("Personal masked = ", this.personalinfomationDetaiedmasked);
+        personalInfo = this.personalinfomationDetaiedmasked[0]
+        console.log(this.personalInfo)
       }
 
 
@@ -281,8 +299,8 @@ getcurrentyear(){
       }
     });
 
-  
-  
+
+
 
   }
 
@@ -423,41 +441,41 @@ getcurrentyear(){
 
   public downloadAsPDF() {
     const input = document.getElementById('pdfTable');
-    var HTML_Width =  input.getBoundingClientRect().width;
-		var HTML_Height =  input.getBoundingClientRect().height;
-		var top_left_margin = 15;
-		var PDF_Width:any = HTML_Width+(top_left_margin*2);
-		var PDF_Height:any = (PDF_Width*1.5)+(top_left_margin*2);
-		var canvas_image_width = HTML_Width;
-		var canvas_image_height = HTML_Height;
-		// html2canvas
-		// var totalPDFPages = Math.ceil(HTML_Height/PDF_Height)-1;
+    var HTML_Width = input.getBoundingClientRect().width;
+    var HTML_Height = input.getBoundingClientRect().height;
+    var top_left_margin = 15;
+    var PDF_Width: any = HTML_Width + (top_left_margin * 2);
+    var PDF_Height: any = (PDF_Width * 1.5) + (top_left_margin * 2);
+    var canvas_image_width = HTML_Width;
+    var canvas_image_height = HTML_Height;
+    // html2canvas
+    // var totalPDFPages = Math.ceil(HTML_Height/PDF_Height)-1;
 
 
     // html2canvas(document.getElementById('pdfTable')).then(function(canvas) {
-		// 	canvas.getContext('2d');
-			
-		// 	console.log(canvas.height+"  "+canvas.width);
-			
-			
-		// 	var imgData = canvas.toDataURL("image/jpeg", 1.0);
-		// 	var pdf = new jsPDF('p', 'pt',  [PDF_Width, PDF_Height]);
-		//     pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin,canvas_image_width,canvas_image_height);
-			
-			
-		// 	for (var i = 1; i <= totalPDFPages; i++) { 
-		// 		pdf.addPage(PDF_Width, PDF_Height);
-		// 		pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
-		// 	}
-			
-		//     pdf.save("HTML-Document.pdf");
+    // 	canvas.getContext('2d');
+
+    // 	console.log(canvas.height+"  "+canvas.width);
+
+
+    // 	var imgData = canvas.toDataURL("image/jpeg", 1.0);
+    // 	var pdf = new jsPDF('p', 'pt',  [PDF_Width, PDF_Height]);
+    //     pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin,canvas_image_width,canvas_image_height);
+
+
+    // 	for (var i = 1; i <= totalPDFPages; i++) { 
+    // 		pdf.addPage(PDF_Width, PDF_Height);
+    // 		pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height*i)+(top_left_margin*4),canvas_image_width,canvas_image_height);
+    // 	}
+
+    //     pdf.save("HTML-Document.pdf");
     //     });
-    const doc = new jsPDF('p', 'pt',  [200, 650]);
+    const doc = new jsPDF('p', 'pt', [200, 650]);
     const pdfTable = this.pdfTable.nativeElement;
 
-   
-    
-   
+
+
+
     doc.html(pdfTable, {
       callback: function (doc) {
         doc.save('ApplicationForm.pdf');
@@ -490,10 +508,9 @@ getcurrentyear(){
 
 
   }
-  getallapptituteTest()
-  {
-    this.apiService.doGetRequest(`institute/aptitude-tests/`+this.instituteId).subscribe(
-      data =>{
+  getallapptituteTest() {
+    this.apiService.doGetRequest(`institute/aptitude-tests/` + this.instituteId).subscribe(
+      data => {
         this.appttitudetestdetails = data['data'];
       }
     )
@@ -502,10 +519,9 @@ getcurrentyear(){
     string = string.replace(/([a-z])([A-Z])/g, '$1 $2');
     string = string.replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
     return string;
-}
-doc()
-{
-  sessionStorage.setItem("applicationID",this.applicationId)
-  this.router.navigate(['/institute/download-documents'])
-}
+  }
+  doc() {
+    sessionStorage.setItem("applicationID", this.applicationId)
+    this.router.navigate(['/institute/download-documents'])
+  }
 }

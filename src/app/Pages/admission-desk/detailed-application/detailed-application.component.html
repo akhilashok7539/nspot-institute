@@ -362,14 +362,14 @@
         border-bottom: 7px solid #1b335f;">
             <div class="row">
                 <div class="col-sm-2">
-                    <!-- <img src="https://nspot-server.herokuapp.com/{{instituteInfo?.profilePicFile}}" alt="" style="width: 108px;
+                    <!-- <img src="https://nspot-qa.herokuapp.com/{{instituteInfo?.profilePicFile}}" alt="" style="width: 108px;
                     margin-left: 27px;
                     margin-top: 10px;
                 "> -->
 
                 </div>
                 <div class="col-sm-8">
-                  <img src="https://nspot-server.herokuapp.com/{{instituteInfo?.profilePicFile}}" alt="" style="width: 108px;
+                  <img src="https://nspot-qa.herokuapp.com/{{instituteInfo?.profilePicFile}}" alt="" style="width: 108px;
                     display: block;
     margin: 0 auto;
               ">
@@ -380,7 +380,7 @@
                 </div>
                 <div class="col-sm-2">
                     <!-- <img src="./images/logo.png" alt="" width="100px"> -->
-                    <!-- <img src="https://nspot-server.herokuapp.com/{{instituteInfo?.profilePicFile}}" alt="" width="148px"> -->
+                    <!-- <img src="https://nspot-qa.herokuapp.com/{{instituteInfo?.profilePicFile}}" alt="" width="148px"> -->
 
 
                 </div>
@@ -400,8 +400,7 @@
                 </div>
                 <div class="col-sm-2">
                     <p style="
-            text-align: center;
-        ">:</p>
+            text-align: center;">:</p>
                 </div>
                 <div class="col-sm-5">
                     <p> .................................................</p>
@@ -672,17 +671,22 @@
 
             </p>
             <div class="row">
-                <img src="./assets/images/signature.png" style="width: 146px;
-        float: right;
-        margin-right: 48px;
-        margin-bottom: 20px;" alt="">
-                <p style="float: right;
-        margin-top: 20px;
-        margin-right: 11px;
-        font-size: 23px;
-        font-weight: bold;">Signature</p>
-                <!-- <input type="checkbox" checked>I accept the Terms of Service -->
-            </div>
+              <div class="col-sm-12">
+                  <img *ngIf="studentDetailedlist?.isFilledByFather" src="https://nspot-qa.herokuapp.com/{{fathersSignatureFile}}" alt="" style="    float: right;width: 136px;">
+                  <img *ngIf="studentDetailedlist?.isFilledByGaurdian" src="https://nspot-qa.herokuapp.com/{{guardiansSignatureFile}}" alt="" style="    float: right;width: 136px;">
+                  <img *ngIf="studentDetailedlist?.isFilledByMyself" src="https://nspot-qa.herokuapp.com/{{studentsignatureFile}}" alt="" style="    float: right;width: 136px;">
+               
+              </div>
+             <div class="col-sm-12">
+              <p style="float: right;
+              margin-top: 20px;
+              margin-right: 11px;
+              font-size: 23px;
+              font-weight: bold;">Signature</p>
+             </div>
+            
+              <!-- <input type="checkbox" checked>I accept the Terms of Service -->
+          </div>
 
         </div>
       </div>

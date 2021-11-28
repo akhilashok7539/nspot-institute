@@ -15,6 +15,7 @@ export class CompletedStudnetListComponent implements OnInit {
   currentCourseId;
   feeremmitedSApplicants:any=[];
   admisionnumber;
+  search;
   constructor(private apiService:ApiService,private authService:AuthService,
     private toaster:ToastrService,private router:Router) { }
 
@@ -29,6 +30,46 @@ export class CompletedStudnetListComponent implements OnInit {
       }
     )
   }
+  getselectedDate(event)
+  {
+  let date= event.target.value;
+  console.log(date);
+  let courseFeeRemittedreq ={
+    "courseId":this.currentCourseId,
+     "addedDate":date
+  }
+  this.apiService.doPostRequest('payment/courseFee/institute/',courseFeeRemittedreq).subscribe(
+    data =>{
+      console.log(data);
+      
+      let arr = [];
+      arr = data['result']
+      // console.log("Fee paid students list",arr);
+
+      if( data['result'].length === 0)
+      {
+        this.feeremmitedSApplicants = [];
+      }
+      else{
+
+
+      for(let i=0;i<=arr.length;i++)
+      {
+        if(arr[i]?.item?.status === "paid")
+        {
+          this.feeremmitedSApplicants.push(arr[i])
+        }
+      }
+    }
+
+      console.log("Fee paied students",this.feeremmitedSApplicants);
+      
+    },
+    error =>{
+      this.feeremmitedSApplicants = [];
+    }
+  )
+  }
   changeCourse(event) {
     this.feeremmitedSApplicants = [];
     this.currentCourseId = event.target.value;
@@ -36,13 +77,24 @@ export class CompletedStudnetListComponent implements OnInit {
   }
   loadDataForCourse(currentCourseId)
   {
-    this.apiService.doGetRequest('payment/courseFee/institute/'+currentCourseId).subscribe(
+    let courseFeeRemittedreq ={
+      "courseId":currentCourseId,
+     
+    }
+    this.apiService.doPostRequest('payment/courseFee/institute/',courseFeeRemittedreq).subscribe(
       data =>{
         console.log(data);
         
         let arr = [];
         arr = data['result']
         // console.log("Fee paid students list",arr);
+        if( data['result'].length === 0)
+        {
+          this.feeremmitedSApplicants = [];
+        }
+        else{
+  
+  
         for(let i=0;i<=arr.length;i++)
         {
           if(arr[i]?.item?.status === "paid")
@@ -50,6 +102,7 @@ export class CompletedStudnetListComponent implements OnInit {
             this.feeremmitedSApplicants.push(arr[i])
           }
         }
+      }
         console.log("Fee paied students",this.feeremmitedSApplicants);
         
       },
@@ -79,4 +132,33 @@ export class CompletedStudnetListComponent implements OnInit {
    this.router.navigate(['/institute/add-admissionnumber'])
     
   }
+
+  getpaymentTenture(id){
+    console.log(id);
+    
+    return (
+      this.feeremmitedSApplicants.find((el) => el.id.toString() === (id || "").toString()) || {
+        title: "",
+      }
+    );
+  }
+  changeEvent(event){
+    console.log(event.target.value);
+    this.feeremmitedSApplicants.filter(object =>{
+      // object.item.ApplicationForm_submission.nSpotReferenceId
+      if(object.item.ApplicationForm_submission.nSpotReferenceId === event.target.value)
+      {
+        console.log(object);
+        this.feeremmitedSApplicants=[];
+        this.feeremmitedSApplicants.push(object)
+      }
+     
+    })
+    // this.feeremmitedSApplicants.find((el) => 
+    
+    // el.item.ApplicationForm_submission.nSpotReferenceId.toString() === (event.target.value || "")
+    
+    // );
+  }
+  // getpaymentTenture(courseFees.paymentTenureId).title
 }

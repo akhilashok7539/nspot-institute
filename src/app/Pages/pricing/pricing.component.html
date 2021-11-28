@@ -10,16 +10,16 @@
         <div class="row text-center">
 
             <div class="col-md-3" *ngFor="let item of planList;let i=index">
-                <div class="plan uppercase">
+                <div class="plan uppercase" [class.phase-active]="item.planchoosed === 'SELECTEDPLAN'">
                     <h5>{{item?.item?.name}}</h5>
                     <p class="ribbon">MOST POPULAR</p>
-                    <p class="price">₹ {{item?.item?.amount}}</p>
+                    <p class="price">₹ {{item?.plans?.item?.amount}}</p>
                     <p class="crew">{{item?.item?.period}}</p>
 
                     <div class="plan-details">
 
-                        <p>{{item?.noOfCourses}} Courses</p>
-                        <p>{{item?.noOfCourses}} Admission Officers</p>
+                        <p>{{item?.item?.coursesCount}} Courses</p>
+                        <p>{{item?.item?.coursesCount}} Admission Officers</p>
 
                     </div>
                     <button class="square-green" (click)="placeOrder(item)">
