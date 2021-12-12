@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 
 import { ApplicationFormService } from '../../services/application-form.service'
 import { AuthService } from 'src/app/services/auth.service';
+import { scorllNotes } from 'src/app/config/constants';
 
 export interface AdditionalFormControls {
   personalInfo: [],
@@ -27,6 +28,7 @@ type data = {
 
 export class CustomApplicationComponent implements OnInit {
   additionalFormControls: AdditionalFormControls;
+  scrollNotes=scorllNotes;
   form: FormGroup;
   additionalPersonal: FormGroup;
   additionalEducation: FormGroup;

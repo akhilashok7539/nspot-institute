@@ -6,6 +6,7 @@ import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 import * as _ from 'lodash';
 import Swal from 'sweetalert2';
+import { alertNotes, scorllNotes } from 'src/app/config/constants';
 @Component({
   selector: 'app-admission-desk',
   templateUrl: './admission-desk.component.html',
@@ -18,7 +19,11 @@ export class AdmissionDeskComponent implements OnInit {
   paymentAwaitingApplications;
   activeButton = 1;
   rejecterdapplciation;
-  feeremmitedSApplicants:any=[];
+  feeremmitedSApplicants: any = [];
+  scrollNotes = scorllNotes;
+  currLat:any;
+  currLng:any;
+  alertNotes = alertNotes;
   instituteId = this.authService.instituteProfile.id;
 
   constructor(
@@ -30,6 +35,8 @@ export class AdmissionDeskComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadData();
+    console.log(this.scrollNotes);
+
   }
 
   changeCourse(event) {
@@ -43,10 +50,10 @@ export class AdmissionDeskComponent implements OnInit {
       endPoints.Get_applications + "?where[courseId]=" + courseId + "&&where[applicationStatus]=pre-application-applied"
     ).subscribe((returnData: any) => {
       this.preApplications = returnData.data;
-    
+
       this.preApplications.map(element => {
         console.log(element);
-        
+
         element.formFieldValues = JSON.parse(element.item.formFieldValues)
       })
       console.log(this.preApplications)
@@ -68,57 +75,51 @@ export class AdmissionDeskComponent implements OnInit {
 
     // get fee paied student list by courseId
 
-    let courseFeeRemittedreq ={
-      "courseId":courseId,
-     
+    let courseFeeRemittedreq = {
+      "courseId": courseId,
+
     }
-    this.apiService.doPostRequest('payment/courseFee/institute/',courseFeeRemittedreq).subscribe(
-      data =>{
+    this.apiService.doPostRequest('payment/courseFee/institute/', courseFeeRemittedreq).subscribe(
+      data => {
         console.log(data);
-        
+
         let arr = [];
         arr = data['result']
         // console.log("Fee paid students list",arr);
-        for(let i=0;i<=arr.length;i++)
-        {
-          if(arr[i]?.item?.status === "paid")
-          {
+        for (let i = 0; i <= arr.length; i++) {
+          if (arr[i]?.item?.status === "paid") {
             this.feeremmitedSApplicants.push(arr[i])
           }
         }
-        console.log("Fee paied students",this.feeremmitedSApplicants);
-        
+        console.log("Fee paied students", this.feeremmitedSApplicants);
+
       },
-      error =>{
+      error => {
 
       }
     )
 
   }
-  getName(item)
-  {
+  getName(item) {
     console.log(item.item.formFieldValues.personalInfo.fullName);
-    
+
   }
-  showPhase(index)
-  {
+  showPhase(index) {
     this.activeButton = index;
-    if(this.activeButton === 4)
-    {
+    if (this.activeButton === 4) {
       this.getRejectedApplications();
     }
   }
-  getRejectedApplications()
-  {
+  getRejectedApplications() {
     this.apiService.doGetRequest(`applicationForm/applications/rejected`).subscribe(
-      data =>{
-       console.log(data);
-       this.rejecterdapplciation=data['data']
-       this.rejecterdapplciation.map(element => {
-        element.formFieldValues = JSON.parse(element.formFieldValues)
-      })
+      data => {
+        console.log(data);
+        this.rejecterdapplciation = data['data']
+        this.rejecterdapplciation.map(element => {
+          element.formFieldValues = JSON.parse(element.formFieldValues)
+        })
       },
-      error =>{
+      error => {
 
       }
     )
@@ -131,11 +132,11 @@ export class AdmissionDeskComponent implements OnInit {
     //   console.log("couress", returnData.data)
     //   this.courses = returnData.data;
     // });
-    this.apiService.doGetRequest(`institute/courses/`+this.instituteId).subscribe(
-      data =>{
+    this.apiService.doGetRequest(`institute/courses/` + this.instituteId).subscribe(
+      data => {
         this.courses = data['data']
       },
-      error =>{
+      error => {
 
       }
     )
@@ -144,7 +145,7 @@ export class AdmissionDeskComponent implements OnInit {
     //   console.log("couress", returnData.data)
     //   this.courses = returnData.data;
     // });
-    
+
   }
 
 
@@ -156,14 +157,11 @@ export class AdmissionDeskComponent implements OnInit {
     Swal.fire({
       title: 'Are you sure?',
       customClass: { content: 'font-23' },
-      text: `Upon accepting the application, 
-      user will be able to pay the first installment of the fee and 
-      the seat for the student will consider as booked. 
-      Please read Nspot terms and conditions before accepting application.`,
+      text: alertNotes.APPROVE_APPLICATIONS,
       showCancelButton: true,
       confirmButtonText: `Accept Application`,
       icon: 'warning',
-      footer: '<a href="https://dan.com/buy-domain/nspot.com?redirected=true&tld=com" target="_blank">Terms and conditions</a>'
+      // footer: '<a href="https://dan.com/buy-domain/nspot.com?redirected=true&tld=com" target="_blank">Terms and conditions</a>'
     }).then((result) => {
       /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
@@ -204,6 +202,7 @@ export class AdmissionDeskComponent implements OnInit {
     Swal.fire({
       title: 'Please state a reason to reject',
       input: 'textarea',
+      text: alertNotes.REJECT_APPLICATIONS,
       inputValidator: (result) => {
         return !result && 'Please provide a reason'
       },
@@ -285,59 +284,79 @@ export class AdmissionDeskComponent implements OnInit {
     });
 
   }
-  viewApplicationStatus(item)
-  {
+  viewApplicationStatus(item) {
     console.log(item);
-    if(item.viewStatus === false)
-    {
-      let req ={
-        "viewStatus":true
-     }
-      this.apiService.doPutRequest(`applicationForm/applications/updateView/`+item.id,req).subscribe(
-        data =>{
+    if (item.viewStatus === false) {
+      let req = {
+        "viewStatus": true
+      }
+      this.apiService.doPutRequest(`applicationForm/applications/updateView/` + item.id, req).subscribe(
+        data => {
 
         },
-        error =>{
+        error => {
 
         }
       )
     }
-    sessionStorage.setItem("status",item.applicationStatus);
-    this.router.navigate(['/institute/admission-desk/detailed-application-view/'+item.id])
+    sessionStorage.setItem("status", item.applicationStatus);
+    this.router.navigate(['/institute/admission-desk/detailed-application-view/' + item.id])
   }
-  deleteapplciation(s)
-  {
-    this.apiService.dodeleteRequest(`applicationForm/applications/remove/`+s.id).subscribe(
-      data =>{
+  deleteapplciation(s) {
+    this.apiService.dodeleteRequest(`applicationForm/applications/remove/` + s.id).subscribe(
+      data => {
         this.toastr.success("Application Deleted")
         this.rejecterdapplciation();
       },
-      error =>{
+      error => {
         this.toastr.success("Application Unable to Deleted")
 
       }
     )
   }
-  upload(s)
-  {
-    this.router.navigate(['/institute/upload-receipt/'+s])
+  upload(s) {
+    this.router.navigate(['/institute/upload-receipt/' + s])
   }
-  getname(s)
-  {
+  getname(s) {
     // console.log(JSON.parse(s.item.ApplicationForm_submission.formFieldValues));
     let personalinfo = JSON.parse(s.item.ApplicationForm_submission.formFieldValues);
     // console.log(personalinfo.personalInfo.fullName);
     return personalinfo.personalInfo.fullName
   }
-  viewapplication(s)
-  {
+  viewapplication(s) {
     console.log(s);
-    
-    this.router.navigate(['/institute/admission-desk/detailed-application-view/'+s])
+
+    this.router.navigate(['/institute/admission-desk/detailed-application-view/' + s])
 
   }
-  viewReciptadmin(s)
-  {
-    window.open("https://nspot-qa.herokuapp.com/"+s,"_blank")
+  viewReciptadmin(s) {
+    window.open("https://nspot-qa.herokuapp.com/" + s, "_blank")
   }
 }
+
+
+
+// if (navigator.geolocation) {
+//   navigator.geolocation.getCurrentPosition((position) => {
+//     this.currLat = "53.32055555555556";
+//     this.currLng = "-1.7297222222222221";
+//     console.log(this.currLat);
+//     console.log(this.currLng);
+
+//     var R = 6371;
+//     var lat2: any = '53.31861111111111';
+//     var lon3: any = '-1.6997222222222223';
+//     var p = 0.017453292519943295;
+//     var c = Math.cos;
+//     var a =
+//       0.5 -
+//       c((lat2 - this.currLat) * p) / 2 +
+//       (c(this.currLat * p) *
+//         c(lat2 * p) *
+//         (1 - c((lon3 - this.currLng) * p))) /
+//         2;
+//     console.log(12742 * Math.asin(Math.sqrt(a)), 'Km');
+//   });
+// } else {
+//   alert('Geolocation is not supported by this browser.');
+// }

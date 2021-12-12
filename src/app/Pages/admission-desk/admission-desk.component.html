@@ -59,13 +59,13 @@
             <div class="row mt-5" *ngIf="activeButton === 1">
                 <!-- <h4>Pre Applications</h4> -->
                 <!-- style="overflow-x: scroll;"   -->
-                <marquee behavior="" direction="">Important Note:Decisions taken are important while reviewing an admission application,but also please make sure you do the review as soon as possible, which increases the chance to impress the student /Parent and increases the chances of taking admission from your institute. </marquee>
+                <marquee behavior="" direction="">{{scrollNotes.ADDMISSION_APPLICATION_AWAITING}}</marquee>
                 <div class="col-md-12">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th width="5%"></th>
-                                <th> SL.No</th>
+                                <th> S.No</th>
                                 <th>NAME OF APPLICANT & DATE</th>
                                 <th style="text-align: center;">APPLICATION <br> VIEW</th>
 
@@ -125,13 +125,14 @@
 
             <div class="row mt-5" *ngIf="activeButton === 2">
                 <!-- <h4>Payment awaiting Applications</h4> -->
-                <marquee behavior="" direction="">Important Note:The admission seat will only be confirmed if the applicant successfully pays the ‘Initial Fee amount’ to be paid within 24 hours of pre-approval. </marquee>
+                <!-- <marquee behavior="" direction="">Important Note:The admission seat will only be confirmed if the applicant successfully pays the ‘Initial Fee amount’ to be paid within 24 hours of pre-approval. </marquee> -->
+                <marquee behavior="" direction="">{{scrollNotes.FEE_PAYMENT_AWATING_APPLICATIONS}}</marquee>
                 <div class="col-md-12">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th width="5%"></th>
-                                <th>SL.No</th>
+                                <th>S.No</th>
                                 <th>NAME OF APPLICANT</th>
                                 <th>APPLICATION VIEW</th>
                                 <!-- <th>DOWNLOAD APPLICATION</th> -->
@@ -180,12 +181,14 @@
             <div class="row mt-5" *ngIf="activeButton === 3">
                 <!-- <h4>Pre Applications</h4> -->
                 <!-- style="overflow-x: scroll;"   -->
-                <marquee behavior="" direction="">Important Note:Immediate action is required once the Initial payment is received from the applicant, immediately you have to upload the Student receipt in the provided upload  column. </marquee>
+                <!-- <marquee behavior="" direction="">Important Note:Immediate action is required once the Initial payment is received from the applicant, immediately you have to upload the Student receipt in the provided upload  column. </marquee> -->
+                <marquee behavior="" direction="">{{scrollNotes.FEE_PAYMENT_REMITTED_APPLICATIONS}}</marquee>
+              
                 <div class="col-md-12">
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>SL.No</th>
+                                <th>S.No</th>
                                 <th>NAME OF APPLICANT</th>
                                 <th>APPLICATION VIEW</th>
                                 <!-- <th>DOWNLOAD APPLICATION</th> -->
@@ -242,7 +245,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>SL.No</th>
+                                <th>S.No</th>
                                 <th>NAME OF APPLICANT</th>
                                 <th>REMARKS</th>
                                 <!-- <th>DOWNLOAD APPLICATION</th> -->

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { alertNotes } from 'src/app/config/constants';
 import { ApiService } from 'src/app/services/api.service';
 import Swal from 'sweetalert2';
 
@@ -13,6 +14,7 @@ export class CourseListedComponent implements OnInit {
   academicLevel = 0;
   empty = true;
   instituteLoginDetails;
+  alertNotes = alertNotes;
   instituteId;
   institutecourseList:any=[];
   isactiveChecked = false;
@@ -60,19 +62,36 @@ export class CourseListedComponent implements OnInit {
     console.log(event.target.checked,item.id);
     if(item.isActive == true)
     {
+      Swal.fire({
+        title: 'Important!',
+        customClass: { content: 'font-23' },
+        text: alertNotes.DISABLE_ADMISSION_dESK,
+        showCancelButton: true,
+        confirmButtonText: `OK`,
+        icon: 'warning',
+        // footer: '<a href="https://dan.com/buy-domain/nspot.com?redirected=true&tld=com" target="_blank">Terms and conditions</a>'
+      }).then((result) => {
+        console.log(result);
+
+        /* Read more about isConfirmed, isDenied below */
+        
+      })
       this.isactiveChecked = false;
+
     }
     else{
       Swal.fire({
         title: 'Important!',
         customClass: { content: 'font-23' },
-        text: `Please re-check your CUSTOMISE ADMISSION APPLICATION FORM.`,
+        text: alertNotes.ENABLE_ADMISSION_dESK,
         showCancelButton: true,
         confirmButtonText: `OK`,
         icon: 'warning',
         // footer: '<a href="https://dan.com/buy-domain/nspot.com?redirected=true&tld=com" target="_blank">Terms and conditions</a>'
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
+        console.log(result);
+        
         
       })
       this.isactiveChecked = true;

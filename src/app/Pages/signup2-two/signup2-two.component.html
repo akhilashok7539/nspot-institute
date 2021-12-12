@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-sm-12">
           <label class="req">NAME OF THE INSTITUTION</label>
-          <input type="text" formControlName="name" placeholder="enter name of the institution" />
+          <input type="text" formControlName="name" placeholder="Full Name of the Educational Institution" />
           <!-- <div *ngIf="touched && f.name.errors && f.name.errors.required">
             Name is. {{f.name.errors|json}}
           </div>-->
@@ -52,7 +52,7 @@
 
         </div>
         <div class="col-sm-6 offset-3">
-          <label class="req uppercase">College/Institute-Code</label>
+          <label class=" uppercase">College/Institute-Code</label>
           <input type="text" formControlName="code" placeholder="Enter institute code" />
           <app-control-messages [control]="f.code" [touched]="touched"></app-control-messages>
         </div>
@@ -93,7 +93,7 @@
         </div>
         
         <div class="col-sm-6">
-          <label class="req uppercase">Official mobile number of the Pricipal/Other official person</label>
+          <label class="req uppercase">Official mobile number of the Principal / Other official person</label>
           <div class="row">
             <div class="col-sm-7">
               <div class="input-group">
@@ -192,20 +192,26 @@
         </div>
 
         <div class="col-sm-12">
-          <label class="req uppercase">Address Line 3</label>
+          <label class=" uppercase">Address Line 3</label>
           <input type="text" formControlName="addressLine3" placeholder="Address Line 3" />
           <app-control-messages [control]="f.addressLine3" [touched]="touched"></app-control-messages>
         </div>
 
         <div class="col-sm-4">
           <label class="req uppercase">Country</label>
-          <input type="text" formControlName="country" placeholder="Country" />
+          <!-- <input type="text" formControlName="country" placeholder="Country" /> -->
+
+          <select name="" id="" formControlName="country">
+            <option value="" selected disabled>Choose a Country</option>
+            <option value="India">India</option>
+          </select>
           <app-control-messages [control]="f.country" [touched]="touched"></app-control-messages>
+
         </div>
 
         <div class="col-sm-4">
           <label class="req uppercase">State</label>
-          <input type="text" formControlName="state" placeholder="Country" />
+          <input type="text" formControlName="state" placeholder="State" />
           <app-control-messages [control]="f.state" [touched]="touched"></app-control-messages>
         </div>
 
@@ -216,7 +222,7 @@
         </div>
 
         <div class="col-sm-4">
-          <label class="req uppercase">Block</label>
+          <label class="req uppercase">TEHSIL/TALUK</label>
           <input type="text" formControlName="block" placeholder="Block" />
           <app-control-messages [control]="f.block" [touched]="touched"></app-control-messages>
         </div>

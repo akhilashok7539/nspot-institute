@@ -145,35 +145,37 @@ export class PricingComponent implements OnInit {
       this.subscriptionPlanId = this.createdSuscription.id;
       console.log(this.subscriptionPlanId);
      
+      let amount  =product?.plans?.item?.amount * 100;
+      console.log(amount);
+      
       // this.currentSubscprionId 
       const that = this;
       var options = {
         "key": "rzp_test_J7wOs0sSPhfvXU",
-        "name": "Nspot",
+        "name": "Nspot-Subscription",
         "description": product.item?.name,
         // "subscription_id": "item_IPnql3ZSsMnjEL",
+        // "order_id": "order_IWU2ssKNAuRbIc",
         "subscription_id": this.createdSuscription.razorpaySubscription_id,
-        "amount": product?.plans?.item?.amount * 100,
+        // "amount": 1000,
 
         "handler": function (response) {
           console.log(response)
           that.paymentSuccess(response)
         },
         "prefill": {
-          "name": this.authService.instituteProfile.name,
-          "email": this.authService.instituteProfile.email,
-          "contact": this.authService.instituteProfile.officialMobile
+          "name": "",
+          "email": "",
+          "contact": ""
         },
         "notes": {
           "address": "NSPOT CONSULTANCY SERVICES PRIVATE LIMITED 39/2475-B1, Suite#118 LR Towers, SJRRA 104, S Janatha Rd, Palarivattom, Kochi, Kerala 682025"
         },
-        "theme": {
-          "color": "#1a4d59"
-        }
+        "currency": "INR",
       }
       console.log(options);
 
-      this.rzp1 = (window as any).Razorpay(options);
+      this.rzp1 = new Razorpay(options);
       this.rzp1.open();
       this.rzp1.on('payment.failed', function (response) {
         console.log(response);

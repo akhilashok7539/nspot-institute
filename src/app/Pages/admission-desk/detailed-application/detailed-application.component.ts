@@ -33,6 +33,8 @@ export class DetailedApplicationComponent implements OnInit {
   instituteInfo;
   personalInfoKeys = {}
   personalinfomationDetaiedmasked: any = [];
+  permanentaddressinfomationDetaiedmasked: any = [];
+
   permanentAddressKeys = {}
   communicationAddressKeys = {}
   educationKeys = new Array()
@@ -188,7 +190,16 @@ export class DetailedApplicationComponent implements OnInit {
           i++;
         }
       }
+      if (this.applciaitonstatus === "pre-application-applied") {
+        this.permanentaddressinfomationDetaiedmasked.push(formData.permanentAddress)
+        // console.log("peremnt address ",this.permanentaddressinfomationDetaiedmasked);
+        this.personalinfomationDetaiedmasked.map(x => x.permanentAddressLine1 = "****************************************")
+        this.personalinfomationDetaiedmasked.map(x => x.permanentAddressLine2 = "****************************************")
 
+        this.personalinfomationDetaiedmasked.map(x => x.permanentAddressLine3 = "****************************************")
+        this.personalinfomationDetaiedmasked.map(x => x.permanentTelephone = "****************************************")
+        
+      }
       // setting communication address
       i = 0;
       for (let property in formData.communicationAddress) {

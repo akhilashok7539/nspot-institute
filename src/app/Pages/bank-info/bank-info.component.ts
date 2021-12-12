@@ -41,6 +41,7 @@ export class BankInfoComponent implements OnInit {
       panNumber:[''],
       panFile:[''],
       aadharFile:[''],
+      gstinnumber:[''],
       razorpay_linkedAccount_id:['']
     });
   }

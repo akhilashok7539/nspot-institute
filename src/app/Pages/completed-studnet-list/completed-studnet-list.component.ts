@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { scorllNotes } from 'src/app/config/constants';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -16,6 +17,7 @@ export class CompletedStudnetListComponent implements OnInit {
   feeremmitedSApplicants:any=[];
   admisionnumber;
   search;
+  scrollNotes = scorllNotes;
   constructor(private apiService:ApiService,private authService:AuthService,
     private toaster:ToastrService,private router:Router) { }
 

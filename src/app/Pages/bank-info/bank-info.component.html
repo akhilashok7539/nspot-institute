@@ -1,7 +1,7 @@
 <main>
     <div class="page-heading text-center">
         <div class="container">
-            <h2>BANK DETAILS </h2>
+            <h2>INSTITUTE BANK DETAILS </h2>
         </div>
     </div>
     <div class="container index-3-categories">
@@ -18,6 +18,8 @@
                         <th>Account Holder's Name</th>
                         <th>Account No</th>
                         <th>IFSC</th>
+                        <th>GSTIN Number</th>
+                        <th>Pan Card number</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,6 +29,9 @@
                         <td>{{item.name}}</td>
                         <td>{{item.accountNumber}}</td>
                         <td>{{item.ifsc}}</td>
+                        <td>{{item?.gstinnumber }}</td>
+                        <td>{{item?.panNumber }}</td>
+
                     </tr>
                 </tbody>
                 <tbody>
@@ -67,10 +72,14 @@
 
                     <input type="text" formControlName="aadharNumber" placeholder="aadhar Number" required />
                     <app-control-messages [touched]="touched" [control]="f.aadharNumber"></app-control-messages>
+                   
                     <label for="">Pan card Number </label>
-
                     <input type="text" formControlName="panNumber" placeholder="Pan card Number" required />
                     <app-control-messages [touched]="touched" [control]="f.panNumber"></app-control-messages>
+
+                    <label for="">GSTIN Number </label>
+                    <input type="text" formControlName="gstinnumber" placeholder="GSTIN Number" required />
+                    <app-control-messages [touched]="touched" [control]="f.gstinnumber"></app-control-messages>
 
                     <h6 style="margin-top: 10px;margin-bottom: 10px;">Documents Details</h6>
 

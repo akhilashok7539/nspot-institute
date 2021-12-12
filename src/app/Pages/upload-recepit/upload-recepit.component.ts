@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { alertNotes } from 'src/app/config/constants';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { ApiService } from 'src/app/services/api.service';
 export class UploadRecepitComponent implements OnInit {
   filetypeid;
   multiForm: FormData = new FormData();
-
+  alertNotes = alertNotes
   constructor(private router:Router,private activaterouter:ActivatedRoute,private apiservice:ApiService,private toaster:ToastrService) { 
     this.activaterouter.paramMap.subscribe(
       data =>{
@@ -27,7 +28,7 @@ export class UploadRecepitComponent implements OnInit {
   {
     this.apiservice.doPutRequest('payment/recipt/institute/'+this.filetypeid,this.multiForm).subscribe(
       data =>{
-        this.toaster.success("Recepit  Uploaded successfully");
+        this.toaster.success(alertNotes.RECEPIT_UPLOADED);
         this.router.navigate(['/institute/admission-desk']);
       },
       error =>{

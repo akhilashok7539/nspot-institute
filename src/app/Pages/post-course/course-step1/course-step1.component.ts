@@ -6,6 +6,7 @@ import { endPoints } from '../../../config/endPoints';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 import * as _ from 'lodash';
+import { scorllNotes } from 'src/app/config/constants';
 
 @Component({
   selector: 'app-course-step1',
@@ -13,6 +14,7 @@ import * as _ from 'lodash';
   styleUrls: ['./course-step1.component.css']
 })
 export class CourseStep1Component implements OnInit {
+  scrollNotes = scorllNotes;
   hasAptitudeTest = false;
   multiForm: FormData = new FormData();
   courseStreams1: any;

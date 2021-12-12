@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { endPoints } from '../../config/endPoints';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { scorllNotes } from 'src/app/config/constants';
 
 @Component({
   selector: 'app-admission-officers',
@@ -12,7 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./admission-officers.component.css']
 })
 export class AdmissionOfficersComponent implements OnInit {
-
+  scrollNotes= scorllNotes;
   officerList: any = [];
   couresname;
   instituteId = this.authService.instituteProfile.id;
