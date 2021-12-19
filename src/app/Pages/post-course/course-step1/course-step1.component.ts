@@ -91,7 +91,7 @@ export class CourseStep1Component implements OnInit {
       refundPolicy: [''],
       onlineClassAvailability: ['false', [Validators.required]],
       aptituteTestRequired: [false],
-      aptituteTestId: [0],
+      aptituteTestId: [''],
       onlineInterviewRequired: [false],
       regularClassOnly: [false],
       onlineClassOnly:[false],

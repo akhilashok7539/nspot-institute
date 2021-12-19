@@ -6,6 +6,7 @@ import { endPoints } from '../../config/endPoints';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
+import { isEqual } from 'lodash';
 declare var Razorpay: any;
 
 
@@ -36,11 +37,33 @@ export class PricingComponent implements OnInit {
   ngOnInit(): void {
     this.loadData();
     console.log(this.authService.instituteProfile.name);
-
   }
+
+  checkplaninvalid()
+  {
+    var start = new Date();
+    var end = new Date(this.currentselectedPlans.subscriptionStartDate);
+    // if (start.toDateString() === end.toDateString()) {
+    //   console.log("Same day");
+      
+    // } else {
+    //   console.log("Different day");
+    // }
+    if(isEqual(start, end)){
+      // do something
+      console.log("Same day 1");
+
+   }
+   else{
+    console.log("Different day 1");
+
+   }
+  }
+
   /**
    * fetches the subscription from 
    */
+
   loadData(): void {
 
     // this.apiService.doGetRequest(endPoints.Get_subscriptionOrderInstitute + this.instituteId).subscribe((returnData: any) => {
@@ -52,6 +75,8 @@ export class PricingComponent implements OnInit {
     this.apiService.doGetRequest('payment/subscription/institute/'+this.instituteId).subscribe((returnData: any) => {
       this.currentselectedPlans = returnData['data'][0];
       console.log(this.currentselectedPlans);
+      this.checkplaninvalid();
+
     });
 
     this.apiService.doGetRequest('plans/allTier').subscribe((returnData: any) => {
@@ -97,8 +122,8 @@ export class PricingComponent implements OnInit {
     const subscriptionObj = {
       SubscriptionTierId: product.item.id,
       instituteId: this.instituteId,
-      razorpayPlan_id: product?.plans?.id
-
+      // razorpayPlan_id: product?.plans?.id
+      amount:product?.plans?.item?.amount * 100
     }
     // console.log(subscriptionObj);
 
@@ -142,6 +167,8 @@ export class PricingComponent implements OnInit {
     // });
     this.apiService.doPostRequest('payment/subscription/create', subscriptionObj).subscribe((returnData: any) => {
       this.createdSuscription = returnData.data;
+      console.log("create sub:",this.createdSuscription);
+      
       this.subscriptionPlanId = this.createdSuscription.id;
       console.log(this.subscriptionPlanId);
      
@@ -155,12 +182,11 @@ export class PricingComponent implements OnInit {
         "name": "Nspot-Subscription",
         "description": product.item?.name,
         // "subscription_id": "item_IPnql3ZSsMnjEL",
-        // "order_id": "order_IWU2ssKNAuRbIc",
-        "subscription_id": this.createdSuscription.razorpaySubscription_id,
+        "order_id":this.createdSuscription.razorpaySubscription_id,
+        // "subscription_id": this.createdSuscription.razorpaySubscription_id,
         // "amount": 1000,
-
         "handler": function (response) {
-          console.log(response)
+          console.log("successRespose payment",response);
           that.paymentSuccess(response)
         },
         "prefill": {
@@ -186,9 +212,8 @@ export class PricingComponent implements OnInit {
   }
 
   paymentSuccess(successRespose) {
+    console.log("successRespose payment",successRespose);
     console.log(this.subscriptionPlanId);
-    
-
     if(this.currentselectedPlans != null )
     {
       // this.currentselectedPlans.id

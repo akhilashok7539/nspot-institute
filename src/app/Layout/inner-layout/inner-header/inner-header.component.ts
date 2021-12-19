@@ -17,7 +17,7 @@ export class InnerHeaderComponent implements OnInit {
   currentselectedPlans:any=[];
   courseslist:any=[];
   courseCountLengthSubscribe:any=[];
-  curentcourseCountLength;
+  curentcourseCountLength = "0";
   constructor(
     private authService: AuthService,
     private apiService: ApiService,
@@ -37,10 +37,14 @@ export class InnerHeaderComponent implements OnInit {
   {
     this.apiService.doGetRequest('payment/subscription/institute/'+this.userId).subscribe((returnData: any) => {
       this.currentselectedPlans = returnData['data'][0];
-      this.courseCountLengthSubscribe = this.currentselectedPlans['Subscription_Tier'].coursesCount;
-      console.log(this.currentselectedPlans);
+      if(this.currentselectedPlans)
+      {
+        this.courseCountLengthSubscribe = this.currentselectedPlans['Subscription_Tier'].coursesCount;
+        console.log(this.currentselectedPlans);
+      }
+    
     });
-    this.apiService.doGetRequest('institute/courses/2').subscribe((returnData: any) =>{
+    this.apiService.doGetRequest('institute/courses/'+this.userId).subscribe((returnData: any) =>{
       this.courseslist = returnData['data']
       this.curentcourseCountLength = this.courseslist.length;
     })
@@ -83,6 +87,26 @@ export class InnerHeaderComponent implements OnInit {
     }
     else{
       this.toaster.warning("Course Count limit Reached! Upgrade your plan")
+    }
+  }
+  admisonOfferlist()
+  {
+    // routerLink="/institute/admission-officer"
+    if(this.curentcourseCountLength < this.courseCountLengthSubscribe)
+    {
+      this.router.navigate(['/institute/admission-officer'])
+
+    }
+    else{
+      console.log("logo",this.currentselectedPlans);
+      if(this.currentselectedPlans)
+      {
+        this.toaster.warning("Course Count limit Reached! Upgrade your plan")
+
+      }
+      else{
+        this.toaster.warning("Please choose any plans")
+      }
     }
   }
 }

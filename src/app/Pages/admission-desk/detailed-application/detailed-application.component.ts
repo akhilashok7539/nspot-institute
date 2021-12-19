@@ -175,6 +175,23 @@ export class DetailedApplicationComponent implements OnInit {
           i++;
         }
       }
+
+      if (this.applciaitonstatus === "pre-application-applied") {
+        // this.permanentaddressinfomationDetaiedmasked.push(formData.permanentAddress)
+        // console.log("peremnt address = ",formData.permanentAddress);
+        // this.personalinfomationDetaiedmasked.map(x => x.permanentAddressLine1 = "****************************************")
+        // this.personalinfomationDetaiedmasked.map(x => x.permanentAddressLine2 = "****************************************")
+
+        // this.personalinfomationDetaiedmasked.map(x => x.permanentAddressLine3 = "****************************************")
+        // this.personalinfomationDetaiedmasked.map(x => x.permanentTelephone = "****************************************")
+        formData.permanentAddress['permanentAddressLine1'] = "****************************************";
+        formData.permanentAddress['permanentAddressLine2'] = "****************************************";
+        formData.permanentAddress['permanentAddressLine3'] = "****************************************";
+        formData.permanentAddress['permanentMobile'] = "****************************************";
+        formData.permanentAddress['permanentTelephone'] = "****************************************";
+
+      }
+
       // setting permanent address
       i = 0;
       for (let property in formData.permanentAddress) {
@@ -190,15 +207,21 @@ export class DetailedApplicationComponent implements OnInit {
           i++;
         }
       }
+     
       if (this.applciaitonstatus === "pre-application-applied") {
-        this.permanentaddressinfomationDetaiedmasked.push(formData.permanentAddress)
-        // console.log("peremnt address ",this.permanentaddressinfomationDetaiedmasked);
-        this.personalinfomationDetaiedmasked.map(x => x.permanentAddressLine1 = "****************************************")
-        this.personalinfomationDetaiedmasked.map(x => x.permanentAddressLine2 = "****************************************")
+        // this.permanentaddressinfomationDetaiedmasked.push(formData.permanentAddress)
+        // console.log("peremnt address = ",formData.permanentAddress);
+        // this.personalinfomationDetaiedmasked.map(x => x.permanentAddressLine1 = "****************************************")
+        // this.personalinfomationDetaiedmasked.map(x => x.permanentAddressLine2 = "****************************************")
 
-        this.personalinfomationDetaiedmasked.map(x => x.permanentAddressLine3 = "****************************************")
-        this.personalinfomationDetaiedmasked.map(x => x.permanentTelephone = "****************************************")
-        
+        // this.personalinfomationDetaiedmasked.map(x => x.permanentAddressLine3 = "****************************************")
+        // this.personalinfomationDetaiedmasked.map(x => x.permanentTelephone = "****************************************")
+        formData.communicationAddress['permanentAddressLine1'] = "****************************************";
+        formData.communicationAddress['permanentAddressLine2'] = "****************************************";
+        formData.communicationAddress['permanentAddressLine3'] = "****************************************";
+        formData.communicationAddress['permanentMobile'] = "****************************************";
+        formData.communicationAddress['permanentTelephone'] = "****************************************";
+
       }
       // setting communication address
       i = 0;

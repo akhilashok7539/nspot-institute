@@ -364,11 +364,12 @@
             <div class="col-sm-4 offset-3">
                 <label class="req uppercase">Exam Conducted</label>
                 <select formControlName="examConducted" id="">
-                    <option value="">Slect option</option>
+                    <option value="">Select option</option>
                     <option value="daily">Daily</option>
                     <option value="weekly">Weekly</option>
                     <option value="monthly">Monthly</option>
                     <option value="quarterly">Quarterly</option>
+                    <option value="semesterly">Semesterly</option>
                     <option value="yearly">Yearly</option>
                 </select>
                 <app-control-messages [touched]="touched" [control]="f.examConducted"></app-control-messages>
@@ -434,7 +435,7 @@
                 <select formControlName="admissionType">
                     <option value="" disabled>Choose Admission Category </option>
                     <option value="Management">Management </option>
-                    <option value="Merti">Merti </option>
+                    <option value="Merti">Merit </option>
                     <option value="NRI">NRI </option>
 
                 </select>
@@ -547,7 +548,7 @@
                 <div *ngIf="form.value.aptituteTestRequired">
                     <div class="col-md-10">
                         <select formControlName="aptituteTestId" id="" style="margin-top: 10px;">
-                            <option value="">Choose a test from the list</option>
+                            <option value="" selected disabled>Choose a Aptitude Test</option>
                             <option *ngFor="let item of aptitudeTests" value="{{item.id}}">{{item.title}}</option>
                         </select>
                         <app-control-messages [touched]="touched" [control]="f.aptituteTestId">

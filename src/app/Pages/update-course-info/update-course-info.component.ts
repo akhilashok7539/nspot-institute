@@ -90,7 +90,7 @@ export class UpdateCourseInfoComponent implements OnInit {
       regularClassOnly: [false],
       onlineClassOnly:[false],
       regularAndonlineClass:[false],
-      courseSyllabusFile: ['', [Validators.required]],
+      courseSyllabusFile: ['',],
       CourseCategoryId: [''],
       CourseSubCategoryId: [''],
       // courseTypeId: [''],
@@ -99,8 +99,8 @@ export class UpdateCourseInfoComponent implements OnInit {
       CourseSubCategory4Id: [''],
       CourseSubCategory5Id: [''],
       programCode :[''],
-      stateId:['',[Validators.required]],
-      districtId:['',[Validators.required]],
+      stateId:[''],
+      districtId:[''],
       instituteType:['',[Validators.required]],
       instituteCatagory:['',[Validators.required]],
       year:['',[Validators.required]],
@@ -108,7 +108,7 @@ export class UpdateCourseInfoComponent implements OnInit {
       day:['',[Validators.required]],
       hour:['',[Validators.required]],
       universityId:[''],
-      admissionType:['',[Validators.required]],
+      admissionType:['',],
       boardId:[''],
       otherId:[''],
     });
@@ -206,7 +206,7 @@ export class UpdateCourseInfoComponent implements OnInit {
           this.form.controls['CourseSubCategory4Id'].setValue(this.courserListDetails['Course_Sub_Categories4'].id);
         }
      
-        this.getsubcat1Basedon5(this.courserListDetails['Course_Sub_Categories4'].id);
+        this.getsubcat1Basedon5(this.courserListDetails['Course_Sub_Categories4']?.id);
 
         if(this.courserListDetails['Course_Sub_Categories5'] != null)
         {
@@ -283,8 +283,11 @@ export class UpdateCourseInfoComponent implements OnInit {
         this.form.controls['block'].setValue(this.courserListDetails['block']);
         this.form.controls['locality'].setValue(this.courserListDetails['locality']);
         
+        this.form.controls['stateId'].setValue(this.courserListDetails['State'].id);
+        this.form.controls['districtId'].setValue(this.courserListDetails['District'].id);
+        this.form.controls['admissionType'].setValue(this.courserListDetails['admissionType']);
         
-        
+  
         
         
       },
@@ -422,14 +425,14 @@ export class UpdateCourseInfoComponent implements OnInit {
     this.multiForm.delete('aptituteTestId');
     this.multiForm.delete('onlineInterviewRequired');
 
-    this.multiForm.append('accademicLevelId', formData.accademicLevelId);
+    // this.multiForm.append('accademicLevelId', formData.accademicLevelId);
     this.multiForm.append('courseTypeId', formData.courseTypeId);
     this.multiForm.append('courseCode', formData.courseCode);
-    this.multiForm.append('accademicLevelCourseId', formData.accademicLevelCourseId);
+    // this.multiForm.append('accademicLevelCourseId', formData.accademicLevelCourseId);
     this.multiForm.append('universityTypeId', formData.universityTypeId);
-    this.multiForm.append('universityName', formData.universityName);
-    this.multiForm.append('courseStreamId', formData.courseStreamId);
-    this.multiForm.append('courseStreamSpecializationId', formData.courseStreamSpecializationId);
+    // this.multiForm.append('universityName', formData.universityName);
+    // this.multiForm.append('courseStreamId', formData.courseStreamId);
+    // this.multiForm.append('courseStreamSpecializationId', formData.courseStreamSpecializationId);
     this.multiForm.append('availableSeats', formData.availableSeats);
     this.multiForm.append('accademicYear', formData.accademicYear);
     this.multiForm.append('accademicYearMonth', formData.accademicYearMonth);
@@ -461,8 +464,16 @@ export class UpdateCourseInfoComponent implements OnInit {
     this.multiForm.append('CourseSubCategory3Id',formData.CourseSubCategory3Id)
     this.multiForm.append('CourseSubCategory4Id',formData.CourseSubCategory4Id)
     this.multiForm.append('CourseSubCategory5Id',formData.CourseSubCategory5Id)
+    if(formData.CourseSubCategory5Id === "")
+    {
+    this.multiForm.delete('CourseSubCategory5Id')
 
-    
+    }
+    if(formData.CourseSubCategory4Id === "")
+    {
+    this.multiForm.delete('CourseSubCategory4Id')
+
+    }
     this.apiService.doPostRequest_upload(`institute/course/update/` + this.courserListDetails['id'], this.multiForm)
       .subscribe((returnData: any) => {
         console.log(returnData);

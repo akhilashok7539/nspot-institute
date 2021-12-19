@@ -41,7 +41,20 @@ export class AdmissionDeskComponent implements OnInit {
 
   changeCourse(event) {
     this.currentCourseId = event.target.value;
+    // if(this.activeButton === 1)
+    // {
+    //   this.preApplications = [];
+    // }
+    // if(this.activeButton === 2)
+    // {
+    //   this.paymentAwaitingApplications = [];
+    // }
+    // if(this.activeButton === 3)
+    // {
+    //   this.feeremmitedSApplicants = [];
+    // }
     this.loadDataForCourse(this.currentCourseId)
+
   }
 
   loadDataForCourse(courseId) {
@@ -49,6 +62,7 @@ export class AdmissionDeskComponent implements OnInit {
     this.apiService.doGetRequest(
       endPoints.Get_applications + "?where[courseId]=" + courseId + "&&where[applicationStatus]=pre-application-applied"
     ).subscribe((returnData: any) => {
+      this.preApplications = [];
       this.preApplications = returnData.data;
 
       this.preApplications.map(element => {
@@ -63,6 +77,7 @@ export class AdmissionDeskComponent implements OnInit {
     this.apiService.doGetRequest(
       endPoints.Get_applications + "?where[courseId]=" + courseId + "&&where[applicationStatus]=pre-application-approved"
     ).subscribe((returnData: any) => {
+      this.paymentAwaitingApplications = [];
       this.paymentAwaitingApplications = returnData.data;
       this.paymentAwaitingApplications.map(element => {
         console.log(element);
@@ -81,6 +96,7 @@ export class AdmissionDeskComponent implements OnInit {
     }
     this.apiService.doPostRequest('payment/courseFee/institute/', courseFeeRemittedreq).subscribe(
       data => {
+        this.feeremmitedSApplicants = [];
         console.log(data);
 
         let arr = [];

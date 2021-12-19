@@ -25,7 +25,7 @@
                             <div class="col-lg-2"><input type="date" formControlName="endDateTimeOfAptitudeTest" id=""></div>
                             <div class="col-lg-2">
                                 <select formControlName="aptitudeTestId" id="">
-                                  <option value="" selected disabled>Choose Appitude Test</option>
+                                  <option value="" selected disabled>Choose Apitude Test</option>
                   <option *ngFor="let appttitudetestdetails of appttitudetestdetails"
                     value="{{appttitudetestdetails.id}}">{{appttitudetestdetails.title}}</option>
                 </select>
@@ -533,7 +533,7 @@
         ">:</p>
                 </div>
                 <div class="col-sm-5">
-                    <p> .................................................</p>
+                    <p> {{instituteInfo?.institute_category}}</p>
 
                 </div>
 
