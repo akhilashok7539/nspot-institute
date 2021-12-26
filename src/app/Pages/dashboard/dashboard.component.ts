@@ -32,6 +32,7 @@ export class DashboardComponent implements OnInit {
   baseApiUrl = environment.baseApiUrl;
 
   ngOnInit(): void {
+    sessionStorage.removeItem("status")
     this.instituteId = this.authService.instituteProfile.userId;
     let tempinstId = this.authService.instituteProfile.id;
 

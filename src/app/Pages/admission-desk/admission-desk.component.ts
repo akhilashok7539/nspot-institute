@@ -37,7 +37,7 @@ export class AdmissionDeskComponent implements OnInit {
   ngOnInit(): void {
     this.loadData();
     console.log(this.scrollNotes);
-
+    sessionStorage.removeItem("status")
   }
 
   changeCourse(event) {

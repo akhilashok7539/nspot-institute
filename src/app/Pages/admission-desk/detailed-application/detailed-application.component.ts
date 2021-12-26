@@ -66,7 +66,7 @@ export class DetailedApplicationComponent implements OnInit {
     this.applicationId = _.parseInt(this.route.snapshot.paramMap.get('applicationId'));
     this.applciaitonstatus = sessionStorage.getItem("status");
     console.log(this.applciaitonstatus);
-
+    
     this.loadData()
 
     this.reportingForm = this.formBuilder.group({
