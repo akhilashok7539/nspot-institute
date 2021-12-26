@@ -24,6 +24,7 @@ export class AdmissionDeskComponent implements OnInit {
   currLat:any;
   currLng:any;
   alertNotes = alertNotes;
+  coursechangedselected;
   instituteId = this.authService.instituteProfile.id;
 
   constructor(
@@ -58,6 +59,7 @@ export class AdmissionDeskComponent implements OnInit {
   }
 
   loadDataForCourse(courseId) {
+    this.coursechangedselected = courseId;
     // getting pre-applications
     this.apiService.doGetRequest(
       endPoints.Get_applications + "?where[courseId]=" + courseId + "&&where[applicationStatus]=pre-application-applied"
@@ -347,6 +349,35 @@ export class AdmissionDeskComponent implements OnInit {
   }
   viewReciptadmin(s) {
     window.open("https://nspot-qa.herokuapp.com/" + s, "_blank")
+  }
+
+  selectedDate(s)
+  {
+    console.log(s.target.value);
+    let req ={
+      "addedDate": s.target.value,
+      "courseId": this.coursechangedselected
+    }
+    this.apiService.doPostRequest('payment/courseFee/institute/', req).subscribe(
+      data => {
+        this.feeremmitedSApplicants = [];
+        console.log(data);
+
+        let arr = [];
+        arr = data['result']
+        // console.log("Fee paid students list",arr);
+        for (let i = 0; i <= arr.length; i++) {
+          if (arr[i]?.item?.status === "paid") {
+            this.feeremmitedSApplicants.push(arr[i])
+          }
+        }
+        console.log("Fee paied students", this.feeremmitedSApplicants);
+
+      },
+      error => {
+
+      }
+    )
   }
 }
 
