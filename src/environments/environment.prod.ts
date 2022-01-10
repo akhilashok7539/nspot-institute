@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://nspot-qa.herokuapp.com/api/',
-  baseApiUrl: 'https://nspot-qa.herokuapp.com/',
+  apiUrl: 'http://www.api.nspotadmissions.com/api/',
+  baseApiUrl: 'http://www.api.nspotadmissions.com/',
 
   adminPortalUrl: 'http://nspot.admin.surge.sh',
   institutePortalUrl: 'http://nspot.admin.surge.sh',

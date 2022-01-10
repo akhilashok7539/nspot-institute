@@ -348,7 +348,7 @@ export class AdmissionDeskComponent implements OnInit {
 
   }
   viewReciptadmin(s) {
-    window.open("https://nspot-qa.herokuapp.com/" + s, "_blank")
+    window.open("http://www.api.nspotadmissions.com/" + s, "_blank")
   }
 
   selectedDate(s)
