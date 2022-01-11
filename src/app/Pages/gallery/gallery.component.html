@@ -10,7 +10,7 @@
       <!-- <pre>{{galleryItems|json}}</pre> -->
       <div class="col-md-4 col-sm-6" *ngFor="let item of galleryItems">
         <div class="card" style="height: 350px">
-          <img src="http://www.api.nspotadmissions.com/{{item.galleryFile}}" style=" width: 100%;
+          <img src="https://www.api.nspotadmissions.com/{{item.galleryFile}}" style=" width: 100%;
           height: 89%;" alt="" (error) ="onImgError($event)"/>
           <h5>{{item.galleryLabel}}</h5>
         </div>

@@ -348,7 +348,7 @@ export class AdmissionDeskComponent implements OnInit {
 
   }
   viewReciptadmin(s) {
-    window.open("http://www.api.nspotadmissions.com/" + s, "_blank")
+    window.open("https://www.api.nspotadmissions.com/" + s, "_blank")
   }
 
   selectedDate(s)
