@@ -86,10 +86,10 @@ export class Signup2TwoComponent implements OnInit {
       // recaptcha: ['', Validators.required],
       busAvailablity:[false],
       vanavailablity:[false],
-      routeInfo: [''],
-      religiousMinority:[''],
-      aboutUs:[''],
-      websitelink:[''],
+      routeInfo: ['',[Validators.required]],
+      religiousMinority:['',[Validators.required]],
+      aboutUs:['',[Validators.required]],
+      websitelink:['',[Validators.required]],
       officialEmail: ['', Validators.required],
     });
   }

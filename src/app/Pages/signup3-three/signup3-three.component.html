@@ -1,7 +1,7 @@
 <main id="register">
     <div class="page-heading text-center">
         <div class="container">
-            <h2>HIGHLIGHTS</h2>
+            <h2>BOARD OF COUNCIL</h2>
         </div>
     </div>
     <div class="container success">
@@ -14,11 +14,26 @@
           <input type="text" formControlName="rankofFile" placeholder="" required />
           <app-control-messages [touched]="touched" [control]="f.rankofFile"></app-control-messages>
         </div> -->
+                <div class="col-sm-12">
+                    <div class="col-md-4">
+                        <label class="uppercase">Trust</label>
 
+                        <input type="text" formControlName="trust" id="" placeholder="Trust" />
+
+
+                    </div>
+
+                    <div class="col-md-8">
+                        <label class="uppercase">Group</label>
+                        <input type="text" formControlName="group" placeholder="Group" required />
+
+                    </div>
+                </div>
                 <div class="col-sm-12">
                     <label class="uppercase">Rank File</label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('rankofFile',$event)" formControlName="rankofFile" id="" />
+                        <input type="file" (change)="onchangeFile('rankofFile',$event)" formControlName="rankofFile"
+                            id="" />
                         <app-control-messages [touched]="touched" [control]="f.rankofFile"></app-control-messages>
 
                     </div>
@@ -32,7 +47,8 @@
                 <div class="col-sm-12">
                     <label class="uppercase">Award </label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('awardsofFile',$event)" formControlName="awardsofFile" id="" />
+                        <input type="file" (change)="onchangeFile('awardsofFile',$event)" formControlName="awardsofFile"
+                            id="" />
                         <app-control-messages [touched]="touched" [control]="f.awardsofFile"></app-control-messages>
 
                     </div>
@@ -46,7 +62,8 @@
                 <div class="col-sm-12">
                     <label class="uppercase">Rated </label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('ratedByFile',$event)" formControlName="ratedByFile" id="" />
+                        <input type="file" (change)="onchangeFile('ratedByFile',$event)" formControlName="ratedByFile"
+                            id="" />
                         <app-control-messages [touched]="touched" [control]="f.ratedByFile"></app-control-messages>
 
                     </div>
@@ -59,7 +76,8 @@
                 <div class="col-sm-12">
                     <label class="uppercase">Accorded </label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('accordedByFile',$event)" formControlName="accordedByFile" id="" />
+                        <input type="file" (change)="onchangeFile('accordedByFile',$event)"
+                            formControlName="accordedByFile" id="" />
                         <app-control-messages [touched]="touched" [control]="f.accordedByFile"></app-control-messages>
 
                     </div>
@@ -76,7 +94,8 @@
 
                     <label class="uppercase">Unit of </label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('unitOfFile',$event)" formControlName="unitOfFile" id="" />
+                        <input type="file" (change)="onchangeFile('unitOfFile',$event)" formControlName="unitOfFile"
+                            id="" />
                         <app-control-messages [touched]="touched" [control]="f.unitOfFile"></app-control-messages>
 
                     </div>
@@ -93,33 +112,41 @@
                 <div class="col-sm-12">
                     <label class="uppercase">Under Section Act </label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('underSectionActofFile',$event)" formControlName="underSectionActofFile" id="" />
-                        <app-control-messages [touched]="touched" [control]="f.underSectionActofFile"></app-control-messages>
+                        <input type="file" (change)="onchangeFile('underSectionActofFile',$event)"
+                            formControlName="underSectionActofFile" id="" />
+                        <app-control-messages [touched]="touched" [control]="f.underSectionActofFile">
+                        </app-control-messages>
 
                     </div>
                     <div class="col-md-8">
-                        <input type="text" formControlName="underSectionActofLabel" placeholder="Under Section Act" required />
-                        <app-control-messages [touched]="touched" [control]="f.underSectionActofLabel"></app-control-messages>
+                        <input type="text" formControlName="underSectionActofLabel" placeholder="Under Section Act"
+                            required />
+                        <app-control-messages [touched]="touched" [control]="f.underSectionActofLabel">
+                        </app-control-messages>
 
                     </div>
                 </div>
                 <div class="col-sm-12">
                     <label class="uppercase">Established </label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('establishedOfFile',$event)" formControlName="establishedOfFile" id="" />
-                        <app-control-messages [touched]="touched" [control]="f.establishedOfFile"></app-control-messages>
+                        <input type="file" (change)="onchangeFile('establishedOfFile',$event)"
+                            formControlName="establishedOfFile" id="" />
+                        <app-control-messages [touched]="touched" [control]="f.establishedOfFile">
+                        </app-control-messages>
 
                     </div>
                     <div class="col-md-8">
                         <input type="text" formControlName="establishedOfLabel" placeholder="Established" required />
-                        <app-control-messages [touched]="touched" [control]="f.establishedOfLabel"></app-control-messages>
+                        <app-control-messages [touched]="touched" [control]="f.establishedOfLabel">
+                        </app-control-messages>
 
                     </div>
                 </div>
                 <div class="col-sm-12">
                     <label class="uppercase">Board </label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('boardByFile',$event)" formControlName="boardByFile" id="" />
+                        <input type="file" (change)="onchangeFile('boardByFile',$event)" formControlName="boardByFile"
+                            id="" />
                         <app-control-messages [touched]="touched" [control]="f.boardByFile"></app-control-messages>
 
                     </div>
@@ -133,13 +160,15 @@
                 <div class="col-sm-12">
                     <label class="uppercase">AFFILIATED</label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('affiliatedToFile',$event)" formControlName="affiliatedToFile" id="" />
+                        <input type="file" (change)="onchangeFile('affiliatedToFile',$event)"
+                            formControlName="affiliatedToFile" id="" />
                         <app-control-messages [touched]="touched" [control]="f.affiliatedToFile"></app-control-messages>
 
                     </div>
                     <div class="col-md-8">
                         <input type="text" formControlName="affiliatedToLabel" placeholder="Affliated to" required />
-                        <app-control-messages [touched]="touched" [control]="f.affiliatedToLabel"></app-control-messages>
+                        <app-control-messages [touched]="touched" [control]="f.affiliatedToLabel">
+                        </app-control-messages>
 
                     </div>
                 </div>
@@ -147,13 +176,16 @@
                 <div class="col-sm-12">
                     <label class="uppercase">Recognition By</label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('recongnizedByFile',$event)" formControlName="recongnizedByFile" id="" />
-                        <app-control-messages [touched]="touched" [control]="f.recongnizedByFile"></app-control-messages>
+                        <input type="file" (change)="onchangeFile('recongnizedByFile',$event)"
+                            formControlName="recongnizedByFile" id="" />
+                        <app-control-messages [touched]="touched" [control]="f.recongnizedByFile">
+                        </app-control-messages>
 
                     </div>
                     <div class="col-md-8">
                         <input type="text" formControlName="recongnizedByLabel" placeholder="Recognition By" required />
-                        <app-control-messages [touched]="touched" [control]="f.recongnizedByLabel"></app-control-messages>
+                        <app-control-messages [touched]="touched" [control]="f.recongnizedByLabel">
+                        </app-control-messages>
 
                     </div>
                 </div>
@@ -161,13 +193,15 @@
                 <div class="col-sm-12">
                     <label class="uppercase">Registered To</label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('registeredToFile',$event)" formControlName="registeredToFile" id="" />
+                        <input type="file" (change)="onchangeFile('registeredToFile',$event)"
+                            formControlName="registeredToFile" id="" />
                         <app-control-messages [touched]="touched" [control]="f.registeredToFile"></app-control-messages>
 
                     </div>
                     <div class="col-md-8">
                         <input type="text" formControlName="registeredToLabel" placeholder="Registered To" required />
-                        <app-control-messages [touched]="touched" [control]="f.registeredToLabel"></app-control-messages>
+                        <app-control-messages [touched]="touched" [control]="f.registeredToLabel">
+                        </app-control-messages>
 
                     </div>
                 </div>
@@ -175,7 +209,8 @@
                 <div class="col-sm-12">
                     <label class="uppercase">Approved By</label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('approvedByFile',$event)" formControlName="approvedByFile" id="" />
+                        <input type="file" (change)="onchangeFile('approvedByFile',$event)"
+                            formControlName="approvedByFile" id="" />
                         <app-control-messages [touched]="touched" [control]="f.approvedByFile"></app-control-messages>
                     </div>
                     <div class="col-md-8">
@@ -187,20 +222,23 @@
                 <div class="col-sm-12">
                     <label class="uppercase">ACCREDATION</label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('accreditedByFile',$event)" formControlName="accreditedByFile" id="" />
+                        <input type="file" (change)="onchangeFile('accreditedByFile',$event)"
+                            formControlName="accreditedByFile" id="" />
                         <app-control-messages [touched]="touched" [control]="f.accreditedByFile"></app-control-messages>
 
                     </div>
                     <div class="col-md-8">
                         <input type="text" formControlName="accreditedByLabel" placeholder="Accredation By" required />
-                        <app-control-messages [touched]="touched" [control]="f.accreditedByLabel"></app-control-messages>
+                        <app-control-messages [touched]="touched" [control]="f.accreditedByLabel">
+                        </app-control-messages>
                     </div>
                 </div>
 
                 <div class="col-sm-12">
                     <label class="uppercase">Certified By</label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('certifiedByFile',$event)" formControlName="certifiedByFile" id="" />
+                        <input type="file" (change)="onchangeFile('certifiedByFile',$event)"
+                            formControlName="certifiedByFile" id="" />
                         <app-control-messages [touched]="touched" [control]="f.certifiedByFile"></app-control-messages>
                     </div>
                     <div class="col-md-8">
@@ -212,7 +250,8 @@
                 <div class="col-sm-12">
                     <label class="uppercase">Member of </label>
                     <div class="col-md-4">
-                        <input type="file" (change)="onchangeFile('memberOfFile',$event)" formControlName="memberOfFile" id="" />
+                        <input type="file" (change)="onchangeFile('memberOfFile',$event)" formControlName="memberOfFile"
+                            id="" />
                         <app-control-messages [touched]="touched" [control]="f.memberOfFile"></app-control-messages>
                     </div>
                     <div class="col-md-8">
@@ -224,7 +263,8 @@
             <div class="col-sm-12">
                 <label class="uppercase">LICENSE</label>
                 <div class="col-md-4">
-                    <input type="file" (change)="onchangeFile('licenceByFile',$event)" formControlName="licenceByFile" id="" />
+                    <input type="file" (change)="onchangeFile('licenceByFile',$event)" formControlName="licenceByFile"
+                        id="" />
                     <app-control-messages [touched]="touched" [control]="f.licenceByFile"></app-control-messages>
                 </div>
                 <div class="col-md-8">
@@ -235,7 +275,8 @@
             <div class="col-sm-12">
                 <label class="uppercase">Collaboration </label>
                 <div class="col-md-4">
-                    <input type="file" (change)="onchangeFile('collaborationByFile',$event)" formControlName="collaborationByFile" id="" />
+                    <input type="file" (change)="onchangeFile('collaborationByFile',$event)"
+                        formControlName="collaborationByFile" id="" />
                     <app-control-messages [touched]="touched" [control]="f.collaborationByFile"></app-control-messages>
                 </div>
                 <div class="col-md-8">
@@ -248,7 +289,8 @@
 
                 <div class="col-sm-6">
                     <label class="uppercase">BROCHURE </label>
-                    <input type="file" (change)="onchangeFile('brochuresFile',$event)" formControlName="brochuresFile" id="" />
+                    <input type="file" (change)="onchangeFile('brochuresFile',$event)" formControlName="brochuresFile"
+                        id="" />
                     <app-control-messages [touched]="touched" [control]="f.brochuresFile"></app-control-messages>
                 </div>
 
@@ -260,7 +302,8 @@
 
                 <div class="col-sm-6">
                     <label class="uppercase">UNIFORM </label>
-                    <input type="file" (change)="onchangeFile('uniformFile',$event)" formControlName="uniformFile" id="" />
+                    <input type="file" (change)="onchangeFile('uniformFile',$event)" formControlName="uniformFile"
+                        id="" />
                     <app-control-messages [touched]="touched" [control]="f.uniformFile"></app-control-messages>
                 </div>
 
@@ -276,8 +319,8 @@
                 <div class="col-sm-12">
                     <div class="pull-right">
                         <button type="submit" id="submit-btn" class="btn btn-info nbtn">
-              Save and Continue
-            </button>
+                            Save and Continue
+                        </button>
                     </div>
                 </div>
             </div>
@@ -285,4 +328,4 @@
     </div>
 </main>
 
-<pre>{{form.value | json}}</pre>
+<!-- <pre>{{form.value | json}}</pre> -->

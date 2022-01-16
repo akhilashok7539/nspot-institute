@@ -66,7 +66,8 @@ export class Signup3ThreeComponent implements OnInit {
       rulesFile: ['', [Validators.required]],
       uniformFile: ['', [Validators.required]],
       // specialFeaturesFile: ['', [Validators.required]],
-
+      trust:[''],
+      group:['']
     });
   }
   // Handling the file change events to append the file with the submitting object
@@ -129,6 +130,8 @@ export class Signup3ThreeComponent implements OnInit {
     this.multiForm.append('boardByLabel', formData.boardByLabel);
     this.multiForm.append('licenceByLabel', formData.licenceByLabel);
     this.multiForm.append('collaborationByLabel', formData.collaborationByLabel);
+    this.multiForm.append('trust', formData.trust);
+    this.multiForm.append('collaborationByLabel', formData.group);
  
     
     

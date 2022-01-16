@@ -36,11 +36,12 @@
                 </div>
                 <div class="col-sm-6">
                     <label class="uppercase">Recruitment and Placement Info  </label>
-                    <input type="file" id="" />
+                    <input type="file" id=""  (change)="onchangeFile('recruitmentInfoFile',$event)" formControlName="recruitmentInfoFile"/>
+
                 </div>
                 <div class="col-sm-6">
                     <label class="uppercase">Scholarship and Financial Aid Info </label>
-                    <input type="file" id="" />
+                    <input type="file" id=""  (change)="onchangeFile('scholrshopinfoFile',$event)" formControlName="scholrshopinfoFile"/>
                 </div>
             </div>
             <div class="row clearfix">

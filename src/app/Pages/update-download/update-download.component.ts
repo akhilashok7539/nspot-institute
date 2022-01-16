@@ -37,6 +37,8 @@ export class UpdateDownloadComponent implements OnInit {
       rulesFile: ['', [Validators.required]],
       uniformFile: ['', [Validators.required]],
       specialFeaturesFile: ['', [Validators.required]],
+      recruitmentInfoFile: ['', [Validators.required]],
+      scholrshopinfoFile: ['', [Validators.required]],
 
     });
   }
