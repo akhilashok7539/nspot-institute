@@ -72,26 +72,28 @@ export class Signup2TwoComponent implements OnInit {
       haveGirlsHostel: [false],
       foodAvailableAtHostel: [false],
       hostalAnnualFee: [''],
-      transportationInfo: ['', [Validators.required]],
+      transportationInfo: [''],
       gmapLatitude: ['', [Validators.required]],
       gmapLongitude: ['', [Validators.required]],
-      year_of_establishment:['', [Validators.required]],
-      designation:['', [Validators.required]],
-      institute_aid_status:['', [Validators.required]],
-      ownership:['', [Validators.required]],
-      institute_category:['', [Validators.required]],
-      admission_office_email:['', [Validators.required]],
-      admission_office_mobileno1:['', [Validators.required]],
-      admission_office_mobileno2:['', [Validators.required]],
+      year_of_establishment: ['', [Validators.required]],
+      designation: ['', [Validators.required]],
+      institute_aid_status: ['', [Validators.required]],
+      ownership: ['', [Validators.required]],
+      institute_category: ['', [Validators.required]],
+      admission_office_email: [''],
+      admission_office_mobileno1: [''],
+      admission_office_mobileno2: [''],
       // recaptcha: ['', Validators.required],
-      busAvailablity:[false],
-      vanavailablity:[false],
-      routeInfo: ['',[Validators.required]],
-      religiousMinority:['',[Validators.required]],
-      aboutUs:['',[Validators.required]],
-      websitelink:['',[Validators.required]],
-      officialEmail: ['', Validators.required],
+      busAvailablity: [false],
+      vanavailablity: [false],
+      routeInfo: [''],
+      religiousMinority: [''],
+      aboutUs: [''],
+      websitelink: [''],
+      officialEmail: [''],
     });
+
+    this.form.controls["religiousMinority"].setValue("no")
   }
 
   confirmMobileNumberBeforeSMS(mobileNumber) {
@@ -200,12 +202,25 @@ export class Signup2TwoComponent implements OnInit {
 
   onSubmit(): void {
     this.touched = true;
+    console.log("form valid or not", this.form.invalid);
+    if (this.form.value['admission_office_email'] === "") {
+      this.form.controls["admission_office_email"].setValue("admisonooficeemail@gmail.com")
+
+    }
+    if (this.form.value['admission_office_mobileno1'] === "") {
+      this.form.controls["admission_office_mobileno1"].setValue("8590410387")
+
+    }
+    if (this.form.value['admission_office_mobileno2'] === "") {
+      this.form.controls["admission_office_mobileno2"].setValue("859041387")
+
+    }
     // if (this.form.invalid) {
     //   return;
     // } else {
     //   (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     // }
-   
+
     delete this.form.value['recaptcha']
     const formData = this.form.value;
     this.apiService.doPostRequest(endPoints.CreateInstitute, formData).subscribe((returnData: any) => {

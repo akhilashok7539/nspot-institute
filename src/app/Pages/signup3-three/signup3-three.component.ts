@@ -27,47 +27,47 @@ export class Signup3ThreeComponent implements OnInit {
   ngOnInit(): void {
     this.instituteId = parseInt(this.route.snapshot.paramMap.get('instituteId'));
     this.form = this.formBuilder.group({
-      unitOfFile: [''], // now not in forms
-      rankofFile: ['', [Validators.required]],
-      rankofLabel: ['', [Validators.required]],
-      awardsofFile: ['', [Validators.required]],
-      awardsofLabel: ['', [Validators.required]],
-      ratedByLabel: ['', [Validators.required]],
-      ratedByFile: ['', [Validators.required]],
-      accordedByFile: ['', [Validators.required]],
-      accordedByLabel: ['', [Validators.required]],
-      underSectionActofLabel: ['', [Validators.required]],
-      underSectionActofFile: ['', [Validators.required]],
-      establishedOfFile: ['', [Validators.required]],
-      establishedOfLabel: ['', [Validators.required]],
-      boardByLabel: ['', [Validators.required]],
-      boardByFile: ['', [Validators.required]],
-      licenceByLabel: ['', [Validators.required]],
-      licenceByFile: ['', [Validators.required]],
-      collaborationByLabel: ['', [Validators.required]],
-      collaborationByFile: ['', [Validators.required]],
-      unitOfLabel: ['', [Validators.required]],
-      affiliatedToFile: ['', [Validators.required]],
-      affiliatedToLabel: ['', [Validators.required]],
-      recongnizedByFile: ['', [Validators.required]],
-      recongnizedByLabel: ['', [Validators.required]],
-      registeredToFile: ['', [Validators.required]],
-      registeredToLabel: ['', [Validators.required]],
-      approvedByFile: ['', [Validators.required]],
-      approvedByLabel: ['', [Validators.required]],
-      accreditedByFile: ['', [Validators.required]],
-      accreditedByLabel: ['', [Validators.required]],
-      certifiedByFile: ['', [Validators.required]],
-      certifiedByLabel: ['', [Validators.required]],
-      memberOfFile: ['', [Validators.required]],
-      memberOfLabel: ['', [Validators.required]],
+      unitOfFile: [''], 
+      rankofFile: [''],
+      rankofLabel: [''],
+      awardsofFile: [''],
+      awardsofLabel: [''],
+      ratedByLabel: [''],
+      ratedByFile: [''],
+      accordedByFile: [''],
+      accordedByLabel: [''],
+      underSectionActofLabel: [''],
+      underSectionActofFile: [''],
+      establishedOfFile: [''],
+      establishedOfLabel: [''],
+      boardByLabel: [''],
+      boardByFile: [''],
+      licenceByLabel: [''],
+      licenceByFile: [''],
+      collaborationByLabel: [''],
+      collaborationByFile: [''],
+      unitOfLabel: [''],
+      affiliatedToFile: [''],
+      affiliatedToLabel: [''],
+      recongnizedByFile: [''],
+      recongnizedByLabel: [''],
+      registeredToFile: [''],
+      registeredToLabel: [''],
+      approvedByFile: [''],
+      approvedByLabel: [''],
+      accreditedByFile: [''],
+      accreditedByLabel: [''],
+      certifiedByFile: [''],
+      certifiedByLabel: [''],
+      memberOfFile: [''],
+      memberOfLabel: [''],
 
-      brochuresFile: ['', [Validators.required]],
-      rulesFile: ['', [Validators.required]],
-      uniformFile: ['', [Validators.required]],
-      // specialFeaturesFile: ['', [Validators.required]],
-      trust:[''],
-      group:['']
+      brochuresFile: [''],
+      rulesFile: [''],
+      uniformFile: [''],
+      // specialFeaturesFile: [''],
+      trust: [''],
+      group: ['']
     });
   }
   // Handling the file change events to append the file with the submitting object
@@ -92,24 +92,25 @@ export class Signup3ThreeComponent implements OnInit {
 
     this.touched = true;
     if (this.form.invalid) {
-    console.log(this.form.value);
+      console.log(this.form.value);
+      const invalid:any = [];
+      const controls = this.form.controls;
+      for (const name in controls) {
+        if (controls[name].invalid) {
+          invalid.push(name);
+        }
+      }
+      console.log("invalid",invalid);
 
-      return;
+      return invalid;
     } else {
-      (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
+      // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
+      console.log(this.form.valid);
+
     }
     const formData = this.form.value;
     console.log(this.form.value);
-    
-    this.multiForm.delete('unitOfLabel');
-    this.multiForm.delete('affiliatedToLabel');
-    this.multiForm.delete('recongnizedByLabel');
-    this.multiForm.delete('registeredToLabel');
-    this.multiForm.delete('approvedByLabel');
-    this.multiForm.delete('accreditedByLabel');
-    this.multiForm.delete('certifiedByFile');
-    this.multiForm.delete('certifiedByLabel');
-    this.multiForm.delete('memberOfLabel');
+
 
     this.multiForm.append('unitOfLabel', formData.unitOfLabel);
     this.multiForm.append('affiliatedToLabel', formData.affiliatedToLabel);
@@ -117,7 +118,6 @@ export class Signup3ThreeComponent implements OnInit {
     this.multiForm.append('registeredToLabel', formData.registeredToLabel);
     this.multiForm.append('approvedByLabel', formData.approvedByLabel);
     this.multiForm.append('accreditedByLabel', formData.accreditedByLabel);
-    // this.multiForm.append('certifiedByFile', formData.certifiedByFile);
     this.multiForm.append('certifiedByLabel', formData.certifiedByLabel);
     this.multiForm.append('memberOfLabel', formData.memberOfLabel);
     this.multiForm.append('rankofLabel', formData.rankofLabel);
@@ -132,11 +132,11 @@ export class Signup3ThreeComponent implements OnInit {
     this.multiForm.append('collaborationByLabel', formData.collaborationByLabel);
     this.multiForm.append('trust', formData.trust);
     this.multiForm.append('collaborationByLabel', formData.group);
- 
-    
-    
 
-    console.warn(this.multiForm.getAll('affiliatedToFile'));
+
+
+
+    // console.warn(multiForm.values(););
     this.apiService.doPostRequest_upload(endPoints.createHeilights + this.instituteId, this.multiForm).subscribe((returnData: any) => {
       console.log(returnData);
       this.multiForm.delete;
@@ -144,7 +144,7 @@ export class Signup3ThreeComponent implements OnInit {
       this.router.navigate(['/signup/step-4/' + this.instituteId]);
     },
       error => {
-      this.multiForm.delete;
+        this.multiForm.delete;
 
         this.toastr.error(error.error[0].message);
         console.error(error);
