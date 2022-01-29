@@ -294,7 +294,15 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
       }
     )
   }
+  gettax(s)
+  {
+    return s * 18/100;
+  }
+  gettaxnri(s)
+  {
+    return s * 18/100;
 
+  }
 
 
 }

@@ -86,7 +86,7 @@
                         </div>
                         <div class="col-sm-6 align-items">
                                
-                            <button type="button" class="btn btn-secondary uppercase" style="background-color: none !important;">{{nspotFeeObj.nspotFee+nspotFeeObj.bankCharge+nspotFeeObj.nspotTax}}</button>
+                            <button type="button" class="btn btn-secondary uppercase" style="background-color: none !important;">{{nspotFeeObj.nspotFee - gettax(nspotFeeObj.nspotFee)}}</button>
                       
                         </div>
                     </div>
@@ -100,20 +100,20 @@
                                     <label class="uppercase">{{nspotFeeObj.nspotFee}}</label>
                                 </div>
                             </div>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-sm-7">
                                     <label class="uppercase">Bank Charges</label>
                                 </div>
                                 <div class="col-sm-5">
                                     <label class="uppercase">{{nspotFeeObj.bankCharge}}</label>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row">
                                 <div class="col-sm-7">
                                     <label class="uppercase">TAX</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <label class="uppercase">{{nspotFeeObj.nspotTax}}</label>
+                                    <label class="uppercase">{{gettax(nspotFeeObj.nspotFee)}}</label>
                                 </div>
                             </div>
                         </div>
@@ -234,7 +234,7 @@
                                 Fees</button>
                         </div>
                         <div class="col-sm-6 align-items">
-                            <button type="button" class="btn btn-secondary uppercase" style="background-color: none !important;">{{nspotFeeObjNri.nspotFee+nspotFeeObjNri.bankCharge+nspotFeeObjNri.nspotTax}}</button>
+                            <button type="button" class="btn btn-secondary uppercase" style="background-color: none !important;">{{nspotFeeObjNri.nspotFee - gettaxnri(nspotFeeObjNri.nspotFee)}}</button>
 
                         </div>
                     </div>
@@ -248,20 +248,20 @@
                                     <label class="uppercase">{{nspotFeeObjNri.nspotFee}}</label>
                                 </div>
                             </div>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-sm-7">
                                     <label class="uppercase">Bank Charges</label>
                                 </div>
                                 <div class="col-sm-5">
                                     <label class="uppercase">{{nspotFeeObjNri.bankCharge}}</label>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row">
                                 <div class="col-sm-7">
                                     <label class="uppercase">TAX</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <label class="uppercase">{{nspotFeeObjNri.nspotTax}}</label>
+                                    <label class="uppercase">{{gettaxnri(nspotFeeObjNri.nspotFee)}}</label>
                                 </div>
                             </div>
                         </div>
