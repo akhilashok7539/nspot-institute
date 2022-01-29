@@ -123,7 +123,7 @@
                         </h4>
                         <div class="col-sm-12">
                             <label class="req uppercase">Select Account</label>
-                            <select formControlName="bankAccountId">
+                            <select formControlName="bankAccountId" (change)="getbankdetails($event)">
                                 <option value="">Select</option>
                                 <option *ngFor="let item of bankDetails" value="{{item.id}}">{{item.nickname}}</option>
                             </select>
@@ -324,6 +324,6 @@
             </div>
         </form>
     </div>
-    <!-- <pre>{{form.value | json}}</pre> -->
+    <pre>{{form.value | json}}</pre>
     
 </main>

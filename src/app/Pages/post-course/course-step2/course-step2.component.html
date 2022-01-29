@@ -105,7 +105,7 @@
                         </div>
                         <div class="col-sm-6 align-items">
                                
-                            <button type="button" class="btn btn-secondary uppercase" style="background-color: none !important;">{{nspotFeeObj.nspotFee+nspotFeeObj.bankCharge+nspotFeeObj.nspotTax}}</button>
+                            <button type="button" class="btn btn-secondary uppercase" style="background-color: none !important;">{{nspotFeeObj.nspotFee - gettax(nspotFeeObj.nspotFee)}}</button>
                       
                         </div>
                     </div>
@@ -119,40 +119,25 @@
                                     <label class="uppercase">{{nspotFeeObj.nspotFee}}</label>
                                 </div>
                             </div>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-sm-7">
                                     <label class="uppercase">Bank Charges</label>
                                 </div>
                                 <div class="col-sm-5">
                                     <label class="uppercase">{{nspotFeeObj.bankCharge}}</label>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row">
                                 <div class="col-sm-7">
                                     <label class="uppercase">TAX</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <label class="uppercase">{{nspotFeeObj.nspotTax}}</label>
+                                    <label class="uppercase">{{gettax(nspotFeeObj.nspotFee)}}</label>
                                 </div>
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                        <h4 class="sub-title uppercase bank-details">
-                            Bank Details
-                            <i style="    font-size: 15px;" class="zmdi zmdi-info">
-                                <span class="tooltiptext">You may add 'Multiple Bank Accounts' for each course that you offer, for receiving the initial fee payment done by the student applicant.    </span>
-
-                            </i>
-                        </h4>
-                        <div class="col-sm-12">
-                            <label class="req uppercase">Select Account</label>
-                            <select formControlName="bankAccountId">
-                                <option value="">Select</option>
-                                <option *ngFor="let item of bankDetails" value="{{item.id}}">{{item.nickname}}</option>
-                            </select>
-                            <app-control-messages [touched]="touched" [control]="f.bankAccountId">
-                            </app-control-messages>
-                        </div>
+                      
                     </div>
                     <div class="col-sm-12">
                         <div class="col-md-9">
@@ -275,7 +260,7 @@
                                 Fees</button>
                         </div>
                         <div class="col-sm-6 align-items">
-                            <button type="button" class="btn btn-secondary uppercase" style="background-color: none !important;">{{nspotFeeObjNri.nspotFee+nspotFeeObjNri.bankCharge+nspotFeeObjNri.nspotTax}}</button>
+                            <button type="button" class="btn btn-secondary uppercase" style="background-color: none !important;">{{nspotFeeObjNri.nspotFee - gettaxnri(nspotFeeObjNri.nspotFee)}}</button>
 
                         </div>
                     </div>
@@ -289,28 +274,28 @@
                                     <label class="uppercase">{{nspotFeeObjNri.nspotFee}}</label>
                                 </div>
                             </div>
-                            <div class="row">
+                            <!-- <div class="row">
                                 <div class="col-sm-7">
                                     <label class="uppercase">Bank Charges</label>
                                 </div>
                                 <div class="col-sm-5">
                                     <label class="uppercase">{{nspotFeeObjNri.bankCharge}}</label>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row">
                                 <div class="col-sm-7">
                                     <label class="uppercase">TAX</label>
                                 </div>
                                 <div class="col-sm-5">
-                                    <label class="uppercase">{{nspotFeeObjNri.nspotTax}}</label>
+                                    <label class="uppercase">{{gettaxnri(nspotFeeObjNri.nspotFee)}}</label>
                                 </div>
                             </div>
                         </div>
                         <div class="clearfix"></div>
-                        <h4 class="sub-title uppercase bank-details">
+                        <!-- <h4 class="sub-title uppercase bank-details">
                             Bank Details
-                        </h4>
-                        <div class="col-sm-12">
+                        </h4> -->
+                        <!-- <div class="col-sm-12">
                             <label class="req uppercase">Select Account</label>
                             <select formControlName="bankAccountId">
                                 <option value="">Select</option>
@@ -318,7 +303,7 @@
                             </select>
                             <app-control-messages [touched]="touched" [control]="f.bankAccountId">
                             </app-control-messages>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-sm-12">
                         <div class="col-md-9">
@@ -359,6 +344,24 @@
                         </div>
                         <input type="text" formControlName="nrirefundPolicy" placeholder="Enter institutes Admission cancellation policies, fee refund policy & Terms clearly" />
                         <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <h4 class="sub-title uppercase bank-details">
+                        Bank Details
+                        <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                            <span class="tooltiptext">You may add 'Multiple Bank Accounts' for each course that you offer, for receiving the initial fee payment done by the student applicant.    </span>
+
+                        </i>
+                    </h4>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Select Account</label>
+                        <select formControlName="bankAccountId" (change)="getbankdetails($event)">
+                            <option value="">Select</option>
+                            <option *ngFor="let item of bankDetails" value="{{item.id}}">{{item.nickname}}</option>
+                        </select>
+                        <app-control-messages [touched]="touched" [control]="f.bankAccountId">
+                        </app-control-messages>
                     </div>
                 </div>
             </div>

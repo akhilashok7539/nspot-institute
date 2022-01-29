@@ -231,8 +231,9 @@ export class PricingComponent implements OnInit {
         this.apiService.doPostRequest(endPoints.Confirm_subscriptionOrder, subscriptionObj).subscribe((returnData: any) => {
           this.toastr.success("subscription success")
           console.log(returnData);
-          
-        
+         
+          this.router.navigate(['/login'])
+          this.toastr.success("Login Again to make the changes for subscription")
         })
        }
      )
@@ -246,8 +247,11 @@ export class PricingComponent implements OnInit {
       this.apiService.doPostRequest(endPoints.Confirm_subscriptionOrder, subscriptionObj).subscribe((returnData: any) => {
         this.toastr.success("subscription success")
         console.log(returnData);
-        
-      
+
+       
+        this.router.navigate(['/login'])
+        this.toastr.success("Login Again to make the changes for subscription")
+
       })
     }
     

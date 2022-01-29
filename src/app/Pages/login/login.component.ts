@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     if (this.form.invalid) {
       return;
     } else {
-      (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
+      // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     }
     const formData = this.form.value;
     this.apiService.doPostRequest(endPoints.login, formData).subscribe((returnData: any) => {
@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
       }
       else {
         this.toastr.error(returnData.error.message);
-        (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+        // (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
       }
     },
       error => {

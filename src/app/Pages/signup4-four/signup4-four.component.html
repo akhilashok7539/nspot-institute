@@ -156,14 +156,25 @@
           <p class="checkbox">
             <input type="checkbox" formControlName="accept" placeholder="Enter a mobile number" required /><span>Accept
               Terms and
-              Conditions</span>
+              Conditions  <a href="https://www.nspotadmissions.com/terms.html" target="_blank">View Terms</a></span>
           </p>
           <div class="clearfix"></div>
           <p>
             <app-control-messages [touched]="touched" [control]="f.accept"></app-control-messages>
           </p>
+          <p class="checkbox">
+            <input type="checkbox" formControlName="acceptprivcy" placeholder="Enter a mobile number" required /><span>Accept
+              Privacy and
+              Policy <a href="https://www.nspotadmissions.com/privacy.html" target="_blank">View Privacy</a></span>
+               
+          </p>
+         
+          <div class="clearfix"></div>
+          <p>
+            <app-control-messages [touched]="touched" [control]="f.accept"></app-control-messages>
+          </p>
         </div>
-
+        
       </div>
 
       <div class="row clearfix">

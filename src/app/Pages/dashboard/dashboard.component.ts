@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  detailsList:any=[];
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
@@ -77,6 +77,27 @@ export class DashboardComponent implements OnInit {
       console.error(error);
       this.toastr.error('Failed to fetch institute details')
     });
+
+    // fetch infractuture
+      this.apiService.doGetRequest(`instituteInfraStructure/byInstituteId/` + tempinstId).subscribe(
+        data => {
+          this.detailsList = data['data'][0];
+          console.log(this.detailsList);
+          // this.form.controls['nearestAirPort'].setValue(this.detailsList.nearestAirPort);
+          // this.form.controls['nearestRailWayStation'].setValue(this.detailsList.nearestBusStation);
+          // this.form.controls['nearestBusStation'].setValue(this.detailsList.nearestRailWayStation);
+          // this.form.controls['currentLatitude'].setValue(this.detailsList.currentLatitude);
+          // this.form.controls['currentLongitude'].setValue(this.detailsList.currentLongitude);
+          // this.form.controls['id'].setValue(this.detailsList.id);
+          
+        },
+        error => {
+  
+        }
+      )
+
+
+
   }
 
   loadInstituteInfo() {

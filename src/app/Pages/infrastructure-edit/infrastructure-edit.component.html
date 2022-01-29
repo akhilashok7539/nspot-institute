@@ -18,62 +18,62 @@
 
             <div class="col-sm-12">
                 <label for="">AREA OF CAMPUS</label>
-                <input type="text" placeholder="eg:51752 Sq. mt">
+                <input type="text" placeholder="eg:51752 Sq. mt"  formControlName="areaOfCampus">
             </div>
             <div class="col-sm-3">
                 <label class="uppercase">No. of Classrooms</label>
-                <input type="text" placeholder="No of class rooms">
+                <input type="text" placeholder="No of class rooms" formControlName="noOfClassRoom">
 
             </div>
             <div class="col-sm-3">
                 <label class="uppercase">Total Student Strength as on date</label>
-                <input type="text" placeholder="Total Student Strength as on date">
+                <input type="text" placeholder="Total Student Strength as on date" formControlName="totalStudentStrength">
 
             </div>
 
             <div class="col-sm-3">
                 <label class="uppercase">Student Teacher Ratio</label>
-                <input type="text" placeholder="Student Teacher Ratio">
+                <input type="text" placeholder="Student Teacher Ratio" formControlName="studentTeacherRatio">
 
             </div>
             <div class="col-sm-3">
                 <label class="uppercase">Total no.of Teachers</label>
-                <input type="text" placeholder="Total no.of Teachers">
+                <input type="text" placeholder="Total no.of Teachers" formControlName="noOfTeachers">
 
             </div>
             <div class="col-sm-3">
                 <label class="uppercase">Language of Instruction</label>
-                <input type="text" placeholder="Language of Instruction">
+                <input type="text" placeholder="Language of Instruction" formControlName="instructionLanguage">
 
             </div>
             <div class="col-sm-3">
                 <label class="uppercase">Sports </label>
-                <input type="text" placeholder="Sports  ">
+                <input type="text" placeholder="Sports  " formControlName="sports">
 
             </div>
             <div class="col-sm-3">
                 <label class="uppercase">Indoor Games </label>
-                <input type="text" placeholder="Indoor Games   ">
+                <input type="text" placeholder="Indoor Games   " formControlName="indoorGames">
 
             </div>
             <div class="col-sm-3">
                 <label class="uppercase">Outdoor Games </label>
-                <input type="text" placeholder="Outdoor Games  ">
+                <input type="text" placeholder="Outdoor Games  " formControlName="outdoorGames">
 
             </div>
             <div class="col-sm-3">
                 <label class="uppercase">Performing Arts </label>
-                <input type="text" placeholder="Performing Arts  ">
+                <input type="text" placeholder="Performing Arts  " formControlName="performingArts">
 
             </div>
             <div class="col-sm-3">
                 <label class="uppercase">Visual Arts </label>
-                <input type="text" placeholder="Visual Arts ">
+                <input type="text" placeholder="Visual Arts " formControlName="visualArts">
 
             </div>
             <div class="col-sm-3">
                 <label class="uppercase">Campus Events </label>
-                <input type="text" placeholder="Campus Events  ">
+                <input type="text" placeholder="Campus Events  " formControlName="campusEvents">
 
             </div>
             <div class="col-sm-4">
@@ -83,14 +83,14 @@
                         <input type="radio" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
-                        margin-top: -9px;"/>
+                        margin-top: -9px;" formControlName="campusRecruitment" />
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
-                        margin-top: -9px;"/>
+                        margin-top: -9px;" formControlName="campusRecruitment"/>
                         <span style="margin-left: 89px;    position: absolute;">
                             No
                         </span>
@@ -106,14 +106,14 @@
                         <input type="radio" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
-                        margin-top: -9px;"/>
+                        margin-top: -9px;" formControlName="library"/>
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
-                        margin-top: -9px;"/>
+                        margin-top: -9px;" formControlName="library"/>
                         <span style="margin-left: 89px;    position: absolute;">
                             No
                         </span>
@@ -129,11 +129,11 @@
                         <input type="radio" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
-                        margin-top: -9px;"/>
+                        margin-top: -9px;" formControlName="lab"/>
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" formControlName="lab" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
                         margin-top: -9px;"/>
@@ -149,14 +149,14 @@
                 <label class="uppercase">Digital Classrooms </label>
                 <div class="col-sm-4">
                     <p class="radio">
-                        <input type="radio" value="true"  style="width: 18px;
+                        <input type="radio" formControlName="digitalClassRoom" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
                         margin-top: -9px;"/>
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" formControlName="digitalClassRoom" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
                         margin-top: -9px;"/>
@@ -172,14 +172,14 @@
                 <label class="uppercase">A/C Classrooms  </label>
                 <div class="col-sm-4">
                     <p class="radio">
-                        <input type="radio" value="true"  style="width: 18px;
+                        <input type="radio" formControlName="acClassRom" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
                         margin-top: -9px;"/>
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" formControlName="acClassRom" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
                         margin-top: -9px;"/>
@@ -196,14 +196,14 @@
                 <label class="uppercase">Canteen  </label>
                 <div class="col-sm-4">
                     <p class="radio">
-                        <input type="radio" value="true"  style="width: 18px;
+                        <input type="radio" formControlName="canteen" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
                         margin-top: -9px;"/>
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" formControlName="canteen" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
                         margin-top: -9px;"/>
@@ -220,14 +220,14 @@
                 <label class="uppercase">Auditorium  </label>
                 <div class="col-sm-4">
                     <p class="radio">
-                        <input type="radio" value="true"  style="width: 18px;
+                        <input type="radio" formControlName="auditorium" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
                         margin-top: -9px;"/>
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" formControlName="auditorium" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
                         margin-top: -9px;"/>
@@ -243,14 +243,14 @@
                 <label class="uppercase">Medical Aid Assistance  </label>
                 <div class="col-sm-4">
                     <p class="radio">
-                        <input type="radio" value="true"  style="width: 18px;
+                        <input type="radio" formControlName="medicalAid" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
                         margin-top: -9px;"/>
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" formControlName="medicalAid" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
                         margin-top: -9px;"/>
@@ -266,14 +266,14 @@
                 <label class="uppercase">CCTV Surveillance  </label>
                 <div class="col-sm-4">
                     <p class="radio">
-                        <input type="radio" value="true"  style="width: 18px;
+                        <input type="radio" formControlName="cctv" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
                         margin-top: -9px;"/>
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" formControlName="cctv" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
                         margin-top: -9px;"/>
@@ -290,14 +290,14 @@
                 <label class="uppercase">Playground  </label>
                 <div class="col-sm-4">
                     <p class="radio">
-                        <input type="radio" value="true"  style="width: 18px;
+                        <input type="radio" formControlName="playGround" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
                         margin-top: -9px;"/>
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" formControlName="playGround" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
                         margin-top: -9px;"/>
@@ -314,14 +314,14 @@
                 <label class="uppercase">Gymnasium  </label>
                 <div class="col-sm-4">
                     <p class="radio">
-                        <input type="radio" value="true"  style="width: 18px;
+                        <input type="radio" formControlName="gym" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
                         margin-top: -9px;"/>
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" formControlName="gym" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
                         margin-top: -9px;"/>
@@ -337,14 +337,14 @@
                 <label class="uppercase">Swimming / Splash Pool  </label>
                 <div class="col-sm-4">
                     <p class="radio">
-                        <input type="radio" value="true"  style="width: 18px;
+                        <input type="radio" formControlName="pool" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
                         margin-top: -9px;"/>
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" formControlName="pool" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
                         margin-top: -9px;"/>
@@ -361,14 +361,14 @@
                 <label class="uppercase">Community Service  </label>
                 <div class="col-sm-4">
                     <p class="radio">
-                        <input type="radio" value="true"  style="width: 18px;
+                        <input type="radio" formControlName="communityService" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
                         margin-top: -9px;"/>
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" formControlName="communityService" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
                         margin-top: -9px;"/>
@@ -385,14 +385,14 @@
                 <label class="uppercase">Education Loan Assistance   </label>
                 <div class="col-sm-4">
                     <p class="radio">
-                        <input type="radio" value="true"  style="width: 18px;
+                        <input type="radio" formControlName="loanAssistance" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
                         margin-top: -9px;"/>
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" formControlName="loanAssistance" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
                         margin-top: -9px;"/>
@@ -409,14 +409,14 @@
                 <label class="uppercase">Campus Security   </label>
                 <div class="col-sm-4">
                     <p class="radio">
-                        <input type="radio" value="true"  style="width: 18px;
+                        <input type="radio" formControlName="campusSecurity" value="true"  style="width: 18px;
                         position: absolute;
                         margin-left: 38px;
                         margin-top: -9px;"/>
                         <span style="    position: absolute;">
                             Yes
                         </span>
-                        <input type="radio" value="no"  style="    width: 18px;
+                        <input type="radio" formControlName="campusSecurity" value="false"  style="    width: 18px;
                         position: absolute;
                         margin-left: 118px;
                         margin-top: -9px;"/>

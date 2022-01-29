@@ -57,7 +57,10 @@
                 <ul class="submenu submenu-list">
                   <li>
                     <a  (click)="postCourse()">Enlist- Vacant Admission Seat 
-                      <span class="coursecount">{{curentcourseCountLength}} / {{courseCountLengthSubscribe}}</span>
+                      <span class="coursecount" *ngIf="courseCountLengthSubscribe === 1000">{{curentcourseCountLength}} </span>
+                      <span class="coursecount" *ngIf="courseCountLengthSubscribe != 1000">{{curentcourseCountLength}} / {{courseCountLengthSubscribe}}</span>
+                    
+                      <br> <span style="font-weight: bold;" *ngIf="courseCountLengthSubscribe === 1000">Unlimitted Plan</span>
                     </a>
                   </li>
                   <li>

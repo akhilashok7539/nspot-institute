@@ -76,11 +76,20 @@
                     <label for="">Pan card Number </label>
                     <input type="text" formControlName="panNumber" placeholder="Pan card Number" required />
                     <app-control-messages [touched]="touched" [control]="f.panNumber"></app-control-messages>
+                    <label for="">Is GSTIN </label>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            YES <input style=" width: 13% !important;   height: 14px !important;" type="radio" (change)="changerinput($event)" value="true" formControlName="isFilingGst" required />
+                            NO <input style=" width: 13% !important;    height: 14px !important;" type="radio" (change)="changerinput($event)" value="false" formControlName="isFilingGst" required />
+
+                        </div>
+                    </div>
 
                     <label for="">GSTIN Number </label>
                     <input type="text" formControlName="gstinnumber" placeholder="GSTIN Number" required />
                     <app-control-messages [touched]="touched" [control]="f.gstinnumber"></app-control-messages>
 
+                 
                     <h6 style="margin-top: 10px;margin-bottom: 10px;">Documents Details</h6>
 
                     <label for="">Passbook File</label>

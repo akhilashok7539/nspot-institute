@@ -88,7 +88,7 @@
           <div class="col-sm-6">
             <label class="req uppercase"> Official Email id of the Designated person </label>
   
-            <input type="text" placeholder="Enter Official Email id of the Designated person" formControlName="officialEmail"/>
+            <input type="text" disabled placeholder="Enter Official Email id of the Designated person" formControlName="officialEmail"/>
             <app-control-messages [control]="f.officialEmail" [touched]="touched"></app-control-messages>
           </div>
           
@@ -98,7 +98,7 @@
               <div class="col-sm-7">
                 <div class="input-group">
                   <span class="input-group-addon">+91</span>
-                  <input type="text" id="officialMobile" formControlName="officialMobile" placeholder="Mobile number" />
+                  <input disabled type="text" id="officialMobile" formControlName="officialMobile" placeholder="Mobile number" />
   
                 </div>
                 <app-control-messages [control]="f.officialMobile" [touched]="touched"></app-control-messages>
@@ -421,4 +421,4 @@
     </div>
   </main>
 
-  <pre>  {{form.value|json}}</pre>
+  <!-- <pre>  {{form.value|json}}</pre> -->

@@ -203,18 +203,18 @@ export class Signup2TwoComponent implements OnInit {
   onSubmit(): void {
     this.touched = true;
     console.log("form valid or not", this.form.invalid);
-    if (this.form.value['admission_office_email'] === "") {
-      this.form.controls["admission_office_email"].setValue("admisonooficeemail@gmail.com")
+    // if (this.form.value['admission_office_email'] === "") {
+    //   this.form.controls["admission_office_email"].setValue("admisonooficeemailasdasdasd@gmail.com")
 
-    }
-    if (this.form.value['admission_office_mobileno1'] === "") {
-      this.form.controls["admission_office_mobileno1"].setValue("8590410387")
+    // }
+    // if (this.form.value['admission_office_mobileno1'] === "") {
+    //   this.form.controls["admission_office_mobileno1"].setValue("8590410387")
 
-    }
-    if (this.form.value['admission_office_mobileno2'] === "") {
-      this.form.controls["admission_office_mobileno2"].setValue("859041387")
+    // }
+    // if (this.form.value['admission_office_mobileno2'] === "") {
+    //   this.form.controls["admission_office_mobileno2"].setValue("859041387")
 
-    }
+    // }
     // if (this.form.invalid) {
     //   return;
     // } else {
@@ -228,7 +228,7 @@ export class Signup2TwoComponent implements OnInit {
         this.toastr.success('Form submission successfull');
         console.log(returnData)
         // this.router.navigate([`/signup/step-3/${returnData.data.id}`]);
-        this.router.navigate([`/signup/step-3/${returnData.data.id}`]);
+        this.router.navigate([`/signup/step-3/${returnData.data.id}`]);  
 
       }
       else {

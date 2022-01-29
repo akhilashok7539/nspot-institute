@@ -58,32 +58,32 @@ export class UpdateCourseInfoComponent implements OnInit {
     this.maindesk();
     this.form = this.formBuilder.group({
  
-      courseTypeId: ['', [Validators.required]],
-      courseCode: ['', [Validators.required]],
-      universityTypeId: ['', [Validators.required]],
+      courseTypeId: ['', ],
+      courseCode: ['', ],
+      universityTypeId: ['', ],
      
       availableSeats: [0, [Validators.required, Validators.min(1)]], // number validation
-      accademicYear: [this.currentYear, [Validators.required, Validators.min(this.currentYear)]], // number
-      accademicYearMonth: [this.currentMonth, [Validators.required]], // number
+      accademicYear: [this.currentYear, ], // number
+      accademicYearMonth: [this.currentMonth, ], // number
       // courseDuration_year: [0, [Validators.required, Validators.min(0)]], // number
       // courseDuration_months: [0, [Validators.required, Validators.min(0)]], // number
       courseDuration: [''],
-      examConducted: ['', [Validators.required]],
-      admissionStartDate: ['', [Validators.required]],
-      admissionCloseDate: ['', [Validators.required]],
-      classStartDate: ['', [Validators.required]],
+      examConducted: ['', ],
+      admissionStartDate: ['', ],
+      admissionCloseDate: ['', ],
+      classStartDate: ['', ],
       maleAllowed: [false],
       femaleAllowed: [false],
       otherGenderAllowed: [false],
-      // campusName: ['', [Validators.required]],
-      campusAddressLine1: ['', [Validators.required]],
-      campusAddressLine2: ['', [Validators.required]],
-      campusAddressLine3: ['', [Validators.required]],
-      country: ['', [Validators.required]],
-      block: ['', [Validators.required]],
-      locality: ['', [Validators.required]],
+      // campusName: ['', ],
+      campusAddressLine1: ['', ],
+      campusAddressLine2: ['', ],
+      campusAddressLine3: ['', ],
+      country: ['', ],
+      block: ['', ],
+      locality: ['', ],
       refundPolicy: [''],
-      onlineClassAvailability: ['false', [Validators.required]],
+      onlineClassAvailability: ['false', ],
       aptituteTestRequired: [false],
       aptituteTestId: [0],
       onlineInterviewRequired: [false],
@@ -101,12 +101,12 @@ export class UpdateCourseInfoComponent implements OnInit {
       programCode :[''],
       stateId:[''],
       districtId:[''],
-      instituteType:['',[Validators.required]],
-      instituteCatagory:['',[Validators.required]],
-      year:['',[Validators.required]],
-      month:['',[Validators.required]],
-      day:['',[Validators.required]],
-      hour:['',[Validators.required]],
+      instituteType:['',],
+      instituteCatagory:['',],
+      year:['',],
+      month:['',],
+      day:['',],
+      hour:['',],
       universityId:[''],
       admissionType:['',],
       boardId:[''],

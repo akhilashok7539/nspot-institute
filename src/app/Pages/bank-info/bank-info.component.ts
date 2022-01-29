@@ -42,10 +42,18 @@ export class BankInfoComponent implements OnInit {
       panFile:[''],
       aadharFile:[''],
       gstinnumber:[''],
-      razorpay_linkedAccount_id:['']
+      razorpay_linkedAccount_id:[''],
+      isFilingGst:[false]
     });
+    this.form.controls['isFilingGst'].setValue(false)
+    console.log(this.form.value);
+    
   }
-
+  changerinput(event)
+  {
+    console.log(event.target.value);
+    
+  }
   // loading bank details
   loadData(): void {
     this.apiService.doGetRequest(endPoints.Get_bankDetails + this.instituteId).subscribe((returnData: any) => {
@@ -75,22 +83,23 @@ export class BankInfoComponent implements OnInit {
     this.multiForm.delete('name');
     this.multiForm.delete('ifsc');
     this.multiForm.delete('nickname');
-
+    this.multiForm.append('bankName', formData.bankName);
     this.multiForm.append('accountNumber', formData.accountNumber);
     this.multiForm.append('name', formData.name);
     this.multiForm.append('ifsc', formData.ifsc);
     this.multiForm.append('nickname', formData.nickname);
     this.multiForm.append('aadharNumber', formData.aadharNumber);
     this.multiForm.append('panNumber', formData.panNumber);
-    this.multiForm.append('razorpay_linkedAccount_id', formData.accountNumber);
-
+    this.multiForm.append('razorpay_linkedAccount_id', "");
+    this.multiForm.append('isFilingGst',  formData.isFilingGst);
+    this.multiForm.append('gstinnumber',  formData.gstinnumber);
     
 
     this.apiService.doPostRequest_upload(endPoints.Create_bankDetails + this.instituteId, this.multiForm)
       .subscribe((returnData: any) => {
         console.log(returnData);
         this.toastr.success('Bank details added successfully.');
-        (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+        // (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
         this.form.reset();
         this.loadData();
       },
@@ -98,7 +107,7 @@ export class BankInfoComponent implements OnInit {
           console.error(error);
           const message = error.error ? error.error[0].message : "Something went wrong please try again later."
           this.toastr.error(message);
-          (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+          // (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
         });
 
 

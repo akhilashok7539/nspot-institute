@@ -50,7 +50,7 @@ export class Signup4FourComponent implements OnInit {
 
       declaration: ['', [Validators.required]],
       accept: ['', [Validators.required]],
-
+      acceptprivcy: ['', [Validators.required]],
     });
   }
   // Handling the file change events to append the file with the submitting object
@@ -101,7 +101,7 @@ export class Signup4FourComponent implements OnInit {
     this.apiService.doPostRequest_upload(endPoints.socialMediaAndVirtualTour + this.instituteId, this.multiForm)
       .subscribe((returnData: any) => {
         console.log(returnData);
-        this.toastr.success('Registration Successful');
+        this.toastr.success('Registration Successful!..Login Credentials Sent to your EmailID');
         this.router.navigate(['/login']);
       },
         error => {

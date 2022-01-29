@@ -91,6 +91,7 @@ export class CourseStep2Component implements OnInit {
       nspotServiceCharge: [''],
       nspotBankChargenNri: [''],
       nspotBankCharge: [''],
+      hasGst:['']
     });
     this.calculateTotalFee();
   }
@@ -187,5 +188,35 @@ export class CourseStep2Component implements OnInit {
 
   }
   get f() { return this.form.controls; }
+  gettax(s)
+  {
+    return s * 18/100;
+  }
+  gettaxnri(s)
+  {
+    return s * 18/100;
 
+  }
+  getbankdetails(event)
+  {
+    console.log(event.target.value);
+
+    this.apiService.doGetRequest("institute/bank-details/byId/"+event.target.value).subscribe(
+      data =>{
+  
+          let response = data['data'][0]
+          console.log(response);
+          if(response.isFilingGst === null)
+          {
+            response.isFilingGst = false;
+          }
+          console.log(response);
+          this.form.controls['hasGst'].setValue(response.isFilingGst)
+      },
+      error =>{
+        console.log(error);
+
+      }
+    )
+  }
 }

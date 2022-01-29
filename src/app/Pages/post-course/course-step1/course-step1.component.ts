@@ -234,7 +234,7 @@ export class CourseStep1Component implements OnInit {
     if (this.form.invalid) {
       return;
     } else {
-      (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
+      // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     }
     const formData = this.form.value;
     // this.multiForm.delete('accademicLevelId');
@@ -364,7 +364,7 @@ export class CourseStep1Component implements OnInit {
         this.router.navigate(['/institute/post/course/step-2/' + returnData.data.id]);
       },
         error => {
-      (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('enabled', '');
+      // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('enabled', '');
 
           this.toastr.error(error.error[0].message);
           console.error(error);

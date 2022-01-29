@@ -5,9 +5,13 @@
             <h2 *ngIf="currentSubscription">ACTIVE SUBSCRIPTION</h2>
         </div>
     </div>
+    <marquee behavior="" direction="">
+      Unlimitted Student Applications in all plans
+    </marquee>
     <div class="container pricings">
         <!-- *ngIf="!currentSubscription" -->
-        <div class="row text-center">
+        <div class="row text-center" style="    display: flex;
+        flex-wrap: wrap;">
 
             <div class="col-md-3" *ngFor="let item of planList;let i=index">
                 <div class="plan uppercase" [class.phase-active]="item.planchoosed === 'SELECTEDPLAN'">
@@ -18,9 +22,9 @@
 
                     <div class="plan-details">
 
-                        <p>{{item?.item?.coursesCount}} Courses</p>
-                        <p>{{item?.item?.coursesCount}} Admission Officers</p>
-
+                        <p *ngIf="item?.item?.name != 'MAX PRO PLAN'">{{item?.item?.coursesCount}} Courses</p>
+                        <!-- <p>{{item?.item?.coursesCount}} Admission Officers</p> -->
+                        <p *ngIf="item?.item?.name === 'MAX PRO PLAN'">Unlimitted Courses</p>
                     </div>
                     <button class="square-green" (click)="placeOrder(item)">
             <i class="zmdi zmdi-arrow-right"></i>UPGRADE NOW
