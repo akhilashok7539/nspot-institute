@@ -63,7 +63,7 @@ export class Signup2TwoComponent implements OnInit {
       block: ['', [Validators.required]],
       town: ['', [Validators.required]],
       pin: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
+      email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
       telephone1: ['', [Validators.minLength(6)]],
       telephone2: ['', [Validators.minLength(6)]],
       mobile1: ['', [Validators.maxLength(10), Validators.minLength(10)]],
@@ -87,10 +87,10 @@ export class Signup2TwoComponent implements OnInit {
       busAvailablity: [false],
       vanavailablity: [false],
       routeInfo: [''],
-      religiousMinority: [''],
+      religiousMinority: [false],
       aboutUs: [''],
       websitelink: [''],
-      officialEmail: [''],
+      officialEmail: ['',[Validators.required,Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
     });
 
     this.form.controls["religiousMinority"].setValue("no")
@@ -203,10 +203,10 @@ export class Signup2TwoComponent implements OnInit {
   onSubmit(): void {
     this.touched = true;
     console.log("form valid or not", this.form.invalid);
-    // if (this.form.value['admission_office_email'] === "") {
-    //   this.form.controls["admission_office_email"].setValue("admisonooficeemailasdasdasd@gmail.com")
+    if (this.form.value['admission_office_email'] === "") {
+      this.form.controls["admission_office_email"].setValue(this.form.value['email'])
 
-    // }
+    }
     // if (this.form.value['admission_office_mobileno1'] === "") {
     //   this.form.controls["admission_office_mobileno1"].setValue("8590410387")
 
@@ -220,7 +220,10 @@ export class Signup2TwoComponent implements OnInit {
     // } else {
     //   (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     // }
+    if(this.form.valid)
+    {
 
+  
     delete this.form.value['recaptcha']
     const formData = this.form.value;
     this.apiService.doPostRequest(endPoints.CreateInstitute, formData).subscribe((returnData: any) => {
@@ -237,12 +240,22 @@ export class Signup2TwoComponent implements OnInit {
 
     },
       error => {
-        console.error(error);
-        (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
-        this.toastr.error("Something went wrong!");
+        console.error(error.error.errors[0].message);
+        //(document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+ 
+        if(error.error.errors[0].message === "email must be unique")
+        {
+          this.toastr.error("Email ID already Exists!");
+        }
+        else{
+          this.toastr.error("Something went wrong!");
+        }
 
       });
-
+    }
+    else{
+      this.toastr.error("Form is invalid! please check all fields")
+    }
   }
   validateMobile(mobileNumber) {
     const regex = /^\d{10}$/;

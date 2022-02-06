@@ -51,13 +51,13 @@ export class LoginComponent implements OnInit {
       }
       else {
         this.toastr.error(returnData.error.message);
-        // (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+        // //(document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
       }
     },
       error => {
         console.error(error.error.error.message);
         this.toastr.error(error.error.error.message);
-        // (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+        // //(document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
       });
 
   }

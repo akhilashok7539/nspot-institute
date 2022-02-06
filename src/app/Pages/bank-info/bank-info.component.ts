@@ -99,7 +99,7 @@ export class BankInfoComponent implements OnInit {
       .subscribe((returnData: any) => {
         console.log(returnData);
         this.toastr.success('Bank details added successfully.');
-        // (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+        // //(document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
         this.form.reset();
         this.loadData();
       },
@@ -107,7 +107,7 @@ export class BankInfoComponent implements OnInit {
           console.error(error);
           const message = error.error ? error.error[0].message : "Something went wrong please try again later."
           this.toastr.error(message);
-          // (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+          // //(document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
         });
 
 

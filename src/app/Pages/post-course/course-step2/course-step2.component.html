@@ -23,6 +23,25 @@
         </h4> -->
         <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="sub-title uppercase bank-details">
+                        Bank Details
+                        <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                            <span class="tooltiptext">You may add 'Multiple Bank Accounts' for each course that you offer, for receiving the initial fee payment done by the student applicant.    </span>
+
+                        </i>
+                    </h4>
+                    <div class="col-sm-12">
+                        <label class="req uppercase">Select Account</label>
+                        <select formControlName="bankAccountId" (change)="getbankdetails($event)">
+                            <option value="">Select</option>
+                            <option *ngFor="let item of bankDetails" value="{{item.id}}">{{item.nickname}}</option>
+                        </select>
+                        <app-control-messages [touched]="touched" [control]="f.bankAccountId">
+                        </app-control-messages>
+                    </div>
+                </div>
+
                 <div class="col-sm-6">
                     <h4 class="sub-title uppercase">
                         FEE INFO INDIAN/NRI STUDENTS
@@ -38,7 +57,7 @@
 
                             </i> 
                         </label>
-                        <input type="number" formControlName="otherFee" placeholder="Other"
+                        <input type="number" formControlName="otherFee" placeholder="full course fee"
                             (blur)="calculateTotalFee()" />
                     </div>
                     <div class="col-sm-12">
@@ -90,18 +109,64 @@
                                 <label class="req uppercase">Scholarship Amount Upto</label>
                                 <input type="number" placeholder="enter scholarship amount" formControlName="amount"
                                     id="" />
-                                <app-control-messages [touched]="touched" [control]="f.amount">
-                                </app-control-messages>
+                                <!-- <app-control-messages [touched]="touched" [control]="f.amount">
+                                </app-control-messages> -->
                             </div>
 
                             <div class="clearfix"></div>
                         </div>
+                    </div>
+                   
+                    <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Spot Admission Fee
+
+                                <i style="font-size: 15px;" class="zmdi zmdi-info">
+                                    <span class="tooltiptext">This amount is an 'Initial/Advance Fee' amount collected from the student applicant for confirming an admission seat.</span>
+    
+                                </i> 
+                            </label>
+                            <span style="    font-size: 10px;
+                            font-style: italic;
+                            color: red;
+                        ">Spot Admission fee must be greater than Nspot fee</span>
+                        </div>
+                        <div class="col-md-3">
+
+
+
+                        </div>
+                        <input type="text" formControlName="spotfee" (keydown)="keyupevent1($event)" placeholder="Spot Admission fee" />
+                         <app-control-messages [touched]="touched" [control]="f.spotfee">
+                                </app-control-messages>
+                    </div>
+
+
+                    <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Admission cancellation policy and Fee refund policy
+                                <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                                    <span class="tooltiptext">In case of a student decides to withdraw/cancel their admission, 'Institutes Terms And Policies' should be informed clearly and mandatorily.</span>
+    
+                                </i>    
+
+                            </label>
+                        </div>
+                        <div class="col-md-3">
+
+
+
+                        </div>
+                        <input type="text" formControlName="refundPolicy" placeholder="Enter institutes Admission cancellation policies, fee refund policy & Terms clearly" />
+                        <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages>
                     </div>
                     <div class="col-sm-12 thumbnail pt-3 pb-3 mt-3">
                         <div class="col-sm-6 ">
                             <button type="button" class="btn btn-info uppercase" (click)="calculateNspotFee()">Calculate
                                 NSPOT
                                 Fees</button>
+                                <button style="margin-top: 10px;" type="button" class="btn btn-info uppercase" (click)="calculateCredited()">Calculate
+                                    Amount Credited to institute</button>
                         </div>
                         <div class="col-sm-6 align-items">
                                
@@ -135,33 +200,19 @@
                                     <label class="uppercase">{{gettax(nspotFeeObj.nspotFee)}}</label>
                                 </div>
                             </div>
+                            <div class="row" *ngIf="form.value.hasGst === true">
+                                <div class="col-sm-7">
+                                    <label class="uppercase">TDS</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <label class="uppercase">{{tdscalculation}}</label>
+                                </div>
+                            </div>
                         </div>
                         <div class="clearfix"></div>
                       
                     </div>
-                    <div class="col-sm-12">
-                        <div class="col-md-9">
-                            <label class="req uppercase">Spot Admission Fee
-
-                                <i style="font-size: 15px;" class="zmdi zmdi-info">
-                                    <span class="tooltiptext">This amount is an 'Initial/Advance Fee' amount collected from the student applicant for confirming an admission seat.</span>
-    
-                                </i> 
-                            </label>
-                            <span style="    font-size: 10px;
-                            font-style: italic;
-                            color: red;
-                        ">Spot Admission fee must be greater than Nspot fee</span>
-                        </div>
-                        <div class="col-md-3">
-
-
-
-                        </div>
-                        <input type="text" formControlName="spotfee" placeholder="Spot Admission fee" />
-                    </div>
-
-
+                    
                     <div class="col-sm-12">
                         <label class="req uppercase">Amount credited to the INSTITUTE
 
@@ -170,27 +221,8 @@
 
                             </i>
                         </label>
-                        <input type="text" formControlName="amountcreditedInstitute" placeholder="Amount credited to institute">
+                        <input type="text" formControlName="amountcreditedInstitute" disabled placeholder="Amount credited to institute">
                     </div>
-                    <div class="col-sm-12">
-                        <div class="col-md-9">
-                            <label class="req uppercase">Admission cancellation policy and Fee refund policy
-                                <i style="    font-size: 15px;" class="zmdi zmdi-info">
-                                    <span class="tooltiptext">In case of a student decides to withdraw/cancel their admission, 'Institutes Terms And Policies' should be informed clearly and mandatorily.</span>
-    
-                                </i>    
-
-                            </label>
-                        </div>
-                        <div class="col-md-3">
-
-
-
-                        </div>
-                        <input type="text" formControlName="refundPolicy" placeholder="Enter institutes Admission cancellation policies, fee refund policy & Terms clearly" />
-                        <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages>
-                    </div>
-
                 </div>
 
                 <!-- second form fee  -->
@@ -246,22 +278,62 @@
                                 <label class="req uppercase">Scholarship Amount Upto</label>
                                 <input type="number" placeholder="enter scholarship amount" formControlName="nrischlorshipamount"
                                     id="" />
-                                <app-control-messages [touched]="touched" [control]="f.amount">
-                                </app-control-messages>
+                                <!-- <app-control-messages [touched]="touched" [control]="f.amount">
+                                </app-control-messages> -->
                             </div>
 
                             <div class="clearfix"></div>
                         </div>
+                    </div>
+                   
+                    <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Spot Admission Fee
+                                <!-- <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                                    <span class="tooltiptext">An initial/advance fee amount collected from the student applicant for confirming an admission seat</span>
+    
+                                </i>  -->
+                            </label>
+                            <span style="    font-size: 10px;
+                            font-style: italic;
+                            color: red;
+                        ">Spot Admission fee must be greater than Nspot fee</span>
+                        </div>
+                        <div class="col-md-3">
+
+
+
+                        </div>
+                        <input type="number" formControlName="nriSpotfee" (keydown)="keyupevent2($event)" placeholder="Spot Admission fee" />
+                        <app-control-messages [touched]="touched" [control]="f.nriSpotfee">
+                        </app-control-messages>
+                    </div>
+
+
+                 
+                    <div class="col-sm-12">
+                        <div class="col-md-9">
+                            <label class="req uppercase">Admission cancellation policy and Fee refund policy</label>
+                        </div>
+                        <div class="col-md-3">
+
+
+
+                        </div>
+                        <input type="text" formControlName="nrirefundPolicy" placeholder="Enter institutes Admission cancellation policies, fee refund policy & Terms clearly" />
+                        <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages>
                     </div>
                     <div class="col-sm-12 thumbnail pt-3 pb-3 mt-3">
                         <div class="col-sm-6">
                             <button type="button" class="btn btn-info uppercase" (click)="calculateNspotFeeNri()">Calculate
                                 NSPOT
                                 Fees</button>
+                                <button style="margin-top: 10px;" type="button" class="btn btn-info uppercase" (click)="calculateamountCredited()">Calculate
+                                    Amount Credited to institute</button>
                         </div>
                         <div class="col-sm-6 align-items">
                             <button type="button" class="btn btn-secondary uppercase" style="background-color: none !important;">{{nspotFeeObjNri.nspotFee - gettaxnri(nspotFeeObjNri.nspotFee)}}</button>
-
+                           
                         </div>
                     </div>
                     <div class="col-sm-12 nirus-fee">
@@ -290,6 +362,17 @@
                                     <label class="uppercase">{{gettaxnri(nspotFeeObjNri.nspotFee)}}</label>
                                 </div>
                             </div>
+                            <div class="row" *ngIf="form.value.hasGst === true">
+                                <div class="col-sm-7">
+                                    <label class="uppercase">TDS</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <label class="uppercase">{{tdscalculationnri}}</label>
+                                </div>
+                            </div>
+
+
+                            
                         </div>
                         <div class="clearfix"></div>
                         <!-- <h4 class="sub-title uppercase bank-details">
@@ -305,65 +388,14 @@
                             </app-control-messages>
                         </div> -->
                     </div>
-                    <div class="col-sm-12">
-                        <div class="col-md-9">
-                            <label class="req uppercase">Spot Admission Fee
-                                <!-- <i style="    font-size: 15px;" class="zmdi zmdi-info">
-                                    <span class="tooltiptext">An initial/advance fee amount collected from the student applicant for confirming an admission seat</span>
-    
-                                </i>  -->
-                            </label>
-                            <span style="    font-size: 10px;
-                            font-style: italic;
-                            color: red;
-                        ">Spot Admission fee must be greater than Nspot fee</span>
-                        </div>
-                        <div class="col-md-3">
-
-
-
-                        </div>
-                        <input type="text" formControlName="nriSpotfee" placeholder="Spot Admission fee" />
-                    </div>
-
-
-                    <div class="col-sm-12">
-                        <label class="req uppercase">Amount credited to the INSTITUTE
-                           
-                        </label>
-                        <input type="text" formControlName="nriAmountCreditedinstitute">
-                    </div>
-                    <div class="col-sm-12">
-                        <div class="col-md-9">
-                            <label class="req uppercase">Admission cancellation policy and Fee refund policy</label>
-                        </div>
-                        <div class="col-md-3">
-
-
-
-                        </div>
-                        <input type="text" formControlName="nrirefundPolicy" placeholder="Enter institutes Admission cancellation policies, fee refund policy & Terms clearly" />
-                        <app-control-messages [touched]="touched" [control]="f.refundPolicy"></app-control-messages>
-                    </div>
                 </div>
-                <div class="col-sm-12">
-                    <h4 class="sub-title uppercase bank-details">
-                        Bank Details
-                        <i style="    font-size: 15px;" class="zmdi zmdi-info">
-                            <span class="tooltiptext">You may add 'Multiple Bank Accounts' for each course that you offer, for receiving the initial fee payment done by the student applicant.    </span>
-
-                        </i>
-                    </h4>
-                    <div class="col-sm-12">
-                        <label class="req uppercase">Select Account</label>
-                        <select formControlName="bankAccountId" (change)="getbankdetails($event)">
-                            <option value="">Select</option>
-                            <option *ngFor="let item of bankDetails" value="{{item.id}}">{{item.nickname}}</option>
-                        </select>
-                        <app-control-messages [touched]="touched" [control]="f.bankAccountId">
-                        </app-control-messages>
-                    </div>
+                <div class="col-sm-6">
+                    <label class="req uppercase">Amount credited to the INSTITUTE
+                       
+                    </label>
+                    <input type="text" formControlName="nriAmountCreditedinstitute" disabled placeholder="Amount credited to institute">
                 </div>
+               
             </div>
             <div class="row clearfix">
                 <div class="col-sm-12 mt-3" style="display: flex;

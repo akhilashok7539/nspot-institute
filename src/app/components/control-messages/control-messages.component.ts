@@ -21,7 +21,7 @@ export class ControlMessagesComponent implements OnInit {
         if (this.control.errors.hasOwnProperty(propertyName) && this.control.touched) {
           return messages.validation[propertyName];
         } else if (this.touched && this.control.errors.hasOwnProperty(propertyName)) {
-          console.log(propertyName)
+          // console.log(propertyName)
           return messages.validation[propertyName];
         }
       }

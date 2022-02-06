@@ -26,7 +26,8 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
   totalFee: number;
   nspotFeeObj = { nspotFee: 0, bankCharge: 0, nspotTax: 0 };
   nspotFeeObjNri = { nspotFee: 0, bankCharge: 0, nspotTax: 0 };
-
+  tdscalculation ;
+  tdscalculationnri;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -304,5 +305,40 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
 
   }
 
+  calculateCredited() {
+    console.log(this.form.value.hasGst); 
+    if(this.form.value.hasGst === false)
+    {
+     
+      
+      let amoutncredited = this.form.value.spotfee - this.nspotFeeObj.nspotFee 
+      console.log(this.nspotFeeObj.nspotFee,this.form.value.spotfee,amoutncredited);
+      this.form.controls['amountcreditedInstitute'].setValue(amoutncredited)
+    }
+    else{
+      this.tdscalculation = 2/100 * this.form.value.spotfee;
+      console.log("tds",this.tdscalculation);
+      let amoutncredited = this.form.value.spotfee - this.nspotFeeObj.nspotFee- this.tdscalculation
+      this.form.controls['amountcreditedInstitute'].setValue(amoutncredited)
 
+    }
+   
+  }
+  calculateamountCredited()
+  {
+    console.log(this.form.value.hasGst);
+    if(this.form.value.hasGst === false)
+    {
+    let amoutncrediteds = this.form.value.nriSpotfee - this.nspotFeeObjNri.nspotFee 
+    console.log(this.form.value.nriSpotfee ,this.nspotFeeObjNri.nspotFee ,amoutncrediteds);
+    this.form.controls['nriAmountCreditedinstitute'].setValue(amoutncrediteds)
+    }
+    else{
+      this.tdscalculationnri = 2/100 * this.form.value.nriSpotfee;
+      console.log("tds",this.tdscalculationnri);
+      let amoutncrediteds = this.form.value.nriSpotfee - this.nspotFeeObjNri.nspotFee- this.tdscalculationnri
+      this.form.controls['nriAmountCreditedinstitute'].setValue(amoutncrediteds)
+
+    }
+  }
 }

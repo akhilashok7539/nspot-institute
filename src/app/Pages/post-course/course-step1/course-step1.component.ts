@@ -63,12 +63,13 @@ export class CourseStep1Component implements OnInit {
       // accademicLevelId: ['', [Validators.required]],
       // accademicLevelCourseId: ['', [Validators.required]],
       courseTypeId: ['', [Validators.required]],
-      courseCode: ['', [Validators.required]],
+      courseCode: [''],
+      programCode :[''],
       universityTypeId: ['', [Validators.required]],
       // universityName: [''],
       // courseStreamId: ['', ],
       // courseStreamSpecializationId: [''],
-      availableSeats: [0, [Validators.required, Validators.min(1)]], // number validation
+      availableSeats: ['1'], // number validation, Validators.min(1)
       accademicYear: [this.currentYear, [Validators.required, Validators.min(this.currentYear)]], // number
       accademicYearMonth: [this.currentMonth, [Validators.required]], // number
       // courseDuration_year: [0, [Validators.required, Validators.min(0)]], // number
@@ -104,7 +105,7 @@ export class CourseStep1Component implements OnInit {
       CourseSubCategory3Id: [''],
       CourseSubCategory4Id: [''],
       CourseSubCategory5Id: [''],
-      programCode :[''],
+     
       stateId:['',[Validators.required]],
       districtId:['',[Validators.required]],
       instituteType:['',[Validators.required]],
@@ -112,7 +113,7 @@ export class CourseStep1Component implements OnInit {
       year:['',[Validators.required]],
       month:['',[Validators.required]],
       day:['',[Validators.required]],
-      hour:['',[Validators.required]],
+      hour:[''],
       universityId:[''],
       admissionType:['',[Validators.required]],
       boardId:[''],
@@ -231,7 +232,20 @@ export class CourseStep1Component implements OnInit {
   onSubmit(): void {
 
     this.touched = true;
+    this.form.get('programCode').clearValidators();
+    this.form.get('courseCode').clearValidators();
+
     if (this.form.invalid) {
+      this.toastr.warning("Some Field is invalid")
+      const invalid = [];
+      const controls = this.form.controls;
+      for (const name in controls) {
+          if (controls[name].invalid) {
+              invalid.push(name);
+          }
+      }
+      console.log(invalid);
+      
       return;
     } else {
       // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
@@ -354,8 +368,11 @@ export class CourseStep1Component implements OnInit {
     else{
       this.multiForm.append('CourseSubCategory5Id',formData.CourseSubCategory5Id)
     }
-    
-    sessionStorage.setItem("courseDuration",JSON.stringify(formData.hour +' Hours-'+ formData.day +'-'+ formData.month +'-'+ formData.year))
+    if(formData.hour === '')
+    {
+      this.form.controls['hour'].setValue('--')
+    }
+    sessionStorage.setItem("courseDuration",JSON.stringify(formData.year + formData.month +'-'+ formData.day +'-'+formData.hour +' Hours-'))
 
     this.apiService.doPostRequest_upload(endPoints.Create_course + this.instituteId, this.multiForm)
       .subscribe((returnData: any) => {
@@ -365,7 +382,7 @@ export class CourseStep1Component implements OnInit {
       },
         error => {
       // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('enabled', '');
-
+          this.multiForm= new FormData();
           this.toastr.error(error.error[0].message);
           console.error(error);
         });

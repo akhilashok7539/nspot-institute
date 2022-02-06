@@ -108,7 +108,7 @@ export class Signup4FourComponent implements OnInit {
           console.error(error);
           const message = error.error ? error.error[0].message : "Something went wrong please try again later."
           this.toastr.success(message);
-          (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+          //(document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
         });
 
 

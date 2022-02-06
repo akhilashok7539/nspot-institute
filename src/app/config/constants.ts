@@ -15,6 +15,7 @@ export const messages = {
         invalidMinSelect: 'Minimum one among the checkboxes should be selected',
         minlength: 'Minimim 10 charactors required',
         maxlength: 'Maximum 10 charactors',
+        pattern:'Invalid email address'
     },
 };
 

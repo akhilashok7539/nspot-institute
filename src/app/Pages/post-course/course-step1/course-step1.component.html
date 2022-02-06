@@ -68,7 +68,7 @@
 
                 </div>
                 <div class="col-sm-4 offset-sm-3">
-                    <label class="req uppercase">Select Course</label>
+                    <label class=" uppercase">Select Course</label>
 
                     <select formControlName="CourseSubCategory4Id" (change)="loadAccademicLevelCoursessubcat3($event)">
                         <option value="">Choose Course</option>
@@ -78,7 +78,7 @@
 
                 </div>
                 <div class="col-sm-4 offset-sm-3" style="">
-                    <label class="req uppercase">Select Course</label>
+                    <label class=" uppercase">Select Course</label>
 
                     <select formControlName="CourseSubCategory5Id">
                         <option value="">Choose Course</option>
@@ -119,14 +119,14 @@
                 </div>
 
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Course Code</label>
-                    <input type="text" formControlName="courseCode" placeholder="enter course code" required />
-                    <app-control-messages [touched]="touched" [control]="f.courseCode"></app-control-messages>
+                    <label class=" uppercase">Course Code</label>
+                    <input type="text" formControlName="courseCode" placeholder="enter course code"  />
+                    <!-- <app-control-messages [touched]="touched" [control]="f.courseCode"></app-control-messages> -->
                 </div>
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Program Code</label>
-                    <input type="text" formControlName="programCode" placeholder="enter program code" required />
-                    <app-control-messages [touched]="touched" [control]="f.programCode"></app-control-messages>
+                    <label class=" uppercase">Program Code</label>
+                    <input type="text" formControlName="programCode" placeholder="enter program code"  />
+                    <!-- <app-control-messages [touched]="touched" [control]="f.programCode"></app-control-messages> -->
                 </div>
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Institution Type</label>
@@ -213,9 +213,9 @@
                 </div> -->
 
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">No. Of Vacant Admission Seat</label>
+                    <label class=" uppercase">No. Of Vacant Admission Seat</label>
                     <input type="number" formControlName="availableSeats" placeholder="enter course stream" />
-                    <app-control-messages [touched]="touched" [control]="f.availableSeats"></app-control-messages>
+                    <!-- <app-control-messages [touched]="touched" [control]="f.availableSeats"></app-control-messages> -->
                 </div>
 
                 <div class="col-sm-4 offset-3">
@@ -283,7 +283,7 @@
 
              
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Course duration Year (Select if only applicable)</label>
+                    <label class="req uppercase">Course duration Year (Enter if only applicable)</label>
                     <select  formControlName="year">
                         <option value="0 Year">0 Year</option>
 
@@ -299,7 +299,7 @@
                 </div>
 
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Course duration Months (Select if only applicable)</label>
+                    <label class="req uppercase">Course duration Months (Enter if only applicable)</label>
                     <select  formControlName="month">
                         <option value="1 Month">1 Month</option>
                         <option value="2 Month">2 Month</option>
@@ -319,7 +319,7 @@
                     </select>
                 </div>
                 <div class="col-sm-4 offset-3">
-                    <label class="req uppercase">Course duration Days (Select if only applicable)</label>
+                    <label class="req uppercase">Course duration Days (Enter if only applicable)</label>
                     <select  formControlName="day">
                         <option value="1 Days">1 Days</option>
                         <option value="2 Days">2 Days</option>
@@ -437,6 +437,7 @@
                     <option value="Management">Management </option>
                     <option value="Merti">Merit </option>
                     <option value="NRI">NRI </option>
+                    <option value="other">Other </option>
 
                 </select>
             </div>

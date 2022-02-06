@@ -20,6 +20,18 @@
 
         <form class="contact" [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="row">
+                <h4 class="sub-title uppercase bank-details">
+                    Bank Details
+                </h4>
+                <div class="col-sm-12">
+                    <label class="req uppercase">Select Account</label>
+                    <select formControlName="bankAccountId" (change)="getbankdetails($event)">
+                        <option value="">Select</option>
+                        <option *ngFor="let item of bankDetails" value="{{item.id}}">{{item.nickname}}</option>
+                    </select>
+                    <app-control-messages [touched]="touched" [control]="f.bankAccountId">
+                    </app-control-messages>
+                </div>
                 <div class="col-sm-6">
                     <h4 class="sub-title uppercase">
                         FEE INFO INDIAN/NRI STUDENTS
@@ -83,6 +95,8 @@
                             <button type="button" class="btn btn-info uppercase" (click)="calculateNspotFee()">Calculate
                                 NSPOT
                                 Fees</button>
+                                <button style="margin-top: 10px;" type="button" class="btn btn-info uppercase" (click)="calculateCredited()">Calculate
+                                    Amount Credited to institute</button>
                         </div>
                         <div class="col-sm-6 align-items">
                                
@@ -116,20 +130,17 @@
                                     <label class="uppercase">{{gettax(nspotFeeObj.nspotFee)}}</label>
                                 </div>
                             </div>
+                            <div class="row" *ngIf="form.value.hasGst === true">
+                                <div class="col-sm-7">
+                                    <label class="uppercase">TDS</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <label class="uppercase">{{tdscalculation}}</label>
+                                </div>
+                            </div>
                         </div>
                         <div class="clearfix"></div>
-                        <h4 class="sub-title uppercase bank-details">
-                            Bank Details
-                        </h4>
-                        <div class="col-sm-12">
-                            <label class="req uppercase">Select Account</label>
-                            <select formControlName="bankAccountId" (change)="getbankdetails($event)">
-                                <option value="">Select</option>
-                                <option *ngFor="let item of bankDetails" value="{{item.id}}">{{item.nickname}}</option>
-                            </select>
-                            <app-control-messages [touched]="touched" [control]="f.bankAccountId">
-                            </app-control-messages>
-                        </div>
+                        
                     </div>
                     <div class="col-sm-12">
                         <div class="col-md-9">
@@ -150,7 +161,7 @@
 
                     <div class="col-sm-12">
                         <label class="req uppercase">Amount credited to the INSTITUTE</label>
-                        <input type="text" formControlName="amountcreditedInstitute" placeholder="Amount credited to institute">
+                        <input type="text" disabled formControlName="amountcreditedInstitute" placeholder="Amount credited to institute">
                     </div>
                     <div class="col-sm-12">
                         <div class="col-md-9">
@@ -232,6 +243,8 @@
                             <button type="button" class="btn btn-info uppercase" (click)="calculateNspotFeeNri()">Calculate
                                 NSPOT
                                 Fees</button>
+                                <button style="margin-top: 10px;" type="button" class="btn btn-info uppercase" (click)="calculateamountCredited()">Calculate
+                                    Amount Credited to institute</button>
                         </div>
                         <div class="col-sm-6 align-items">
                             <button type="button" class="btn btn-secondary uppercase" style="background-color: none !important;">{{nspotFeeObjNri.nspotFee - gettaxnri(nspotFeeObjNri.nspotFee)}}</button>
@@ -264,6 +277,14 @@
                                     <label class="uppercase">{{gettaxnri(nspotFeeObjNri.nspotFee)}}</label>
                                 </div>
                             </div>
+                            <div class="row" *ngIf="form.value.hasGst === true">
+                                <div class="col-sm-7">
+                                    <label class="uppercase">TDS</label>
+                                </div>
+                                <div class="col-sm-5">
+                                    <label class="uppercase">{{tdscalculationnri}}</label>
+                                </div>
+                            </div>
                         </div>
                         <div class="clearfix"></div>
                         <!-- <h4 class="sub-title uppercase bank-details">
@@ -279,7 +300,7 @@
                             </app-control-messages> -->
                         </div>
                     </div>
-                    <div class="col-sm-12" style="margin-top: 155px;">
+                    <div class="col-sm-12" >
                         <div class="col-md-9">
                             <label class="req uppercase">Spot Admission Fee</label>
                             <span style="    font-size: 10px;
@@ -298,7 +319,7 @@
 
                     <div class="col-sm-12">
                         <label class="req uppercase">Amount credited to the INSTITUTE</label>
-                        <input type="text" formControlName="nriAmountCreditedinstitute">
+                        <input type="text" disabled formControlName="nriAmountCreditedinstitute">
                     </div>
                     <div class="col-sm-12">
                         <div class="col-md-9">

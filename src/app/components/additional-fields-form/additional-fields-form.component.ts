@@ -57,13 +57,13 @@ export class AdditionalFieldsFormComponent implements OnInit {
           console.log(returnData);
           if (returnData.status == true) {
             this.toastr.success('Additional field added');
-            (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+            // //(document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
             this.form.reset();
             this.onSubmitFIlter.emit(true);
           }
           else {
 
-            (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+            //(document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
             this.toastr.error(returnData.error.message);
             this.form.reset();
             this.touched = false;
@@ -74,7 +74,7 @@ export class AdditionalFieldsFormComponent implements OnInit {
             console.error(error);
             const message = error.error ? error.error[0].message : 'Something went wrong please try again later.';
             this.toastr.error(message);
-            (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+            //(document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
             this.form.reset();
           });
 

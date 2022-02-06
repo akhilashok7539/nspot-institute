@@ -61,7 +61,7 @@ export class AddAdmissionOfficerComponent implements OnInit {
       },
         error => {
           console.error(error);
-          (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+          //(document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
           const message = error.error ? error.error[0].message : "Something went wrong please try again later."
           this.toastr.error(message);
         });

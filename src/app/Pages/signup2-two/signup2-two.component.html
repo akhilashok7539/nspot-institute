@@ -115,6 +115,16 @@
           </div>
 
         </div>
+        
+        <div class="col-sm-12">
+          <label class="req uppercase">OFFICIAL Institute Email id
+            <br>
+            <span style="color: red;
+            font-size: 8px;">Login Credentials sent to this Email Id</span>
+          </label>
+          <input type="text" formControlName="email" placeholder="Enter valid email address" />
+          <app-control-messages [control]="f.email" [touched]="touched"></app-control-messages>
+        </div>
         <!-- <pre>{{licenseIssueAuthorities|json}}</pre> -->
        <div class="col-sm-12">
         <h4 class="sub-title" style="    margin-top: 67px;
@@ -239,11 +249,6 @@
           <app-control-messages [control]="f.pin" [touched]="touched"></app-control-messages>
         </div>
 
-        <div class="col-sm-12">
-          <label class="req uppercase">OFFICIAL Institute Email id</label>
-          <input type="text" formControlName="email" placeholder="Enter valid email address" />
-          <app-control-messages [control]="f.email" [touched]="touched"></app-control-messages>
-        </div>
 
         <div class="col-sm-6">
           <label class="req uppercase">Office Telephone 1</label>
@@ -358,8 +363,9 @@
         <div class="col-sm-6">
           <label class="req uppercase">Religious Minority Institute</label>
           <select formControlName="religiousMinority">
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
+            <option value="" selected disabled>Choose a option</option>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
 
             <!-- <option value="2">LP school</option>
             <option value="3">UP school</option>
@@ -370,7 +376,7 @@
             <option value="3">Tution Centres</option>
             <option value="3">Other</option> -->
           </select>
-          <app-control-messages [control]="f.typeId" [touched]="touched"></app-control-messages>
+          <app-control-messages [control]="f.religiousMinority" [touched]="touched"></app-control-messages>
 
         </div>
 

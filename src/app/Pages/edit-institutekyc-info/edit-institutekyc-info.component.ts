@@ -285,7 +285,7 @@ export class EditInstitutekycInfoComponent implements OnInit {
     },
       error => {
         console.error(error);
-        (document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+        //(document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
         this.toastr.error("Something went wrong!");
 
       });
