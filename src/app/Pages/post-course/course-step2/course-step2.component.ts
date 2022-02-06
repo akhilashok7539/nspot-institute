@@ -28,7 +28,7 @@ export class CourseStep2Component implements OnInit {
   courseId: number;
   form: FormGroup;
   touched = false;
-
+  hasgstvalue = false;
   paymentTenures;
   bankDetails;
   totalFee: number;
@@ -229,7 +229,7 @@ export class CourseStep2Component implements OnInit {
       
       if (spotaddmionchangres <= spotcharge ) {
           // 1000>=3500
-        this.toastr.error("Spot addmission fee should be greater than nspot "+ spotcharge.toFixed())
+        this.toastr.error("Spot addmission fee should be greater than  "+ spotcharge.toFixed())
 
       }
       else {
@@ -256,7 +256,7 @@ export class CourseStep2Component implements OnInit {
       let spotcharge =   3/100 * this.form.value.otherFee
       if (spotaddmionchangres <= spotcharge ) {
      
-        this.toastr.error("Spot addmission fee should be greater than nspot "+ spotcharge)
+        this.toastr.error("Spot addmission fee should be greater than  "+ spotcharge)
       }
       else {
   
@@ -305,6 +305,7 @@ export class CourseStep2Component implements OnInit {
           response.isFilingGst = false;
         }
         console.log(response);
+        this.hasgstvalue =response.isFilingGst;
         this.form.controls['hasGst'].setValue(response.isFilingGst)
       },
       error => {
