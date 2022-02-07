@@ -41,3 +41,38 @@ p{
     text-align: center;
     margin-top: 0px !important;
 }
+
+
+.k-checkbox {
+    background: green !important;
+  }
+  input[type=checkbox]:after {
+    background: #a70000!important;
+    visibility: visible;
+    content: "✘";
+    display: inline-block;
+    color: white;
+    /* font-size: 17px; */
+    /* font-size: 31px; */
+    /* height: 44px; */
+    /* width: 44px; */
+    /* border-radius: 5px; */
+    /* padding-left: 5px; */
+  }
+  input[type=checkbox]:checked:after {
+    background: #3eb983!important;
+    content: "✔";
+    /* padding-left: 2px; */
+    color: white;
+    /* font-size: 17px; */
+    /* font-size: 31px; */
+  }
+.checkbox{
+    visibility: hidden;
+    margin-left: 53px;
+    margin-bottom: 13px;
+}
+.spanclass{
+    font-size: 17px;
+    padding: 6px;
+}

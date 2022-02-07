@@ -232,8 +232,9 @@ export class PricingComponent implements OnInit {
           this.toastr.success("subscription success")
           console.log(returnData);
          
-          this.router.navigate(['/login'])
+          // this.router.navigate(['/login'])
           this.toastr.success("Login Again to make the changes for subscription")
+          window.location.reload();
         })
        }
      )
@@ -249,8 +250,9 @@ export class PricingComponent implements OnInit {
         console.log(returnData);
 
        
-        this.router.navigate(['/login'])
+        // this.router.navigate(['/login'])
         this.toastr.success("Login Again to make the changes for subscription")
+        window.location.reload();
 
       })
     }

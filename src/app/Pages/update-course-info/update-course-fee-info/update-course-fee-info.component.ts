@@ -164,6 +164,11 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
 
       }
     )
+
+    this.tdscalculationnri = 1/100 * this.form.value.nriSpotfee;
+    console.log("tds",this.tdscalculationnri);
+    this.tdscalculation = 1/100 * this.form.value.spotfee;
+    console.log("tds",this.tdscalculation);
     // let req ={
     //   bankCharge: this.courserListDetails['nspotBankCharge'] ,
     //   nspotFee: this.courserListDetails['nspotServiceCharge'],
@@ -316,7 +321,7 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
       this.form.controls['amountcreditedInstitute'].setValue(amoutncredited)
     }
     else{
-      this.tdscalculation = 2/100 * this.form.value.spotfee;
+      this.tdscalculation = 1/100 * this.form.value.spotfee;
       console.log("tds",this.tdscalculation);
       let amoutncredited = this.form.value.spotfee - this.nspotFeeObj.nspotFee- this.tdscalculation
       this.form.controls['amountcreditedInstitute'].setValue(amoutncredited)
@@ -334,7 +339,7 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
     this.form.controls['nriAmountCreditedinstitute'].setValue(amoutncrediteds)
     }
     else{
-      this.tdscalculationnri = 2/100 * this.form.value.nriSpotfee;
+      this.tdscalculationnri = 1/100 * this.form.value.nriSpotfee;
       console.log("tds",this.tdscalculationnri);
       let amoutncrediteds = this.form.value.nriSpotfee - this.nspotFeeObjNri.nspotFee- this.tdscalculationnri
       this.form.controls['nriAmountCreditedinstitute'].setValue(amoutncrediteds)

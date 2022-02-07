@@ -78,5 +78,14 @@ export class ViewCourseComponent implements OnInit {
     sessionStorage.setItem("eligilibility",JSON.stringify(this.courseFees));
     this.router.navigate(['/institute/update-eligibility'])
   }
-  
+  viewrecipt()
+  {
+    // institutecourseList.item.id
+    let courseduration = this.institutecourseList.item.year +'-'+ this.institutecourseList.item.month +'-'+ this.institutecourseList.item.day +'-'+this.institutecourseList.item.hour +' Hours'
+    sessionStorage.setItem("courseDuration",JSON.stringify(courseduration))
+    let id=this.institutecourseList.item.id;
+    this.router.navigate(["/institute/view-receipt-fee/"+id+'/'+this.feeidDetails])
+
+  }
+ 
 }

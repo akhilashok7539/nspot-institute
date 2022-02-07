@@ -37,33 +37,35 @@
 
                 <div class="col-sm-6">
                     <p>Gender Allowed : <input type="checkbox" disabled
-                        [checked]="institutecourseList.item.maleAllowed === true">Male
+                        [checked]="institutecourseList.item.maleAllowed === true">
+                        <span class="spanclass">Male</span>
+                        
                     <input type="checkbox" disabled
-                        [checked]="institutecourseList.item.femaleAllowed === true">Female
+                        [checked]="institutecourseList.item.femaleAllowed === true"> <span class="spanclass">Female</span>
                     <input type="checkbox" disabled
-                        [checked]="institutecourseList.item.otherGenderAllowed === true">Others
+                        [checked]="institutecourseList.item.otherGenderAllowed === true"> <span class="spanclass">Others</span>
                 </p>
                 <p>Online Class Availability : <input type="checkbox" disabled
-                        [checked]="institutecourseList.item.onlineClassAvailability === true">Yes
+                        [checked]="institutecourseList.item.onlineClassAvailability === true"><span class="spanclass">Yes </span>
                     <input type="checkbox" disabled
-                        [checked]="institutecourseList.item.onlineClassAvailability != true">No
+                        [checked]="institutecourseList.item.onlineClassAvailability != true"> <span class="spanclass">No </span>
                 </p>
                 <p>Online Interview : <input type="checkbox" disabled
-                        [checked]="institutecourseList.item.onlineInterviewRequired === true">Yes
+                        [checked]="institutecourseList.item.onlineInterviewRequired === true"><span class="spanclass">Yes </span>
 
 
                     <input type="checkbox" disabled
-                        [checked]="institutecourseList.item.onlineInterviewRequired != true">No
+                        [checked]="institutecourseList.item.onlineInterviewRequired != true"><span class="spanclass">No </span>
                 </p>
                 <p>Online Interview : <input type="checkbox" disabled
-                        [checked]="institutecourseList.item.hasPlacementAssistant === true">Yes
+                        [checked]="institutecourseList.item.hasPlacementAssistant === true"><span class="spanclass">Yes </span>
                     <input type="checkbox" disabled
-                        [checked]="institutecourseList.item.hasPlacementAssistant != true">No
+                        [checked]="institutecourseList.item.hasPlacementAssistant != true"><span class="spanclass">No </span>
                 </p>
                 <p>University Name : {{institutecourseList.item.universityName}}</p>
                 <p>Refund Policy :
-                    <input type="checkbox" disabled [checked]="institutecourseList.item.refundPolicy === 'true'">Yes
-                    <input type="checkbox" disabled [checked]="institutecourseList.item.refundPolicy != 'true'">No
+                    <input type="checkbox" disabled [checked]="institutecourseList.item.refundPolicy === 'true'"><span class="spanclass">Yes </span>
+                    <input type="checkbox" disabled [checked]="institutecourseList.item.refundPolicy != 'true'"><span class="spanclass">No </span>
                 </p>
                 </div>
                 <div class="col-sm-4">
@@ -102,7 +104,7 @@
 
                 </div>
                 <div class="col-sm-2">
-                    <button routerLink="/institute/view-receipt-fee/{{institutecourseList.item.id}}/{{feeidDetails}}">Edit</button>
+                    <button (click)="viewrecipt()" >Edit</button>
 
                 </div>
             </div>

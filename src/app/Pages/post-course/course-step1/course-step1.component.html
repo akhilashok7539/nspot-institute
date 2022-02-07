@@ -492,7 +492,10 @@
             </div> -->
             <div class="col-sm-4 offset-3">
                 <label class="req uppercase">Country</label>
-                <input type="Text" formControlName="country" placeholder="Enter Country" />
+                <!-- <input type="Text" formControlName="country" placeholder="Enter Country" /> -->
+                <select name="" id="" formControlName="country" >
+                    <option value="India">India</option>
+                </select>
                 <app-control-messages [touched]="touched" [control]="f.country"></app-control-messages>
             </div>
             <div class="col-sm-4 offset-3">

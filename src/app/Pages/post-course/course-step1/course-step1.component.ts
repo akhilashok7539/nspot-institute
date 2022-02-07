@@ -372,7 +372,7 @@ export class CourseStep1Component implements OnInit {
     {
       this.form.controls['hour'].setValue('--')
     }
-    sessionStorage.setItem("courseDuration",JSON.stringify(formData.year + formData.month +'-'+ formData.day +'-'+formData.hour +' Hours-'))
+    sessionStorage.setItem("courseDuration",JSON.stringify(formData.year +'-'+  formData.month +'-'+ formData.day +'-'+ formData.hour +' Hours'))
 
     this.apiService.doPostRequest_upload(endPoints.Create_course + this.instituteId, this.multiForm)
       .subscribe((returnData: any) => {
