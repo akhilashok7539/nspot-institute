@@ -230,26 +230,98 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
   get f() { return this.form.controls; }
 
   // submitting the multipart data to the api
-  onSubmit(): void {
-    console.log(this.form.valid)
-    console.log(document.getElementsByClassName('ng-invalid'))
-    this.touched = true;
-    if (this.form.invalid) {
-      return;
-    } else {
-      // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
-    }
-    const formData = this.form.value;
-    console.log(this.nspotFeeObj.nspotFee + this.nspotFeeObj.bankCharge + this.nspotFeeObj.nspotTax);
-    let totalamount = this.nspotFeeObj.nspotFee + this.nspotFeeObj.bankCharge + this.nspotFeeObj.nspotTax;
-    let spotaddmionchangres = this.form.value.spotfee;
-    console.log(spotaddmionchangres);
+  // onSubmit(): void {
+  //   console.log(this.form.valid)
+  //   console.log(document.getElementsByClassName('ng-invalid'))
+  //   this.touched = true;
+  //   if (this.form.invalid) {
+  //     return;
+  //   } else {
+  //     // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
+  //   }
+  //   const formData = this.form.value;
+  //   console.log(this.nspotFeeObj.nspotFee + this.nspotFeeObj.bankCharge + this.nspotFeeObj.nspotTax);
+  //   let totalamount = this.nspotFeeObj.nspotFee + this.nspotFeeObj.bankCharge + this.nspotFeeObj.nspotTax;
+  //   let spotaddmionchangres = this.form.value.spotfee;
+  //   console.log(spotaddmionchangres);
 
-    if (totalamount > spotaddmionchangres) {
-      this.toastr.error("Spot addmission fee is less than Nspot fee")
+  //   if (totalamount > spotaddmionchangres) {
+  //     this.toastr.error("Spot addmission fee is less than Nspot fee")
+  //   }
+  //   else {
+
+  //     if (this.courserListDetails === null) {
+  //       this.apiService.doPostRequest(endPoints.Create_courseFee + this.applicationId, this.form.value)
+  //         .subscribe((returnData: any) => {
+  //           console.log(returnData);
+  //           this.toastr.success('Fee updated successfully');
+  //           this.router.navigate(['/institute/viewcourse']);
+  //         },
+  //           error => {
+  //             this.toastr.error(error.error[0].message);
+  //             console.error(error);
+  //           });
+  //     }
+  //     else {
+  //       this.apiService.doPutRequest("institute/course/fees/update/" + this.applicationId, this.form.value)
+  //         .subscribe((returnData: any) => {
+  //           console.log(returnData);
+  //           this.toastr.success('Fee updated successfully');
+  //           this.router.navigate(['/institute/viewcourse']);
+  //         },
+  //           error => {
+  //             this.toastr.error(error.error[0].message);
+  //             console.error(error);
+  //           });
+  //     }
+
+  //   }
+  // }
+ // submitting the multipart data to the api
+ onSubmit(): void {
+  console.log(this.form.valid)
+  // console.log(document.getElementsByClassName('ng-invalid'))
+  this.touched = true;
+  if (this.form.invalid) {
+    return;
+  } else {
+
+  const formData = this.form.value;
+  console.log(this.nspotFeeObj.nspotFee + this.nspotFeeObj.bankCharge + this.nspotFeeObj.nspotTax);
+  let totalamount = this.nspotFeeObj.nspotFee + this.nspotFeeObj.nspotTax;
+  let spotaddmionchangres = this.form.value.spotfee;
+  console.log(spotaddmionchangres);
+
+
+  if(this.form.value.hasGst === true)
+  {
+    console.log("is gst true");
+    let spotcharge =   3.5/100 * this.form.value.otherFee
+    console.log("spot charge",spotcharge.toFixed());
+    console.log("spot spotaddmionchangres",spotaddmionchangres);
+    
+  
+    
+    if (spotaddmionchangres <= spotcharge ) {
+        // 1000>=3500
+      this.toastr.error("Spot addmission fee should be greater than  "+ spotcharge.toFixed())
+
     }
     else {
 
+      console.log(formData);
+
+      
+      // this.apiService.doPostRequest(endPoints.Create_courseFee + this.instituteId, formData)
+      //   .subscribe((returnData: any) => {
+      //     console.log(returnData);
+      //     this.toastr.success('Form submission successfull');
+      //     this.router.navigate(['/institute/post/course/step-3/' + this.courseId]);
+      //   },
+      //     error => {
+      //       this.toastr.error(error.error[0].message);
+      //       console.error(error);
+      //     });
       if (this.courserListDetails === null) {
         this.apiService.doPostRequest(endPoints.Create_courseFee + this.applicationId, this.form.value)
           .subscribe((returnData: any) => {
@@ -277,7 +349,58 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
 
     }
   }
+  else{
+    console.log("is gst false");
+    let spotcharge =   3/100 * this.form.value.otherFee
+    if (spotaddmionchangres <= spotcharge ) {
+   
+      this.toastr.error("Spot addmission fee should be greater than  "+ spotcharge)
+    }
+    else {
 
+      console.log(formData);
+
+
+      // this.apiService.doPostRequest(endPoints.Create_courseFee + this.instituteId, formData)
+      //   .subscribe((returnData: any) => {
+      //     console.log(returnData);
+      //     this.toastr.success('Form submission successfull');
+      //     this.router.navigate(['/institute/post/course/step-3/' + this.courseId]);
+      //   },
+      //     error => {
+      //       this.toastr.error(error.error[0].message);
+      //       console.error(error);
+      //     });
+      if (this.courserListDetails === null) {
+        this.apiService.doPostRequest(endPoints.Create_courseFee + this.applicationId, this.form.value)
+          .subscribe((returnData: any) => {
+            console.log(returnData);
+            this.toastr.success('Fee updated successfully');
+            this.router.navigate(['/institute/viewcourse']);
+          },
+            error => {
+              this.toastr.error(error.error[0].message);
+              console.error(error);
+            });
+      }
+      else {
+        this.apiService.doPutRequest("institute/course/fees/update/" + this.applicationId, this.form.value)
+          .subscribe((returnData: any) => {
+            console.log(returnData);
+            this.toastr.success('Fee updated successfully');
+            this.router.navigate(['/institute/viewcourse']);
+          },
+            error => {
+              this.toastr.error(error.error[0].message);
+              console.error(error);
+            });
+      }
+      
+    }
+  }
+}
+
+}
   getbankdetails(event)
   {
     console.log(event.target.value);
