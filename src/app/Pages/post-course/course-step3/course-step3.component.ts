@@ -37,10 +37,10 @@ export class CourseStep3Component implements OnInit {
     this.form = this.formBuilder.group({
       instituteCourseId: [this.courseId, [Validators.required]],
       eligibiliyInString: ['', [Validators.required]],
-      agebar: ['', [Validators.required]],
+      agebar: ['', ],
       ageLimit: ['', [Validators.required]],
       academicqualifications: ['', [Validators.required]],
-      entranceexam: ['', [Validators.required]],
+      entranceexam: ['', ],
 
     });
   }

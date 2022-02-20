@@ -22,6 +22,10 @@
             <div class="row">
                 <h4 class="sub-title uppercase bank-details">
                     Bank Details
+                    <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                        <span class="tooltiptext">You may add 'Multiple Bank Accounts' for each course that you offer, for receiving the initial fee payment done by the student applicant.    </span>
+
+                    </i>
                 </h4>
                 <div class="col-sm-12">
                     <label class="req uppercase">Select Account</label>
@@ -41,16 +45,31 @@
                         <input type="text" [(ngModel)]="courseDuration" [ngModelOptions]="{standalone: true}" disabled>
                     </div>
                     <div class="col-sm-12">
-                        <label class="req uppercase">Enter Full Course Fees for the above Course duration</label>
+                        <label class="req uppercase">Enter Full Course Fees for the above Course duration
+                            <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                                <span class="tooltiptext">Please enter the amount of the complete or approximate fees of the course for the total period the course offered.</span>
+
+                            </i> 
+                        </label>
                         <input type="number" formControlName="otherFee" placeholder="Other"
                             (blur)="calculateTotalFee()" />
                     </div>
                     <div class="col-sm-12">
-                        <label class="req uppercase">Full Course Fees Includes</label>
+                        <label class="req uppercase">Full Course Fees Includes
+                            <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                                <span class="tooltiptext">The full course fees included details, entered will be shown in the 'Admission Confirmation Letter' also.</span>
+
+                            </i> 
+                        </label>
                         <input type="text" formControlName="otherIncludes">
                     </div>
                     <div class="col-sm-12">
-                        <label class="req uppercase">Full Course Fees Excludes</label>
+                        <label class="req uppercase">Full Course Fees Excludes
+                            <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                                <span class="tooltiptext">The full course fees excluded details, entered will be shown in the 'Admission Confirmation Letter' also.</span>
+
+                            </i> 
+                        </label>
                         <input type="text" formControlName="otherexcludes">
                     </div>
                     <div class="col-sm-12">
@@ -68,7 +87,7 @@
 
                     <div class="col-sm-12">
                         <div class="col-md-9">
-                            <label class="req uppercase">Scholarship Benifites</label>
+                            <label class=" uppercase">Scholarship Benifites</label>
                         </div>
                         <div class="col-md-3">
                             <p class="checkbox">
@@ -144,7 +163,12 @@
                     </div>
                     <div class="col-sm-12">
                         <div class="col-md-9">
-                            <label class="req uppercase">Spot Admission Fee</label>
+                            <label class="req uppercase">Spot Admission Fee 
+                                <i style="font-size: 15px;" class="zmdi zmdi-info">
+                                    <span class="tooltiptext">This amount is an 'Initial/Advance Fee' amount collected from the student applicant for confirming an admission seat.</span>
+    
+                                </i> 
+                            </label>
                             <span style="    font-size: 10px;
                             font-style: italic;
                             color: red;
@@ -160,12 +184,26 @@
 
 
                     <div class="col-sm-12">
-                        <label class="req uppercase">Amount credited to the INSTITUTE</label>
+                        <label class="req uppercase">Amount credited to the INSTITUTE
+                            <i  *ngIf="!hasgstvalue" style="    font-size: 15px;" class="zmdi zmdi-info">
+                                <span class="tooltiptext">This is the amount credited to the institute's bank account, after deducting the Nspot processing fees.  </span>
+
+                            </i>
+                            <i  *ngIf="hasgstvalue" style="    font-size: 15px;" class="zmdi zmdi-info">
+                                <span class="tooltiptext">This is the amount credited to the Institute's Bank Account, after deducting the Nspot Processing fee + TCS Charge</span>
+
+                            </i>
+                        </label>
                         <input type="text" disabled formControlName="amountcreditedInstitute" placeholder="Amount credited to institute">
                     </div>
                     <div class="col-sm-12">
                         <div class="col-md-9">
-                            <label class="req uppercase">Admission cancellation policy and Fee refund policy</label>
+                            <label class="req uppercase">Admission cancellation policy and Fee refund policy
+                                <i style="    font-size: 15px;" class="zmdi zmdi-info">
+                                    <span class="tooltiptext">In case of a student decides to withdraw/cancel their admission, 'Institutes Terms And Policies' should be informed clearly and mandatorily.</span>
+    
+                                </i>    
+                            </label>
                         </div>
                         <div class="col-md-3">
 
@@ -216,7 +254,7 @@
 
                     <div class="col-sm-12">
                         <div class="col-md-9">
-                            <label class="req uppercase">Scholarship Benifites</label>
+                            <label class=" uppercase">Scholarship Benifites</label>
                         </div>
                         <div class="col-md-3">
                             <p class="checkbox">
@@ -318,7 +356,16 @@
 
 
                     <div class="col-sm-12">
-                        <label class="req uppercase">Amount credited to the INSTITUTE</label>
+                        <label class="req uppercase">Amount credited to the INSTITUTE
+                            <i  *ngIf="!hasgstvalue" style="    font-size: 15px;" class="zmdi zmdi-info">
+                                <span class="tooltiptext">This is the amount credited to the institute's bank account, after deducting the Nspot processing fees.  </span>
+    
+                            </i>
+                            <i  *ngIf="hasgstvalue" style="    font-size: 15px;" class="zmdi zmdi-info">
+                                <span class="tooltiptext">This is the amount credited to the Institute's Bank Account, after deducting the Nspot Processing fee + TCS Charge</span>
+    
+                            </i>
+                        </label>
                         <input type="text" disabled formControlName="nriAmountCreditedinstitute">
                     </div>
                     <div class="col-sm-12">

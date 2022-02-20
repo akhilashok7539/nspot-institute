@@ -1,84 +1,117 @@
 .sub-title {
-    font-family: "Montserrat", sans-serif;
-    font-size: 14px;
-    color: #202020;
-    font-weight: 600;
-    margin-top: 50px;
-  }
-  .contact select {
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid #d6d6d6;
-    height: 40px;
-    font-family: "Open Sans", sans-serif;
-    font-style: italic;
-    color: #5f5f5f;
-    font-size: 11px;
-    padding-left: 15px;
-    background: #fff;
-  }
-  .contact .radio input {
-    width: 20px;
-    float: left;
-  }
-  .contact .radio span {
-    margin-left: 20px;
-    margin-top: 15px;
-    float: left;
-  }
-  
-  .contact .checkbox input {
-    width: 20px;
-    float: left;
-    margin-left: 18px;
-  }
-  .contact .checkbox span {
-    margin-left: 50px;
-    margin-top: 15px;
-    float: left;
-  }
-  
-  .course-tabs {
-    width: 100%;
-    text-align: center;
-    margin-top: 30px;
-  }
-  .course-tabs .nav-link {
-    margin-left: 30px;
-    cursor: default;
-    color: #c8c8c8;
-  }
-  .course-tabs .nav-link.active {
-    color: #1a4d59;
-    border-bottom: 2px solid #1a4d59;
-  }
-  .nirus-fee .thumbnail {
-    padding-left: 57px;
-  }
-  #submit-btn{
-    width: 26%; 
-    margin-top: 33px;
-    padding: 13px;
-    border-radius: 12px;
-  }
-  .align-items{
-    display: flex;
-    justify-content: center;
-  }
-  /* card */
-  .thumbnail {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
-    transition: 0.3s;
-    min-width: 40%;
-    border-radius: 5px;
-  }
-  
-  .thumbnail-description {
-    min-height: 40px;
-  }
-  
-  .thumbnail:hover {
-    /* cursor: pointer; */
-    /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1); */
-  }
-  
+  font-family: "Montserrat", sans-serif;
+  font-size: 14px;
+  color: #202020;
+  font-weight: 600;
+  margin-top: 50px;
+}
+.contact select {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #d6d6d6;
+  height: 40px;
+  font-family: "Open Sans", sans-serif;
+  font-style: italic;
+  color: #5f5f5f;
+  font-size: 11px;
+  padding-left: 15px;
+  background: #fff;
+}
+.contact .radio input {
+  width: 20px;
+  float: left;
+}
+.contact .radio span {
+  margin-left: 20px;
+  margin-top: 15px;
+  float: left;
+}
+
+.contact .checkbox input {
+  width: 20px;
+  float: left;
+  margin-left: 18px;
+}
+.contact .checkbox span {
+  margin-left: 50px;
+  margin-top: 15px;
+  float: left;
+}
+
+.course-tabs {
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+.course-tabs .nav-link {
+  margin-left: 30px;
+  cursor: default;
+  color: #c8c8c8;
+}
+.course-tabs .nav-link.active {
+  color: #1a4d59;
+  border-bottom: 2px solid #1a4d59;
+}
+.nirus-fee .thumbnail {
+  /* margin-top: 20%; */
+  padding-left: 100px;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  /* margin-left: 50px; */
+}
+
+
+/* card */
+.thumbnail {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+  min-width: 40%;
+  border-radius: 5px;
+}
+
+.thumbnail-description {
+  min-height: 40px;
+}
+
+.thumbnail:hover {
+  /* cursor: pointer; */
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1); */
+}
+
+.zmdi {
+  position: relative;
+  display: inline-block;
+  /* border-bottom: 1px dotted black; */
+}
+
+.zmdi .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(112, 112, 112);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip
+  position: absolute;
+  z-index: 1; */
+    
+/* Position the tooltip */
+position: absolute;
+z-index: 1;
+top: 100%;
+left: 50%;
+margin-left: -60px;
+}
+.tooltiptext{
+  text-transform: capitalize !important;
+
+}
+.zmdi:hover .tooltiptext {
+  visibility: visible;
+  text-transform: capitalize !important;
+  line-height: 23px;
+  font-family: 'Montserrat';
+  width: 500px;
+}

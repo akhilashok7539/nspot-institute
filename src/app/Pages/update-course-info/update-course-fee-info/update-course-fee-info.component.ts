@@ -23,6 +23,7 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
   courserListDetails: any = [];
   paymentTenures;
   bankDetails;
+  hasgstvalue = false;
   totalFee: number;
   nspotFeeObj = { nspotFee: 0, bankCharge: 0, nspotTax: 0 };
   nspotFeeObjNri = { nspotFee: 0, bankCharge: 0, nspotTax: 0 };
@@ -415,6 +416,7 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
             response.isFilingGst = false;
           }
           console.log(response);
+          this.hasgstvalue =response.isFilingGst;
           this.form.controls['hasGst'].setValue(response.isFilingGst)
       },
       error =>{
