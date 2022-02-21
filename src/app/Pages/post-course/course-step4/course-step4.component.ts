@@ -33,12 +33,12 @@ export class CourseStep4Component implements OnInit {
     this.instituteId = this.authService.instituteProfile.id;
     this.form = this.formBuilder.group({
       instituteCourseId: [this.courseId, [Validators.required]],
-      jobAreas: ['', [Validators.required]],
-      jobPositions: ['', [Validators.required]],
-      salaryRange: ['', [Validators.required]],
-      hasPlacementAssistant: ['', [Validators.required]],
-      recruiters: ['', [Validators.required]],
-      accept: [false, [Validators.required]],
+      jobAreas: ['', ],
+      jobPositions: ['', ],
+      salaryRange: ['', ],
+      hasPlacementAssistant: [false, ],
+      recruiters: ['',],
+      accept: [false, ],
     });
   }
 
@@ -48,7 +48,6 @@ export class CourseStep4Component implements OnInit {
     if (this.form.invalid) {
       return;
     } else {
-      (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     }
     // const formData = this.form.value;
     // this.multiForm = this.form.value;

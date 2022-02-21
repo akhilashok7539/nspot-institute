@@ -105,7 +105,7 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
     this.courserListDetails = data['data'];
     console.log(this.courserListDetails);
     this.courseDuration = this.courserListDetails.Institute_Course['courseDuration']
-
+    this.courseDuration = JSON.parse(sessionStorage.getItem("courseDuration"))
     this.form.controls['otherFee'].setValue(this.courserListDetails['otherFee']);
     this.setNspotCalculations(this.courserListDetails['otherFee']);
     this.form.controls['nriotherFee'].setValue(this.courserListDetails['nriotherFee']);

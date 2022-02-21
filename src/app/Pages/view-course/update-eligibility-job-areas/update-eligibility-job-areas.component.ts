@@ -21,16 +21,16 @@ export class UpdateEligibilityJobAreasComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       // instituteCourseId: ['', [Validators.required]],
-      jobAreas: ['', [Validators.required]],
-      jobPositions: ['', [Validators.required]],
-      salaryRange: ['', [Validators.required]],
-      hasPlacementAssistant: ['', [Validators.required]],
-      recruiters: ['', [Validators.required]],
-      eligibiliyInString: ['', [Validators.required]],
-      agebar: ['', [Validators.required]],
-      ageLimit: ['', [Validators.required]],
-      academicqualifications: ['', [Validators.required]],
-      entranceexam: ['', [Validators.required]],
+      jobAreas: ['', ],
+      jobPositions: ['',],
+      salaryRange: ['', ],
+      hasPlacementAssistant: [false ],
+      recruiters: ['', ],
+      eligibiliyInString: ['', ],
+      agebar: ['', ],
+      ageLimit: ['', ],
+      academicqualifications: ['',],
+      entranceexam: ['', ],
 
     })
     this.dataResponse = JSON.parse(sessionStorage.getItem("eligilibility"))

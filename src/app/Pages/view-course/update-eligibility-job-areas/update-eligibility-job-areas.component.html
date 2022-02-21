@@ -16,7 +16,7 @@
                 <div class="col-sm-12">
                     <label class="req uppercase">Brief description - eligibility REQUIRED  for the course</label>
                     <textarea formControlName="eligibiliyInString" id="" cols="30" rows="10" placeholder="Educational qualification,Age, Cut off marks needed etc"></textarea>
-                    <app-control-messages [touched]="touched" [control]="f.eligibiliyInString"></app-control-messages>
+                    <!-- <app-control-messages [touched]="touched" [control]="f.eligibiliyInString"></app-control-messages> -->
 
                     <!-- <select >
                         <option value="">Educational qualification</option>
@@ -46,28 +46,28 @@
                     <input type="text" formControlName="entranceexam">
                 </div>
                 <div class="col-sm-6 offset-3">
-                    <label class="req uppercase">JOB AREAS</label>
+                    <label class=" uppercase">JOB AREAS</label>
                     <input type="text" formControlName="jobAreas" placeholder="Enter job areas" />
-                    <app-control-messages [touched]="touched" [control]="f.jobAreas"></app-control-messages>
+                    <!-- <app-control-messages [touched]="touched" [control]="f.jobAreas"></app-control-messages> -->
                   </div>
           
                   <div class="col-sm-6 offset-3">
-                    <label class="req uppercase">JOB POSITIONS</label>
+                    <label class=" uppercase">JOB POSITIONS</label>
                     <input type="text" formControlName="jobPositions" placeholder="Enter job positions" />
-                    <app-control-messages [touched]="touched" [control]="f.jobPositions"></app-control-messages>
+                    <!-- <app-control-messages [touched]="touched" [control]="f.jobPositions"></app-control-messages> -->
                   </div>
           
                   <div class="col-sm-6 offset-3">
-                    <label class="req uppercase">SALARY RANGE</label>
+                    <label class=" uppercase">SALARY RANGE</label>
                     <input type="text" formControlName="salaryRange" placeholder="Enter salary range" />
-                    <app-control-messages [touched]="touched" [control]="f.salaryRange"></app-control-messages>
+                    <!-- <app-control-messages [touched]="touched" [control]="f.salaryRange"></app-control-messages> -->
                   </div>
           
                   <div class="clearfix"></div>
           
                   <div class="col-sm-6">
                     <div class="col-md-9">
-                      <label class="req uppercase">PLACEMENT ASSSTANCE OFFERED </label>
+                      <label class=" uppercase">PLACEMENT ASSSTANCE OFFERED </label>
                     </div>
                     <div class="col-md-3">
                       <p class="checkbox">
@@ -78,9 +78,9 @@
                     <div class="clearfix"></div>
                     <div *ngIf="form.controls.hasPlacementAssistant.value">
                       <div class="col-md-12">
-                        <label class="req uppercase">RECRUITERS </label>
+                        <label class=" uppercase">RECRUITERS </label>
                         <input type="text" placeholder="For Eg; Infoys, Wipro etc" formControlName="recruiters" id="" />
-                        <app-control-messages [touched]="touched" [control]="f.recruiters"></app-control-messages>
+                        <!-- <app-control-messages [touched]="touched" [control]="f.recruiters"></app-control-messages> -->
                       </div>
                     </div>
                   </div>

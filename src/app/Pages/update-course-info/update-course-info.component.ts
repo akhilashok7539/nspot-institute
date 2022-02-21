@@ -59,7 +59,7 @@ export class UpdateCourseInfoComponent implements OnInit {
     this.form = this.formBuilder.group({
  
       courseTypeId: ['', ],
-      courseCode: ['', ],
+      courseCode: [''],
       universityTypeId: ['', ],
      
       availableSeats: [0, [Validators.required, Validators.min(1)]], // number validation
@@ -116,7 +116,7 @@ export class UpdateCourseInfoComponent implements OnInit {
       console.log(res['params'].id);
       this.getCourseDetailsByiD(res['params'].id);
     })
-    
+
   }
 
   loadData(): void {
@@ -384,12 +384,21 @@ export class UpdateCourseInfoComponent implements OnInit {
   onSubmit(): void {
 
     this.touched = true;
+    this.form.get('programCode').clearValidators();
+    this.form.get('courseCode').clearValidators();
     if (this.form.invalid) {
+      let invalid = [];
       console.log(this.form.invalid.valueOf());
-      
+      const controls = this.form.controls;
+      for (const name in controls) {
+          if (controls[name].invalid) {
+              invalid.push(name);
+          }
+      }
+      console.log(invalid);
       return;
     } else {
-      (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
+      // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     }
     const formData = this.form.value;
     this.multiForm.delete('accademicLevelId');
