@@ -30,7 +30,7 @@ export class LoaderInterceptor implements HttpInterceptor {
     constructor( private spinner: NgxSpinnerService ) { }
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         this.spinner.show();
-        console.log('loadingg......NSPOT ADDMISSION');
+        console.log('loadingg......NSPOT Admission');
 
         return next.handle(req).pipe(
          

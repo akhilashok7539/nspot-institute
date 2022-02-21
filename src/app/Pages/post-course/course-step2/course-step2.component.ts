@@ -229,7 +229,7 @@ export class CourseStep2Component implements OnInit {
       
       if (spotaddmionchangres <= spotcharge ) {
           // 1000>=3500
-        this.toastr.error("Spot addmission fee should be greater than  "+ spotcharge.toFixed())
+        this.toastr.error("Spot Admission fee should be greater than  "+ spotcharge.toFixed())
 
       }
       else {
@@ -256,7 +256,7 @@ export class CourseStep2Component implements OnInit {
       let spotcharge =   3/100 * this.form.value.otherFee
       if (spotaddmionchangres <= spotcharge ) {
      
-        this.toastr.error("Spot addmission fee should be greater than  "+ spotcharge)
+        this.toastr.error("Spot Admission fee should be greater than  "+ spotcharge)
       }
       else {
   

@@ -247,7 +247,7 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
   //   console.log(spotaddmionchangres);
 
   //   if (totalamount > spotaddmionchangres) {
-  //     this.toastr.error("Spot addmission fee is less than Nspot fee")
+  //     this.toastr.error("Spot Admission fee is less than Nspot fee")
   //   }
   //   else {
 
@@ -305,7 +305,7 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
     
     if (spotaddmionchangres <= spotcharge ) {
         // 1000>=3500
-      this.toastr.error("Spot addmission fee should be greater than  "+ spotcharge.toFixed())
+      this.toastr.error("Spot Admission fee should be greater than  "+ spotcharge.toFixed())
 
     }
     else {
@@ -355,7 +355,7 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
     let spotcharge =   3/100 * this.form.value.otherFee
     if (spotaddmionchangres <= spotcharge ) {
    
-      this.toastr.error("Spot addmission fee should be greater than  "+ spotcharge)
+      this.toastr.error("Spot Admission fee should be greater than  "+ spotcharge)
     }
     else {
 
