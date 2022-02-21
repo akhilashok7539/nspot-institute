@@ -215,17 +215,18 @@
                     
                     <div class="col-sm-12">
                         <label class="req uppercase">Amount credited to the INSTITUTE
-                           
-                        
+                            <i  style="    font-size: 15px;" class="zmdi zmdi-info">
+                            <span class="tooltiptext">This is the amount credited to the institute's bank account, after deducting the NSPOT Processing Fee and if TCS(Tax Collected at source) is applicable.</span>
+                            </i>
                    
-                            <i  *ngIf="!hasgstvalue" style="    font-size: 15px;" class="zmdi zmdi-info">
+                            <!-- <i  *ngIf="!hasgstvalue" style="    font-size: 15px;" class="zmdi zmdi-info">
                                 <span class="tooltiptext">This is the amount credited to the institute's bank account, after deducting the Nspot processing fees.  </span>
 
                             </i>
                             <i  *ngIf="hasgstvalue" style="    font-size: 15px;" class="zmdi zmdi-info">
                                 <span class="tooltiptext">This is the amount credited to the Institute's Bank Account, after deducting the Nspot Processing fee + TCS Charge</span>
 
-                            </i>
+                            </i> -->
                         </label>
                         <input type="text" formControlName="amountcreditedInstitute" disabled placeholder="Amount credited to institute">
                     </div>
@@ -397,15 +398,17 @@
                 </div>
                 <div class="col-sm-6">
                     <label class="req uppercase">Amount credited to the INSTITUTE
-                      
-                        <i  *ngIf="!hasgstvalue" style="    font-size: 15px;" class="zmdi zmdi-info">
+                        <i  style="    font-size: 15px;" class="zmdi zmdi-info">
+                            <span class="tooltiptext">This is the amount credited to the institute's bank account, after deducting the NSPOT Processing Fee and if TCS(Tax Collected at source) is applicable.</span>
+                            </i>
+                        <!-- <i  *ngIf="!hasgstvalue" style="    font-size: 15px;" class="zmdi zmdi-info">
                             <span class="tooltiptext">This is the amount credited to the institute's bank account, after deducting the Nspot processing fees.  </span>
 
                         </i>
                         <i  *ngIf="hasgstvalue" style="    font-size: 15px;" class="zmdi zmdi-info">
                             <span class="tooltiptext">This is the amount credited to the Institute's Bank Account, after deducting the Nspot Processing fee + TCS Charge</span>
 
-                        </i>
+                        </i> -->
                     </label>
                     <input type="text" formControlName="nriAmountCreditedinstitute" disabled placeholder="Amount credited to institute">
                 </div>
