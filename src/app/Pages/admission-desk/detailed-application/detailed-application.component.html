@@ -574,17 +574,55 @@
             </div>
 
             <hr>
+            <div class="row" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
+              <div class="col-sm-5">
+                <p class="paragrah">Course/Program Name </p>
+                <p class="paragrah">Course Type</p>
+                <p class="paragrah">Course Duration</p>
+                <p class="paragrah">University/Board-Name</p>
+                <p class="paragrah">Admission Seat Quota Type</p>
+
+              </div>
+              <div class="col-sm-2">
+                <p style="
+                text-align: center;
+            ">:</p>
+             <p style="
+             text-align: center;
+         ">:</p>
+          <p style="
+          text-align: center;
+      ">:</p>
+       <p style="
+       text-align: center;
+   ">:</p>
+    <p style="
+    text-align: center;
+">:</p>
+              </div>
+              <div class="col-sm-5">
+                <p class="paragrah">{{instCoursedata?.CourseName}}</p>
+                <p class="paragrah" *ngIf="instCoursedata?.item?.Institute_Course.courseTypeId === 1">Full Time</p>
+                <p class="paragrah" *ngIf="instCoursedata?.item?.Institute_Course.courseTypeId === 2">Part Time</p>
+                <p class="paragrah">{{instCoursedata?.item?.Institute_Course?.courseDuration}}</p>
+                <p class="paragrah">{{getname(instCoursedata?.item?.Institute_Course)}} {{university}}</p>
+                <p class="paragrah">{{instCoursedata?.item?.Institute_Course?.admissionType}}</p>
+
+              </div>
+            </div>
             <div class="row" *ngFor="let item of personalInfo;let i=index" style="margin-top: 10px;margin-left: 10px;margin-bottom: 10px;margin-right: 10px;">
                 <div class="col-sm-5">
-                    <p>{{insertSpaces(personalInfoKeys[i]) | titlecase}}</p>
+                    <p *ngIf="personalInfoKeys[i] === 'courseName'"></p>
+                    <p *ngIf="personalInfoKeys[i] != 'courseName'">{{insertSpaces(personalInfoKeys[i]) | titlecase}}</p>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-2" *ngIf="personalInfoKeys[i] != 'courseName'">
                     <p style="
               text-align: center;
           ">:</p>
                 </div>
                 <div class="col-sm-5">
-                    <p> {{item | titlecase}}</p>
+                     <p *ngIf="personalInfoKeys[i] === 'courseName'"></p>
+                    <p *ngIf="personalInfoKeys[i] != 'courseName'"> {{item | titlecase}}</p>
                 </div>
             </div>
 
@@ -693,7 +731,7 @@
       </div>
     </div>
     <div class="container" style=" margin-bottom: 50px;">
-        <button class="downloaddoc" (click)="doc()">Download Documents</button>
+        <button class="downloaddoc" (click)="doc()">View/Download Documents </button>
 
     </div>
     <!-- <h5

@@ -77,7 +77,11 @@
               </li> -->
 
               <li class="uppercase">
-                <a routerLink="/institute/contact-us"><img src="assets/images/avatar.png" alt="" /></a>
+                <a routerLink="/institute/contact-us">
+                  <img style="    width: 76px;
+                  border-radius: 47px;" src="{{instituteInfo?.profilePicFile?baseApiUrl+instituteInfo?.profilePicFile:'assets/images/avatar.png'}}" (error)="errorEvnt($event)" alt="" />
+                  
+                </a>
                 <ul class="submenu submenu-list">
                   <li class="uppercase">
                     <a routerLink="/institute/pricing">Upgrade</a>

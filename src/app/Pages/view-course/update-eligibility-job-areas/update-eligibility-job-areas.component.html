@@ -25,6 +25,8 @@
 
                     </select> -->
                     <!-- <button>Add next line</button> -->
+          <app-control-messages [touched]="touched" [control]="f.eligibiliyInString"></app-control-messages>
+
                 </div>
 
                 <div class="col-sm-12">
@@ -87,7 +89,7 @@
                 <div class="row clearfix">
                     <div class="col-sm-12">
                         <div class="pull-right">
-                            <button id="submit-btn" type="submit" class="btn btn-info mb-5" [disabled]="form.invalid">
+                            <button id="submit-btn" type="submit" class="btn btn-info mb-5" >
                                 SAVE AND CONTINUE
                             </button>
                         </div>

@@ -26,7 +26,7 @@ export class UpdateEligibilityJobAreasComponent implements OnInit {
       salaryRange: ['', ],
       hasPlacementAssistant: [false ],
       recruiters: ['', ],
-      eligibiliyInString: ['', ],
+      eligibiliyInString: ['',[Validators.required] ],
       agebar: ['', ],
       ageLimit: ['', ],
       academicqualifications: ['',],

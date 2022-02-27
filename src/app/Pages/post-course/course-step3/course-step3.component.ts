@@ -38,8 +38,8 @@ export class CourseStep3Component implements OnInit {
       instituteCourseId: [this.courseId, [Validators.required]],
       eligibiliyInString: ['', [Validators.required]],
       agebar: ['', ],
-      ageLimit: ['', [Validators.required]],
-      academicqualifications: ['', [Validators.required]],
+      ageLimit: ['', ],
+      academicqualifications: ['', ],
       entranceexam: ['', ],
 
     });

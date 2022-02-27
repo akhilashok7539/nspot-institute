@@ -34,7 +34,7 @@ export class DetailedApplicationComponent implements OnInit {
   personalInfoKeys = {}
   personalinfomationDetaiedmasked: any = [];
   permanentaddressinfomationDetaiedmasked: any = [];
-
+  universityList = [];
   permanentAddressKeys = {}
   communicationAddressKeys = {}
   educationKeys = new Array()
@@ -53,6 +53,10 @@ export class DetailedApplicationComponent implements OnInit {
   mothersSignatureFile;
   fathersSignatureFile;
   guardiansSignatureFile;
+  instCoursedata: any = [];
+  otherboardList: any = [];
+  boardList: any = [];
+  university: any;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -66,7 +70,7 @@ export class DetailedApplicationComponent implements OnInit {
     this.applicationId = _.parseInt(this.route.snapshot.paramMap.get('applicationId'));
     this.applciaitonstatus = sessionStorage.getItem("status");
     console.log(this.applciaitonstatus);
-    
+
     this.loadData()
 
     this.reportingForm = this.formBuilder.group({
@@ -96,6 +100,7 @@ export class DetailedApplicationComponent implements OnInit {
       remarks: [''],
     });
     this.getallapptituteTest();
+    this.getalluniveristy();
   }
   getcurrentyear() {
     let currentYear;
@@ -132,6 +137,7 @@ export class DetailedApplicationComponent implements OnInit {
     this.apiService.doGetRequest(
       endPoints.Get_applications + "?where[id]=" + this.applicationId
     ).subscribe((returnData: any) => {
+      this.instCoursedata = returnData.data[0];
       this.applicationData = returnData.data[0].item;
       this.studentDetailedlist = returnData['data'][0]['student'];
 
@@ -207,7 +213,7 @@ export class DetailedApplicationComponent implements OnInit {
           i++;
         }
       }
-     
+
       if (this.applciaitonstatus === "pre-application-applied") {
         // this.permanentaddressinfomationDetaiedmasked.push(formData.permanentAddress)
         // console.log("peremnt address = ",formData.permanentAddress);
@@ -557,5 +563,64 @@ export class DetailedApplicationComponent implements OnInit {
   doc() {
     sessionStorage.setItem("applicationID", this.applicationId)
     this.router.navigate(['/institute/download-documents'])
+  }
+  // getcourseDetailsbyId()
+  // {
+  //   https://nspot-qa.herokuapp.com/api/institute/course/1
+
+  // }
+  getalluniveristy() {
+    this.apiService.doGetRequest(`university`).subscribe((returnData: any) => {
+      this.universityList = returnData.data;
+      console.log(this.universityList);
+    });
+
+    this.apiService.doGetRequest(`boardType/`).subscribe((returnData: any) => {
+      this.boardList = returnData.data;
+      console.log(this.boardList);
+    });
+
+
+    this.apiService.doGetRequest(`otherBoardType/`).subscribe((returnData: any) => {
+      this.otherboardList = returnData.data;
+      console.log(this.otherboardList);
+    });
+
+  }
+  getname(course) {
+    // return this.institutetype.filter(el => el.id === s)
+    // console.log(course?.universityTypeId);
+
+    if (course?.universityTypeId === 1) {
+      this.universityList.filter(el => {
+        if (el.id === course.universityId) {
+      
+          this.university = el.university
+          return this.university
+        }
+      }
+      )
+      // el.id === course.universityId
+    }
+    if (course?.universityTypeId === 2) {
+      this.boardList.filter(el => {
+        if (el.id === course.boardId) {
+   
+          this.university = el.title
+          return this.university
+        }
+      }
+      )
+    }
+    if (course?.universityTypeId === 3) {
+      this.otherboardList.filter(el => {
+        if (el.id === course.otherId) {
+        
+          this.university = el.title
+          return this.university
+        }
+      }
+      )
+    }
   }
 }

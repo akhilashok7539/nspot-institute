@@ -4,6 +4,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import { ApiService } from 'src/app/services/api.service';
 import { endPoints } from '../../../config/endPoints';
 import { ToastrService } from 'ngx-toastr';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -13,10 +14,14 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class InnerHeaderComponent implements OnInit {
   userId = this.authService.instituteProfile.id;
+  instituteId = this.authService.userProfile.userId;
+  baseApiUrl = environment.baseApiUrl;
+
   notifications;
   currentselectedPlans:any=[];
   courseslist:any=[];
   courseCountLengthSubscribe:any=[];
+  instituteInfo:any = [];
   curentcourseCountLength = "0";
   constructor(
     private authService: AuthService,
@@ -48,8 +53,17 @@ export class InnerHeaderComponent implements OnInit {
       this.courseslist = returnData['data']
       this.curentcourseCountLength = this.courseslist.length;
     })
-  }
 
+    this.apiService.doGetRequest(endPoints.GetInstituteInfo + this.instituteId).subscribe((returnData: any) => {
+      console.log(returnData)
+      this.instituteInfo = returnData.data;
+    }, error => {
+      console.error(error);
+    });
+  }
+  errorEvnt(event) {
+    event.target.src = "./assets/images/avatar.png";
+  }
   checkForNotification() {
     let orderBy = new Array()
     orderBy = [['createdAt', 'DESCs']]

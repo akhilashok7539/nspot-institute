@@ -113,7 +113,7 @@ export class CourseStep1Component implements OnInit {
       year:['',[Validators.required]],
       month:['',[Validators.required]],
       day:['',[Validators.required]],
-      hour:[''],
+      hour:['--'],
       universityId:[''],
       admissionType:['',[Validators.required]],
       boardId:[''],
@@ -295,7 +295,7 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('availableSeats', formData.availableSeats);
     this.multiForm.append('accademicYear', formData.accademicYear);
     this.multiForm.append('accademicYearMonth', formData.accademicYearMonth);
-    this.multiForm.append('courseDuration', formData.hour +' Hours -'+ formData.day +'-'+ formData.month +'-'+ formData.year);
+    this.multiForm.append('courseDuration',formData.year+'-'+ formData.month +'-' + formData.day +'-'+ formData.hour +' Hours-' );
     this.multiForm.append('examConducted', formData.examConducted);
     this.multiForm.append('admissionStartDate', formData.admissionStartDate);
     this.multiForm.append('admissionCloseDate', formData.admissionCloseDate);
