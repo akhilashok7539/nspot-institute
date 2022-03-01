@@ -50,44 +50,46 @@
 
                     <h6>Basic Details</h6>
                     <label for="">Bank Name</label>
-                    <input type="text" formControlName="bankName" placeholder="Bank Name" required />
+                    <input type="text" formControlName="bankName" placeholder="Bank Name"  />
                     <app-control-messages [touched]="touched" [control]="f.bankName"></app-control-messages>
 
                     <label for="">Account Number </label>
-                    <input type="text" formControlName="accountNumber" placeholder="Account Number" required />
+                    <input type="text" formControlName="accountNumber" placeholder="Account Number"  />
                     <app-control-messages [touched]="touched" [control]="f.accountNumber"></app-control-messages>
                     <label for="">Account holder name</label>
 
-                    <input type="text" formControlName="name" placeholder="Account holder name" required />
+                    <input type="text" formControlName="name" placeholder="Account holder name"  />
                     <app-control-messages [touched]="touched" [control]="f.name"></app-control-messages>
                     <label for="">IFSC Code</label>
 
-                    <input type="text" formControlName="ifsc" placeholder="IFSC" required />
+                    <input type="text" formControlName="ifsc" placeholder="IFSC"  />
                     <app-control-messages [touched]="touched" [control]="f.ifsc"></app-control-messages>
                     <label for="">Nick Name </label>
 
-                    <input type="text" formControlName="nickname" placeholder="Nickname" required />
+                    <input type="text" formControlName="nickname" placeholder="Nickname"  />
                     <app-control-messages [touched]="touched" [control]="f.nickname"></app-control-messages>
                     <label for="">Aadhaar Number </label>
 
-                    <input type="text" formControlName="aadharNumber" placeholder="aadhar Number" required />
+                    <input type="text" formControlName="aadharNumber" placeholder="aadhar Number"  />
                     <app-control-messages [touched]="touched" [control]="f.aadharNumber"></app-control-messages>
                    
                     <label for="">Pan card Number </label>
-                    <input type="text" formControlName="panNumber" placeholder="Pan card Number" required />
+                    <input type="text" formControlName="panNumber" placeholder="Pan card Number"  />
                     <app-control-messages [touched]="touched" [control]="f.panNumber"></app-control-messages>
                     <label for="">Is GSTIN </label>
                     <div class="row">
                         <div class="col-sm-6">
-                            YES <input style=" width: 13% !important;   height: 14px !important;" type="radio" (change)="changerinput($event)" value="true" formControlName="isFilingGst" required />
-                            NO <input style=" width: 13% !important;    height: 14px !important;" type="radio" (change)="changerinput($event)" value="false" formControlName="isFilingGst" required />
+                            YES <input style=" width: 13% !important;   height: 14px !important;" type="radio" (change)="changerinput($event)" value="true" formControlName="isFilingGst"  />
+                            NO <input style=" width: 13% !important;    height: 14px !important;" type="radio" (change)="changerinput($event)" value="false" formControlName="isFilingGst"  />
 
                         </div>
                     </div>
-
-                    <label for="">GSTIN Number </label>
-                    <input type="text" formControlName="gstinnumber" placeholder="GSTIN Number" required />
-                    <app-control-messages [touched]="touched" [control]="f.gstinnumber"></app-control-messages>
+                    <div *ngIf="form.value.isFilingGst === 'true'">
+                        <label for="" >GSTIN Number </label>
+                        <input type="text" formControlName="gstinnumber" placeholder="GSTIN Number"  />
+                        <app-control-messages [touched]="touched" [control]="f.gstinnumber"></app-control-messages>
+                    </div>
+                    
 
                  
                     <h6 style="margin-top: 10px;margin-bottom: 10px;">Documents Details</h6>

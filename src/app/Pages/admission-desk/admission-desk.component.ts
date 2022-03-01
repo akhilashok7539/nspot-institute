@@ -7,6 +7,7 @@ import { AuthService } from 'src/app/services/auth.service';
 import * as _ from 'lodash';
 import Swal from 'sweetalert2';
 import { alertNotes, scorllNotes } from 'src/app/config/constants';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-admission-desk',
   templateUrl: './admission-desk.component.html',
@@ -25,6 +26,7 @@ export class AdmissionDeskComponent implements OnInit {
   currLng:any;
   alertNotes = alertNotes;
   coursechangedselected;
+  courseIDSelected = "";
   instituteId = this.authService.instituteProfile.id;
 
   constructor(
@@ -38,6 +40,16 @@ export class AdmissionDeskComponent implements OnInit {
     this.loadData();
     console.log(this.scrollNotes);
     sessionStorage.removeItem("status")
+    if(sessionStorage.getItem("courseIdliveadmisiondesk"))
+    {
+      console.log("yes");
+      this.courseIDSelected = sessionStorage.getItem("courseIdliveadmisiondesk")
+      this.loadDataForCourse(sessionStorage.getItem("courseIdliveadmisiondesk"))
+    }
+    else{
+      console.log("no");
+
+    }
   }
 
   changeCourse(event) {
@@ -55,6 +67,7 @@ export class AdmissionDeskComponent implements OnInit {
     //   this.feeremmitedSApplicants = [];
     // }
     this.loadDataForCourse(this.currentCourseId)
+    sessionStorage.setItem("courseIdliveadmisiondesk",this.currentCourseId)
 
   }
 
@@ -348,7 +361,8 @@ export class AdmissionDeskComponent implements OnInit {
 
   }
   viewReciptadmin(s) {
-    window.open("https://www.api.nspotadmissions.com/" + s, "_blank")
+    let apiurl = environment.baseApiUrl
+    window.open(apiurl + s, "_blank")
   }
 
   selectedDate(s)

@@ -65,6 +65,6 @@ export class DownloadDocumentsComponent implements OnInit {
 }
   download(value)
   {
-    window.open("https://www.api.nspotadmissions.com/" + value, '_blank');
+    window.open("https://nspot-qa.herokuapp.com/" + value, '_blank');
   }
 }

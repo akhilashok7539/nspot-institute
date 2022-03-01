@@ -135,6 +135,7 @@ export class DashboardComponent implements OnInit {
             if (returnData.status == true) {
               this.loadInstituteInfo();
               this.toastr.success("Profile picture uploaded")
+              window.location.reload();
             }
             else {
               this.toastr.error("Profile upload failed")

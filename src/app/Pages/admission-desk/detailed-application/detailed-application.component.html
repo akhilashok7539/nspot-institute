@@ -370,7 +370,7 @@
 
                 </div>
                 <div class="col-sm-8">
-                  <img src="https://www.api.nspotadmissions.com/{{instituteInfo?.profilePicFile}}" alt="" style="width: 108px;
+                  <img src="https://nspot-qa.herokuapp.com/{{instituteInfo?.profilePicFile}}" alt="" style="width: 108px;
                     display: block;
     margin: 0 auto;
               ">
@@ -604,7 +604,7 @@
                 <p class="paragrah">{{instCoursedata?.CourseName}}</p>
                 <p class="paragrah" *ngIf="instCoursedata?.item?.Institute_Course.courseTypeId === 1">Full Time</p>
                 <p class="paragrah" *ngIf="instCoursedata?.item?.Institute_Course.courseTypeId === 2">Part Time</p>
-                <p class="paragrah">{{instCoursedata?.item?.Institute_Course?.courseDuration}}</p>
+                <p class="paragrah">{{getcourseDuration(instCoursedata?.item?.Institute_Course)}}</p>
                 <p class="paragrah">{{getname(instCoursedata?.item?.Institute_Course)}} {{university}}</p>
                 <p class="paragrah">{{instCoursedata?.item?.Institute_Course?.admissionType}}</p>
 
@@ -711,9 +711,9 @@
             </p>
             <div class="row">
               <div class="col-sm-12">
-                  <img *ngIf="studentDetailedlist?.isFilledByFather" src="https://www.api.nspotadmissions.com/{{fathersSignatureFile}}" alt="" style="    float: right;width: 136px;">
-                  <img *ngIf="studentDetailedlist?.isFilledByGaurdian" src="https://www.api.nspotadmissions.com/{{guardiansSignatureFile}}" alt="" style="    float: right;width: 136px;">
-                  <img *ngIf="studentDetailedlist?.isFilledByMyself" src="https://www.api.nspotadmissions.com/{{studentsignatureFile}}" alt="" style="    float: right;width: 136px;">
+                  <img *ngIf="studentDetailedlist?.isFilledByFather" src="https://nspot-qa.herokuapp.com/{{fathersSignatureFile}}" alt="" style="    float: right;width: 136px;">
+                  <img *ngIf="studentDetailedlist?.isFilledByGaurdian" src="https://nspot-qa.herokuapp.com/{{guardiansSignatureFile}}" alt="" style="    float: right;width: 136px;">
+                  <img *ngIf="studentDetailedlist?.isFilledByMyself" src="https://nspot-qa.herokuapp.com/{{studentsignatureFile}}" alt="" style="    float: right;width: 136px;">
                
               </div>
              <div class="col-sm-12">

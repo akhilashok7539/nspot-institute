@@ -623,4 +623,8 @@ export class DetailedApplicationComponent implements OnInit {
       )
     }
   }
+  getcourseDuration(s)
+  {
+    return s?.year + "-" + s?.month + "-" + s?.day + "-" + s?.hour + " Hours"
+  }
 }

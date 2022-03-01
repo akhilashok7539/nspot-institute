@@ -100,6 +100,8 @@
                     <p >Nspot Service Charge : Rs.{{courseFees?.nspotServiceCharge}} /-</p>
                     <p >Nspot Tax : {{ 18 / 100 *  courseFees?.nspotServiceCharge}}</p>
                     <p>Spot Fee : {{courseFees?.spotfee}}</p>
+                    <p>Refund Policy : {{courseFees?.refundPolicy}}</p>
+                    <!-- <p>Refund Policy : {{courseFees?.refundPolicy}}</p> -->
 
 
                 </div>
@@ -113,7 +115,7 @@
             <div class="row">
                 <h4>Eligibility & Job Areas</h4>
                 <div class="col-sm-6">
-                    <p>BRIEF DESCRIPTION : Rs.{{courseFees?.Institute_Course?.eligibiliyInString}}</p>
+                    <p>Bried Description : {{courseFees?.Institute_Course?.eligibiliyInString}}</p>
                     <p>Age Limit  : {{courseFees?.Institute_Course?.ageLimit}}</p>
                     <p>Age Bar : {{courseFees?.Institute_Course?.agebar}}</p>
                     <p>Academic Qualifications : {{courseFees?.Institute_Course?.academicqualifications}}</p>

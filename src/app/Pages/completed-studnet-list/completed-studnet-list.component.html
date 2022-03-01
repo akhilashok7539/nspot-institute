@@ -7,7 +7,7 @@
     <div class="row" style="    padding: 47px;">
         <div class="col-sm-4">
             <label class="req uppercase">SELECT COURSE / PROGRAM</label>
-            <select (change)="changeCourse($event)" name="type" class="form-control">
+            <select (change)="changeCourse($event)" name="type" class="form-control" [(ngModel)]="courseId">
                         {{courses|json}}
                         <option value="">SELECT COURSE / PROGRAM
                                  </option>
@@ -18,7 +18,7 @@
         </div>
         <div class="col-sm-2">
             <label class="req uppercase">Choose Date</label>
-            <input type="date" class="form-control" (change)="getselectedDate($event)">
+            <input type="date" class="form-control" (change)="getselectedDate($event)" [(ngModel)]="selectedDate">
         </div>
         <div class="col-sm-6">
             <label class="req uppercase">Search NSPOT Reference ID</label>

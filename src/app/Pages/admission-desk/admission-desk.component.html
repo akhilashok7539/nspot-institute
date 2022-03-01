@@ -50,7 +50,7 @@
                 <div class="col-sm-6 mt-5" *ngIf="activeButton === 1 || activeButton === 2 || activeButton === 3">
                     <label class="req uppercase">SELECT COURSE / PROGRAM
                     </label>
-                    <select (change)="changeCourse($event)" name="type">
+                    <select (change)="changeCourse($event)" name="type" [(ngModel)]="courseIDSelected">
 
                         <option value="" selected disabled>SELECT COURSE / PROGRAM</option>
                         <option *ngFor="let item of courses" value="{{item.item.id}}">{{item.CourseName}}

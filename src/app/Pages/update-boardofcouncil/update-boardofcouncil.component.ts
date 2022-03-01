@@ -119,6 +119,8 @@ export class UpdateBoardofcouncilComponent implements OnInit {
        this.form.controls['collaborationByLabel'].setValue(this.boardOfCouncilInfo['collaborationByLabel']);
     
        
+       this.form.controls['trust'].setValue(this.boardOfCouncilInfo['trust']);
+       this.form.controls['group'].setValue(this.boardOfCouncilInfo['group']);
        
 
     }, error => {

@@ -18,6 +18,8 @@ export class CompletedStudnetListComponent implements OnInit {
   admisionnumber;
   search;
   scrollNotes = scorllNotes;
+  courseId:any="";
+  selectedDate:any="";
   constructor(private apiService:ApiService,private authService:AuthService,
     private toaster:ToastrService,private router:Router) { }
 
@@ -31,11 +33,61 @@ export class CompletedStudnetListComponent implements OnInit {
 
       }
     )
+    // sessionStorage.removeItem("courseIdliveadmisiondesk")
+    if(sessionStorage.getItem("courseIdEntrollmentRegister"))
+    {
+      this.courseId = sessionStorage.getItem("courseIdEntrollmentRegister")
+      this.loadDataForCourse(sessionStorage.getItem("courseIdEntrollmentRegister"))
+    }
+    if(sessionStorage.getItem("dateSelectedEntrollment") && sessionStorage.getItem("courseIdEntrollmentRegister"))
+    {
+      this.selectedDate =sessionStorage.getItem("dateSelectedEntrollment");
+      this.getdatadataByDateandCourseID(sessionStorage.getItem("courseIdEntrollmentRegister"),sessionStorage.getItem("dateSelectedEntrollment"))
+    }
+  }
+
+  getdatadataByDateandCourseID(currentCourseId,date){
+    let courseFeeRemittedreq ={
+      "courseId":currentCourseId,
+       "addedDate":date
+    }
+    this.apiService.doPostRequest('payment/courseFee/institute/',courseFeeRemittedreq).subscribe(
+      data =>{
+        console.log(data);
+        
+        let arr = [];
+        arr = data['result']
+        // console.log("Fee paid students list",arr);
+  
+        if( data['result'].length === 0)
+        {
+          this.feeremmitedSApplicants = [];
+        }
+        else{
+  
+  
+        for(let i=0;i<=arr.length;i++)
+        {
+          if(arr[i]?.item?.status === "paid")
+          {
+            this.feeremmitedSApplicants.push(arr[i])
+          }
+        }
+      }
+  
+        console.log("Fee paied students",this.feeremmitedSApplicants);
+        
+      },
+      error =>{
+        this.feeremmitedSApplicants = [];
+      }
+    )
   }
   getselectedDate(event)
   {
   let date= event.target.value;
   console.log(date);
+  sessionStorage.setItem("dateSelectedEntrollment",date)
   let courseFeeRemittedreq ={
     "courseId":this.currentCourseId,
      "addedDate":date
@@ -75,6 +127,8 @@ export class CompletedStudnetListComponent implements OnInit {
   changeCourse(event) {
     this.feeremmitedSApplicants = [];
     this.currentCourseId = event.target.value;
+    sessionStorage.setItem("courseIdEntrollmentRegister",this.currentCourseId)
+
     this.loadDataForCourse(this.currentCourseId)
   }
   loadDataForCourse(currentCourseId)

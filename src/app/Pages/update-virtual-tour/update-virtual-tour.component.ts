@@ -14,6 +14,7 @@ export class UpdateVirtualTourComponent implements OnInit {
   multiForm: FormData = new FormData();
   instituteId;
   virtualTour:any=[];
+  socialmedia:any = [];
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -118,7 +119,7 @@ export class UpdateVirtualTourComponent implements OnInit {
   get f() { return this.form.controls; }
 
   loadData(){
-    this.apiService.doGetRequest("/institute/virtual-tour/"+this.instituteId).subscribe(
+    this.apiService.doGetRequest("institute/virtual-tour/"+this.instituteId).subscribe(
       data =>{
         this.virtualTour = data['data']
        this.form.controls['campusTourVideoLink'].setValue(this.virtualTour['campusTourVideoLink']);
@@ -135,5 +136,21 @@ export class UpdateVirtualTourComponent implements OnInit {
 
       }
     )
+    this.apiService.doGetRequest("institute/social-media/"+this.instituteId).subscribe(
+      data =>{
+        this.socialmedia = data['data']
+       this.form.controls['youtube'].setValue(this.socialmedia['youtube']);
+       this.form.controls['twitter'].setValue(this.socialmedia['twitter']);
+       this.form.controls['instagram'].setValue(this.socialmedia['instagram']);
+       this.form.controls['linkedIn'].setValue(this.socialmedia['linkedIn']);
+       this.form.controls['facebook'].setValue(this.socialmedia['facebook']);
+    
+
+
+      },
+      error =>{
+
+      })
+  
   }
 }

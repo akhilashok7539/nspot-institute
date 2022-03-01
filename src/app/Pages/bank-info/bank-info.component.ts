@@ -52,6 +52,7 @@ export class BankInfoComponent implements OnInit {
   changerinput(event)
   {
     console.log(event.target.value);
+    console.log(this.form.value);
     
   }
   // loading bank details
