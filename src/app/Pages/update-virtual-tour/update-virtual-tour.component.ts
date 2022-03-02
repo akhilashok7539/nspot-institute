@@ -12,9 +12,10 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class UpdateVirtualTourComponent implements OnInit {
   multiForm: FormData = new FormData();
+  socialForm: FormData = new FormData();
   instituteId;
-  virtualTour:any=[];
-  socialmedia:any = [];
+  virtualTour: any = [];
+  socialmedia: any = [];
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -22,7 +23,7 @@ export class UpdateVirtualTourComponent implements OnInit {
     private apiService: ApiService,
     private toastr: ToastrService,
     private cd: ChangeDetectorRef,
-    private authservice:AuthService,
+    private authservice: AuthService,
   ) { }
 
   form: FormGroup;
@@ -99,7 +100,7 @@ export class UpdateVirtualTourComponent implements OnInit {
     this.multiForm.append('hostelTourVideoLink', formData.hostelTourVideoLink);
     this.multiForm.append('libraryTourVideoLink', formData.libraryTourVideoLink);
     this.multiForm.append('recreationAreaTourVideoLink', formData.recreationAreaTourVideoLink);
-    
+
 
     this.apiService.doPutRequest(`institute/virtual-tour/update/` + this.virtualTour['id'], this.multiForm)
       .subscribe((returnData: any) => {
@@ -113,44 +114,68 @@ export class UpdateVirtualTourComponent implements OnInit {
           this.toastr.success(message);
           //(document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
         });
+    this.socialForm.append('youtube', formData.youtube);
+    this.socialForm.append('twitter', formData.twitter);
+    this.socialForm.append('instagram', formData.instagram);
+    this.socialForm.append('linkedIn', formData.linkedIn);
+    this.socialForm.append('facebook', formData.facebook);
+    let req ={
+      youtube:formData.youtube,
+      twitter:formData.twitter,
+      instagram:formData.instagram,
+      linkedIn:formData.linkedIn,
+      facebook:formData.facebook,
 
+    }
+    this.apiService.doPutRequest(`institute/social-media/` + this.socialmedia['id'],req)
 
+      .subscribe((returnData: any) => {
+        console.log(returnData);
+        this.toastr.success('Updated Successful');
+        this.router.navigate(['/institute/dashboard']);
+      },
+        error => {
+          console.error(error);
+          const message = error.error ? error.error[0].message : "Something went wrong please try again later."
+          this.toastr.success(message);
+          //(document.querySelector('#submit-btn') as HTMLInputElement).removeAttribute('disabled');
+        });
   }
   get f() { return this.form.controls; }
 
-  loadData(){
-    this.apiService.doGetRequest("institute/virtual-tour/"+this.instituteId).subscribe(
-      data =>{
+  loadData() {
+    this.apiService.doGetRequest("institute/virtual-tour/" + this.instituteId).subscribe(
+      data => {
         this.virtualTour = data['data']
-       this.form.controls['campusTourVideoLink'].setValue(this.virtualTour['campusTourVideoLink']);
-       this.form.controls['classRoomVideoLink'].setValue(this.virtualTour['classRoomVideoLink']);
-       this.form.controls['hostelTourVideoLink'].setValue(this.virtualTour['hostelTourVideoLink']);
-       this.form.controls['labTourVideoLink'].setValue(this.virtualTour['labTourVideoLink']);
-       this.form.controls['libraryTourVideoLink'].setValue(this.virtualTour['libraryTourVideoLink']);
-       this.form.controls['recreationAreaTourVideoLink'].setValue(this.virtualTour['recreationAreaTourVideoLink']);
-       this.form.controls['campusTourVideoLink'].setValue(this.virtualTour['campusTourVideoLink']);
+        this.form.controls['campusTourVideoLink'].setValue(this.virtualTour['campusTourVideoLink']);
+        this.form.controls['classRoomVideoLink'].setValue(this.virtualTour['classRoomVideoLink']);
+        this.form.controls['hostelTourVideoLink'].setValue(this.virtualTour['hostelTourVideoLink']);
+        this.form.controls['labTourVideoLink'].setValue(this.virtualTour['labTourVideoLink']);
+        this.form.controls['libraryTourVideoLink'].setValue(this.virtualTour['libraryTourVideoLink']);
+        this.form.controls['recreationAreaTourVideoLink'].setValue(this.virtualTour['recreationAreaTourVideoLink']);
+        this.form.controls['campusTourVideoLink'].setValue(this.virtualTour['campusTourVideoLink']);
 
 
       },
-      error =>{
+      error => {
 
       }
     )
-    this.apiService.doGetRequest("institute/social-media/"+this.instituteId).subscribe(
-      data =>{
+    this.apiService.doGetRequest("institute/social-media/" + this.instituteId).subscribe(
+      data => {
         this.socialmedia = data['data']
-       this.form.controls['youtube'].setValue(this.socialmedia['youtube']);
-       this.form.controls['twitter'].setValue(this.socialmedia['twitter']);
-       this.form.controls['instagram'].setValue(this.socialmedia['instagram']);
-       this.form.controls['linkedIn'].setValue(this.socialmedia['linkedIn']);
-       this.form.controls['facebook'].setValue(this.socialmedia['facebook']);
-    
+        this.form.controls['youtube'].setValue(this.socialmedia['youtube']);
+        this.form.controls['twitter'].setValue(this.socialmedia['twitter']);
+        this.form.controls['instagram'].setValue(this.socialmedia['instagram']);
+        this.form.controls['linkedIn'].setValue(this.socialmedia['linkedIn']);
+        this.form.controls['facebook'].setValue(this.socialmedia['facebook']);
+
 
 
       },
-      error =>{
+      error => {
 
       })
-  
+
   }
 }
