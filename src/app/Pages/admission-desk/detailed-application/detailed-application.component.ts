@@ -57,6 +57,9 @@ export class DetailedApplicationComponent implements OnInit {
   otherboardList: any = [];
   boardList: any = [];
   university: any;
+  passportsizePic;
+  baseurl = environment.baseApiUrl
+  imgurl;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -107,7 +110,9 @@ export class DetailedApplicationComponent implements OnInit {
     return currentYear = new Date().getFullYear();
 
   }
-  loadData() {
+  imgErrror(event) {
+    event.target.src = "assets/images/kyc.png"
+  } loadData() {
     // instite details
 
     this.apiService.doGetRequest(endPoints.GetInstituteInfo + this.mainInstitueId).subscribe((returnData: any) => {
@@ -127,7 +132,8 @@ export class DetailedApplicationComponent implements OnInit {
         this.fathersSignatureFile = data['data']['fathersSignatureFile']
         this.mothersSignatureFile = data['data']['mothersSignatureFile']
         this.studentsignatureFile = data['data']['signatureFile']
-
+        this.passportsizePic = data['data']['passportSizePhotoFile']
+        this.imgurl = this.baseApiUrl + this.passportsizePic
       },
       error => {
 
@@ -594,7 +600,7 @@ export class DetailedApplicationComponent implements OnInit {
     if (course?.universityTypeId === 1) {
       this.universityList.filter(el => {
         if (el.id === course.universityId) {
-      
+
           this.university = el.university
           return this.university
         }
@@ -605,7 +611,7 @@ export class DetailedApplicationComponent implements OnInit {
     if (course?.universityTypeId === 2) {
       this.boardList.filter(el => {
         if (el.id === course.boardId) {
-   
+
           this.university = el.title
           return this.university
         }
@@ -615,7 +621,7 @@ export class DetailedApplicationComponent implements OnInit {
     if (course?.universityTypeId === 3) {
       this.otherboardList.filter(el => {
         if (el.id === course.otherId) {
-        
+
           this.university = el.title
           return this.university
         }
@@ -623,8 +629,7 @@ export class DetailedApplicationComponent implements OnInit {
       )
     }
   }
-  getcourseDuration(s)
-  {
+  getcourseDuration(s) {
     return s?.year + "-" + s?.month + "-" + s?.day + "-" + s?.hour + " Hours"
   }
 }
