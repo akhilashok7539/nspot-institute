@@ -131,8 +131,7 @@ export class UpdateVirtualTourComponent implements OnInit {
 
       .subscribe((returnData: any) => {
         console.log(returnData);
-        this.toastr.success('Updated Successful');
-        this.router.navigate(['/institute/dashboard']);
+      
       },
         error => {
           console.error(error);

@@ -78,7 +78,7 @@ export class UpdateCourseInfoSecondpageComponent implements OnInit {
       regularClassOnly: [false],
       onlineClassOnly:[false],
       regularAndonlineClass:[false],
-     
+      coeducationallowed:[false],
     });
     this.route.paramMap.subscribe(res =>{
       console.log(res['params'].id);

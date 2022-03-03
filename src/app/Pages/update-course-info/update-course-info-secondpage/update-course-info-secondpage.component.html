@@ -13,7 +13,7 @@
                     <label class="req uppercase">Gender Allowance</label>
                     <div class="col-sm-3">
                         <p class="radio">
-                            <input type="checkbox"  formControlName="otherGenderAllowed" id="" />
+                            <input type="checkbox"  formControlName="coeducationallowed" id=""  />
                             <span>Co-Education</span>
                         </p>
                     </div>
@@ -45,6 +45,8 @@
                         <option value="Management">Management </option>
                         <option value="Merti">Merti </option>
                         <option value="NRI">NRI </option>
+                        <option value="NRI">Other </option>
+
 
                     </select>
                 </div>
@@ -80,7 +82,10 @@
                 </div>
                 <div class="col-sm-4 offset-3">
                     <label class="req uppercase">Country</label>
-                    <input type="Text" formControlName="country" placeholder="enter course stream" />
+                    <select name="" id="" formControlName="country" >
+                        <option value="India">India</option>
+                    </select>
+                    <!-- <input type="Text" formControlName="country" placeholder="enter course stream" /> -->
                     <app-control-messages [touched]="touched" [control]="f.country"></app-control-messages>
                 </div>
                 <div class="col-sm-4 offset-3">

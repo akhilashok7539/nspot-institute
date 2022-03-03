@@ -105,7 +105,7 @@ export class CourseStep1Component implements OnInit {
       CourseSubCategory3Id: [''],
       CourseSubCategory4Id: [''],
       CourseSubCategory5Id: [''],
-     
+      coeducationallowed: [''],
       stateId:['',[Validators.required]],
       districtId:['',[Validators.required]],
       instituteType:['',[Validators.required]],
@@ -329,6 +329,8 @@ export class CourseStep1Component implements OnInit {
 
     this.multiForm.append('stateId',formData.stateId)
     this.multiForm.append('districtId',formData.districtId)
+    
+    this.multiForm.append('coeducationallowed',formData.coeducationallowed)
 
     if(formData.CourseSubCategoryId === "")
     {

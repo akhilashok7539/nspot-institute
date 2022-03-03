@@ -156,7 +156,10 @@ export class DashboardComponent implements OnInit {
       hostalAnnualFee: s.hostalAnnualFee,
       foodAvailableAtHostel: s.foodAvailableAtHostel,
       haveGirlsHostel: s.haveGirlsHostel,
-      haveBoysHostel: s.haveBoysHostel
+      haveBoysHostel: s.haveBoysHostel,
+      busAvailablity: s.busAvailablity,
+      vanavailablity: s.vanavailablity
+
     }
     sessionStorage.setItem("feeandinfo", JSON.stringify(req))
     this.router.navigate(['/institute/update-hostel'])
