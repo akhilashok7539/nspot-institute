@@ -182,9 +182,19 @@ export class DetailedApplicationComponent implements OnInit {
             i++;
           }
         } else {
-          this.personalInfo.push(personalInfo[property])
-          this.personalInfoKeys[i] = property
-          i++;
+        
+          if(property ==="cast" )
+          {
+            this.personalInfo.push(personalInfo[property])
+            this.personalInfoKeys[i] = "Caste"
+            i++;
+          }
+          else{
+            this.personalInfo.push(personalInfo[property])
+            this.personalInfoKeys[i] = property
+            i++;
+          }
+         
         }
       }
 

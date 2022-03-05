@@ -171,6 +171,9 @@ export class UpdateCourseInfoSecondpageComponent implements OnInit {
         this.form.controls['regularClassOnly'].setValue(this.courserListDetails['regularClassOnly'].toString());
         this.form.controls['onlineClassOnly'].setValue(this.courserListDetails['onlineClassOnly'].toString());
         this.form.controls['regularAndonlineClass'].setValue(this.courserListDetails['regularAndonlineClass'].toString());
+        
+        this.form.controls['coeducationallowed'].setValue(this.courserListDetails['coeducationallowed']);
+
       },
       error =>{
 
@@ -266,7 +269,6 @@ export class UpdateCourseInfoSecondpageComponent implements OnInit {
       
       return;
     } else {
-      (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     }
     const formData = this.form.value;
     this.multiForm.delete('accademicLevelId');
@@ -322,6 +324,7 @@ export class UpdateCourseInfoSecondpageComponent implements OnInit {
     this.multiForm.append('aptituteTestId', formData.aptituteTestId);
     this.multiForm.append('onlineInterviewRequired', formData.onlineInterviewRequired);
     this.multiForm.append('regularAndonlineClass', formData.regularAndonlineClass);
+    this.multiForm.append('coeducationallowed', formData.coeducationallowed);
     
     
     this.apiService.doPostRequest_upload(`institute/course/update/` + this.courserListDetails['id'], this.multiForm)
