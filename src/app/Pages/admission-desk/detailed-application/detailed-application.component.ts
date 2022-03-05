@@ -260,12 +260,24 @@ export class DetailedApplicationComponent implements OnInit {
         i = 0;
         let educationFields = new Array();
         // iterating through each item in an education
+        console.log(this.educationKeys);
+        
         for (let property in formData.education[j]) {
           if (property == 'additionalFields') {
             for (let item in formData.education[j][property]) {
               educationFields.push(formData.education[j][property][item])
               if (this.educationKeys[j])
+              {
+              
+              
+            
+                if(this.educationKeys[j][0][0] ==="accademicLevelId" )
+                {
+                  this.educationKeys[j][0][0] = "testkey"
+                }
                 this.educationKeys[j][i] = item
+                console.log(this.educationKeys[j]);
+              }
               else {
                 let im = { "0": item }
                 this.educationKeys.push(im)
@@ -277,10 +289,25 @@ export class DetailedApplicationComponent implements OnInit {
             educationFields.push(formData.education[j][property])
             // console.log(j, i, property, formData.education[j][property])
             if (this.educationKeys[j])
-              this.educationKeys[j][i] = property
+              {this.educationKeys[j][i] = property
+              console.log( this.educationKeys[j][i]);}
+              
             else {
               let im = { "0": property }
-              this.educationKeys.push(im)
+              console.log(im);
+              console.log(property);
+
+              if(property ==="accademicLevelId" )
+              {
+                let im = { "0": "AcademicLevelId" }
+                this.educationKeys.push(im)
+              
+              }
+              else
+              {
+                this.educationKeys.push(im)
+
+              }
             }
             i++;
           }
@@ -631,5 +658,10 @@ export class DetailedApplicationComponent implements OnInit {
   }
   getcourseDuration(s) {
     return s?.year + "-" + s?.month + "-" + s?.day + "-" + s?.hour + " Hours"
+  }
+  getacademic(data)
+  {
+    console.log(data[0][0])
+    return data[0][0]
   }
 }

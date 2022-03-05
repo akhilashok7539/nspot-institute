@@ -672,7 +672,9 @@
                     <div class="additionalForm" *ngFor="let item of education;let j=index">
                         <div class="applicationFormItem" *ngFor="let item of education[j];let i=index">
                             <div class="checkBox">
-                                <p>{{insertSpaces(educationKeys?educationKeys[j][i]:'')}}</p>
+                              
+                                <p >{{insertSpaces(educationKeys?educationKeys[j][i]:'') | titlecase}}</p>
+                                <!-- *ngIf="educationKeys?educationKeys[j][i] != 'accademicLevelId'" -->
                             </div>
                             <div class="labels">
                                 <p><span>:</span>{{item}}</p>
@@ -688,7 +690,7 @@
                     <div class="additionalForm" *ngFor="let item of entrance;let j=index">
                         <div class="applicationFormItem" *ngFor="let item of entrance[j];let i=index">
                             <div class="checkBox">
-                                <p>{{insertSpaces(entranceKeys[j][i])}}</p>
+                                <p>{{insertSpaces(entranceKeys[j][i]) | titlecase}}</p>
                             </div>
                             <div class="labels">
                                 <p><span>:</span>{{item}}</p>
