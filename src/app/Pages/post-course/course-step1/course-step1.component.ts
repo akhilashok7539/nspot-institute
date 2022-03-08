@@ -295,7 +295,6 @@ export class CourseStep1Component implements OnInit {
     this.multiForm.append('availableSeats', formData.availableSeats);
     this.multiForm.append('accademicYear', formData.accademicYear);
     this.multiForm.append('accademicYearMonth', formData.accademicYearMonth);
-    this.multiForm.append('courseDuration',formData.year+'-'+ formData.month +'-' + formData.day +'-'+ formData.hour +' Hours-' );
     this.multiForm.append('examConducted', formData.examConducted);
     this.multiForm.append('admissionStartDate', formData.admissionStartDate);
     this.multiForm.append('admissionCloseDate', formData.admissionCloseDate);
@@ -374,6 +373,17 @@ export class CourseStep1Component implements OnInit {
     {
       this.form.controls['hour'].setValue('--')
     }
+
+    // this.multiForm.append('courseDuration',formData.year+' - '+ formData.month +' - ' + formData.day +' - '+ formData.hour +' Hours' );
+    if(formData.hour === '' || formData.hour === '--')
+    {
+      this.multiForm.append('courseDuration',formData.year+' - '+ formData.month +' - ' + formData.day  );
+
+    }
+    else{
+      this.multiForm.append('courseDuration',formData.year+' - '+ formData.month +' - ' + formData.day +' - '+ formData.hour +' Hours' );
+
+    }
     sessionStorage.setItem("courseDuration",JSON.stringify(formData.year +'-'+  formData.month +'-'+ formData.day +'-'+ formData.hour +' Hours'))
 
     this.apiService.doPostRequest_upload(endPoints.Create_course + this.instituteId, this.multiForm)
@@ -385,8 +395,9 @@ export class CourseStep1Component implements OnInit {
         error => {
       // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('enabled', '');
           this.multiForm= new FormData();
-          this.toastr.error(error.error[0].message);
           console.error(error);
+          this.toastr.error(error.error[0].message);
+         
         });
 
 

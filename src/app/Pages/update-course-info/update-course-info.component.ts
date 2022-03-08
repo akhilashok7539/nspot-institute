@@ -447,7 +447,7 @@ export class UpdateCourseInfoComponent implements OnInit {
     this.multiForm.append('accademicYearMonth', formData.accademicYearMonth);
     // this.multiForm.append('courseDurationInDays', this.calculateDaysFromYearAndMonth(
     //   formData.courseDuration_year, formData.courseDuration_months));
-    this.multiForm.append('courseDuration', formData.examConducted);
+    // this.multiForm.append('courseDuration', formData.examConducted);
     this.multiForm.append('examConducted', formData.examConducted);
     this.multiForm.append('admissionStartDate', formData.admissionStartDate);
     this.multiForm.append('admissionCloseDate', formData.admissionCloseDate);
@@ -473,6 +473,20 @@ export class UpdateCourseInfoComponent implements OnInit {
     this.multiForm.append('CourseSubCategory3Id',formData.CourseSubCategory3Id)
     this.multiForm.append('CourseSubCategory4Id',formData.CourseSubCategory4Id)
     this.multiForm.append('CourseSubCategory5Id',formData.CourseSubCategory5Id)
+    this.multiForm.append('year',formData.year)
+    this.multiForm.append('day',formData.day)
+    this.multiForm.append('month',formData.month)
+    this.multiForm.append('hour',formData.hour)
+    if(formData.hour === '' || formData.hour === '--')
+    {
+      this.multiForm.append('courseDuration',formData.year+' - '+ formData.month +' - ' + formData.day  );
+
+    }
+    else{
+      this.multiForm.append('courseDuration',formData.year+' - '+ formData.month +' - ' + formData.day +' - '+ formData.hour +' Hours' );
+
+    }
+
     if(formData.CourseSubCategory5Id === "")
     {
     this.multiForm.delete('CourseSubCategory5Id')
@@ -483,6 +497,7 @@ export class UpdateCourseInfoComponent implements OnInit {
     this.multiForm.delete('CourseSubCategory4Id')
 
     }
+    console.log(typeof(this.form.value['courseDuration']))
     this.apiService.doPostRequest_upload(`institute/course/update/` + this.courserListDetails['id'], this.multiForm)
       .subscribe((returnData: any) => {
         console.log(returnData);
@@ -490,6 +505,7 @@ export class UpdateCourseInfoComponent implements OnInit {
         this.router.navigate(['/institute/courses-listed']);
       },
         error => {
+          console.error(error.error[0]);
           this.toastr.error(error.error[0].message);
           console.error(error);
         });
