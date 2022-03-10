@@ -401,7 +401,7 @@
             </div>
 
             <div class="col-sm-12 offset-3">
-                <label class="req uppercase">Gender Allowance</label>
+                <label class=" uppercase">Gender Allowance</label>
                 <div class="col-sm-3">
                     <p class="radio">
                         <input type="checkbox" formControlName="coeducationallowed" id="" />
@@ -435,7 +435,7 @@
                 <select formControlName="admissionType">
                     <option value="" disabled>Choose Admission Category </option>
                     <option value="Management">Management </option>
-                    <option value="Merti">Merit </option>
+                    <option value="Merit">Merit </option>
                     <option value="NRI">NRI </option>
                     <option value="other">Other </option>
 
@@ -552,7 +552,7 @@
                 <div *ngIf="form.value.aptituteTestRequired">
                     <div class="col-md-10">
                         <select formControlName="aptituteTestId" id="" style="margin-top: 10px;">
-                            <option value="" selected disabled>Choose a Aptitude Test</option>
+                            <option value="" selected disabled>Choose an Aptitude Test</option>
                             <option *ngFor="let item of aptitudeTests" value="{{item.id}}">{{item.title}}</option>
                         </select>
                         <app-control-messages [touched]="touched" [control]="f.aptituteTestId">

@@ -28,13 +28,13 @@
                                         <label class="uppercase">Add new aptitude test</label>
 
                                         <input type="text" formControlName="title"
-                                            placeholder="enter test name eg: Btech aptitude test / 10th aptitude test"
+                                            placeholder="enter aptitude test name eg: Btech aptitude test / 10th aptitude test"
                                             required />
                                         <app-control-messages [touched]="touchedFormTest" [control]="f.title">
                                         </app-control-messages>
 
                                         <input type="text" formControlName="durationInMinuts"
-                                            placeholder="enter duration in minuts eg: 30" required />
+                                            placeholder="enter duration in minutes eg: 30" required />
                                         <app-control-messages [touched]="touchedFormTest"
                                             [control]="f.durationInMinuts"></app-control-messages>
 
