@@ -95,32 +95,36 @@ export class UpdateBoardofcouncilComponent implements OnInit {
   {
     this.apiService.doGetRequest(endPoints.Get_boardOfCouncil + this.instituteId).subscribe((returnData: any) => {
       this.boardOfCouncilInfo = returnData.data;
-      this.form.controls['rankofLabel'].setValue(this.boardOfCouncilInfo['rankofLabel']);
-      this.form.controls['awardsofLabel'].setValue(this.boardOfCouncilInfo['awardsofLabel']);
-      this.form.controls['ratedByLabel'].setValue(this.boardOfCouncilInfo['ratedByLabel']);
-      this.form.controls['accordedByLabel'].setValue(this.boardOfCouncilInfo['accordedByLabel']);
-      this.form.controls['unitOfLabel'].setValue(this.boardOfCouncilInfo['unitOfLabel']);
-
-      this.form.controls['underSectionActofLabel'].setValue(this.boardOfCouncilInfo['underSectionActofLabel']);
-
-      this.form.controls['establishedOfLabel'].setValue(this.boardOfCouncilInfo['establishedOfLabel']);
-      this.form.controls['boardByLabel'].setValue(this.boardOfCouncilInfo['boardByLabel']);
-
+      if(returnData.data != null)
+      {
+        this.form.controls['rankofLabel'].setValue(this.boardOfCouncilInfo['rankofLabel']);
+        this.form.controls['awardsofLabel'].setValue(this.boardOfCouncilInfo['awardsofLabel']);
+        this.form.controls['ratedByLabel'].setValue(this.boardOfCouncilInfo['ratedByLabel']);
+        this.form.controls['accordedByLabel'].setValue(this.boardOfCouncilInfo['accordedByLabel']);
+        this.form.controls['unitOfLabel'].setValue(this.boardOfCouncilInfo['unitOfLabel']);
+  
+        this.form.controls['underSectionActofLabel'].setValue(this.boardOfCouncilInfo['underSectionActofLabel']);
+  
+        this.form.controls['establishedOfLabel'].setValue(this.boardOfCouncilInfo['establishedOfLabel']);
+        this.form.controls['boardByLabel'].setValue(this.boardOfCouncilInfo['boardByLabel']);
+  
+        
+         this.form.controls['affiliatedToLabel'].setValue(this.boardOfCouncilInfo['affiliatedToLabel']);
+         this.form.controls['recongnizedByLabel'].setValue(this.boardOfCouncilInfo['recongnizedByLabel']);
+         this.form.controls['registeredToLabel'].setValue(this.boardOfCouncilInfo['registeredToLabel']);
+         this.form.controls['approvedByLabel'].setValue(this.boardOfCouncilInfo['approvedByLabel']);
+         this.form.controls['accreditedByLabel'].setValue(this.boardOfCouncilInfo['accreditedByLabel']);
+         this.form.controls['certifiedByLabel'].setValue(this.boardOfCouncilInfo['certifiedByLabel']);
+         this.form.controls['memberOfLabel'].setValue(this.boardOfCouncilInfo['memberOfLabel']);
+  
+         this.form.controls['licenceByLabel'].setValue(this.boardOfCouncilInfo['licenceByLabel']);
+         this.form.controls['collaborationByLabel'].setValue(this.boardOfCouncilInfo['collaborationByLabel']);
       
-       this.form.controls['affiliatedToLabel'].setValue(this.boardOfCouncilInfo['affiliatedToLabel']);
-       this.form.controls['recongnizedByLabel'].setValue(this.boardOfCouncilInfo['recongnizedByLabel']);
-       this.form.controls['registeredToLabel'].setValue(this.boardOfCouncilInfo['registeredToLabel']);
-       this.form.controls['approvedByLabel'].setValue(this.boardOfCouncilInfo['approvedByLabel']);
-       this.form.controls['accreditedByLabel'].setValue(this.boardOfCouncilInfo['accreditedByLabel']);
-       this.form.controls['certifiedByLabel'].setValue(this.boardOfCouncilInfo['certifiedByLabel']);
-       this.form.controls['memberOfLabel'].setValue(this.boardOfCouncilInfo['memberOfLabel']);
-
-       this.form.controls['licenceByLabel'].setValue(this.boardOfCouncilInfo['licenceByLabel']);
-       this.form.controls['collaborationByLabel'].setValue(this.boardOfCouncilInfo['collaborationByLabel']);
-    
-       
-       this.form.controls['trust'].setValue(this.boardOfCouncilInfo['trust']);
-       this.form.controls['group'].setValue(this.boardOfCouncilInfo['group']);
+         
+         this.form.controls['trust'].setValue(this.boardOfCouncilInfo['trust']);
+         this.form.controls['group'].setValue(this.boardOfCouncilInfo['group']);
+      }
+      
        
 
     }, error => {
@@ -135,7 +139,7 @@ export class UpdateBoardofcouncilComponent implements OnInit {
     if (this.form.invalid) {
       return;
     } else {
-      (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
+      // (document.querySelector('#submit-btn') as HTMLInputElement).setAttribute('disabled', '');
     }
     const formData = this.form.value;
     this.multiForm.delete('unitOfLabel');
@@ -171,15 +175,34 @@ export class UpdateBoardofcouncilComponent implements OnInit {
     this.multiForm.append('group', formData.group);
 
     // console.warn(this.multiForm.getAll('affiliatedToFile'));
-    this.apiService.doPutRequest(`institute/boardOfCouncil/update/` + this.boardOfCouncilInfo['id'], this.multiForm).subscribe((returnData: any) => {
-      console.log(returnData);
-      this.toastr.success('Updated successfull');
-      this.router.navigate(['/institute/dashboard']);
-    },
-      error => {
-        this.toastr.error(error.error[0].message);
-        console.error(error);
-      });
+    if(this.boardOfCouncilInfo != null)
+    {
+      this.apiService.doPutRequest(`institute/boardOfCouncil/update/` + this.boardOfCouncilInfo['id'], this.multiForm).subscribe((returnData: any) => {
+        console.log(returnData);
+        this.toastr.success('Updated successfull');
+        this.router.navigate(['/institute/dashboard']);
+      },
+        error => {
+          this.toastr.error(error.error[0].message);
+          console.error(error);
+        });
+    }
+    else{
+      this.apiService.doPostRequest_upload(endPoints.createHeilights + this.instituteId, this.multiForm).subscribe((returnData: any) => {
+        console.log(returnData);
+        this.multiForm.delete;
+        this.toastr.success('Updated successfull');
+        this.router.navigate(['/institute/dashboard']);
+      },
+        error => {
+          this.multiForm.delete;
+  
+          this.toastr.error(error.error[0].message);
+          console.error(error);
+        });
+    }
+
+    
 
 
   }
