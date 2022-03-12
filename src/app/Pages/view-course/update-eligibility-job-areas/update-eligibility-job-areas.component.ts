@@ -11,30 +11,31 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class UpdateEligibilityJobAreasComponent implements OnInit {
   form: FormGroup;
-  dataResponse:any=[];
+  dataResponse: any = [];
   institutecourseId;
   multiForm: FormData = new FormData();
   touched = false;
 
-  constructor(private fb: FormBuilder,private apiservice:ApiService,private toaster:ToastrService,private router:Router) { }
+  constructor(private fb: FormBuilder, private apiservice: ApiService, private toaster: ToastrService, private router: Router) { }
 
   ngOnInit(): void {
     this.form = this.fb.group({
       // instituteCourseId: ['', [Validators.required]],
-      jobAreas: ['', ],
+      jobAreas: ['',],
       jobPositions: ['',],
-      salaryRange: ['', ],
-      hasPlacementAssistant: [false ],
-      recruiters: ['', ],
-      eligibiliyInString: ['',[Validators.required] ],
-      agebar: ['', ],
-      ageLimit: ['', ],
+      salaryRange: ['',],
+      hasPlacementAssistant: [false],
+      recruiters: ['',],
+      eligibiliyInString: ['', [Validators.required]],
+      agebar: ['',],
+      ageLimit: ['',],
       academicqualifications: ['',],
-      entranceexam: ['', ],
+      entranceexam: ['',],
 
     })
     this.dataResponse = JSON.parse(sessionStorage.getItem("eligilibility"))
     console.log(this.dataResponse['Institute_Course']['day']);
+  
     
     this.form.controls['jobAreas'].setValue(this.dataResponse['Institute_Course']['jobAreas']);
     this.form.controls['jobPositions'].setValue(this.dataResponse['Institute_Course']['jobPositions']);
@@ -47,25 +48,81 @@ export class UpdateEligibilityJobAreasComponent implements OnInit {
     this.form.controls['academicqualifications'].setValue(this.dataResponse['Institute_Course']['academicqualifications']);
     this.form.controls['entranceexam'].setValue(this.dataResponse['Institute_Course']['entranceexam']);
     this.institutecourseId = this.dataResponse['instituteCourseId'];
+    if(this.form.value['jobAreas'] === null)
+    {
+    this.form.controls['jobAreas'].setValue("");
+
+    }
+    if(this.form.value['jobPositions'] === null)
+    {
+    this.form.controls['jobPositions'].setValue("");
+
+    }
+
+    if(this.form.value['salaryRange'] === null)
+    {
+    this.form.controls['salaryRange'].setValue("");
+
+    }
+    if(this.form.value['hasPlacementAssistant'] === null)
+    {
+    this.form.controls['hasPlacementAssistant'].setValue(false);
+
+    }
+
+    if(this.form.value['recruiters'] === null)
+    {
+    this.form.controls['recruiters'].setValue("");
+
+    }
+    if(this.form.value['eligibiliyInString'] === null)
+    {
+    this.form.controls['eligibiliyInString'].setValue("");
+
+    }
+
+    if(this.form.value['agebar'] === null)
+    {
+    this.form.controls['agebar'].setValue("");
+
+    }
+    if(this.form.value['ageLimit'] === null)
+    {
+    this.form.controls['ageLimit'].setValue("");
+
+    }
+
+    if(this.form.value['academicqualifications'] === null)
+    {
+    this.form.controls['academicqualifications'].setValue("");
+
+    }
+    
+    if(this.form.value['entranceexam'] === null)
+    {
+    this.form.controls['academicqualifications'].setValue("");
+    }
   }
   get f() { return this.form.controls; }
 
 
-  onSubmit()
-  {
+  onSubmit() {
     // touched = true;
     const formData = this.form.value;
 
-    this.multiForm.append("jobAreas",formData.jobAreas)
-    this.multiForm.append("jobPositions",formData.jobPositions)
-    this.multiForm.append("salaryRange",formData.salaryRange)
-    this.multiForm.append("hasPlacementAssistant",formData.hasPlacementAssistant)
-    this.multiForm.append("recruiters",formData.recruiters)
-    this.multiForm.append("eligibiliyInString",formData.eligibiliyInString)
-    this.multiForm.append("agebar",formData.agebar)
-    this.multiForm.append("ageLimit",formData.ageLimit)
-    this.multiForm.append("academicqualifications",formData.academicqualifications)
-    this.multiForm.append("entranceexam",formData.entranceexam)
+    
+    
+  
+    this.multiForm.append("jobAreas", formData.jobAreas)
+    this.multiForm.append("jobPositions", formData.jobPositions)
+    this.multiForm.append("salaryRange", formData.salaryRange)
+    this.multiForm.append("hasPlacementAssistant", formData.hasPlacementAssistant)
+    this.multiForm.append("recruiters", formData.recruiters)
+    this.multiForm.append("eligibiliyInString", formData.eligibiliyInString)
+    this.multiForm.append("agebar", formData.agebar)
+    this.multiForm.append("ageLimit", formData.ageLimit)
+    this.multiForm.append("academicqualifications", formData.academicqualifications)
+    this.multiForm.append("entranceexam", formData.entranceexam)
 
 
     this.apiservice.doPostRequest_upload(`institute/course/update/` + this.institutecourseId, this.multiForm)
@@ -77,6 +134,8 @@ export class UpdateEligibilityJobAreasComponent implements OnInit {
         error => {
           this.toaster.error(error.error[0].message);
           console.error(error);
+          this.multiForm = new FormData();
+
         });
 
   }

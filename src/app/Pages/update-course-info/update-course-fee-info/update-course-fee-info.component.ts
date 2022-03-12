@@ -16,6 +16,7 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
   feesId;
   hasAptitudeTest = false;
   courseDuration;
+  instituteDetails:any=[];
   instituteId: number;
   courseId: number;
   form: FormGroup;
@@ -40,6 +41,8 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.instituteDetails = JSON.parse(sessionStorage.getItem("instituteid"))
+
     this.route.paramMap.subscribe(res => {
       console.log(res['params']);
       // this.getCourseDetailsByiD(res['params'].id);
@@ -104,48 +107,57 @@ export class UpdateCourseFeeInfoComponent implements OnInit {
   setForData(data) {
     this.courserListDetails = data['data'];
     console.log(this.courserListDetails);
-    this.courseDuration = this.courserListDetails.Institute_Course['courseDuration']
-    this.courseDuration = JSON.parse(sessionStorage.getItem("courseDuration"))
-    this.form.controls['otherFee'].setValue(this.courserListDetails['otherFee']);
-    this.setNspotCalculations(this.courserListDetails['otherFee']);
-    this.form.controls['nriotherFee'].setValue(this.courserListDetails['nriotherFee']);
-    this.setNspotCalculationNri(this.courserListDetails['nriotherFee']);
+    if(this.courserListDetails != null)
+    {
+      this.courseDuration = this.courserListDetails.Institute_Course['courseDuration']
+      this.courseDuration = JSON.parse(sessionStorage.getItem("courseDuration"))
+  
+  
+      this.form.controls['otherFee'].setValue(this.courserListDetails['otherFee']);
+      this.setNspotCalculations(this.courserListDetails['otherFee']);
+      this.form.controls['nriotherFee'].setValue(this.courserListDetails['nriotherFee']);
+      this.setNspotCalculationNri(this.courserListDetails['nriotherFee']);
+  
+      this.form.controls['otherIncludes'].setValue(this.courserListDetails['otherIncludes']);
+      this.form.controls['nriOtherIncludes'].setValue(this.courserListDetails['nriOtherIncludes']);
+  
+      this.form.controls['otherexcludes'].setValue(this.courserListDetails['otherexcludes']);
+      this.form.controls['feeexcludesNri'].setValue(this.courserListDetails['feeexcludesNri']);
+  
+      this.form.controls['paymentTenureId'].setValue(this.courserListDetails['paymentTenureId']);
+      this.form.controls['nripaymentTenureId'].setValue(this.courserListDetails['nripaymentTenureId']);
+  
+      this.form.controls['hasScolarship'].setValue(this.courserListDetails['hasScolarship']);
+      this.form.controls['hasScolarshipNri'].setValue(this.courserListDetails['hasScolarshipNri']);
+  
+      this.form.controls['amount'].setValue(this.courserListDetails['amount']);
+      this.form.controls['nrischlorshipamount'].setValue(this.courserListDetails['nrischlorshipamount']);
+  
+      this.form.controls['spotfee'].setValue(this.courserListDetails['spotfee']);
+      this.form.controls['nriSpotfee'].setValue(this.courserListDetails['nriSpotfee']);
+  
+      this.form.controls['amountcreditedInstitute'].setValue(this.courserListDetails['amountcreditedInstitute']);
+      this.form.controls['nriAmountCreditedinstitute'].setValue(this.courserListDetails['nriAmountCreditedinstitute']);
+  
+      this.form.controls['refundPolicy'].setValue(this.courserListDetails['refundPolicy']);
+      this.form.controls['nrirefundPolicy'].setValue(this.courserListDetails['nrirefundPolicy']);
+  
+  
+  
+      this.form.controls['bankAccountId'].setValue(this.courserListDetails['bankAccountId']);
+  
+      this.form.controls['nspotTax'].setValue(this.courserListDetails['nspotTax']);
+      this.form.controls['nspotServiceCharge'].setValue(this.courserListDetails['nspotServiceCharge']);
+      this.form.controls['nspotBankCharge'].setValue(this.courserListDetails['nspotBankCharge']);
+  
+      this.form.controls['nspotTaxNri'].setValue(this.courserListDetails['nspotTaxNri']);
+      this.form.controls['nspotServiceChargeNri'].setValue(this.courserListDetails['nspotServiceChargeNri']);
+      this.form.controls['nspotBankChargenNri'].setValue(this.courserListDetails['nspotBankChargenNri']);
+    }
+    else{
+      this.courseDuration = JSON.parse(sessionStorage.getItem("courseDuration"))
 
-    this.form.controls['otherIncludes'].setValue(this.courserListDetails['otherIncludes']);
-    this.form.controls['nriOtherIncludes'].setValue(this.courserListDetails['nriOtherIncludes']);
-
-    this.form.controls['otherexcludes'].setValue(this.courserListDetails['otherexcludes']);
-    this.form.controls['feeexcludesNri'].setValue(this.courserListDetails['feeexcludesNri']);
-
-    this.form.controls['paymentTenureId'].setValue(this.courserListDetails['paymentTenureId']);
-    this.form.controls['nripaymentTenureId'].setValue(this.courserListDetails['nripaymentTenureId']);
-
-    this.form.controls['hasScolarship'].setValue(this.courserListDetails['hasScolarship']);
-    this.form.controls['hasScolarshipNri'].setValue(this.courserListDetails['hasScolarshipNri']);
-
-    this.form.controls['amount'].setValue(this.courserListDetails['amount']);
-    this.form.controls['nrischlorshipamount'].setValue(this.courserListDetails['nrischlorshipamount']);
-
-    this.form.controls['spotfee'].setValue(this.courserListDetails['spotfee']);
-    this.form.controls['nriSpotfee'].setValue(this.courserListDetails['nriSpotfee']);
-
-    this.form.controls['amountcreditedInstitute'].setValue(this.courserListDetails['amountcreditedInstitute']);
-    this.form.controls['nriAmountCreditedinstitute'].setValue(this.courserListDetails['nriAmountCreditedinstitute']);
-
-    this.form.controls['refundPolicy'].setValue(this.courserListDetails['refundPolicy']);
-    this.form.controls['nrirefundPolicy'].setValue(this.courserListDetails['nrirefundPolicy']);
-
-
-
-    this.form.controls['bankAccountId'].setValue(this.courserListDetails['bankAccountId']);
-
-    this.form.controls['nspotTax'].setValue(this.courserListDetails['nspotTax']);
-    this.form.controls['nspotServiceCharge'].setValue(this.courserListDetails['nspotServiceCharge']);
-    this.form.controls['nspotBankCharge'].setValue(this.courserListDetails['nspotBankCharge']);
-
-    this.form.controls['nspotTaxNri'].setValue(this.courserListDetails['nspotTaxNri']);
-    this.form.controls['nspotServiceChargeNri'].setValue(this.courserListDetails['nspotServiceChargeNri']);
-    this.form.controls['nspotBankChargenNri'].setValue(this.courserListDetails['nspotBankChargenNri']);
+    }
 
     
     this.apiService.doGetRequest("institute/bank-details/byId/"+this.courserListDetails['bankAccountId']).subscribe(
